@@ -1,0 +1,3 @@
+dist/
+src/openapi-types.ts
+src/operations.ts
