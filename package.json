@@ -1,6 +1,6 @@
 {
   "name": "@alexasomba/paystack-node",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Paystack API client for Node.js (TypeScript)",
   "license": "MIT",
   "author": "alexasomba",
