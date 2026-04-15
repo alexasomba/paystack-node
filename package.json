@@ -1,57 +1,95 @@
 {
   "name": "@alexasomba/paystack-node",
-  "version": "1.2.0",
-  "description": "Paystack API client for Node.js (TypeScript)",
+  "version": "1.3.0",
+  "description": "The most comprehensive Node.js SDK for Paystack - Complete, Type-safe, and Spec-compliant with full OpenAPI coverage and webhook verification.",
+  "keywords": [
+    "africa",
+    "cote-divoire",
+    "egypt",
+    "fintech",
+    "ghana",
+    "ghs",
+    "idempotency",
+    "kenya",
+    "kes",
+    "ngn",
+    "nigeria",
+    "node",
+    "openapi",
+    "payments",
+    "paystack",
+    "rwanda",
+    "saas",
+    "sdk",
+    "south-africa",
+    "subscriptions",
+    "typescript",
+    "usd",
+    "webhooks",
+    "xof",
+    "zar"
+  ],
+  "homepage": "https://github.com/alexasomba/paystack-node#readme",
+  "bugs": {
+    "url": "https://github.com/alexasomba/paystack-node/issues"
+  },
   "license": "MIT",
   "author": "alexasomba",
   "repository": {
     "type": "git",
     "url": "https://github.com/alexasomba/paystack-node.git"
   },
-  "bugs": {
-    "url": "https://github.com/alexasomba/paystack-openapi/issues"
-  },
-  "homepage": "https://github.com/alexasomba/paystack-openapi#readme",
-  "keywords": [
-    "paystack",
-    "openapi",
-    "sdk",
-    "typescript",
-    "node"
+  "files": [
+    "dist"
   ],
   "type": "module",
   "sideEffects": false,
-  "publishConfig": {
-    "access": "public"
-  },
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.mjs"
+    },
+    "./webhooks": {
+      "types": "./dist/webhooks.d.mts",
+      "import": "./dist/webhooks.mjs",
+      "default": "./dist/webhooks.mjs"
     }
   },
-  "files": [
-    "dist",
-    "src"
-  ],
-  "engines": {
-    "node": ">=18"
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "generate:types": "openapi-typescript ./openapi.yaml -o src/openapi-types.ts",
     "generate:operations": "node ./scripts/generate-operations.mjs",
-    "build": "pnpm generate:types && pnpm generate:operations && tsc -p tsconfig.json",
+    "build": "pnpm generate:types && pnpm generate:operations && vp pack",
+    "dev": "vp pack --watch",
+    "test": "vp test run",
+    "coverage": "vp test run --coverage",
+    "lint": "vp lint . --fix",
+    "lint:package": "publint run --strict",
+    "lint:types": "attw --profile esm-only --pack .",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
     "clean": "rm -rf dist",
     "prepack": "pnpm build",
-    "publish:public": "npm publish --access public"
+    "publish:public": "pnpm publish --no-git-checks --access public"
   },
   "dependencies": {
-    "openapi-fetch": "^0.15.0"
+    "openapi-fetch": "^0.17.0"
   },
   "devDependencies": {
-    "@types/node": "^22.19.9",
-    "openapi-typescript": "^7.10.1",
+    "@arethetypeswrong/cli": "^0.18.2",
+    "@types/node": "^22.19.17",
+    "openapi-typescript": "^7.13.0",
+    "publint": "^0.3.18",
     "typescript": "^5.9.3",
-    "yaml": "^2.8.2"
+    "vite-plus": "0.1.18",
+    "vitest": "4.1.4",
+    "yaml": "^2.8.3"
+  },
+  "engines": {
+    "node": ">=22.0.0"
   }
 }

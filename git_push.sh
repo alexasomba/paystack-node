@@ -16,6 +16,7 @@ fi
 
 if [ "$git_repo_id" = "" ]; then
     git_repo_id="paystack-node"
+    echo "[INFO] No command line input provided. Set \$git_repo_id to $git_repo_id"
 fi
 
 if [ "$release_note" = "" ]; then
@@ -24,6 +25,9 @@ fi
 
 # Initialize the local directory as a Git repository
 git init
+
+# Ensure the branch is named main
+git branch -M main
 
 # Adds the files in the local repository and stages them for commit.
 git add .
@@ -44,8 +48,8 @@ if [ "$git_remote" = "" ]; then # git remote not defined
 
 fi
 
-git pull origin master
+git pull origin main --allow-unrelated-histories
 
 # Pushes (Forces) the changes in the local repository up to the remote repository
 echo "Git pushing to https://${git_host}/${git_user_id}/${git_repo_id}.git"
-git push origin master 2>&1 | grep -v 'To https'
+git push origin main 2>&1 | grep -v 'To https'

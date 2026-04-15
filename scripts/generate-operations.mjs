@@ -1,28 +1,29 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import YAML from 'yaml';
+/* eslint-disable no-console */
+import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import YAML from "yaml";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const specPath = path.resolve(__dirname, '../openapi.yaml');
-const outPath = path.resolve(__dirname, '../src/operations.ts');
+const specPath = path.resolve(__dirname, "../openapi.yaml");
+const outPath = path.resolve(__dirname, "../src/operations.ts");
 
 function toIdentifier(name) {
   const safe = String(name)
     .trim()
-    .replace(/[^A-Za-z0-9_]+/g, '_')
-    .replace(/^_+/, '')
-    .replace(/_+$/, '');
+    .replace(/[^A-Za-z0-9_]+/g, "_")
+    .replace(/^_+/, "")
+    .replace(/_+$/, "");
   const withPrefix = /^[A-Za-z_]/.test(safe) ? safe : `_${safe}`;
-  return withPrefix.length ? withPrefix : '_operation';
+  return withPrefix.length ? withPrefix : "_operation";
 }
 
 function uniqueName(base, used) {
   let candidate = base;
   let i = 2;
-  while (used.has(candidate)) {
+  while (used.has(candidate) === true) {
     candidate = `${base}_${i}`;
     i += 1;
   }
@@ -30,21 +31,21 @@ function uniqueName(base, used) {
   return candidate;
 }
 
-const raw = await fs.readFile(specPath, 'utf8');
+const raw = await fs.readFile(specPath, "utf8");
 const spec = YAML.parse(raw);
 
 const paths = spec?.paths ?? {};
-const httpMethods = ['get', 'put', 'post', 'delete', 'options', 'head', 'patch', 'trace'];
+const httpMethods = ["get", "put", "post", "delete", "options", "head", "patch", "trace"];
 
 const usedNames = new Set();
 const operations = [];
 
 for (const [apiPath, pathItem] of Object.entries(paths)) {
-  if (!pathItem || typeof pathItem !== 'object') continue;
+  if (pathItem === undefined || typeof pathItem !== "object") continue;
 
   for (const method of httpMethods) {
     const op = pathItem[method];
-    if (!op || typeof op !== 'object') continue;
+    if (op === undefined || typeof op !== "object") continue;
 
     const operationId = op.operationId ?? `${method}_${apiPath}`;
     const name = uniqueName(toIdentifier(operationId), usedNames);
@@ -80,7 +81,7 @@ export function ${name}(client: PaystackClient, ...init: InitArg<${typeExpr}>) {
 }
 `;
   })
-  .join('');
+  .join("");
 
 const bindLines = operations
   .map(({ name, method, apiPath }) => {
@@ -88,7 +89,7 @@ const bindLines = operations
     const typeExpr = `MaybeOptionalInit<paths[${JSON.stringify(apiPath)}], ${JSON.stringify(methodKey)}>`;
     return `    ${name}: (...init: InitArg<${typeExpr}>) => ${name}(client, ...init),`;
   })
-  .join('\n');
+  .join("\n");
 
 const footer = `
 export function bindOperations(client: PaystackClient) {

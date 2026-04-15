@@ -1,20 +1,20 @@
-import crypto from 'node:crypto';
+import crypto from "node:crypto";
 
-export const DEFAULT_IDEMPOTENCY_HEADER = 'Idempotency-Key';
+export const DEFAULT_IDEMPOTENCY_HEADER = "Idempotency-Key";
 
 export type IdempotencyKeyInput =
-  | { mode: 'none' }
-  | { mode: 'static'; key: string }
-  | { mode: 'auto' }
-  | { mode: 'custom'; generate: () => string };
+  | { mode: "none" }
+  | { mode: "static"; key: string }
+  | { mode: "auto" }
+  | { mode: "custom"; generate: () => string };
 
 export function createIdempotencyKey(): string {
-  if (typeof crypto.randomUUID === 'function') return crypto.randomUUID();
-  return crypto.randomBytes(16).toString('hex');
+  if (typeof crypto.randomUUID === "function") return crypto.randomUUID();
+  return crypto.randomBytes(16).toString("hex");
 }
 
 export function hasHeader(headers: HeadersInit | undefined, name: string): boolean {
-  if (!headers) return false;
+  if (headers === undefined) return false;
   const target = name.toLowerCase();
 
   if (headers instanceof Headers) return headers.has(name);
@@ -37,13 +37,13 @@ export function setHeader(headers: HeadersInit | undefined, name: string, value:
 
 export function resolveIdempotencyKey(input: IdempotencyKeyInput): string | undefined {
   switch (input.mode) {
-    case 'none':
+    case "none":
       return undefined;
-    case 'static':
+    case "static":
       return input.key;
-    case 'auto':
+    case "auto":
       return createIdempotencyKey();
-    case 'custom':
+    case "custom":
       return input.generate();
   }
 }
