@@ -3,7 +3,7 @@ info:
   title: Paystack
   description: The OpenAPI specification of the Paystack API that merchants and
     developers can harness to build financial solutions in Africa.
-  version: 1.0.0
+  version: 1.3.0
   contact:
     email: techsupport@paystack.com
 servers:
