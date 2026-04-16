@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.7.0](https://github.com/alexasomba/paystack-node/compare/v1.6.0...v1.7.0) (2026-04-16)
+
+
+### Features
+
+* infrastructure - explicitly configure scope and auth for publish ([2c47cd2](https://github.com/alexasomba/paystack-node/commit/2c47cd2f47e3dcb43929665b87f6e740860c588c))
+
+
+### Bug Fixes
+
+* add scope to setup-node and finalize publish strategy ([a754c70](https://github.com/alexasomba/paystack-node/commit/a754c704536d18cee4ea940ae5ccf3b9bb0e21c2))
+
 ## [1.6.0](https://github.com/alexasomba/paystack-node/compare/v1.5.0...v1.6.0) (2026-04-16)
 
 
