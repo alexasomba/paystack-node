@@ -48,7 +48,7 @@ jobs:
       - run: pnpm test
         if: ${{ steps.release.outputs.release_created }}
 
-      - run: pnpm publish --no-git-checks --access public
+      - run: npm publish --access public
         if: ${{ steps.release.outputs.release_created }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
