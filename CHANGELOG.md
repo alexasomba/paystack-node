@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.6.0](https://github.com/alexasomba/paystack-node/compare/v1.5.0...v1.6.0) (2026-04-16)
+
+
+### Features
+
+* infrastructure - finalize npm publish workflow on Node 24 ([77f7f2f](https://github.com/alexasomba/paystack-node/commit/77f7f2f2b854256530e9cd33dc56aa125714adb7))
+
+
+### Bug Fixes
+
+* finalize workflow with npm publish and clean pnpm setup ([86c2dc9](https://github.com/alexasomba/paystack-node/commit/86c2dc9d9daa1a6cbbce4595964f3d32d9cd93db))
+
 ## [1.5.0](https://github.com/alexasomba/paystack-node/compare/v1.4.0...v1.5.0) (2026-04-16)
 
 
