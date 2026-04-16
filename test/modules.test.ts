@@ -27,44 +27,44 @@ describe("Module Coverage Tests", () => {
   }
 
   it("Charge module", async () => {
-    await paystack.charge_create({ body: { email: "test@example.com", amount: 100 } });
+    await paystack.charge.create({ body: { email: "test@example.com", amount: 100 } });
     assertCall("/charge", "POST");
   });
 
   it("Customers module", async () => {
-    await paystack.customer_create({ body: { email: "test@example.com", first_name: "John" } });
+    await paystack.customer.create({ body: { email: "test@example.com", first_name: "John" } });
     assertCall("/customer", "POST");
   });
 
   it("Plans module", async () => {
-    await paystack.plan_create({ body: { name: "Test Plan", amount: 5000, interval: "monthly" } });
+    await paystack.plan.create({ body: { name: "Test Plan", amount: 5000, interval: "monthly" } });
     assertCall("/plan", "POST");
   });
 
   it("Products module", async () => {
-    await paystack.product_create({
+    await paystack.product.create({
       body: { name: "Test Product", description: "desc", price: 1000, currency: "NGN" },
     });
     assertCall("/product", "POST");
   });
 
   it("Subscriptions module", async () => {
-    await paystack.subscription_create({ body: { customer: "CUS_123", plan: "PLN_123" } });
+    await paystack.subscription.create({ body: { customer: "CUS_123", plan: "PLN_123" } });
     assertCall("/subscription", "POST");
   });
 
   it("Transactions module", async () => {
-    await paystack.transaction_initialize({ body: { email: "test@example.com", amount: 1000 } });
+    await paystack.transaction.initialize({ body: { email: "test@example.com", amount: 1000 } });
     assertCall("/transaction/initialize", "POST");
   });
 
   it("Verify Payments module", async () => {
-    await paystack.transaction_verify({ params: { path: { reference: "REF_123" } } });
+    await paystack.transaction.verify("REF_123");
     assertCall("/transaction/verify/REF_123", "GET");
   });
 
   it("Transfers module", async () => {
-    await paystack.transfer_initiate({
+    await paystack.transfer.initiate({
       body: {
         source: "balance",
         amount: 1000,
@@ -77,19 +77,19 @@ describe("Module Coverage Tests", () => {
   });
 
   it("Dedicated Virtual Accounts module", async () => {
-    await paystack.dedicatedAccount_create({
+    await paystack.dedicatedAccount.create({
       body: { customer: "CUS_123", preferred_bank: "test-bank" },
     });
     assertCall("/dedicated_account", "POST");
   });
 
   it("Apple Pay module", async () => {
-    await paystack.applePay_listDomain();
+    await paystack.applePay.listDomain();
     assertCall("/apple-pay/domain", "GET");
   });
 
   it("Subaccounts module", async () => {
-    await paystack.subaccount_create({
+    await paystack.subaccount.create({
       body: {
         business_name: "Test Biz",
         settlement_bank: "Bank",
@@ -101,108 +101,108 @@ describe("Module Coverage Tests", () => {
   });
 
   it("Transaction Splits module", async () => {
-    await paystack.split_create({
+    await paystack.split.create({
       body: { name: "Split", type: "percentage", currency: "NGN", subaccounts: [] },
     });
     assertCall("/split", "POST");
   });
 
   it("Settlements module", async () => {
-    await paystack.settlements_fetch();
+    await paystack.settlements.fetch();
     assertCall("/settlement", "GET");
   });
 
   it("Transfers Control module", async () => {
-    await paystack.transfer_enableOtp();
+    await paystack.transfer.enableOtp();
     assertCall("/transfer/enable_otp", "POST");
   });
 
   it("Transfer Recipients module", async () => {
-    await paystack.transferrecipient_create({
+    await paystack.transferrecipient.create({
       body: { type: "nuban", name: "John", account_number: "123", bank_code: "011" },
     });
     assertCall("/transferrecipient", "POST");
   });
 
   it("Bulk Charges module", async () => {
-    await paystack.bulkCharge_initiate({ body: [] });
+    await paystack.bulkCharge.initiate({ body: [] });
     assertCall("/bulkcharge", "POST");
   });
 
   it("Refunds module", async () => {
-    await paystack.refund_create({ body: { transaction: "TRX_123", amount: 100 } });
+    await paystack.refund.create({ body: { transaction: "TRX_123", amount: 100 } });
     assertCall("/refund", "POST");
   });
 
   it("Verification module", async () => {
-    await paystack.bank_resolveAccountNumber({
+    await paystack.bank.resolveAccountNumber({
       params: { query: { account_number: "123", bank_code: "111" } },
     });
     assertCall("/bank/resolve", "GET");
   });
 
   it("Miscellaneous module", async () => {
-    await paystack.miscellaneous_listCountries();
+    await paystack.miscellaneous.listCountries();
     assertCall("/country", "GET");
   });
 
   it("Disputes module", async () => {
-    await paystack.dispute_list();
+    await paystack.dispute.list();
     assertCall("/dispute", "GET");
   });
 
   it("Control Panel module", async () => {
-    await paystack.integration_fetchPaymentSessionTimeout();
+    await paystack.integration.fetchPaymentSessionTimeout();
     assertCall("/integration/payment_session_timeout", "GET");
   });
 
   it("Terminal module", async () => {
-    await paystack.terminal_list();
+    await paystack.terminal.list();
     assertCall("/terminal", "GET");
   });
 
   it("Virtual Terminal module", async () => {
-    await paystack.virtualTerminal_list();
+    await paystack.virtualTerminal.list();
     assertCall("/virtual_terminal", "GET");
   });
 
   it("Direct Debit module", async () => {
-    await paystack.directdebit_listMandateAuthorizations();
+    await paystack.directdebit.listMandateAuthorizations();
     assertCall("/directdebit", "GET");
   });
 
   it("Payment Pages module", async () => {
-    await paystack.page_create({ body: { name: "Page", amount: 1000 } });
+    await paystack.page.create({ body: { name: "Page", amount: 1000 } });
     assertCall("/page", "POST");
   });
 
   it("Payment Requests module", async () => {
-    await paystack.paymentRequest_create({ body: { customer: "CUS_123", amount: 1000 } });
+    await paystack.paymentRequest.create({ body: { customer: "CUS_123", amount: 1000 } });
     assertCall("/paymentrequest", "POST");
   });
 
   it("Integration module", async () => {
-    await paystack.integration_fetchPaymentSessionTimeout();
+    await paystack.integration.fetchPaymentSessionTimeout();
     assertCall("/integration/payment_session_timeout", "GET");
   });
 
   it("Balance module", async () => {
-    await paystack.balance_fetch();
+    await paystack.balance.fetch();
     assertCall("/balance", "GET");
   });
 
   it("Banks module", async () => {
-    await paystack.bank_list();
+    await paystack.bank.list();
     assertCall("/bank", "GET");
   });
 
   it("Orders module", async () => {
-    await paystack.order_list();
+    await paystack.order.list();
     assertCall("/order", "GET");
   });
 
   it("Storefronts module", async () => {
-    await paystack.storefront_list();
+    await paystack.storefront.list();
     assertCall("/storefront", "GET");
   });
 });

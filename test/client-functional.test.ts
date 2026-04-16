@@ -27,7 +27,7 @@ describe("Client Functional Tests", () => {
         retry: { minDelayMs: 1, maxDelayMs: 2 },
       });
 
-      const { data } = await paystack.transaction_list();
+      const { data } = await paystack.transaction.list();
 
       expect(mockFetch).toHaveBeenCalledTimes(2);
       expect(data).toEqual({ status: true, data: { ok: true } });
@@ -55,7 +55,7 @@ describe("Client Functional Tests", () => {
         retry: { minDelayMs: 1, maxDelayMs: 2 },
       });
 
-      await paystack.transaction_list();
+      await paystack.transaction.list();
       expect(mockFetch).toHaveBeenCalledTimes(2);
     });
 
@@ -68,7 +68,7 @@ describe("Client Functional Tests", () => {
         retry: { retries: 2, minDelayMs: 1, maxDelayMs: 2 },
       });
 
-      const { response } = await paystack.transaction_list();
+      const { response } = await paystack.transaction.list();
       expect(mockFetch).toHaveBeenCalledTimes(3);
       expect(response.status).toBe(503);
     });
@@ -95,7 +95,7 @@ describe("Client Functional Tests", () => {
         timeoutMs: 10,
       });
 
-      await expect(paystack.transaction_list()).rejects.toThrow();
+      await expect(paystack.transaction.list()).rejects.toThrow();
     });
   });
 
@@ -128,7 +128,7 @@ describe("Client Functional Tests", () => {
 
       const paystack = createPaystack({ secretKey, fetch: mockFetch });
 
-      await paystack.subscription_create({
+      await paystack.subscription.create({
         body: {
           customer: "CUS_mock",
           plan: "PLN_mock",
@@ -154,7 +154,7 @@ describe("Client Functional Tests", () => {
 
       const paystack = createPaystack({ secretKey, fetch: mockFetch });
 
-      await paystack.subscription_list({
+      await paystack.subscription.list({
         params: {
           query: { customer: "123", plan: "456" },
         } as any,
