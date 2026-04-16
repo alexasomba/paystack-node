@@ -146,6 +146,8 @@ tags:
     description: |
       A collection of endpoints that provides utility functions
     x-product-name: Miscellaneous
+  - name: Internal
+    description: Internal endpoints for dev use and SDK generation
 paths:
   /transaction/initialize:
     post:
@@ -5483,6 +5485,22 @@ paths:
           $ref: "#/components/responses/NotFound"
         default:
           description: Server error
+  /___internal___:
+    get:
+      summary: Internal path for schema generation
+      description: This path is internal and used to ensure that schemas like
+        WebhookEvent are considered 'used' for SDK generation and linting.
+      operationId: misc_generateWebhookEventTypes
+      tags:
+        - Internal
+      x-internal: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WebhookEvent"
 components:
   securitySchemes:
     bearerAuth:
@@ -5490,6 +5508,192 @@ components:
       scheme: bearer
       description: Secret key in the format sk_domain_xxxxxx
   schemas:
+    WebhookEvent:
+      type: object
+      properties:
+        event:
+          type: string
+          description: The type of event that occurred.
+        data:
+          type: object
+          description: The payload of the event.
+      oneOf:
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - charge.success
+            data:
+              $ref: "#/components/schemas/data"
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - transfer.success
+            data:
+              $ref: "#/components/schemas/data-2"
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - transfer.failed
+            data:
+              $ref: "#/components/schemas/data-2"
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - transfer.reversed
+            data:
+              $ref: "#/components/schemas/data-2"
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - subscription.create
+            data:
+              $ref: "#/components/schemas/data-3"
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - subscription.disable
+            data:
+              $ref: "#/components/schemas/data-3"
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - subscription.not_renew
+            data:
+              $ref: "#/components/schemas/data-3"
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - invoice.create
+            data:
+              $ref: "#/components/schemas/data-4"
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - invoice.update
+            data:
+              $ref: "#/components/schemas/data-4"
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - invoice.failed
+            data:
+              $ref: "#/components/schemas/data-4"
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - dedicatedaccount.assign.success
+            data:
+              $ref: "#/components/schemas/data-5"
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - dedicatedaccount.assign.failed
+            data:
+              $ref: "#/components/schemas/data-5"
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - refund.processed
+            data:
+              $ref: "#/components/schemas/data-6"
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - refund.failed
+            data:
+              $ref: "#/components/schemas/data-6"
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - charge.dispute.create
+            data:
+              $ref: "#/components/schemas/data-7"
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - charge.dispute.resolve
+            data:
+              $ref: "#/components/schemas/data-7"
+          required:
+            - event
+            - data
     Currency:
       description: List of all support currencies
       type: string
@@ -19768,6 +19972,1099 @@ components:
         - status
         - message
         - data
+    data:
+      type: object
+      properties:
+        id:
+          type: integer
+        domain:
+          type: string
+        status:
+          type: string
+        reference:
+          type: string
+        receipt_number:
+          nullable: true
+        amount:
+          type: integer
+        message:
+          nullable: true
+        gateway_response:
+          type: string
+        helpdesk_link:
+          nullable: true
+        paid_at:
+          type: string
+        created_at:
+          type: string
+        channel:
+          type: string
+        currency:
+          type: string
+        ip_address:
+          type: string
+          nullable: true
+        metadata:
+          oneOf:
+            - type: string
+            - type: object
+              additionalProperties: true
+          nullable: true
+        log:
+          type: object
+          properties:
+            start_time:
+              type: integer
+            time_spent:
+              type: integer
+            attempts:
+              type: integer
+            errors:
+              type: integer
+            success:
+              type: boolean
+            mobile:
+              type: boolean
+            input:
+              type: array
+              items: {}
+            history:
+              type: array
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  message:
+                    type: string
+                  time:
+                    type: integer
+                required:
+                  - type
+                  - message
+                  - time
+          required:
+            - start_time
+            - time_spent
+            - attempts
+            - errors
+            - success
+            - mobile
+            - input
+            - history
+          nullable: true
+        fees:
+          type: integer
+        fees_split:
+          type: integer
+          nullable: true
+        authorization:
+          type: object
+          properties:
+            authorization_code:
+              type: string
+            bin:
+              type: string
+            last4:
+              type: string
+            exp_month:
+              type: string
+            exp_year:
+              type: string
+            channel:
+              type: string
+            card_type:
+              type: string
+            bank:
+              type: string
+            country_code:
+              type: string
+            brand:
+              type: string
+            reusable:
+              type: boolean
+            signature:
+              type: string
+            account_name:
+              type: string
+              nullable: true
+            receiver_bank_account_number:
+              type: string
+              nullable: true
+            receiver_bank:
+              type: string
+              nullable: true
+          required:
+            - authorization_code
+            - bin
+            - last4
+            - exp_month
+            - exp_year
+            - channel
+            - card_type
+            - bank
+            - country_code
+            - brand
+            - reusable
+            - signature
+            - account_name
+        customer:
+          type: object
+          properties:
+            id:
+              type: integer
+            first_name:
+              type: string
+              nullable: true
+            last_name:
+              type: string
+              nullable: true
+            email:
+              type: string
+            customer_code:
+              type: string
+            phone:
+              type: string
+              nullable: true
+            metadata:
+              type: object
+              nullable: true
+            risk_action:
+              type: string
+            international_format_phone:
+              type: string
+              nullable: true
+          required:
+            - id
+            - first_name
+            - last_name
+            - email
+            - customer_code
+            - phone
+            - metadata
+            - risk_action
+        plan:
+          type: object
+          nullable: true
+        subaccount:
+          type: object
+          nullable: true
+        split:
+          type: object
+          nullable: true
+        order_id:
+          nullable: true
+        requested_amount:
+          type: integer
+        pos_transaction_data:
+          nullable: true
+        source:
+          type: object
+          properties:
+            type:
+              type: string
+            source:
+              type: string
+            identifier:
+              type: string
+              nullable: true
+          nullable: true
+        fees_breakdown:
+          nullable: true
+        connect:
+          nullable: true
+      required:
+        - id
+        - domain
+        - status
+        - reference
+        - receipt_number
+        - amount
+        - message
+        - gateway_response
+        - helpdesk_link
+        - paid_at
+        - created_at
+        - channel
+        - currency
+        - ip_address
+        - metadata
+        - log
+        - fees
+        - fees_split
+        - authorization
+        - customer
+        - plan
+        - subaccount
+        - split
+        - order_id
+        - requested_amount
+        - pos_transaction_data
+        - source
+        - fees_breakdown
+        - connect
+    data-2:
+      type: object
+      properties:
+        amount:
+          type: integer
+        createdAt:
+          type: string
+        currency:
+          type: string
+        domain:
+          type: string
+        failures:
+          type: object
+          nullable: true
+        id:
+          type: integer
+        integration:
+          type: integer
+        reason:
+          type: string
+        reference:
+          type: string
+        source:
+          type: string
+        source_details:
+          type: object
+          nullable: true
+        status:
+          type: string
+        titan_code:
+          type: string
+          nullable: true
+        transfer_code:
+          type: string
+        request:
+          type: integer
+        transferred_at:
+          type: string
+          nullable: true
+        updatedAt:
+          type: string
+        recipient:
+          type: object
+          properties:
+            active:
+              type: boolean
+            createdAt:
+              type: string
+            currency:
+              type: string
+            description:
+              type: string
+              nullable: true
+            domain:
+              type: string
+            email:
+              type: string
+              nullable: true
+            id:
+              type: integer
+            integration:
+              type: integer
+            metadata:
+              type: object
+              nullable: true
+            name:
+              type: string
+            recipient_code:
+              type: string
+            type:
+              type: string
+            updatedAt:
+              type: string
+            is_deleted:
+              type: boolean
+            isDeleted:
+              type: boolean
+            details:
+              type: object
+              properties:
+                authorization_code:
+                  nullable: true
+                account_number:
+                  type: string
+                account_name:
+                  type: string
+                  nullable: true
+                bank_code:
+                  type: string
+                bank_name:
+                  type: string
+              required:
+                - authorization_code
+                - account_number
+                - account_name
+                - bank_code
+                - bank_name
+          required:
+            - active
+            - createdAt
+            - currency
+            - domain
+            - id
+            - integration
+            - name
+            - recipient_code
+            - type
+            - updatedAt
+            - details
+        session:
+          type: object
+          properties:
+            provider:
+              type: string
+              nullable: true
+            id:
+              type: string
+              nullable: true
+          required:
+            - provider
+            - id
+        fee_charged:
+          type: integer
+        fees_breakdown:
+          type: array
+          items:
+            $ref: "#/components/schemas/TransferFeesBreakdownArray"
+          nullable: true
+        gateway_response:
+          type: string
+          nullable: true
+      required:
+        - amount
+        - createdAt
+        - currency
+        - domain
+        - failures
+        - id
+        - integration
+        - reason
+        - reference
+        - source
+        - source_details
+        - status
+        - titan_code
+        - transfer_code
+        - request
+        - transferred_at
+        - updatedAt
+        - recipient
+        - session
+        - fee_charged
+        - fees_breakdown
+        - gateway_response
+    data-3:
+      type: object
+      properties:
+        id:
+          type: integer
+        domain:
+          type: string
+        status:
+          type: string
+        subscription_code:
+          type: string
+        email_token:
+          type: string
+        amount:
+          type: integer
+        cron_expression:
+          type: string
+        next_payment_date:
+          type: string
+        open_invoice:
+          nullable: true
+        createdAt:
+          type: string
+        integration:
+          type: integer
+        plan:
+          type: object
+          properties:
+            domain:
+              type: string
+            id:
+              type: integer
+            integration:
+              type: integer
+            name:
+              type: string
+            plan_code:
+              type: string
+            description:
+              nullable: true
+            amount:
+              type: integer
+            interval:
+              type: string
+            send_invoices:
+              type: boolean
+            send_sms:
+              type: boolean
+            hosted_page:
+              type: boolean
+            hosted_page_url:
+              nullable: true
+            hosted_page_summary:
+              nullable: true
+            currency:
+              type: string
+            createdAt:
+              type: string
+            updatedAt:
+              type: string
+          required:
+            - domain
+            - id
+            - integration
+            - name
+            - plan_code
+            - description
+            - amount
+            - interval
+            - send_invoices
+            - send_sms
+            - hosted_page
+            - hosted_page_url
+            - hosted_page_summary
+            - currency
+            - createdAt
+            - updatedAt
+        authorization:
+          type: object
+          properties:
+            authorization_code:
+              type: string
+            bin:
+              type: string
+            last4:
+              type: string
+            exp_month:
+              type: string
+            exp_year:
+              type: string
+            channel:
+              type: string
+            card_type:
+              type: string
+            bank:
+              type: string
+            country_code:
+              type: string
+            brand:
+              type: string
+            reusable:
+              type: boolean
+            signature:
+              type: string
+            account_name:
+              nullable: true
+          required:
+            - authorization_code
+            - bin
+            - last4
+            - exp_month
+            - exp_year
+            - channel
+            - card_type
+            - bank
+            - country_code
+            - brand
+            - reusable
+            - signature
+            - account_name
+        customer:
+          type: object
+          properties:
+            domain:
+              type: string
+            id:
+              type: integer
+            integration:
+              type: integer
+            first_name:
+              type: string
+            last_name:
+              type: string
+            email:
+              type: string
+            customer_code:
+              type: string
+            phone:
+              type: string
+              nullable: true
+            metadata:
+              type: object
+            createdAt:
+              type: string
+            updatedAt:
+              type: string
+            risk_action:
+              type: string
+            international_format_phone:
+              type: string
+              nullable: true
+          required:
+            - domain
+            - id
+            - integration
+            - first_name
+            - last_name
+            - email
+            - customer_code
+            - phone
+            - metadata
+            - createdAt
+            - updatedAt
+        start:
+          type: integer
+        quantity:
+          type: integer
+        invoices:
+          type: array
+          items: {}
+      required:
+        - id
+        - domain
+        - status
+        - subscription_code
+        - email_token
+        - amount
+        - start
+        - quantity
+        - cron_expression
+        - next_payment_date
+        - open_invoice
+        - createdAt
+        - integration
+        - plan
+        - authorization
+        - customer
+        - invoices
+    data-4:
+      type: object
+      properties:
+        id:
+          type: integer
+        integration:
+          type: object
+          properties:
+            key:
+              type: string
+            name:
+              type: string
+            logo:
+              type: string
+            allowed_currencies:
+              type: array
+              items:
+                type: string
+          required:
+            - key
+            - name
+            - logo
+            - allowed_currencies
+        domain:
+          type: string
+        amount:
+          type: integer
+        currency:
+          type: string
+        due_date:
+          type: string
+          nullable: true
+        has_invoice:
+          type: boolean
+        invoice_number:
+          type: integer
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        pdf_url:
+          type: string
+          nullable: true
+        line_items:
+          type: array
+          items: {}
+        tax:
+          type: array
+          items: {}
+        request_code:
+          type: string
+        status:
+          type: string
+        paid:
+          type: boolean
+        paid_at:
+          type: string
+          nullable: true
+        metadata:
+          type: object
+          nullable: true
+        notifications:
+          type: array
+          items:
+            $ref: "#/components/schemas/PaymentRequestNotificationsArray"
+        offline_reference:
+          type: string
+        customer:
+          type: object
+          properties:
+            id:
+              type: integer
+            first_name:
+              type: string
+            last_name:
+              type: string
+            email:
+              type: string
+            customer_code:
+              type: string
+            phone:
+              type: string
+              nullable: true
+            metadata:
+              type: object
+              nullable: true
+            risk_action:
+              type: string
+            international_format_phone:
+              type: string
+              nullable: true
+          required:
+            - id
+            - first_name
+            - last_name
+            - email
+            - customer_code
+            - phone
+            - metadata
+            - risk_action
+        created_at:
+          type: string
+        discount:
+          type: object
+          nullable: true
+        split_code:
+          type: string
+          nullable: true
+        pending_amount:
+          type: integer
+      required:
+        - id
+        - integration
+        - domain
+        - amount
+        - currency
+        - due_date
+        - has_invoice
+        - invoice_number
+        - description
+        - pdf_url
+        - line_items
+        - tax
+        - request_code
+        - status
+        - paid
+        - paid_at
+        - metadata
+        - notifications
+        - offline_reference
+        - customer
+        - created_at
+        - pending_amount
+    data-5:
+      type: object
+      properties:
+        customer:
+          type: object
+          properties:
+            id:
+              type: integer
+            first_name:
+              type: string
+            last_name:
+              type: string
+            email:
+              type: string
+            customer_code:
+              type: string
+            phone:
+              type: string
+              nullable: true
+            metadata:
+              type: object
+              nullable: true
+            risk_action:
+              type: string
+            international_format_phone:
+              type: string
+              nullable: true
+          required:
+            - id
+            - first_name
+            - last_name
+            - email
+            - customer_code
+            - phone
+            - metadata
+            - risk_action
+        bank:
+          type: object
+          properties:
+            name:
+              type: string
+            id:
+              type: integer
+            slug:
+              type: string
+          required:
+            - name
+            - id
+            - slug
+        id:
+          type: integer
+        account_name:
+          type: string
+        account_number:
+          type: string
+        created_at:
+          type: string
+        updated_at:
+          type: string
+        currency:
+          type: string
+        split_config:
+          anyOf:
+            - type: string
+            - type: object
+          nullable: true
+        active:
+          type: boolean
+        assigned:
+          type: boolean
+      required:
+        - customer
+        - bank
+        - id
+        - account_name
+        - account_number
+        - created_at
+        - updated_at
+        - currency
+        - split_config
+        - active
+        - assigned
+    data-6:
+      type: object
+      properties:
+        integration:
+          type: integer
+        transaction:
+          type: integer
+        dispute:
+          type: integer
+          nullable: true
+        settlement:
+          type: integer
+          nullable: true
+        domain:
+          type: string
+        amount:
+          type: integer
+        deducted_amount:
+          type: integer
+        fully_deducted:
+          type: boolean
+        currency:
+          type: string
+        channel:
+          type: string
+        status:
+          type: string
+        refunded_by:
+          type: string
+        refunded_at:
+          type: string
+        expected_at:
+          type: string
+        customer_note:
+          type: string
+        merchant_note:
+          type: string
+        id:
+          type: integer
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      required:
+        - integration
+        - transaction
+        - dispute
+        - settlement
+        - domain
+        - amount
+        - deducted_amount
+        - fully_deducted
+        - currency
+        - channel
+        - status
+        - refunded_by
+        - refunded_at
+        - expected_at
+        - customer_note
+        - merchant_note
+        - id
+        - createdAt
+        - updatedAt
+    data-7:
+      type: object
+      properties:
+        id:
+          type: integer
+        refund_amount:
+          type: integer
+          nullable: true
+        currency:
+          type: string
+          nullable: true
+        status:
+          type: string
+        resolution:
+          nullable: true
+        domain:
+          type: string
+        transaction:
+          type: object
+          properties:
+            id:
+              type: integer
+            domain:
+              type: string
+            status:
+              type: string
+            reference:
+              type: string
+            receipt_number:
+              type: integer
+              nullable: true
+            amount:
+              type: integer
+            message:
+              nullable: true
+            gateway_response:
+              type: string
+            paid_at:
+              type: string
+            created_at:
+              type: string
+            channel:
+              type: string
+            currency:
+              type: string
+            ip_address:
+              type: string
+            metadata:
+              type: object
+              properties:
+                custom_fields:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/MetadataCustomFieldsArray"
+              required:
+                - custom_fields
+            log:
+              type: object
+              properties:
+                start_time:
+                  type: integer
+                time_spent:
+                  type: integer
+                attempts:
+                  type: integer
+                errors:
+                  type: integer
+                success:
+                  type: boolean
+                mobile:
+                  type: boolean
+                input:
+                  type: array
+                  items: {}
+                history:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                      message:
+                        type: string
+                      time:
+                        type: integer
+                    required:
+                      - type
+                      - message
+                      - time
+              required:
+                - start_time
+                - time_spent
+                - attempts
+                - errors
+                - success
+                - mobile
+                - input
+                - history
+              nullable: true
+            fees:
+              type: integer
+            fees_split:
+              type: integer
+              nullable: true
+            authorization:
+              type: object
+              properties:
+                receiver_bank_account_number:
+                  nullable: true
+                receiver_bank:
+                  nullable: true
+            customer:
+              type: object
+              properties:
+                international_format_phone:
+                  type: string
+                  nullable: true
+            plan:
+              type: object
+            subaccount:
+              type: object
+            split:
+              type: object
+            order_id:
+              nullable: true
+            requested_amount:
+              type: integer
+            pos_transaction_data:
+              nullable: true
+            source:
+              nullable: true
+            fees_breakdown:
+              nullable: true
+            connect:
+              nullable: true
+          required:
+            - id
+            - domain
+            - status
+            - reference
+            - amount
+            - message
+            - gateway_response
+            - paid_at
+            - created_at
+            - channel
+            - currency
+            - ip_address
+            - metadata
+            - log
+            - fees
+            - fees_split
+            - authorization
+            - customer
+            - plan
+            - subaccount
+            - split
+            - order_id
+            - requested_amount
+            - pos_transaction_data
+            - source
+            - fees_breakdown
+            - connect
+        transaction_reference:
+          nullable: true
+        category:
+          type: string
+          nullable: true
+        customer:
+          type: object
+          properties:
+            id:
+              type: integer
+            first_name:
+              type: string
+              nullable: true
+            last_name:
+              type: string
+              nullable: true
+            email:
+              type: string
+            customer_code:
+              type: string
+            phone:
+              type: string
+              nullable: true
+            metadata:
+              type: object
+              nullable: true
+            risk_action:
+              type: string
+            international_format_phone:
+              type: string
+              nullable: true
+          required:
+            - id
+            - email
+            - customer_code
+            - risk_action
+        bin:
+          type: string
+          nullable: true
+        last4:
+          type: string
+          nullable: true
+        dueAt:
+          nullable: true
+        resolvedAt:
+          nullable: true
+        evidence:
+          nullable: true
+        attachments:
+          nullable: true
+        note:
+          nullable: true
+        history:
+          type: array
+          items:
+            $ref: "#/components/schemas/DisputeHistoryArray"
+        messages:
+          type: array
+          items:
+            $ref: "#/components/schemas/DisputeMessagesArray"
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      required:
+        - id
+        - refund_amount
+        - currency
+        - status
+        - domain
+        - transaction
+        - category
+        - customer
+        - bin
+        - last4
+        - history
+        - messages
+        - createdAt
+        - updatedAt
   responses:
     TransactionInitializeBadRequestResponse:
       description: Responses from the Transaction Initialize endpoint
@@ -20273,3 +21570,4 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/MiscellaneousListStatesResponse"
+

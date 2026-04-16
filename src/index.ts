@@ -3,6 +3,7 @@ export * from "./operations.js";
 export * from "./webhooks.js";
 export * from "./idempotency.js";
 export * from "./errors.js";
+export * from "./response.js";
 export type { paths, operations, components } from "./openapi-types.js";
 
 import { createPaystackClient, type PaystackClientOptions } from "./client.js";

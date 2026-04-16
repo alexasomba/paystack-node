@@ -31,25 +31,36 @@ process.env.PAYSTACK_SECRET_KEY = "sk_test_...";
 ## Quick Start
 
 ```ts
-import { createPaystack, assertOk } from "@alexasomba/paystack-node";
+import { createPaystack } from "@alexasomba/paystack-node";
 
 const paystack = createPaystack({
   secretKey: process.env.PAYSTACK_SECRET_KEY!,
   idempotencyKey: "auto",
 });
 
-const result = await paystack.transaction_initialize({
-  body: {
-    email: "customer@example.com",
-    amount: 5000,
-  },
-});
+// Option 1: Explicitly unwrap to get typed data (throws on error)
+const data = (
+  await paystack.transaction_initialize({
+    body: {
+      email: "customer@example.com",
+      amount: 5000,
+    },
+  })
+).unwrap();
 
-const data = assertOk(result);
 console.log(data.authorization_url);
+
+// Option 2: Destructure for metadata and status
+const {
+  data: txData,
+  status,
+  message,
+} = await paystack.transaction_initialize({
+  body: { email: "customer@example.com", amount: 5000 },
+});
 ```
 
-`assertOk` returns the successful Paystack payload and throws a structured `PaystackApiError` for non-2xx responses.
+The `.unwrap()` method returns the successful Paystack payload and throws a structured `PaystackError` for non-2xx or `status: false` responses.
 
 ## API Basics
 
@@ -123,16 +134,19 @@ const total = result.response.headers.get("x-total-count");
 ## Error Handling
 
 ```ts
-import { toPaystackApiError } from "@alexasomba/paystack-node";
+import { PaystackError } from "@alexasomba/paystack-node";
 
-const result = await paystack.transaction_initialize({
-  /* ... */
-});
-const error = toPaystackApiError(result);
-
-if (error) {
-  console.error(`Status ${error.status}: ${error.message}`);
-  console.error(`Paystack Request ID: ${error.requestId}`);
+try {
+  const data = (
+    await paystack.transaction_initialize({
+      body: { email: "customer@example.com", amount: 5000 },
+    })
+  ).unwrap();
+} catch (error) {
+  if (error instanceof PaystackError) {
+    console.error(`Status ${error.status}: ${error.message}`);
+    console.error(`Paystack Request ID: ${error.requestId}`);
+  }
 }
 ```
 

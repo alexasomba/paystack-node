@@ -82,12 +82,16 @@ const header = `/*
 import type { MaybeOptionalInit } from 'openapi-fetch';
 import type { paths } from './openapi-types.js';
 import type { PaystackClient } from './client.js';
+import { PaystackResponse, type PaystackRawResponse } from './response.js';
 
 type InitArg<T, HasPath = false> = HasPath extends true
   ? [init?: Partial<T>]
   : undefined extends T
     ? [init?: Exclude<T, undefined>]
     : [init: T];
+
+type ExtractData<T> = T extends { data?: infer D } ? D : unknown;
+type PaystackData<T> = T extends PaystackRawResponse<infer D> ? D : ExtractData<T>;
 `;
 
 const fnBlocks = operations
@@ -127,8 +131,13 @@ const fnBlocks = operations
     const initArgExpr = pathParamObj ? `{ ...init[0], ${pathParamObj} }` : "...init";
 
     return `${jsDoc}
-export function ${name}(${paramList}) {
-  return client.${methodUpper}(${JSON.stringify(apiPath)}, ${initArgExpr});
+export async function ${name}(${paramList}) {
+  const result = await client.${methodUpper}(${JSON.stringify(apiPath)}, ${initArgExpr});
+  return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
+    result.data as any,
+    result.error,
+    result.response
+  );
 }
 `;
   })
@@ -156,7 +165,19 @@ const bindLines = Object.entries(categories)
           `...init: InitArg<${typeExpr}, ${op.pathParams.length > 0}>`,
         ].join(", ");
         const callArgs = [pathParams, "...init"].filter(Boolean).join(", ");
-        return `      ${op.action}: (${methodArgs}) => ${op.name}(client, ${callArgs}),`;
+
+        const jsDocLines = [];
+        if (op.summary !== undefined && op.summary !== null && op.summary !== "") {
+          jsDocLines.push(` * ${op.summary.trim()}`);
+        }
+        if (op.description !== undefined && op.description !== null && op.description !== "") {
+          if (jsDocLines.length > 0) jsDocLines.push(" *");
+          jsDocLines.push(` * ${op.description.trim()}`);
+        }
+        const jsDoc =
+          jsDocLines.length > 0 ? `      /**\n ${jsDocLines.join("\n ")}\n       */\n` : "";
+
+        return `${jsDoc}      ${op.action}: (${methodArgs}) => ${op.name}(client, ${callArgs}),`;
       })
       .join("\n");
 

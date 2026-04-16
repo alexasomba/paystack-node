@@ -1,5 +1,8 @@
 export const DEFAULT_REQUEST_ID_HEADERS = ["x-paystack-request-id", "x-request-id"] as const;
 
+/**
+ * Extracts a Paystack Request ID from response headers.
+ */
 export function getPaystackRequestId(headers: Headers | HeadersInit): string | undefined {
   const h = headers instanceof Headers ? headers : new Headers(headers);
 
@@ -11,69 +14,60 @@ export function getPaystackRequestId(headers: Headers | HeadersInit): string | u
   return undefined;
 }
 
-export interface PaystackApiErrorOptions {
-  status?: number;
-  url?: string;
-  requestId?: string;
-  error?: unknown;
-}
+/**
+ * Standard Paystack API Error
+ */
+export class PaystackError extends Error {
+  /** The machine-readable error code */
+  public readonly code?: string;
+  /** The error type (e.g., api_error, validation_error, processor_error) */
+  public readonly type?: string;
+  /** The HTTP status code */
+  public readonly status?: number;
+  /** The request ID for debugging with Paystack support */
+  public readonly requestId?: string;
+  /** Additional metadata from the error response */
+  public readonly meta?: Record<string, unknown>;
 
-export class PaystackApiError extends Error {
-  readonly name = "PaystackApiError";
-  readonly status?: number;
-  readonly url?: string;
-  readonly requestId?: string;
-  readonly error?: unknown;
-
-  constructor(message: string, options: PaystackApiErrorOptions = {}) {
-    super(message);
+  constructor(options: {
+    message: string;
+    code?: string;
+    type?: string;
+    status?: number;
+    requestId?: string;
+    meta?: Record<string, unknown>;
+  }) {
+    const requestId = options.requestId;
+    const suffix =
+      requestId !== undefined && requestId !== null && requestId !== ""
+        ? ` (requestId: ${requestId})`
+        : "";
+    super(`${options.message}${suffix}`);
+    this.name = "PaystackError";
+    this.code = options.code;
+    this.type = options.type;
     this.status = options.status;
-    this.url = options.url;
     this.requestId = options.requestId;
-    this.error = options.error;
+    this.meta = options.meta;
+
+    // Ensure proper stack trace in Node.js
+    if (typeof Error.captureStackTrace === "function") {
+      Error.captureStackTrace(this, PaystackError);
+    }
   }
-}
 
-export interface OpenapiFetchResult<TData = unknown, TError = unknown> {
-  data?: TData;
-  error?: TError;
-  response: Response;
-}
+  /**
+   * Helper to determine if the error is a processor-level issue
+   * (e.g., insufficient funds, card declined)
+   */
+  public isProcessorError(): boolean {
+    return this.type === "processor_error";
+  }
 
-export function isPaystackApiError(value: unknown): value is PaystackApiError {
-  return value instanceof PaystackApiError;
-}
-
-/**
- * Convert an openapi-fetch style result into a structured PaystackApiError.
- * Returns undefined when there is no error.
- */
-export function toPaystackApiError<TData = unknown, TError = unknown>(
-  result: OpenapiFetchResult<TData, TError>,
-): PaystackApiError | undefined {
-  if (result.error === undefined || result.error === null) return undefined;
-
-  const requestId = getPaystackRequestId(result.response.headers);
-  const status = result.response.status;
-  const url = result.response.url;
-
-  const suffix = requestId !== undefined && requestId !== "" ? ` (requestId: ${requestId})` : "";
-  return new PaystackApiError(`Paystack API request failed with status ${status}${suffix}`, {
-    status,
-    url,
-    requestId,
-    error: result.error,
-  });
-}
-
-/**
- * Convenience helper for openapi-fetch style results.
- * Throws a structured error when `result.error` exists.
- */
-export function assertOk<TData = unknown, TError = unknown>(
-  result: OpenapiFetchResult<TData, TError>,
-): TData {
-  const maybeError = toPaystackApiError(result);
-  if (maybeError !== undefined) throw maybeError;
-  return result.data as TData;
+  /**
+   * Helper to determine if the error is due to invalid request parameters
+   */
+  public isValidationError(): boolean {
+    return this.type === "validation_error";
+  }
 }

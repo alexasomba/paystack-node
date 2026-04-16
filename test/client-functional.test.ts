@@ -30,7 +30,7 @@ describe("Client Functional Tests", () => {
       const { data } = await paystack.transaction.list();
 
       expect(mockFetch).toHaveBeenCalledTimes(2);
-      expect(data).toEqual({ status: true, data: { ok: true } });
+      expect(data).toEqual({ ok: true });
     });
 
     it("should honor Retry-After header for 429", async () => {
@@ -128,7 +128,7 @@ describe("Client Functional Tests", () => {
 
       const paystack = createPaystack({ secretKey, fetch: mockFetch });
 
-      await paystack.subscription.create({
+      const { raw } = await paystack.subscription.create({
         body: {
           customer: "CUS_mock",
           plan: "PLN_mock",
@@ -142,6 +142,7 @@ describe("Client Functional Tests", () => {
         customer: "CUS_mock",
         plan: "PLN_mock",
       });
+      expect(raw?.status).toBe(true);
     });
 
     it("should correctly format subscription_list request with query params", async () => {

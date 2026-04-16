@@ -1,11 +1,5 @@
 import { describe, it, expect } from "vite-plus/test";
-
-import {
-  PaystackApiError,
-  toPaystackApiError,
-  assertOk,
-  getPaystackRequestId,
-} from "../src/errors.js";
+import { PaystackError, getPaystackRequestId } from "../src/errors.js";
 
 describe("Error Handling", () => {
   describe("getPaystackRequestId", () => {
@@ -26,62 +20,41 @@ describe("Error Handling", () => {
     });
   });
 
-  describe("PaystackApiError", () => {
+  describe("PaystackError", () => {
     it("should correctly capture error details", () => {
-      const error = new PaystackApiError("Failed", {
+      const error = new PaystackError({
+        message: "Failed",
         status: 400,
         requestId: "req_123",
-        url: "https://api.paystack.co/test",
-        error: { message: "Invalid parameter" },
+        code: "invalid_params",
+        type: "validation_error",
+        meta: { field: "email" },
       });
 
-      expect(error.message).toBe("Failed");
+      expect(error.message).toContain("Failed");
+      expect(error.message).toContain("req_123");
       expect(error.status).toBe(400);
       expect(error.requestId).toBe("req_123");
-      expect(error.url).toBe("https://api.paystack.co/test");
-      expect(error.error).toEqual({ message: "Invalid parameter" });
-    });
-  });
-
-  describe("toPaystackApiError", () => {
-    it("should return undefined if there is no error", () => {
-      const result = {
-        data: { success: true },
-        response: new Response(null, { status: 200 }),
-      };
-      expect(toPaystackApiError(result)).toBeUndefined();
+      expect(error.code).toBe("invalid_params");
+      expect(error.type).toBe("validation_error");
+      expect(error.meta).toEqual({ field: "email" });
     });
 
-    it("should return PaystackApiError if error exists", () => {
-      const result = {
-        error: { message: "Bad request" },
-        response: new Response(null, {
-          status: 400,
-          headers: { "x-paystack-request-id": "req_123" },
-        }),
-      };
-      const apiError = toPaystackApiError(result);
-      expect(apiError).toBeInstanceOf(PaystackApiError);
-      expect(apiError?.status).toBe(400);
-      expect(apiError?.requestId).toBe("req_123");
-    });
-  });
-
-  describe("assertOk", () => {
-    it("should return data if no error", () => {
-      const result = {
-        data: { id: 1 },
-        response: new Response(null, { status: 200 }),
-      };
-      expect(assertOk(result)).toEqual({ id: 1 });
+    it("should identify validation errors", () => {
+      const error = new PaystackError({
+        message: "Err",
+        type: "validation_error",
+      });
+      expect(error.isValidationError()).toBe(true);
+      expect(error.isProcessorError()).toBe(false);
     });
 
-    it("should throw PaystackApiError if error exists", () => {
-      const result = {
-        error: { message: "Forbidden" },
-        response: new Response(null, { status: 403 }),
-      };
-      expect(() => assertOk(result)).toThrow(PaystackApiError);
+    it("should identify processor errors", () => {
+      const error = new PaystackError({
+        message: "Err",
+        type: "processor_error",
+      });
+      expect(error.isProcessorError()).toBe(true);
     });
   });
 });

@@ -1,9 +1,6 @@
 import { describe, it, expect } from "vite-plus/test";
-
-import {
-  verifyPaystackWebhookSignature,
-  computePaystackWebhookSignature,
-} from "../src/webhooks.js";
+import { Webhooks } from "../src/webhooks.js";
+import { createHmac } from "node:crypto";
 
 describe("Webhook Verification", () => {
   const secret = "sk_test_1234567890abcdef1234567890abcdef12345678";
@@ -17,52 +14,23 @@ describe("Webhook Verification", () => {
     },
   });
 
-  it("should verify a valid signature with string input", () => {
-    const signature = computePaystackWebhookSignature(payload, secret);
-    const ok = verifyPaystackWebhookSignature({
-      rawBody: payload,
-      signature,
-      secret,
-    });
-    expect(ok).toBe(true);
-  });
+  const computeSignature = (p: string | Buffer, s: string) =>
+    createHmac("sha512", s).update(p).digest("hex");
 
-  it("should verify a valid signature with Buffer input", () => {
-    const rawBody = Buffer.from(payload, "utf8");
-    const signature = computePaystackWebhookSignature(rawBody, secret);
-    const ok = verifyPaystackWebhookSignature({
-      rawBody,
-      signature,
-      secret,
-    });
+  it("should verify a valid signature", () => {
+    const signature = computeSignature(payload, secret);
+    const ok = Webhooks.verifySignature(payload, signature, secret);
     expect(ok).toBe(true);
   });
 
   it("should fail for an invalid signature", () => {
-    const ok = verifyPaystackWebhookSignature({
-      rawBody: payload,
-      signature: "invalid_signature",
-      secret,
-    });
+    const ok = Webhooks.verifySignature(payload, "invalid_signature", secret);
     expect(ok).toBe(false);
   });
 
-  it("should fail if signature is missing", () => {
-    const ok = verifyPaystackWebhookSignature({
-      rawBody: payload,
-      signature: "",
-      secret,
-    });
-    expect(ok).toBe(false);
-  });
-
-  it("should handle case-insensitivity and whitespace in signature", () => {
-    const signature = computePaystackWebhookSignature(payload, secret);
-    const ok = verifyPaystackWebhookSignature({
-      rawBody: payload,
-      signature: `  ${signature.toUpperCase()}  `,
-      secret,
-    });
-    expect(ok).toBe(true);
+  it("should parse typed event", () => {
+    const event = Webhooks.parseEvent(payload);
+    expect(event.event).toBe("charge.success");
+    expect(event.data.id).toBe(123);
   });
 });

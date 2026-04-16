@@ -1,29 +1,34 @@
-import crypto from "node:crypto";
+import { createHmac } from "node:crypto";
+import type { components } from "./openapi-types.js";
 
-export interface PaystackWebhookSignatureInput {
-  rawBody: string | Buffer | Uint8Array;
-  signature: string;
-  secret: string;
-}
+/**
+ * Discriminated Union of all supported Webhook Events.
+ * This type is derived from the OpenAPI specification.
+ */
+export type PaystackWebhookEvent = components["schemas"]["WebhookEvent"];
 
-export function computePaystackWebhookSignature(
-  rawBody: string | Buffer | Uint8Array,
-  secret: string,
-) {
-  const body = typeof rawBody === "string" ? Buffer.from(rawBody, "utf8") : Buffer.from(rawBody);
-  return crypto.createHmac("sha512", secret).update(body).digest("hex");
-}
+/**
+ * Utilities for handling Paystack Webhooks
+ */
+export const Webhooks = {
+  /**
+   * Verified that a webhook request truly originated from Paystack.
+   * Uses HMAC SHA-512 with your Secret Key.
+   *
+   * @param body The raw request body string (important: use the raw body, not the parsed JSON)
+   * @param signature The value of the 'x-paystack-signature' header
+   * @param secretKey Your Paystack Secret Key
+   */
+  verifySignature(body: string, signature: string, secretKey: string): boolean {
+    const hash = createHmac("sha512", secretKey).update(body).digest("hex");
+    return hash === signature;
+  },
 
-export function verifyPaystackWebhookSignature(input: PaystackWebhookSignatureInput) {
-  const expected = computePaystackWebhookSignature(input.rawBody, input.secret);
-  const provided = (input.signature ?? "").trim().toLowerCase();
-
-  if (!provided) return false;
-
-  const expectedBuf = Buffer.from(expected, "utf8");
-  const providedBuf = Buffer.from(provided, "utf8");
-
-  if (expectedBuf.length !== providedBuf.length) return false;
-
-  return crypto.timingSafeEqual(expectedBuf, providedBuf);
-}
+  /**
+   * A helper to parse and validate a webhook event from a raw body string.
+   * @param body Raw request body
+   */
+  parseEvent(body: string): PaystackWebhookEvent {
+    return JSON.parse(body) as PaystackWebhookEvent;
+  },
+};
