@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.8.0](https://github.com/alexasomba/paystack-node/compare/v1.7.0...v1.8.0) (2026-04-16)
+
+
+### Features
+
+* infrastructure - finalized CI/CD with Automation Token support ([3ff0005](https://github.com/alexasomba/paystack-node/commit/3ff00055444860b83376fa1fdd64d8d375363fa3))
+
+
+### Bug Fixes
+
+* finalized workflow and publish infrastructure ([e0bf031](https://github.com/alexasomba/paystack-node/commit/e0bf031a580d422ad63b8a90d9ed6fbbd27e75ba))
+
 ## [1.7.0](https://github.com/alexasomba/paystack-node/compare/v1.6.0...v1.7.0) (2026-04-16)
 
 
