@@ -37,6 +37,7 @@ jobs:
         with:
           node-version: "24"
           registry-url: "https://registry.npmjs.org"
+          scope: "@alexasomba"
           cache: "pnpm"
 
       - run: pnpm install --no-frozen-lockfile
