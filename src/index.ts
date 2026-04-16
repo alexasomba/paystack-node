@@ -1,11 +1,12 @@
-export * from './client.js';
-export * from './operations.js';
-export * from './webhooks.js';
-export * from './idempotency.js';
-export * from './errors.js';
+export * from "./client.js";
+export * from "./operations.js";
+export * from "./webhooks.js";
+export * from "./idempotency.js";
+export * from "./errors.js";
+export type { paths, operations, components } from "./openapi-types.js";
 
-import { createPaystackClient, type PaystackClientOptions } from './client.js';
-import { bindOperations } from './operations.js';
+import { createPaystackClient, type PaystackClientOptions } from "./client.js";
+import { bindOperations } from "./operations.js";
 
 export function createPaystack(options: PaystackClientOptions) {
   const client = createPaystackClient(options);

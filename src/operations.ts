@@ -5,843 +5,3311 @@
  * Do not edit manually.
  */
 
-import type { MaybeOptionalInit } from 'openapi-fetch';
-import type { paths } from './openapi-types.js';
-import type { PaystackClient } from './client.js';
+import type { MaybeOptionalInit } from "openapi-fetch";
+import type { paths } from "./openapi-types.js";
+import type { PaystackClient } from "./client.js";
 
-type InitArg<T> = undefined extends T ? [init?: Exclude<T, undefined>] : [init: T];
+type InitArg<T, HasPath = false> = HasPath extends true
+  ? [init?: Partial<T>]
+  : undefined extends T
+    ? [init?: Exclude<T, undefined>]
+    : [init: T];
 
-export function applePay_listDomain(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "get">>) {
+/**
+ * List Domains
+ *
+ * Lists all registered domains on your integration. Returns an empty array if no domains have been added.
+ */
+export function applePay_listDomain(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "get">>
+) {
   return client.GET("/apple-pay/domain", ...init);
 }
 
-export function applePay_registerDomain(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "post">>) {
+/**
+ * Register Domain
+ *
+ * Register a top-level domain or subdomain for your Apple Pay integration.
+ *
+ * > This endpoint can only be called with one domain or subdomain at a time.
+ *
+ */
+export function applePay_registerDomain(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "post">>
+) {
   return client.POST("/apple-pay/domain", ...init);
 }
 
-export function applePay_unregisterDomain(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "delete">>) {
+/**
+ * Unregister Domain
+ *
+ * Unregister a top-level domain or subdomain previously used for your Apple
+ * Pay integration.
+ *
+ */
+export function applePay_unregisterDomain(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "delete">>
+) {
   return client.DELETE("/apple-pay/domain", ...init);
 }
 
-export function balance_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/balance"], "get">>) {
+/**
+ * Fetch Balance
+ *
+ * Fetch the available balance on your integration
+ */
+export function balance_fetch(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/balance"], "get">>
+) {
   return client.GET("/balance", ...init);
 }
 
-export function balance_ledger(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/balance/ledger"], "get">>) {
+/**
+ * Balance Ledger
+ *
+ * Fetch all pay-ins and pay-outs that occured on your integration
+ */
+export function balance_ledger(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/balance/ledger"], "get">>
+) {
   return client.GET("/balance/ledger", ...init);
 }
 
-export function bank_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/bank"], "get">>) {
+/**
+ * List Banks
+ *
+ * Get a list of all supported banks and their properties
+ */
+export function bank_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/bank"], "get">>
+) {
   return client.GET("/bank", ...init);
 }
 
-export function bank_resolveAccountNumber(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/bank/resolve"], "get">>) {
+/**
+ * Resolve Account Number
+ *
+ * Resolve an account number to confirm the name associated with it
+ */
+export function bank_resolveAccountNumber(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/bank/resolve"], "get">>
+) {
   return client.GET("/bank/resolve", ...init);
 }
 
-export function bank_validateAccountNumber(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/bank/validate"], "post">>) {
+/**
+ * Validate Bank Account
+ *
+ * Confirm the authenticity of a customer's account number before sending money
+ */
+export function bank_validateAccountNumber(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/bank/validate"], "post">>
+) {
   return client.POST("/bank/validate", ...init);
 }
 
-export function bulkCharge_charges(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/{code}/charges"], "get">>) {
-  return client.GET("/bulkcharge/{code}/charges", ...init);
+/**
+ * List Charges in a Batch
+ *
+ * This endpoint retrieves the charges associated with a specified batch code
+ *
+ * @param id_or_code An ID or code for the batch whose charges you want to retrieve.
+ */
+export function bulkCharge_charges(
+  client: PaystackClient,
+  id_or_code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/{id_or_code}/charges"], "get">>
+) {
+  return client.GET("/bulkcharge/{id_or_code}/charges", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
+  });
 }
 
-export function bulkCharge_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/{code}"], "get">>) {
-  return client.GET("/bulkcharge/{code}", ...init);
+/**
+ * Fetch Bulk Charge Batch
+ *
+ * This endpoint retrieves a specific batch code. It also returns useful information on its progress by
+ * way of the `total_charges` and `pending_charges` attributes.
+ *
+ *
+ * @param id_or_code An ID or code for the charge whose batches you want to retrieve.
+ */
+export function bulkCharge_fetch(
+  client: PaystackClient,
+  id_or_code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/{id_or_code}"], "get">>
+) {
+  return client.GET("/bulkcharge/{id_or_code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
+  });
 }
 
-export function bulkCharge_initiate(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge"], "post">>) {
+/**
+ * Initiate Bulk Charge
+ *
+ * Charge multiple customers in batches
+ */
+export function bulkCharge_initiate(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge"], "post">>
+) {
   return client.POST("/bulkcharge", ...init);
 }
 
-export function bulkCharge_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge"], "get">>) {
+/**
+ * List Bulk Charge Batches
+ *
+ * List all bulk charge batches.
+ */
+export function bulkCharge_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge"], "get">>
+) {
   return client.GET("/bulkcharge", ...init);
 }
 
-export function bulkCharge_pause(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/pause/{code}"], "get">>) {
-  return client.GET("/bulkcharge/pause/{code}", ...init);
+/**
+ * Pause Bulk Charge Batch
+ *
+ * Pause the processing of a charge batch
+ *
+ * @param code The batch code for the bulk charge you want to pause
+ */
+export function bulkCharge_pause(
+  client: PaystackClient,
+  code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/pause/{code}"], "get">>
+) {
+  return client.GET("/bulkcharge/pause/{code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
+  });
 }
 
-export function bulkCharge_resume(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/resume/{code}"], "get">>) {
-  return client.GET("/bulkcharge/resume/{code}", ...init);
+/**
+ * Resume Bulk Charge Batch
+ *
+ * Resume the processing of a previously paused charge batch
+ *
+ * @param code The batch code for the bulk charge you want to pause
+ */
+export function bulkCharge_resume(
+  client: PaystackClient,
+  code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/resume/{code}"], "get">>
+) {
+  return client.GET("/bulkcharge/resume/{code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
+  });
 }
 
-export function charge_check(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/charge/{reference}"], "get">>) {
-  return client.GET("/charge/{reference}", ...init);
+/**
+ * Requery Transaction
+ *
+ * Check the status of a charge made with Capitec Pay. This endpoint should be used from your frontend application as it requires the use of your public key for request authorization.
+ *
+ * @param ref The transaction reference from the previously initiated charge request
+ */
+export function capitecPay_requery(
+  client: PaystackClient,
+  ref: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/capitec-pay/requery/{ref}"], "post">>
+) {
+  return client.POST("/capitec-pay/requery/{ref}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, ref } },
+  });
 }
 
-export function charge_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/charge"], "post">>) {
+/**
+ * Check pending charge
+ *
+ * When you get `pending` as a charge status or if there was an exception when calling any of the `/charge` endpoints, wait 10 seconds or more, then make a check to see if its status has changed. Don't call too early as you may get a lot more pending than you should.
+ *
+ *
+ * @param reference The reference of the ongoing transaction
+ */
+export function charge_check(
+  client: PaystackClient,
+  reference: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/charge/{reference}"], "get">>
+) {
+  return client.GET("/charge/{reference}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, reference } },
+  });
+}
+
+/**
+ * Create Charge
+ *
+ * Initiate a payment by integrating the payment channel of your choice.
+ */
+export function charge_create(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/charge"], "post">>
+) {
   return client.POST("/charge", ...init);
 }
 
-export function charge_submitAddress(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_address"], "post">>) {
+/**
+ * Submit Address
+ *
+ * Send the details of the customer's address for address verification
+ */
+export function charge_submitAddress(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_address"], "post">>
+) {
   return client.POST("/charge/submit_address", ...init);
 }
 
-export function charge_submitBirthday(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_birthday"], "post">>) {
+/**
+ * Submit Birthday
+ *
+ * Submit the customer's birthday when requested
+ */
+export function charge_submitBirthday(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_birthday"], "post">>
+) {
   return client.POST("/charge/submit_birthday", ...init);
 }
 
-export function charge_submitOtp(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_otp"], "post">>) {
+/**
+ * Submit OTP
+ *
+ * Submit OTP to complete a charge
+ */
+export function charge_submitOtp(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_otp"], "post">>
+) {
   return client.POST("/charge/submit_otp", ...init);
 }
 
-export function charge_submitPhone(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_phone"], "post">>) {
+/**
+ * Submit Phone
+ *
+ * Submit phone number when requested
+ */
+export function charge_submitPhone(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_phone"], "post">>
+) {
   return client.POST("/charge/submit_phone", ...init);
 }
 
-export function charge_submitPin(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_pin"], "post">>) {
+/**
+ * Submit PIN
+ *
+ * Submit PIN to continue a charge
+ */
+export function charge_submitPin(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_pin"], "post">>
+) {
   return client.POST("/charge/submit_pin", ...init);
 }
 
-export function customer_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/customer"], "post">>) {
+/**
+ * Create Customer
+ *
+ * Create a customer on your integration
+ */
+export function customer_create(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/customer"], "post">>
+) {
   return client.POST("/customer", ...init);
 }
 
-export function customer_deactivateAuthorization(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/customer/authorization/deactivate"], "post">>) {
+/**
+ * Deactivate Authorization
+ *
+ * Deactivate an authorization for any payment channel.
+ */
+export function customer_deactivateAuthorization(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/customer/authorization/deactivate"], "post">>
+) {
   return client.POST("/customer/authorization/deactivate", ...init);
 }
 
-export function customer_directDebitActivationCharge(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/customer/{id}/directdebit-activation-charge"], "put">>) {
-  return client.PUT("/customer/{id}/directdebit-activation-charge", ...init);
+/**
+ * Direct Debit Activation Charge
+ *
+ * Trigger an activation charge on an inactive mandate on behalf of your customer
+ *
+ * @param id The customer ID attached to the authorization
+ */
+export function customer_directDebitActivationCharge(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/customer/{id}/directdebit-activation-charge"], "put">>
+) {
+  return client.PUT("/customer/{id}/directdebit-activation-charge", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function customer_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/customer/{code}"], "get">>) {
-  return client.GET("/customer/{code}", ...init);
+/**
+ * Fetch Customer
+ *
+ * Get details of a customer on your integration.
+ *
+ * @param email_or_code An email or customer code for the customer you want to fetch
+ */
+export function customer_fetch(
+  client: PaystackClient,
+  email_or_code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/customer/{email_or_code}"], "get">>
+) {
+  return client.GET("/customer/{email_or_code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, email_or_code } },
+  });
 }
 
-export function customer_fetchMandateAuthorizations(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/customer/{id}/directdebit-mandate-authorizations"], "get">>) {
-  return client.GET("/customer/{id}/directdebit-mandate-authorizations", ...init);
+/**
+ * Fetch Mandate Authorizations
+ *
+ * Get the list of direct debit mandates associated with a customer
+ *
+ * @param id The customer ID for the authorizations to fetch
+ */
+export function customer_fetchMandateAuthorizations(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<
+    MaybeOptionalInit<paths["/customer/{id}/directdebit-mandate-authorizations"], "get">
+  >
+) {
+  return client.GET("/customer/{id}/directdebit-mandate-authorizations", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function customer_initializeAuthorization(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/customer/authorization/initialize"], "post">>) {
+/**
+ * Initialize Authorization
+ *
+ * Initiate a request to create a reusable authorization code for recurring transactions
+ */
+export function customer_initializeAuthorization(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/customer/authorization/initialize"], "post">>
+) {
   return client.POST("/customer/authorization/initialize", ...init);
 }
 
-export function customer_initializeDirectDebit(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/customer/{id}/initialize-direct-debit"], "post">>) {
-  return client.POST("/customer/{id}/initialize-direct-debit", ...init);
+/**
+ * Initialize Direct Debit
+ *
+ * Initialize the process of linking an account to a customer for Direct Debit transactions
+ *
+ * @param id The ID of the customer to initialize the direct debit for
+ */
+export function customer_initializeDirectDebit(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/customer/{id}/initialize-direct-debit"], "post">>
+) {
+  return client.POST("/customer/{id}/initialize-direct-debit", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function customer_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/customer"], "get">>) {
+/**
+ * List Customers
+ *
+ * List customers available on your integration
+ */
+export function customer_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/customer"], "get">>
+) {
   return client.GET("/customer", ...init);
 }
 
-export function customer_riskAction(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/customer/set_risk_action"], "post">>) {
+/**
+ * Set Risk Action
+ *
+ * Set customer's risk action by whitelisting or blacklisting the customer
+ */
+export function customer_riskAction(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/customer/set_risk_action"], "post">>
+) {
   return client.POST("/customer/set_risk_action", ...init);
 }
 
-export function customer_update(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/customer/{code}"], "put">>) {
-  return client.PUT("/customer/{code}", ...init);
+/**
+ * Update Customer
+ *
+ * Update a customer's details on your integration
+ *
+ * @param email_or_code An email or customer code for the customer you want to fetch
+ */
+export function customer_update(
+  client: PaystackClient,
+  email_or_code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/customer/{email_or_code}"], "put">>
+) {
+  return client.PUT("/customer/{email_or_code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, email_or_code } },
+  });
 }
 
-export function customer_validate(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/customer/{code}/identification"], "post">>) {
-  return client.POST("/customer/{code}/identification", ...init);
+/**
+ * Validate Customer
+ *
+ * Validate a customer's identity
+ *
+ * @param customer_code Customer code
+ */
+export function customer_validate(
+  client: PaystackClient,
+  customer_code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/customer/{customer_code}/identification"], "post">>
+) {
+  return client.POST("/customer/{customer_code}/identification", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, customer_code } },
+  });
 }
 
-export function customer_verifyAuthorization(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/customer/authorization/verify/{reference}"], "get">>) {
-  return client.GET("/customer/authorization/verify/{reference}", ...init);
+/**
+ * Verify Authorization
+ *
+ * Check the status of an authorization request
+ *
+ * @param reference The reference returned in the initialization response
+ */
+export function customer_verifyAuthorization(
+  client: PaystackClient,
+  reference: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/customer/authorization/verify/{reference}"], "get">>
+) {
+  return client.GET("/customer/authorization/verify/{reference}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, reference } },
+  });
 }
 
-export function dedicatedAccount_addSplit(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/split"], "post">>) {
+/**
+ * Split Dedicated Account Transaction
+ *
+ * Split a dedicated virtual account transaction with one or more accounts
+ */
+export function dedicatedAccount_addSplit(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/split"], "post">>
+) {
   return client.POST("/dedicated_account/split", ...init);
 }
 
-export function dedicatedAccount_assign(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/assign"], "post">>) {
+/**
+ * Assign Dedicated Account
+ *
+ * With this endpoint, you can create a customer, validate the customer, and assign a DVA to the customer.
+ */
+export function dedicatedAccount_assign(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/assign"], "post">>
+) {
   return client.POST("/dedicated_account/assign", ...init);
 }
 
-export function dedicatedAccount_availableProviders(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/available_providers"], "get">>) {
+/**
+ * Fetch Bank Providers
+ *
+ * Get available bank providers for a dedicated virtual account
+ */
+export function dedicatedAccount_availableProviders(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/available_providers"], "get">>
+) {
   return client.GET("/dedicated_account/available_providers", ...init);
 }
 
-export function dedicatedAccount_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account"], "post">>) {
+/**
+ * Create Dedicated Account
+ *
+ * Create a dedicated virtual account for an existing customer
+ */
+export function dedicatedAccount_create(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account"], "post">>
+) {
   return client.POST("/dedicated_account", ...init);
 }
 
-export function dedicatedAccount_deactivate(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/{id}"], "delete">>) {
-  return client.DELETE("/dedicated_account/{id}", ...init);
+/**
+ * Deactivate Dedicated Account
+ *
+ * Deactivate a dedicated virtual account on your integration.
+ *
+ * @param id ID of dedicated virtual account
+ */
+export function dedicatedAccount_deactivate(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/{id}"], "delete">>
+) {
+  return client.DELETE("/dedicated_account/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function dedicatedAccount_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/{id}"], "get">>) {
-  return client.GET("/dedicated_account/{id}", ...init);
+/**
+ * Fetch Dedicated Account
+ *
+ * Get details of a dedicated virtual account on your integration.
+ *
+ * @param id ID of dedicated virtual account
+ */
+export function dedicatedAccount_fetch(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/{id}"], "get">>
+) {
+  return client.GET("/dedicated_account/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function dedicatedAccount_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account"], "get">>) {
+/**
+ * List Dedicated Accounts
+ *
+ * List dedicated virtual accounts available on your integration.
+ */
+export function dedicatedAccount_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account"], "get">>
+) {
   return client.GET("/dedicated_account", ...init);
 }
 
-export function dedicatedAccount_removeSplit(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/split"], "delete">>) {
+/**
+ * Remove Split from Dedicated Account
+ *
+ * If you've previously set up split payment for transactions on a dedicated virtual account, you can remove it with this endpoint
+ */
+export function dedicatedAccount_removeSplit(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/split"], "delete">>
+) {
   return client.DELETE("/dedicated_account/split", ...init);
 }
 
-export function dedicatedAccount_requery(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/requery"], "get">>) {
+/**
+ * Requery Dedicated Account
+ *
+ * Requery Dedicated Virtual Account for new transactions
+ */
+export function dedicatedAccount_requery(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/requery"], "get">>
+) {
   return client.GET("/dedicated_account/requery", ...init);
 }
 
-export function directdebit_listMandateAuthorizations(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/directdebit/mandate-authorizations"], "get">>) {
+/**
+ * List Mandate Authorizations
+ *
+ * Get a list of all the direct debit mandates on your integration
+ */
+export function directdebit_listMandateAuthorizations(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/directdebit/mandate-authorizations"], "get">>
+) {
   return client.GET("/directdebit/mandate-authorizations", ...init);
 }
 
-export function directdebit_triggerActivationCharge(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/directdebit/activation-charge"], "put">>) {
+/**
+ * Trigger Activation Charge
+ *
+ * Trigger activation charge for specified customers
+ */
+export function directdebit_triggerActivationCharge(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/directdebit/activation-charge"], "put">>
+) {
   return client.PUT("/directdebit/activation-charge", ...init);
 }
 
-export function dispute_download(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dispute/export"], "get">>) {
+/**
+ * Export Disputes
+ *
+ * Export the disputes available on your integration
+ */
+export function dispute_download(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/dispute/export"], "get">>
+) {
   return client.GET("/dispute/export", ...init);
 }
 
-export function dispute_evidence(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/evidence"], "post">>) {
-  return client.POST("/dispute/{id}/evidence", ...init);
+/**
+ * Add Evidence
+ *
+ * Provide evidence for a dispute
+ *
+ * @param id The unique identifier of the dispute
+ */
+export function dispute_evidence(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/evidence"], "post">>
+) {
+  return client.POST("/dispute/{id}/evidence", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function dispute_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}"], "get">>) {
-  return client.GET("/dispute/{id}", ...init);
+/**
+ * Fetch Dispute
+ *
+ * Fetch a transaction dispute
+ *
+ * @param id The unique identifier of the dispute
+ */
+export function dispute_fetch(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}"], "get">>
+) {
+  return client.GET("/dispute/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function dispute_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dispute"], "get">>) {
+/**
+ * List Disputes
+ *
+ * List transaction disputes filed by customers
+ */
+export function dispute_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/dispute"], "get">>
+) {
   return client.GET("/dispute", ...init);
 }
 
-export function dispute_resolve(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/resolve"], "put">>) {
-  return client.PUT("/dispute/{id}/resolve", ...init);
+/**
+ * Resolve Dispute
+ *
+ * Resolve a transaction dispute
+ *
+ * @param id The unique identifier of the dispute
+ */
+export function dispute_resolve(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/resolve"], "put">>
+) {
+  return client.PUT("/dispute/{id}/resolve", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function dispute_transaction(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dispute/transaction/{id}"], "get">>) {
-  return client.GET("/dispute/transaction/{id}", ...init);
+/**
+ * List Transaction Disputes
+ *
+ * List all disputes filed for a transaction
+ *
+ * @param id The unique identifier of the transaction
+ */
+export function dispute_transaction(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/dispute/transaction/{id}"], "get">>
+) {
+  return client.GET("/dispute/transaction/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function dispute_update(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}"], "put">>) {
-  return client.PUT("/dispute/{id}", ...init);
+/**
+ * Update Dispute
+ *
+ * Update a transaction dispute
+ *
+ * @param id The unique identifier of the dispute
+ */
+export function dispute_update(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}"], "put">>
+) {
+  return client.PUT("/dispute/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function dispute_uploadUrl(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/upload_url"], "get">>) {
-  return client.GET("/dispute/{id}/upload_url", ...init);
+/**
+ * Fetch Upload URL
+ *
+ * Get the URL to upload a dispute evidence
+ *
+ * @param id The unique identifier of the dispute
+ */
+export function dispute_uploadUrl(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/upload_url"], "get">>
+) {
+  return client.GET("/dispute/{id}/upload_url", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function integration_fetchPaymentSessionTimeout(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/integration/payment_session_timeout"], "get">>) {
+/**
+ * Fetch Payment Session Timeout
+ *
+ * Fetch the session timeout of a transaction
+ */
+export function integration_fetchPaymentSessionTimeout(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/integration/payment_session_timeout"], "get">>
+) {
   return client.GET("/integration/payment_session_timeout", ...init);
 }
 
-export function integration_updatePaymentSessionTimeout(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/integration/payment_session_timeout"], "put">>) {
+/**
+ * Update Payment Session Timeout
+ *
+ * Update the session timeout of a transaction
+ */
+export function integration_updatePaymentSessionTimeout(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/integration/payment_session_timeout"], "put">>
+) {
   return client.PUT("/integration/payment_session_timeout", ...init);
 }
 
-export function miscellaneous_avs(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/address_verification/states"], "get">>) {
+/**
+ * List States (AVS)
+ *
+ * Get a list of states for a country for address verification
+ */
+export function miscellaneous_avs(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/address_verification/states"], "get">>
+) {
   return client.GET("/address_verification/states", ...init);
 }
 
-export function miscellaneous_listCountries(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/country"], "get">>) {
+/**
+ * List Countries
+ *
+ * List all supported countries on Paystack
+ */
+export function miscellaneous_listCountries(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/country"], "get">>
+) {
   return client.GET("/country", ...init);
 }
 
-export function miscellaneous_resolveCardBin(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/decision/bin/{bin}"], "get">>) {
-  return client.GET("/decision/bin/{bin}", ...init);
+/**
+ * Resolve Card BIN
+ *
+ * Get the details of a card BIN
+ *
+ * @param bin The card bank identification number
+ */
+export function miscellaneous_resolveCardBin(
+  client: PaystackClient,
+  bin: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/decision/bin/{bin}"], "get">>
+) {
+  return client.GET("/decision/bin/{bin}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, bin } },
+  });
 }
 
-export function order_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/order"], "post">>) {
+/**
+ * Create Order
+ *
+ * Create an order for selected items
+ */
+export function order_create(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/order"], "post">>
+) {
   return client.POST("/order", ...init);
 }
 
-export function order_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/order/{id}"], "get">>) {
-  return client.GET("/order/{id}", ...init);
+/**
+ * Fetch Order
+ *
+ * Fetch the details of a previously created order
+ *
+ * @param id The unique identifier of the order
+ */
+export function order_fetch(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/order/{id}"], "get">>
+) {
+  return client.GET("/order/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function order_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/order"], "get">>) {
+/**
+ * List Orders
+ *
+ * List the previously created orders
+ */
+export function order_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/order"], "get">>
+) {
   return client.GET("/order", ...init);
 }
 
-export function order_product(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/order/product/{id}"], "get">>) {
-  return client.GET("/order/product/{id}", ...init);
+/**
+ * Fetch Product Orders
+ *
+ * Fetch all orders for a particular product
+ *
+ * @param id The unique identifier of the order
+ */
+export function order_product(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/order/product/{id}"], "get">>
+) {
+  return client.GET("/order/product/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function order_validate(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/order/{code}/validate"], "get">>) {
-  return client.GET("/order/{code}/validate", ...init);
+/**
+ * Validate Order
+ *
+ * Validate a pay for me order
+ *
+ * @param code The unique code of a previously created order
+ */
+export function order_validate(
+  client: PaystackClient,
+  code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/order/{code}/validate"], "get">>
+) {
+  return client.GET("/order/{code}/validate", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
+  });
 }
 
-export function page_addProducts(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/page/{id}/product"], "post">>) {
-  return client.POST("/page/{id}/product", ...init);
+/**
+ * Add Products
+ *
+ * Add products to a previously created payment page. You can only add products to pages
+ * that was created with a `product` type.
+ *
+ *
+ * @param id
+ */
+export function page_addProducts(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/page/{id}/product"], "post">>
+) {
+  return client.POST("/page/{id}/product", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function page_checkSlugAvailability(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/page/check_slug_availability/{slug}"], "get">>) {
-  return client.GET("/page/check_slug_availability/{slug}", ...init);
+/**
+ * Check Slug Availability
+ *
+ * Check if a custom slug is available for use when creating a payment page
+ *
+ * @param slug The custom slug to check
+ */
+export function page_checkSlugAvailability(
+  client: PaystackClient,
+  slug: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/page/check_slug_availability/{slug}"], "get">>
+) {
+  return client.GET("/page/check_slug_availability/{slug}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, slug } },
+  });
 }
 
-export function page_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/page"], "post">>) {
+/**
+ * Create Page
+ *
+ * Create a webpage to receive payments
+ */
+export function page_create(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/page"], "post">>
+) {
   return client.POST("/page", ...init);
 }
 
-export function page_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/page/{id}"], "get">>) {
-  return client.GET("/page/{id}", ...init);
+/**
+ * Fetch Page
+ *
+ * Get a previously created payment page
+ *
+ * @param id_or_slug The page ID or slug you want to fetch
+ */
+export function page_fetch(
+  client: PaystackClient,
+  id_or_slug: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/page/{id_or_slug}"], "get">>
+) {
+  return client.GET("/page/{id_or_slug}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_slug } },
+  });
 }
 
-export function page_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/page"], "get">>) {
+/**
+ * List Pages
+ *
+ * List all previously created payment pages
+ */
+export function page_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/page"], "get">>
+) {
   return client.GET("/page", ...init);
 }
 
-export function page_update(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/page/{id}"], "put">>) {
-  return client.PUT("/page/{id}", ...init);
+/**
+ * Update Page
+ *
+ * Update a previously created payment page
+ *
+ * @param id_or_slug The page ID or slug you want to fetch
+ */
+export function page_update(
+  client: PaystackClient,
+  id_or_slug: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/page/{id_or_slug}"], "put">>
+) {
+  return client.PUT("/page/{id_or_slug}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_slug } },
+  });
 }
 
-export function paymentRequest_archive(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/archive/{id}"], "post">>) {
-  return client.POST("/paymentrequest/archive/{id}", ...init);
+/**
+ * Archive Payment Request
+ *
+ * Archive a payment request to clean up your records. An archived payment request cannot be verified and will not
+ * be returned when listing all previously created payment requests.
+ *
+ *
+ * @param id The unique identifier of a previously created payment request
+ */
+export function paymentRequest_archive(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/archive/{id}"], "post">>
+) {
+  return client.POST("/paymentrequest/archive/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function paymentRequest_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest"], "post">>) {
+/**
+ * Create Payment Request
+ *
+ * Create a new payment request by issuing an invoice to a customer
+ */
+export function paymentRequest_create(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest"], "post">>
+) {
   return client.POST("/paymentrequest", ...init);
 }
 
-export function paymentRequest_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/{id}"], "get">>) {
-  return client.GET("/paymentrequest/{id}", ...init);
+/**
+ * Fetch Payment Request
+ *
+ * Fetch a previously created payment request
+ *
+ * @param id_or_code The payment request ID or code you want to fetch
+ */
+export function paymentRequest_fetch(
+  client: PaystackClient,
+  id_or_code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/{id_or_code}"], "get">>
+) {
+  return client.GET("/paymentrequest/{id_or_code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
+  });
 }
 
-export function paymentRequest_finalize(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/finalize/{id}"], "post">>) {
-  return client.POST("/paymentrequest/finalize/{id}", ...init);
+/**
+ * Finalize Payment Request
+ *
+ * Finalise the creation of a draft payment request for a customer
+ *
+ * @param id The unique identifier of a draft payment request
+ */
+export function paymentRequest_finalize(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/finalize/{id}"], "post">>
+) {
+  return client.POST("/paymentrequest/finalize/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function paymentRequest_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest"], "get">>) {
+/**
+ * List Payment Request
+ *
+ * List all previously created payment requests to your customers
+ */
+export function paymentRequest_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest"], "get">>
+) {
   return client.GET("/paymentrequest", ...init);
 }
 
-export function paymentRequest_notify(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/notify/{id}"], "post">>) {
-  return client.POST("/paymentrequest/notify/{id}", ...init);
+/**
+ * Send Notification
+ *
+ * Trigger an email reminder to a customer for a previously created payment request
+ *
+ * @param id The unique identifier of a previously created payment request
+ */
+export function paymentRequest_notify(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/notify/{id}"], "post">>
+) {
+  return client.POST("/paymentrequest/notify/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function paymentRequest_totals(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/totals"], "get">>) {
+/**
+ * Payment Request Total
+ *
+ * Get the metric of all pending and successful payment requests
+ */
+export function paymentRequest_totals(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/totals"], "get">>
+) {
   return client.GET("/paymentrequest/totals", ...init);
 }
 
-export function paymentRequest_update(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/{id}"], "put">>) {
-  return client.PUT("/paymentrequest/{id}", ...init);
+/**
+ * Update Payment Request
+ *
+ * Update a previously created payment request
+ *
+ * @param id_or_code The payment request ID or code you want to fetch
+ */
+export function paymentRequest_update(
+  client: PaystackClient,
+  id_or_code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/{id_or_code}"], "put">>
+) {
+  return client.PUT("/paymentrequest/{id_or_code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
+  });
 }
 
-export function paymentRequest_verify(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/verify/{id}"], "get">>) {
-  return client.GET("/paymentrequest/verify/{id}", ...init);
+/**
+ * Verify Payment Request
+ *
+ * Verify the status of a previously created payment request
+ *
+ * @param id The unique identifier of a previously created payment request
+ */
+export function paymentRequest_verify(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/verify/{id}"], "get">>
+) {
+  return client.GET("/paymentrequest/verify/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function plan_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/plan"], "post">>) {
+/**
+ * Create Plan
+ *
+ * Create a plan for recurring payments
+ */
+export function plan_create(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/plan"], "post">>
+) {
   return client.POST("/plan", ...init);
 }
 
-export function plan_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/plan/{code}"], "get">>) {
-  return client.GET("/plan/{code}", ...init);
+/**
+ * Fetch Plan
+ *
+ * Get the details of a payment plan
+ *
+ * @param id_or_code The plan ID or code you want to fetch
+ */
+export function plan_fetch(
+  client: PaystackClient,
+  id_or_code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/plan/{id_or_code}"], "get">>
+) {
+  return client.GET("/plan/{id_or_code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
+  });
 }
 
-export function plan_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/plan"], "get">>) {
+/**
+ * List Plans
+ *
+ * List all recurring payment plans
+ */
+export function plan_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/plan"], "get">>
+) {
   return client.GET("/plan", ...init);
 }
 
-export function plan_update(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/plan/{code}"], "put">>) {
-  return client.PUT("/plan/{code}", ...init);
+/**
+ * Update Plan
+ *
+ * Update a plan details on your integration
+ *
+ * @param id_or_code The plan ID or code you want to fetch
+ */
+export function plan_update(
+  client: PaystackClient,
+  id_or_code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/plan/{id_or_code}"], "put">>
+) {
+  return client.PUT("/plan/{id_or_code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
+  });
 }
 
-export function product_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/product"], "post">>) {
+/**
+ * Capture Preauthorization
+ *
+ * Charge a preauthorized transaction upon service delivery
+ */
+export function preauthorization_capture(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/capture"], "post">>
+) {
+  return client.POST("/preauthorization/capture", ...init);
+}
+
+/**
+ * Initialize Preauthorization
+ *
+ * Initialize a preauthorization transaction for a new customer
+ */
+export function preauthorization_initialize(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/initialize"], "post">>
+) {
+  return client.POST("/preauthorization/initialize", ...init);
+}
+
+/**
+ * List Preauthorizations
+ *
+ * List preauthorizations carried out on your integration
+ */
+export function preauthorization_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/preauthorization"], "get">>
+) {
+  return client.GET("/preauthorization", ...init);
+}
+
+/**
+ * Release Preauthorization
+ *
+ * For when a customer cancels an order or you want to release the hold from their card.
+ */
+export function preauthorization_release(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/release"], "post">>
+) {
+  return client.POST("/preauthorization/release", ...init);
+}
+
+/**
+ * Reserve Preauthorization
+ *
+ * Hold an amount using an existing customer's authorization that's marked reusable.
+ */
+export function preauthorization_reserve_authorization(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/reserve_authorization"], "post">>
+) {
+  return client.POST("/preauthorization/reserve_authorization", ...init);
+}
+
+/**
+ * Verify Preauthorization
+ *
+ * Fetch and confirm the status of a preauthorized transaction.
+ *
+ * @param reference The transaction reference used to intiate the transaction
+ */
+export function preauthorization_verify(
+  client: PaystackClient,
+  reference: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/verify/{reference}"], "get">>
+) {
+  return client.GET("/preauthorization/verify/{reference}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, reference } },
+  });
+}
+
+/**
+ * Create Product
+ *
+ * Create a new product on your integration
+ */
+export function product_create(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/product"], "post">>
+) {
   return client.POST("/product", ...init);
 }
 
-export function product_delete(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "delete">>) {
-  return client.DELETE("/product/{id}", ...init);
+/**
+ * Delete Product
+ *
+ * Delete a previously created product
+ *
+ * @param id The unique identifier of the product
+ */
+export function product_delete(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "delete">>
+) {
+  return client.DELETE("/product/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function product_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "get">>) {
-  return client.GET("/product/{id}", ...init);
+/**
+ * Fetch Product
+ *
+ * Fetch a previously created product
+ *
+ * @param id The unique identifier of the product
+ */
+export function product_fetch(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "get">>
+) {
+  return client.GET("/product/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function product_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/product"], "get">>) {
+/**
+ * List Products
+ *
+ * List all previously created products
+ */
+export function product_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/product"], "get">>
+) {
   return client.GET("/product", ...init);
 }
 
-export function product_update(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "put">>) {
-  return client.PUT("/product/{id}", ...init);
+/**
+ * Update product
+ *
+ * Update a previously created product
+ *
+ * @param id The unique identifier of the product
+ */
+export function product_update(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "put">>
+) {
+  return client.PUT("/product/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function refund_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/refund"], "post">>) {
+/**
+ * Create Refund
+ *
+ * Initiate a refund for a previously completed transaction
+ */
+export function refund_create(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/refund"], "post">>
+) {
   return client.POST("/refund", ...init);
 }
 
-export function refund_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/refund/{id}"], "get">>) {
-  return client.GET("/refund/{id}", ...init);
+/**
+ * Fetch Refund
+ *
+ * Get a previously created refund
+ *
+ * @param id The identifier of the refund
+ */
+export function refund_fetch(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/refund/{id}"], "get">>
+) {
+  return client.GET("/refund/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function refund_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/refund"], "get">>) {
+/**
+ * List Refunds
+ *
+ * List previously created refunds
+ */
+export function refund_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/refund"], "get">>
+) {
   return client.GET("/refund", ...init);
 }
 
-export function refund_retry(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/refund/retry_with_customer_details/{id}"], "post">>) {
-  return client.POST("/refund/retry_with_customer_details/{id}", ...init);
+/**
+ * Retry Refund
+ *
+ * Retry a refund with a `needs-attention` status by providing the bank account details of a customer.
+ *
+ * @param id The identifier of the refund
+ */
+export function refund_retry(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/refund/retry_with_customer_details/{id}"], "post">>
+) {
+  return client.POST("/refund/retry_with_customer_details/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function settlements_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/settlement"], "get">>) {
+/**
+ * List Settlements
+ *
+ * List settlements made to your settlement accounts
+ */
+export function settlements_fetch(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/settlement"], "get">>
+) {
   return client.GET("/settlement", ...init);
 }
 
-export function settlements_transaction(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/settlement/{id}/transactions"], "get">>) {
-  return client.GET("/settlement/{id}/transactions", ...init);
+/**
+ * Fetch Settlement Transactions
+ *
+ * Get the transactions that make up a particular settlement
+ *
+ * @param id The settlement ID in which you want to fetch its transactions
+ */
+export function settlements_transaction(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/settlement/{id}/transactions"], "get">>
+) {
+  return client.GET("/settlement/{id}/transactions", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function split_addSubaccount(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/split/{id}/subaccount/add"], "post">>) {
-  return client.POST("/split/{id}/subaccount/add", ...init);
+/**
+ * Add Subaccount to Split
+ *
+ * Add a subaccount to a split configuration, or update the share of an existing subaccount
+ *
+ * @param id The ID of the split configuration to fetch
+ */
+export function split_addSubaccount(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/split/{id}/subaccount/add"], "post">>
+) {
+  return client.POST("/split/{id}/subaccount/add", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function split_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/split"], "post">>) {
+/**
+ * Create Split
+ *
+ * Create a split configuration for transactions
+ */
+export function split_create(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/split"], "post">>
+) {
   return client.POST("/split", ...init);
 }
 
-export function split_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/split/{id}"], "get">>) {
-  return client.GET("/split/{id}", ...init);
+/**
+ * Fetch Split
+ *
+ * Get details of a split configuration for a transaction
+ *
+ * @param id The ID of the split configuration to fetch
+ */
+export function split_fetch(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/split/{id}"], "get">>
+) {
+  return client.GET("/split/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function split_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/split"], "get">>) {
+/**
+ * List Splits
+ *
+ * List the transaction splits available on your integration
+ */
+export function split_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/split"], "get">>
+) {
   return client.GET("/split", ...init);
 }
 
-export function split_removeSubaccount(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/split/{id}/subaccount/remove"], "post">>) {
-  return client.POST("/split/{id}/subaccount/remove", ...init);
+/**
+ * Remove Subaccount from split
+ *
+ * Remove a subaccount from a split configuration
+ *
+ * @param id The ID of the split configuration to fetch
+ */
+export function split_removeSubaccount(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/split/{id}/subaccount/remove"], "post">>
+) {
+  return client.POST("/split/{id}/subaccount/remove", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function split_update(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/split/{id}"], "put">>) {
-  return client.PUT("/split/{id}", ...init);
+/**
+ * Update Split
+ *
+ * Update a split configuration for transactions
+ *
+ * @param id
+ */
+export function split_update(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/split/{id}"], "put">>
+) {
+  return client.PUT("/split/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function storefront_addProducts(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/product"], "post">>) {
-  return client.POST("/storefront/{id}/product", ...init);
+/**
+ * Add Products to Storefront
+ *
+ * Add previously created products to a Storefront
+ *
+ * @param id The unique identifier of the Storefront
+ */
+export function storefront_addProducts(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/product"], "post">>
+) {
+  return client.POST("/storefront/{id}/product", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function storefront_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/storefront"], "post">>) {
+/**
+ * Create Storefront
+ *
+ * Create a digital shop to manage and display your products
+ */
+export function storefront_create(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/storefront"], "post">>
+) {
   return client.POST("/storefront", ...init);
 }
 
-export function storefront_delete(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "delete">>) {
-  return client.DELETE("/storefront/{id}", ...init);
+/**
+ * Delete Storefront
+ *
+ * Delete a previously created Storefront
+ *
+ * @param id The unique identifier of the Storefront
+ */
+export function storefront_delete(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "delete">>
+) {
+  return client.DELETE("/storefront/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function storefront_duplicate(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/duplicate"], "post">>) {
-  return client.POST("/storefront/{id}/duplicate", ...init);
+/**
+ * Duplicate Storefront
+ *
+ * Duplicate a previously created Storefront
+ *
+ * @param id The unique identifier of the Storefront
+ */
+export function storefront_duplicate(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/duplicate"], "post">>
+) {
+  return client.POST("/storefront/{id}/duplicate", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function storefront_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "get">>) {
-  return client.GET("/storefront/{id}", ...init);
+/**
+ * Fetch Storefront
+ *
+ * Get the details of a previously created Storefront
+ *
+ * @param id The unique identifier of the Storefront
+ */
+export function storefront_fetch(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "get">>
+) {
+  return client.GET("/storefront/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function storefront_fetchOrders(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/order"], "get">>) {
-  return client.GET("/storefront/{id}/order", ...init);
+/**
+ * Fetch Storefront Orders
+ *
+ * Fetch all orders in your Storefront
+ *
+ * @param id The unique identifier of the Storefront
+ */
+export function storefront_fetchOrders(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/order"], "get">>
+) {
+  return client.GET("/storefront/{id}/order", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function storefront_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/storefront"], "get">>) {
+/**
+ * List Storefronts
+ *
+ * List the storefronts you previously created
+ */
+export function storefront_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/storefront"], "get">>
+) {
   return client.GET("/storefront", ...init);
 }
 
-export function storefront_listProducts(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/product"], "get">>) {
-  return client.GET("/storefront/{id}/product", ...init);
+/**
+ * List Storefront Products
+ *
+ * List the products in a Storefront
+ *
+ * @param id The unique identifier of the Storefront
+ */
+export function storefront_listProducts(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/product"], "get">>
+) {
+  return client.GET("/storefront/{id}/product", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function storefront_publish(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/publish"], "post">>) {
-  return client.POST("/storefront/{id}/publish", ...init);
+/**
+ * Publish Storefront
+ *
+ * Make your Storefront publicly available
+ *
+ * @param id The unique identifier of the Storefront
+ */
+export function storefront_publish(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/publish"], "post">>
+) {
+  return client.POST("/storefront/{id}/publish", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function storefront_update(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "put">>) {
-  return client.PUT("/storefront/{id}", ...init);
+/**
+ * Update Storefront
+ *
+ * Update the details of a previously created Storefront
+ *
+ * @param id The unique identifier of the Storefront
+ */
+export function storefront_update(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "put">>
+) {
+  return client.PUT("/storefront/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function storefront_verifySlug(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/storefront/verify/{slug}"], "get">>) {
-  return client.GET("/storefront/verify/{slug}", ...init);
+/**
+ * Verify Storefront Slug
+ *
+ * Verify the availability of a slug before using it for your Storefront
+ *
+ * @param slug The custom slug to check
+ */
+export function storefront_verifySlug(
+  client: PaystackClient,
+  slug: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/storefront/verify/{slug}"], "get">>
+) {
+  return client.GET("/storefront/verify/{slug}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, slug } },
+  });
 }
 
-export function subaccount_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/subaccount"], "post">>) {
+/**
+ * Create Subaccount
+ *
+ * Create a subacount for a partner
+ */
+export function subaccount_create(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/subaccount"], "post">>
+) {
   return client.POST("/subaccount", ...init);
 }
 
-export function subaccount_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/subaccount/{code}"], "get">>) {
-  return client.GET("/subaccount/{code}", ...init);
+/**
+ * Fetch Subaccount
+ *
+ * Get details of a subaccount on your integration
+ *
+ * @param id_or_code The subaccount ID or code you want to fetch
+ */
+export function subaccount_fetch(
+  client: PaystackClient,
+  id_or_code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/subaccount/{id_or_code}"], "get">>
+) {
+  return client.GET("/subaccount/{id_or_code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
+  });
 }
 
-export function subaccount_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/subaccount"], "get">>) {
+/**
+ * List Subaccounts
+ *
+ * List subaccounts available on your integration
+ */
+export function subaccount_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/subaccount"], "get">>
+) {
   return client.GET("/subaccount", ...init);
 }
 
-export function subaccount_update(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/subaccount/{code}"], "put">>) {
-  return client.PUT("/subaccount/{code}", ...init);
+/**
+ * Update Subaccount
+ *
+ * Update a subaccount details on your integration
+ *
+ * @param id_or_code The subaccount ID or code you want to fetch
+ */
+export function subaccount_update(
+  client: PaystackClient,
+  id_or_code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/subaccount/{id_or_code}"], "put">>
+) {
+  return client.PUT("/subaccount/{id_or_code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
+  });
 }
 
-export function subscription_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/subscription"], "post">>) {
+/**
+ * Create Subscription
+ *
+ * Create a subscription a customer
+ */
+export function subscription_create(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/subscription"], "post">>
+) {
   return client.POST("/subscription", ...init);
 }
 
-export function subscription_disable(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/subscription/disable"], "post">>) {
+/**
+ * Disable Subscription
+ *
+ * Disable a subscription on your integration
+ */
+export function subscription_disable(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/subscription/disable"], "post">>
+) {
   return client.POST("/subscription/disable", ...init);
 }
 
-export function subscription_enable(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/subscription/enable"], "post">>) {
+/**
+ * Enable Subscription
+ *
+ * Enable a subscription on your integration
+ */
+export function subscription_enable(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/subscription/enable"], "post">>
+) {
   return client.POST("/subscription/enable", ...init);
 }
 
-export function subscription_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/subscription/{code}"], "get">>) {
-  return client.GET("/subscription/{code}", ...init);
+/**
+ * Fetch Subscription
+ *
+ * Get details of a customer's subscription
+ *
+ * @param id_or_code The subscription ID or code you want to fetch
+ */
+export function subscription_fetch(
+  client: PaystackClient,
+  id_or_code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/subscription/{id_or_code}"], "get">>
+) {
+  return client.GET("/subscription/{id_or_code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
+  });
 }
 
-export function subscription_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/subscription"], "get">>) {
+/**
+ * List Subscriptions
+ *
+ * List all subscriptions available on your integration
+ */
+export function subscription_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/subscription"], "get">>
+) {
   return client.GET("/subscription", ...init);
 }
 
-export function subscription_manageEmail(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/subscription/{code}/manage/email"], "post">>) {
-  return client.POST("/subscription/{code}/manage/email", ...init);
+/**
+ * Send Update Subscription Link
+ *
+ * Email a customer a link for updating the card on their subscription
+ *
+ * @param code Subscription code
+ */
+export function subscription_manageEmail(
+  client: PaystackClient,
+  code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/subscription/{code}/manage/email"], "post">>
+) {
+  return client.POST("/subscription/{code}/manage/email", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
+  });
 }
 
-export function subscription_manageLink(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/subscription/{code}/manage/link"], "get">>) {
-  return client.GET("/subscription/{code}/manage/link", ...init);
+/**
+ * Generate Update Subscription Link
+ *
+ * Generate a link for updating the card on a subscription
+ *
+ * @param code Subscription code
+ */
+export function subscription_manageLink(
+  client: PaystackClient,
+  code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/subscription/{code}/manage/link"], "get">>
+) {
+  return client.GET("/subscription/{code}/manage/link", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
+  });
 }
 
-export function terminal_commission(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/terminal/commission_device"], "post">>) {
+/**
+ * Commission Terminal
+ *
+ * Activate your debug device by linking it to your integration
+ */
+export function terminal_commission(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/terminal/commission_device"], "post">>
+) {
   return client.POST("/terminal/commission_device", ...init);
 }
 
-export function terminal_decommission(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/terminal/decommission_device"], "post">>) {
+/**
+ * Decommission Terminal
+ *
+ * Unlink your debug device from your integration
+ */
+export function terminal_decommission(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/terminal/decommission_device"], "post">>
+) {
   return client.POST("/terminal/decommission_device", ...init);
 }
 
-export function terminal_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}"], "get">>) {
-  return client.GET("/terminal/{terminal_id}", ...init);
+/**
+ * Fetch Terminal
+ *
+ * Get the details of a Terminal
+ *
+ * @param terminal_id The ID of the Terminal the event should be sent to.
+ */
+export function terminal_fetch(
+  client: PaystackClient,
+  terminal_id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}"], "get">>
+) {
+  return client.GET("/terminal/{terminal_id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, terminal_id } },
+  });
 }
 
-export function terminal_fetchEventStatus(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}/event/{event_id}"], "get">>) {
-  return client.GET("/terminal/{terminal_id}/event/{event_id}", ...init);
+/**
+ * Fetch Event Status
+ *
+ * Check the status of an event sent to the Terminal
+ *
+ * @param terminal_id The ID of the Terminal the event should be sent to.
+ * @param event_id The ID of the event that was sent to the Terminal
+ */
+export function terminal_fetchEventStatus(
+  client: PaystackClient,
+  terminal_id: string,
+  event_id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}/event/{event_id}"], "get">>
+) {
+  return client.GET("/terminal/{terminal_id}/event/{event_id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, terminal_id, event_id } },
+  });
 }
 
-export function terminal_fetchTerminalStatus(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}/presence"], "get">>) {
-  return client.GET("/terminal/{terminal_id}/presence", ...init);
+/**
+ * Fetch Terminal Status
+ *
+ * Check the availiability of a Terminal before sending an event to it
+ *
+ * @param terminal_id The ID of the Terminal the event should be sent to.
+ */
+export function terminal_fetchTerminalStatus(
+  client: PaystackClient,
+  terminal_id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}/presence"], "get">>
+) {
+  return client.GET("/terminal/{terminal_id}/presence", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, terminal_id } },
+  });
 }
 
-export function terminal_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/terminal"], "get">>) {
+/**
+ * List Terminals
+ *
+ * List the Terminals available on your integration
+ */
+export function terminal_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/terminal"], "get">>
+) {
   return client.GET("/terminal", ...init);
 }
 
-export function terminal_sendEvent(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/terminal/{id}/event"], "post">>) {
-  return client.POST("/terminal/{id}/event", ...init);
+/**
+ * Send Event
+ *
+ * Send an event from your application to the Paystack Terminal
+ *
+ * @param id The ID of the Terminal the event should be sent to.
+ */
+export function terminal_sendEvent(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/terminal/{id}/event"], "post">>
+) {
+  return client.POST("/terminal/{id}/event", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function terminal_update(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}"], "put">>) {
-  return client.PUT("/terminal/{terminal_id}", ...init);
+/**
+ * Update Terminal
+ *
+ * Update the details of a Terminal
+ *
+ * @param terminal_id The ID of the Terminal the event should be sent to.
+ */
+export function terminal_update(
+  client: PaystackClient,
+  terminal_id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}"], "put">>
+) {
+  return client.PUT("/terminal/{terminal_id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, terminal_id } },
+  });
 }
 
-export function transaction_chargeAuthorization(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction/charge_authorization"], "post">>) {
+/**
+ * Charge Authorization
+ *
+ * Charge all authorizations marked as reusable with this endpoint whenever you need to receive payments
+ */
+export function transaction_chargeAuthorization(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transaction/charge_authorization"], "post">>
+) {
   return client.POST("/transaction/charge_authorization", ...init);
 }
 
-export function transaction_checkAuthorization(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction/check_authorization"], "post">>) {
+/**
+ * Check Authorization
+ *
+ * Check if an authorization code can be used for a charge.
+ */
+export function transaction_checkAuthorization(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transaction/check_authorization"], "post">>
+) {
   return client.POST("/transaction/check_authorization", ...init);
 }
 
-export function transaction_event(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}/event"], "get">>) {
-  return client.GET("/transaction/{id}/event", ...init);
+/**
+ * Get Transaction Event
+ *
+ * Fetch the event for a specific transaction.
+ *
+ * @param id The ID of the transaction
+ */
+export function transaction_event(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}/event"], "get">>
+) {
+  return client.GET("/transaction/{id}/event", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function transaction_export(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction/export"], "get">>) {
+/**
+ * Export Transactions
+ *
+ * Download transactions that occurred on your integration for a specific timeframe
+ */
+export function transaction_export(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transaction/export"], "get">>
+) {
   return client.GET("/transaction/export", ...init);
 }
 
-export function transaction_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}"], "get">>) {
-  return client.GET("/transaction/{id}", ...init);
+/**
+ * Fetch Transaction
+ *
+ * Fetch a transaction to get its details
+ *
+ * @param id The ID of the transaction to fetch
+ */
+export function transaction_fetch(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}"], "get">>
+) {
+  return client.GET("/transaction/{id}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function transaction_initialize(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction/initialize"], "post">>) {
+/**
+ * Initialize Transaction
+ *
+ * Create a new transaction
+ */
+export function transaction_initialize(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transaction/initialize"], "post">>
+) {
   return client.POST("/transaction/initialize", ...init);
 }
 
-export function transaction_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction"], "get">>) {
+/**
+ * List Transactions
+ *
+ * List transactions carried out on your integration
+ */
+export function transaction_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transaction"], "get">>
+) {
   return client.GET("/transaction", ...init);
 }
 
-export function transaction_partialDebit(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction/partial_debit"], "post">>) {
+/**
+ * Partial Debit
+ *
+ * Retrieve part of a payment from a customer
+ */
+export function transaction_partialDebit(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transaction/partial_debit"], "post">>
+) {
   return client.POST("/transaction/partial_debit", ...init);
 }
 
-export function transaction_session(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}/session"], "get">>) {
-  return client.GET("/transaction/{id}/session", ...init);
+/**
+ * Get Transaction Session
+ *
+ * Fetch the session for a specific transaction.
+ *
+ * @param id The ID of the transaction
+ */
+export function transaction_session(
+  client: PaystackClient,
+  id: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}/session"], "get">>
+) {
+  return client.GET("/transaction/{id}/session", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
+  });
 }
 
-export function transaction_timeline(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction/timeline/{id}"], "get">>) {
-  return client.GET("/transaction/timeline/{id}", ...init);
+/**
+ * Fetch Transaction Timeline
+ *
+ * Fetch the steps taken from the initiation to the completion of a transaction
+ *
+ * @param id_or_reference The ID or the reference of the transaction
+ */
+export function transaction_timeline(
+  client: PaystackClient,
+  id_or_reference: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/transaction/timeline/{id_or_reference}"], "get">>
+) {
+  return client.GET("/transaction/timeline/{id_or_reference}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_reference } },
+  });
 }
 
-export function transaction_totals(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction/totals"], "get">>) {
+/**
+ * Transaction Totals
+ *
+ * Get the total amount of all transactions
+ */
+export function transaction_totals(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transaction/totals"], "get">>
+) {
   return client.GET("/transaction/totals", ...init);
 }
 
-export function transaction_verify(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction/verify/{reference}"], "get">>) {
-  return client.GET("/transaction/verify/{reference}", ...init);
+/**
+ * Verify Transaction
+ *
+ * Verify a previously initiated transaction using it's reference
+ *
+ * @param reference The transaction reference to verify
+ */
+export function transaction_verify(
+  client: PaystackClient,
+  reference: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/transaction/verify/{reference}"], "get">>
+) {
+  return client.GET("/transaction/verify/{reference}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, reference } },
+  });
 }
 
-export function transfer_bulk(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/bulk"], "post">>) {
+/**
+ * Initiate Bulk Transfer
+ *
+ * Batch multiple transfers in a single request.
+ *
+ * You need to disable the Transfers OTP requirement to use this endpoint.
+ *
+ */
+export function transfer_bulk(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transfer/bulk"], "post">>
+) {
   return client.POST("/transfer/bulk", ...init);
 }
 
-export function transfer_disableOtp(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/disable_otp"], "post">>) {
+/**
+ * Disable OTP for Transfers
+ *
+ * This is used in the event that you want to be able to complete transfers programmatically without use of OTPs.
+ * No arguments required. You will get an OTP to complete the request.
+ *
+ */
+export function transfer_disableOtp(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transfer/disable_otp"], "post">>
+) {
   return client.POST("/transfer/disable_otp", ...init);
 }
 
-export function transfer_disableOtpFinalize(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/disable_otp_finalize"], "post">>) {
+/**
+ * Finalize Disabling OTP for Transfers
+ *
+ * Finalize the request to disable OTP on your transfers
+ */
+export function transfer_disableOtpFinalize(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transfer/disable_otp_finalize"], "post">>
+) {
   return client.POST("/transfer/disable_otp_finalize", ...init);
 }
 
-export function transfer_enableOtp(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/enable_otp"], "post">>) {
+/**
+ * Enable OTP requirement for Transfers
+ *
+ * In the event that a customer wants to stop being able to complete transfers programmatically, this endpoint helps turn OTP requirement back on.
+ * No arguments required.
+ *
+ */
+export function transfer_enableOtp(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transfer/enable_otp"], "post">>
+) {
   return client.POST("/transfer/enable_otp", ...init);
 }
 
-export function transfer_exportTransfer(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/export"], "get">>) {
+/**
+ * Export Transfers
+ *
+ * Export a list of transfers carried out on your integration
+ */
+export function transfer_exportTransfer(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transfer/export"], "get">>
+) {
   return client.GET("/transfer/export", ...init);
 }
 
-export function transfer_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/{code}"], "get">>) {
-  return client.GET("/transfer/{code}", ...init);
+/**
+ * Fetch Transfer
+ *
+ * Get details of a transfer on your integration
+ *
+ * @param id_or_code The transfer ID or code you want to fetch
+ */
+export function transfer_fetch(
+  client: PaystackClient,
+  id_or_code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/transfer/{id_or_code}"], "get">>
+) {
+  return client.GET("/transfer/{id_or_code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
+  });
 }
 
-export function transfer_finalize(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/finalize_transfer"], "post">>) {
+/**
+ * Finalize Transfer
+ *
+ * Finalize an initiated transfer
+ */
+export function transfer_finalize(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transfer/finalize_transfer"], "post">>
+) {
   return client.POST("/transfer/finalize_transfer", ...init);
 }
 
-export function transfer_initiate(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer"], "post">>) {
+/**
+ * Initiate Transfer
+ *
+ * Send money to your customers
+ */
+export function transfer_initiate(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transfer"], "post">>
+) {
   return client.POST("/transfer", ...init);
 }
 
-export function transfer_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer"], "get">>) {
+/**
+ * List Transfers
+ *
+ * List the transfers made on your integration
+ */
+export function transfer_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transfer"], "get">>
+) {
   return client.GET("/transfer", ...init);
 }
 
-export function transfer_resendOtp(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/resend_otp"], "post">>) {
+/**
+ * Resend OTP for Transfer
+ *
+ * Generates and send a new OTP to customer in the event they are having trouble receiving one.
+ */
+export function transfer_resendOtp(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transfer/resend_otp"], "post">>
+) {
   return client.POST("/transfer/resend_otp", ...init);
 }
 
-export function transfer_verify(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/verify/{reference}"], "get">>) {
-  return client.GET("/transfer/verify/{reference}", ...init);
+/**
+ * Verify Transfer
+ *
+ * Verify the status of a transfer on your integration
+ *
+ * @param reference Transfer reference
+ */
+export function transfer_verify(
+  client: PaystackClient,
+  reference: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/transfer/verify/{reference}"], "get">>
+) {
+  return client.GET("/transfer/verify/{reference}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, reference } },
+  });
 }
 
-export function transferrecipient_bulk(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/bulk"], "post">>) {
+/**
+ * Bulk Create Transfer Recipient
+ *
+ * Create multiple transfer recipients in batches. A duplicate account number will lead to the retrieval of the existing record.
+ *
+ */
+export function transferrecipient_bulk(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/bulk"], "post">>
+) {
   return client.POST("/transferrecipient/bulk", ...init);
 }
 
-export function transferrecipient_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient"], "post">>) {
+/**
+ * Create Transfer Recipient
+ *
+ * Creates a new recipient. A duplicate account number will lead to the retrieval of the existing record.
+ */
+export function transferrecipient_create(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient"], "post">>
+) {
   return client.POST("/transferrecipient", ...init);
 }
 
-export function transferrecipient_delete(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{code}"], "delete">>) {
-  return client.DELETE("/transferrecipient/{code}", ...init);
+/**
+ * Delete Transfer Recipient
+ *
+ * Delete a transfer recipient (sets the transfer recipient to inactive)
+ *
+ * @param id_or_code An ID or code for the recipient whose details you want to receive.
+ */
+export function transferrecipient_delete(
+  client: PaystackClient,
+  id_or_code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "delete">>
+) {
+  return client.DELETE("/transferrecipient/{id_or_code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
+  });
 }
 
-export function transferrecipient_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{code}"], "get">>) {
-  return client.GET("/transferrecipient/{code}", ...init);
+/**
+ * Fetch Transfer recipient
+ *
+ * Fetch the details of a transfer recipient
+ *
+ * @param id_or_code An ID or code for the recipient whose details you want to receive.
+ */
+export function transferrecipient_fetch(
+  client: PaystackClient,
+  id_or_code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "get">>
+) {
+  return client.GET("/transferrecipient/{id_or_code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
+  });
 }
 
-export function transferrecipient_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient"], "get">>) {
+/**
+ * List Transfer Recipients
+ *
+ * List transfer recipients available on your integration
+ */
+export function transferrecipient_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient"], "get">>
+) {
   return client.GET("/transferrecipient", ...init);
 }
 
-export function transferrecipient_update(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{code}"], "put">>) {
-  return client.PUT("/transferrecipient/{code}", ...init);
+/**
+ * Update Transfer Recipient
+ *
+ * Update the details of a transfer recipient
+ *
+ * @param id_or_code An ID or code for the recipient whose details you want to receive.
+ */
+export function transferrecipient_update(
+  client: PaystackClient,
+  id_or_code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "put">>
+) {
+  return client.PUT("/transferrecipient/{id_or_code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
+  });
 }
 
-export function virtualTerminal_addSplitCode(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/split_code"], "put">>) {
-  return client.PUT("/virtual_terminal/{code}/split_code", ...init);
+/**
+ * Add Split Code to Virtual Terminal
+ *
+ * Add Split Code to Virtual Terminal
+ *
+ * @param code Code of the Virtual Terminal
+ */
+export function virtualTerminal_addSplitCode(
+  client: PaystackClient,
+  code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/split_code"], "put">>
+) {
+  return client.PUT("/virtual_terminal/{code}/split_code", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
+  });
 }
 
-export function virtualTerminal_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal"], "post">>) {
+/**
+ * Create Virtual Terminal
+ *
+ * Create a Virtual Terminal on your integration
+ */
+export function virtualTerminal_create(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal"], "post">>
+) {
   return client.POST("/virtual_terminal", ...init);
 }
 
-export function virtualTerminal_deactivate(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/deactivate"], "put">>) {
-  return client.PUT("/virtual_terminal/{code}/deactivate", ...init);
+/**
+ * Deactivate Virtual Terminal
+ *
+ * Deactivate a Virtual Terminal on your integration
+ *
+ * @param code Code of the Virtual Terminal
+ */
+export function virtualTerminal_deactivate(
+  client: PaystackClient,
+  code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/deactivate"], "put">>
+) {
+  return client.PUT("/virtual_terminal/{code}/deactivate", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
+  });
 }
 
-export function virtualTerminal_deleteSplitCode(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/split_code"], "delete">>) {
-  return client.DELETE("/virtual_terminal/{code}/split_code", ...init);
+/**
+ * Remove Split Code from Virtual Terminal
+ *
+ * Remove Split Code from Virtual Terminal
+ *
+ * @param code Code of the Virtual Terminal
+ */
+export function virtualTerminal_deleteSplitCode(
+  client: PaystackClient,
+  code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/split_code"], "delete">>
+) {
+  return client.DELETE("/virtual_terminal/{code}/split_code", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
+  });
 }
 
-export function virtualTerminal_destinationAssign(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/destination/assign"], "post">>) {
-  return client.POST("/virtual_terminal/{code}/destination/assign", ...init);
+/**
+ * Assign Destination to Virtual Terminal
+ *
+ * Add a destination (WhatsApp number) to a Virtual Terminal on your integration
+ *
+ * @param code Code of the Virtual Terminal
+ */
+export function virtualTerminal_destinationAssign(
+  client: PaystackClient,
+  code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/destination/assign"], "post">>
+) {
+  return client.POST("/virtual_terminal/{code}/destination/assign", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
+  });
 }
 
-export function virtualTerminal_destinationUnassign(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/destination/unassign"], "post">>) {
-  return client.POST("/virtual_terminal/{code}/destination/unassign", ...init);
+/**
+ * Unassign Destination from Virtual Terminal
+ *
+ * Unassign a destination (WhatsApp Number) from a Virtual Terminal on your integration
+ *
+ * @param code Code of the Virtual Terminal
+ */
+export function virtualTerminal_destinationUnassign(
+  client: PaystackClient,
+  code: string,
+  ...init: InitArg<
+    MaybeOptionalInit<paths["/virtual_terminal/{code}/destination/unassign"], "post">
+  >
+) {
+  return client.POST("/virtual_terminal/{code}/destination/unassign", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
+  });
 }
 
-export function virtualTerminal_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}"], "get">>) {
-  return client.GET("/virtual_terminal/{code}", ...init);
+/**
+ * Fetch Virtual Terminal
+ *
+ * Fetch a Virtual Terminal on your integration
+ *
+ * @param code Code of the Virtual Terminal
+ */
+export function virtualTerminal_fetch(
+  client: PaystackClient,
+  code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}"], "get">>
+) {
+  return client.GET("/virtual_terminal/{code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
+  });
 }
 
-export function virtualTerminal_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal"], "get">>) {
+/**
+ * List Virtual Terminals
+ *
+ * List Virtual Terminals on your integration
+ */
+export function virtualTerminal_list(
+  client: PaystackClient,
+  ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal"], "get">>
+) {
   return client.GET("/virtual_terminal", ...init);
 }
 
-export function virtualTerminal_update(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}"], "put">>) {
-  return client.PUT("/virtual_terminal/{code}", ...init);
+/**
+ * Update Virtual Terminal
+ *
+ * Update a Virtual Terminal on your integration
+ *
+ * @param code Code of the Virtual Terminal
+ */
+export function virtualTerminal_update(
+  client: PaystackClient,
+  code: string,
+  ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}"], "put">>
+) {
+  return client.PUT("/virtual_terminal/{code}", {
+    ...init[0],
+    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
+  });
 }
 
 export function bindOperations(client: PaystackClient) {
   return {
-    applePay_listDomain: (...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "get">>) => applePay_listDomain(client, ...init),
-    applePay_registerDomain: (...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "post">>) => applePay_registerDomain(client, ...init),
-    applePay_unregisterDomain: (...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "delete">>) => applePay_unregisterDomain(client, ...init),
-    balance_fetch: (...init: InitArg<MaybeOptionalInit<paths["/balance"], "get">>) => balance_fetch(client, ...init),
-    balance_ledger: (...init: InitArg<MaybeOptionalInit<paths["/balance/ledger"], "get">>) => balance_ledger(client, ...init),
-    bank_list: (...init: InitArg<MaybeOptionalInit<paths["/bank"], "get">>) => bank_list(client, ...init),
-    bank_resolveAccountNumber: (...init: InitArg<MaybeOptionalInit<paths["/bank/resolve"], "get">>) => bank_resolveAccountNumber(client, ...init),
-    bank_validateAccountNumber: (...init: InitArg<MaybeOptionalInit<paths["/bank/validate"], "post">>) => bank_validateAccountNumber(client, ...init),
-    bulkCharge_charges: (...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/{code}/charges"], "get">>) => bulkCharge_charges(client, ...init),
-    bulkCharge_fetch: (...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/{code}"], "get">>) => bulkCharge_fetch(client, ...init),
-    bulkCharge_initiate: (...init: InitArg<MaybeOptionalInit<paths["/bulkcharge"], "post">>) => bulkCharge_initiate(client, ...init),
-    bulkCharge_list: (...init: InitArg<MaybeOptionalInit<paths["/bulkcharge"], "get">>) => bulkCharge_list(client, ...init),
-    bulkCharge_pause: (...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/pause/{code}"], "get">>) => bulkCharge_pause(client, ...init),
-    bulkCharge_resume: (...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/resume/{code}"], "get">>) => bulkCharge_resume(client, ...init),
-    charge_check: (...init: InitArg<MaybeOptionalInit<paths["/charge/{reference}"], "get">>) => charge_check(client, ...init),
-    charge_create: (...init: InitArg<MaybeOptionalInit<paths["/charge"], "post">>) => charge_create(client, ...init),
-    charge_submitAddress: (...init: InitArg<MaybeOptionalInit<paths["/charge/submit_address"], "post">>) => charge_submitAddress(client, ...init),
-    charge_submitBirthday: (...init: InitArg<MaybeOptionalInit<paths["/charge/submit_birthday"], "post">>) => charge_submitBirthday(client, ...init),
-    charge_submitOtp: (...init: InitArg<MaybeOptionalInit<paths["/charge/submit_otp"], "post">>) => charge_submitOtp(client, ...init),
-    charge_submitPhone: (...init: InitArg<MaybeOptionalInit<paths["/charge/submit_phone"], "post">>) => charge_submitPhone(client, ...init),
-    charge_submitPin: (...init: InitArg<MaybeOptionalInit<paths["/charge/submit_pin"], "post">>) => charge_submitPin(client, ...init),
-    customer_create: (...init: InitArg<MaybeOptionalInit<paths["/customer"], "post">>) => customer_create(client, ...init),
-    customer_deactivateAuthorization: (...init: InitArg<MaybeOptionalInit<paths["/customer/authorization/deactivate"], "post">>) => customer_deactivateAuthorization(client, ...init),
-    customer_directDebitActivationCharge: (...init: InitArg<MaybeOptionalInit<paths["/customer/{id}/directdebit-activation-charge"], "put">>) => customer_directDebitActivationCharge(client, ...init),
-    customer_fetch: (...init: InitArg<MaybeOptionalInit<paths["/customer/{code}"], "get">>) => customer_fetch(client, ...init),
-    customer_fetchMandateAuthorizations: (...init: InitArg<MaybeOptionalInit<paths["/customer/{id}/directdebit-mandate-authorizations"], "get">>) => customer_fetchMandateAuthorizations(client, ...init),
-    customer_initializeAuthorization: (...init: InitArg<MaybeOptionalInit<paths["/customer/authorization/initialize"], "post">>) => customer_initializeAuthorization(client, ...init),
-    customer_initializeDirectDebit: (...init: InitArg<MaybeOptionalInit<paths["/customer/{id}/initialize-direct-debit"], "post">>) => customer_initializeDirectDebit(client, ...init),
-    customer_list: (...init: InitArg<MaybeOptionalInit<paths["/customer"], "get">>) => customer_list(client, ...init),
-    customer_riskAction: (...init: InitArg<MaybeOptionalInit<paths["/customer/set_risk_action"], "post">>) => customer_riskAction(client, ...init),
-    customer_update: (...init: InitArg<MaybeOptionalInit<paths["/customer/{code}"], "put">>) => customer_update(client, ...init),
-    customer_validate: (...init: InitArg<MaybeOptionalInit<paths["/customer/{code}/identification"], "post">>) => customer_validate(client, ...init),
-    customer_verifyAuthorization: (...init: InitArg<MaybeOptionalInit<paths["/customer/authorization/verify/{reference}"], "get">>) => customer_verifyAuthorization(client, ...init),
-    dedicatedAccount_addSplit: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/split"], "post">>) => dedicatedAccount_addSplit(client, ...init),
-    dedicatedAccount_assign: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/assign"], "post">>) => dedicatedAccount_assign(client, ...init),
-    dedicatedAccount_availableProviders: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/available_providers"], "get">>) => dedicatedAccount_availableProviders(client, ...init),
-    dedicatedAccount_create: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account"], "post">>) => dedicatedAccount_create(client, ...init),
-    dedicatedAccount_deactivate: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/{id}"], "delete">>) => dedicatedAccount_deactivate(client, ...init),
-    dedicatedAccount_fetch: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/{id}"], "get">>) => dedicatedAccount_fetch(client, ...init),
-    dedicatedAccount_list: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account"], "get">>) => dedicatedAccount_list(client, ...init),
-    dedicatedAccount_removeSplit: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/split"], "delete">>) => dedicatedAccount_removeSplit(client, ...init),
-    dedicatedAccount_requery: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/requery"], "get">>) => dedicatedAccount_requery(client, ...init),
-    directdebit_listMandateAuthorizations: (...init: InitArg<MaybeOptionalInit<paths["/directdebit/mandate-authorizations"], "get">>) => directdebit_listMandateAuthorizations(client, ...init),
-    directdebit_triggerActivationCharge: (...init: InitArg<MaybeOptionalInit<paths["/directdebit/activation-charge"], "put">>) => directdebit_triggerActivationCharge(client, ...init),
-    dispute_download: (...init: InitArg<MaybeOptionalInit<paths["/dispute/export"], "get">>) => dispute_download(client, ...init),
-    dispute_evidence: (...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/evidence"], "post">>) => dispute_evidence(client, ...init),
-    dispute_fetch: (...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}"], "get">>) => dispute_fetch(client, ...init),
-    dispute_list: (...init: InitArg<MaybeOptionalInit<paths["/dispute"], "get">>) => dispute_list(client, ...init),
-    dispute_resolve: (...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/resolve"], "put">>) => dispute_resolve(client, ...init),
-    dispute_transaction: (...init: InitArg<MaybeOptionalInit<paths["/dispute/transaction/{id}"], "get">>) => dispute_transaction(client, ...init),
-    dispute_update: (...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}"], "put">>) => dispute_update(client, ...init),
-    dispute_uploadUrl: (...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/upload_url"], "get">>) => dispute_uploadUrl(client, ...init),
-    integration_fetchPaymentSessionTimeout: (...init: InitArg<MaybeOptionalInit<paths["/integration/payment_session_timeout"], "get">>) => integration_fetchPaymentSessionTimeout(client, ...init),
-    integration_updatePaymentSessionTimeout: (...init: InitArg<MaybeOptionalInit<paths["/integration/payment_session_timeout"], "put">>) => integration_updatePaymentSessionTimeout(client, ...init),
-    miscellaneous_avs: (...init: InitArg<MaybeOptionalInit<paths["/address_verification/states"], "get">>) => miscellaneous_avs(client, ...init),
-    miscellaneous_listCountries: (...init: InitArg<MaybeOptionalInit<paths["/country"], "get">>) => miscellaneous_listCountries(client, ...init),
-    miscellaneous_resolveCardBin: (...init: InitArg<MaybeOptionalInit<paths["/decision/bin/{bin}"], "get">>) => miscellaneous_resolveCardBin(client, ...init),
-    order_create: (...init: InitArg<MaybeOptionalInit<paths["/order"], "post">>) => order_create(client, ...init),
-    order_fetch: (...init: InitArg<MaybeOptionalInit<paths["/order/{id}"], "get">>) => order_fetch(client, ...init),
-    order_list: (...init: InitArg<MaybeOptionalInit<paths["/order"], "get">>) => order_list(client, ...init),
-    order_product: (...init: InitArg<MaybeOptionalInit<paths["/order/product/{id}"], "get">>) => order_product(client, ...init),
-    order_validate: (...init: InitArg<MaybeOptionalInit<paths["/order/{code}/validate"], "get">>) => order_validate(client, ...init),
-    page_addProducts: (...init: InitArg<MaybeOptionalInit<paths["/page/{id}/product"], "post">>) => page_addProducts(client, ...init),
-    page_checkSlugAvailability: (...init: InitArg<MaybeOptionalInit<paths["/page/check_slug_availability/{slug}"], "get">>) => page_checkSlugAvailability(client, ...init),
-    page_create: (...init: InitArg<MaybeOptionalInit<paths["/page"], "post">>) => page_create(client, ...init),
-    page_fetch: (...init: InitArg<MaybeOptionalInit<paths["/page/{id}"], "get">>) => page_fetch(client, ...init),
-    page_list: (...init: InitArg<MaybeOptionalInit<paths["/page"], "get">>) => page_list(client, ...init),
-    page_update: (...init: InitArg<MaybeOptionalInit<paths["/page/{id}"], "put">>) => page_update(client, ...init),
-    paymentRequest_archive: (...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/archive/{id}"], "post">>) => paymentRequest_archive(client, ...init),
-    paymentRequest_create: (...init: InitArg<MaybeOptionalInit<paths["/paymentrequest"], "post">>) => paymentRequest_create(client, ...init),
-    paymentRequest_fetch: (...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/{id}"], "get">>) => paymentRequest_fetch(client, ...init),
-    paymentRequest_finalize: (...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/finalize/{id}"], "post">>) => paymentRequest_finalize(client, ...init),
-    paymentRequest_list: (...init: InitArg<MaybeOptionalInit<paths["/paymentrequest"], "get">>) => paymentRequest_list(client, ...init),
-    paymentRequest_notify: (...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/notify/{id}"], "post">>) => paymentRequest_notify(client, ...init),
-    paymentRequest_totals: (...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/totals"], "get">>) => paymentRequest_totals(client, ...init),
-    paymentRequest_update: (...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/{id}"], "put">>) => paymentRequest_update(client, ...init),
-    paymentRequest_verify: (...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/verify/{id}"], "get">>) => paymentRequest_verify(client, ...init),
-    plan_create: (...init: InitArg<MaybeOptionalInit<paths["/plan"], "post">>) => plan_create(client, ...init),
-    plan_fetch: (...init: InitArg<MaybeOptionalInit<paths["/plan/{code}"], "get">>) => plan_fetch(client, ...init),
-    plan_list: (...init: InitArg<MaybeOptionalInit<paths["/plan"], "get">>) => plan_list(client, ...init),
-    plan_update: (...init: InitArg<MaybeOptionalInit<paths["/plan/{code}"], "put">>) => plan_update(client, ...init),
-    product_create: (...init: InitArg<MaybeOptionalInit<paths["/product"], "post">>) => product_create(client, ...init),
-    product_delete: (...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "delete">>) => product_delete(client, ...init),
-    product_fetch: (...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "get">>) => product_fetch(client, ...init),
-    product_list: (...init: InitArg<MaybeOptionalInit<paths["/product"], "get">>) => product_list(client, ...init),
-    product_update: (...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "put">>) => product_update(client, ...init),
-    refund_create: (...init: InitArg<MaybeOptionalInit<paths["/refund"], "post">>) => refund_create(client, ...init),
-    refund_fetch: (...init: InitArg<MaybeOptionalInit<paths["/refund/{id}"], "get">>) => refund_fetch(client, ...init),
-    refund_list: (...init: InitArg<MaybeOptionalInit<paths["/refund"], "get">>) => refund_list(client, ...init),
-    refund_retry: (...init: InitArg<MaybeOptionalInit<paths["/refund/retry_with_customer_details/{id}"], "post">>) => refund_retry(client, ...init),
-    settlements_fetch: (...init: InitArg<MaybeOptionalInit<paths["/settlement"], "get">>) => settlements_fetch(client, ...init),
-    settlements_transaction: (...init: InitArg<MaybeOptionalInit<paths["/settlement/{id}/transactions"], "get">>) => settlements_transaction(client, ...init),
-    split_addSubaccount: (...init: InitArg<MaybeOptionalInit<paths["/split/{id}/subaccount/add"], "post">>) => split_addSubaccount(client, ...init),
-    split_create: (...init: InitArg<MaybeOptionalInit<paths["/split"], "post">>) => split_create(client, ...init),
-    split_fetch: (...init: InitArg<MaybeOptionalInit<paths["/split/{id}"], "get">>) => split_fetch(client, ...init),
-    split_list: (...init: InitArg<MaybeOptionalInit<paths["/split"], "get">>) => split_list(client, ...init),
-    split_removeSubaccount: (...init: InitArg<MaybeOptionalInit<paths["/split/{id}/subaccount/remove"], "post">>) => split_removeSubaccount(client, ...init),
-    split_update: (...init: InitArg<MaybeOptionalInit<paths["/split/{id}"], "put">>) => split_update(client, ...init),
-    storefront_addProducts: (...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/product"], "post">>) => storefront_addProducts(client, ...init),
-    storefront_create: (...init: InitArg<MaybeOptionalInit<paths["/storefront"], "post">>) => storefront_create(client, ...init),
-    storefront_delete: (...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "delete">>) => storefront_delete(client, ...init),
-    storefront_duplicate: (...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/duplicate"], "post">>) => storefront_duplicate(client, ...init),
-    storefront_fetch: (...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "get">>) => storefront_fetch(client, ...init),
-    storefront_fetchOrders: (...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/order"], "get">>) => storefront_fetchOrders(client, ...init),
-    storefront_list: (...init: InitArg<MaybeOptionalInit<paths["/storefront"], "get">>) => storefront_list(client, ...init),
-    storefront_listProducts: (...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/product"], "get">>) => storefront_listProducts(client, ...init),
-    storefront_publish: (...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/publish"], "post">>) => storefront_publish(client, ...init),
-    storefront_update: (...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "put">>) => storefront_update(client, ...init),
-    storefront_verifySlug: (...init: InitArg<MaybeOptionalInit<paths["/storefront/verify/{slug}"], "get">>) => storefront_verifySlug(client, ...init),
-    subaccount_create: (...init: InitArg<MaybeOptionalInit<paths["/subaccount"], "post">>) => subaccount_create(client, ...init),
-    subaccount_fetch: (...init: InitArg<MaybeOptionalInit<paths["/subaccount/{code}"], "get">>) => subaccount_fetch(client, ...init),
-    subaccount_list: (...init: InitArg<MaybeOptionalInit<paths["/subaccount"], "get">>) => subaccount_list(client, ...init),
-    subaccount_update: (...init: InitArg<MaybeOptionalInit<paths["/subaccount/{code}"], "put">>) => subaccount_update(client, ...init),
-    subscription_create: (...init: InitArg<MaybeOptionalInit<paths["/subscription"], "post">>) => subscription_create(client, ...init),
-    subscription_disable: (...init: InitArg<MaybeOptionalInit<paths["/subscription/disable"], "post">>) => subscription_disable(client, ...init),
-    subscription_enable: (...init: InitArg<MaybeOptionalInit<paths["/subscription/enable"], "post">>) => subscription_enable(client, ...init),
-    subscription_fetch: (...init: InitArg<MaybeOptionalInit<paths["/subscription/{code}"], "get">>) => subscription_fetch(client, ...init),
-    subscription_list: (...init: InitArg<MaybeOptionalInit<paths["/subscription"], "get">>) => subscription_list(client, ...init),
-    subscription_manageEmail: (...init: InitArg<MaybeOptionalInit<paths["/subscription/{code}/manage/email"], "post">>) => subscription_manageEmail(client, ...init),
-    subscription_manageLink: (...init: InitArg<MaybeOptionalInit<paths["/subscription/{code}/manage/link"], "get">>) => subscription_manageLink(client, ...init),
-    terminal_commission: (...init: InitArg<MaybeOptionalInit<paths["/terminal/commission_device"], "post">>) => terminal_commission(client, ...init),
-    terminal_decommission: (...init: InitArg<MaybeOptionalInit<paths["/terminal/decommission_device"], "post">>) => terminal_decommission(client, ...init),
-    terminal_fetch: (...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}"], "get">>) => terminal_fetch(client, ...init),
-    terminal_fetchEventStatus: (...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}/event/{event_id}"], "get">>) => terminal_fetchEventStatus(client, ...init),
-    terminal_fetchTerminalStatus: (...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}/presence"], "get">>) => terminal_fetchTerminalStatus(client, ...init),
-    terminal_list: (...init: InitArg<MaybeOptionalInit<paths["/terminal"], "get">>) => terminal_list(client, ...init),
-    terminal_sendEvent: (...init: InitArg<MaybeOptionalInit<paths["/terminal/{id}/event"], "post">>) => terminal_sendEvent(client, ...init),
-    terminal_update: (...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}"], "put">>) => terminal_update(client, ...init),
-    transaction_chargeAuthorization: (...init: InitArg<MaybeOptionalInit<paths["/transaction/charge_authorization"], "post">>) => transaction_chargeAuthorization(client, ...init),
-    transaction_checkAuthorization: (...init: InitArg<MaybeOptionalInit<paths["/transaction/check_authorization"], "post">>) => transaction_checkAuthorization(client, ...init),
-    transaction_event: (...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}/event"], "get">>) => transaction_event(client, ...init),
-    transaction_export: (...init: InitArg<MaybeOptionalInit<paths["/transaction/export"], "get">>) => transaction_export(client, ...init),
-    transaction_fetch: (...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}"], "get">>) => transaction_fetch(client, ...init),
-    transaction_initialize: (...init: InitArg<MaybeOptionalInit<paths["/transaction/initialize"], "post">>) => transaction_initialize(client, ...init),
-    transaction_list: (...init: InitArg<MaybeOptionalInit<paths["/transaction"], "get">>) => transaction_list(client, ...init),
-    transaction_partialDebit: (...init: InitArg<MaybeOptionalInit<paths["/transaction/partial_debit"], "post">>) => transaction_partialDebit(client, ...init),
-    transaction_session: (...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}/session"], "get">>) => transaction_session(client, ...init),
-    transaction_timeline: (...init: InitArg<MaybeOptionalInit<paths["/transaction/timeline/{id}"], "get">>) => transaction_timeline(client, ...init),
-    transaction_totals: (...init: InitArg<MaybeOptionalInit<paths["/transaction/totals"], "get">>) => transaction_totals(client, ...init),
-    transaction_verify: (...init: InitArg<MaybeOptionalInit<paths["/transaction/verify/{reference}"], "get">>) => transaction_verify(client, ...init),
-    transfer_bulk: (...init: InitArg<MaybeOptionalInit<paths["/transfer/bulk"], "post">>) => transfer_bulk(client, ...init),
-    transfer_disableOtp: (...init: InitArg<MaybeOptionalInit<paths["/transfer/disable_otp"], "post">>) => transfer_disableOtp(client, ...init),
-    transfer_disableOtpFinalize: (...init: InitArg<MaybeOptionalInit<paths["/transfer/disable_otp_finalize"], "post">>) => transfer_disableOtpFinalize(client, ...init),
-    transfer_enableOtp: (...init: InitArg<MaybeOptionalInit<paths["/transfer/enable_otp"], "post">>) => transfer_enableOtp(client, ...init),
-    transfer_exportTransfer: (...init: InitArg<MaybeOptionalInit<paths["/transfer/export"], "get">>) => transfer_exportTransfer(client, ...init),
-    transfer_fetch: (...init: InitArg<MaybeOptionalInit<paths["/transfer/{code}"], "get">>) => transfer_fetch(client, ...init),
-    transfer_finalize: (...init: InitArg<MaybeOptionalInit<paths["/transfer/finalize_transfer"], "post">>) => transfer_finalize(client, ...init),
-    transfer_initiate: (...init: InitArg<MaybeOptionalInit<paths["/transfer"], "post">>) => transfer_initiate(client, ...init),
-    transfer_list: (...init: InitArg<MaybeOptionalInit<paths["/transfer"], "get">>) => transfer_list(client, ...init),
-    transfer_resendOtp: (...init: InitArg<MaybeOptionalInit<paths["/transfer/resend_otp"], "post">>) => transfer_resendOtp(client, ...init),
-    transfer_verify: (...init: InitArg<MaybeOptionalInit<paths["/transfer/verify/{reference}"], "get">>) => transfer_verify(client, ...init),
-    transferrecipient_bulk: (...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/bulk"], "post">>) => transferrecipient_bulk(client, ...init),
-    transferrecipient_create: (...init: InitArg<MaybeOptionalInit<paths["/transferrecipient"], "post">>) => transferrecipient_create(client, ...init),
-    transferrecipient_delete: (...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{code}"], "delete">>) => transferrecipient_delete(client, ...init),
-    transferrecipient_fetch: (...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{code}"], "get">>) => transferrecipient_fetch(client, ...init),
-    transferrecipient_list: (...init: InitArg<MaybeOptionalInit<paths["/transferrecipient"], "get">>) => transferrecipient_list(client, ...init),
-    transferrecipient_update: (...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{code}"], "put">>) => transferrecipient_update(client, ...init),
-    virtualTerminal_addSplitCode: (...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/split_code"], "put">>) => virtualTerminal_addSplitCode(client, ...init),
-    virtualTerminal_create: (...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal"], "post">>) => virtualTerminal_create(client, ...init),
-    virtualTerminal_deactivate: (...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/deactivate"], "put">>) => virtualTerminal_deactivate(client, ...init),
-    virtualTerminal_deleteSplitCode: (...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/split_code"], "delete">>) => virtualTerminal_deleteSplitCode(client, ...init),
-    virtualTerminal_destinationAssign: (...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/destination/assign"], "post">>) => virtualTerminal_destinationAssign(client, ...init),
-    virtualTerminal_destinationUnassign: (...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/destination/unassign"], "post">>) => virtualTerminal_destinationUnassign(client, ...init),
-    virtualTerminal_fetch: (...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}"], "get">>) => virtualTerminal_fetch(client, ...init),
-    virtualTerminal_list: (...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal"], "get">>) => virtualTerminal_list(client, ...init),
-    virtualTerminal_update: (...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}"], "put">>) => virtualTerminal_update(client, ...init),
+    applePay: {
+      listDomain: (...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "get">, false>) =>
+        applePay_listDomain(client, ...init),
+      registerDomain: (
+        ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "post">, false>
+      ) => applePay_registerDomain(client, ...init),
+      unregisterDomain: (
+        ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "delete">, false>
+      ) => applePay_unregisterDomain(client, ...init),
+    },
+    balance: {
+      fetch: (...init: InitArg<MaybeOptionalInit<paths["/balance"], "get">, false>) =>
+        balance_fetch(client, ...init),
+      ledger: (...init: InitArg<MaybeOptionalInit<paths["/balance/ledger"], "get">, false>) =>
+        balance_ledger(client, ...init),
+    },
+    bank: {
+      list: (...init: InitArg<MaybeOptionalInit<paths["/bank"], "get">, false>) =>
+        bank_list(client, ...init),
+      resolveAccountNumber: (
+        ...init: InitArg<MaybeOptionalInit<paths["/bank/resolve"], "get">, false>
+      ) => bank_resolveAccountNumber(client, ...init),
+      validateAccountNumber: (
+        ...init: InitArg<MaybeOptionalInit<paths["/bank/validate"], "post">, false>
+      ) => bank_validateAccountNumber(client, ...init),
+    },
+    bulkCharge: {
+      charges: (
+        id_or_code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/{id_or_code}/charges"], "get">, true>
+      ) => bulkCharge_charges(client, id_or_code, ...init),
+      fetch: (
+        id_or_code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/{id_or_code}"], "get">, true>
+      ) => bulkCharge_fetch(client, id_or_code, ...init),
+      initiate: (...init: InitArg<MaybeOptionalInit<paths["/bulkcharge"], "post">, false>) =>
+        bulkCharge_initiate(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/bulkcharge"], "get">, false>) =>
+        bulkCharge_list(client, ...init),
+      pause: (
+        code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/pause/{code}"], "get">, true>
+      ) => bulkCharge_pause(client, code, ...init),
+      resume: (
+        code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/resume/{code}"], "get">, true>
+      ) => bulkCharge_resume(client, code, ...init),
+    },
+    capitecPay: {
+      requery: (
+        ref: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/capitec-pay/requery/{ref}"], "post">, true>
+      ) => capitecPay_requery(client, ref, ...init),
+    },
+    charge: {
+      check: (
+        reference: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/charge/{reference}"], "get">, true>
+      ) => charge_check(client, reference, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/charge"], "post">, false>) =>
+        charge_create(client, ...init),
+      submitAddress: (
+        ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_address"], "post">, false>
+      ) => charge_submitAddress(client, ...init),
+      submitBirthday: (
+        ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_birthday"], "post">, false>
+      ) => charge_submitBirthday(client, ...init),
+      submitOtp: (
+        ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_otp"], "post">, false>
+      ) => charge_submitOtp(client, ...init),
+      submitPhone: (
+        ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_phone"], "post">, false>
+      ) => charge_submitPhone(client, ...init),
+      submitPin: (
+        ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_pin"], "post">, false>
+      ) => charge_submitPin(client, ...init),
+    },
+    customer: {
+      create: (...init: InitArg<MaybeOptionalInit<paths["/customer"], "post">, false>) =>
+        customer_create(client, ...init),
+      deactivateAuthorization: (
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/customer/authorization/deactivate"], "post">,
+          false
+        >
+      ) => customer_deactivateAuthorization(client, ...init),
+      directDebitActivationCharge: (
+        id: string,
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/customer/{id}/directdebit-activation-charge"], "put">,
+          true
+        >
+      ) => customer_directDebitActivationCharge(client, id, ...init),
+      fetch: (
+        email_or_code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/customer/{email_or_code}"], "get">, true>
+      ) => customer_fetch(client, email_or_code, ...init),
+      fetchMandateAuthorizations: (
+        id: string,
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/customer/{id}/directdebit-mandate-authorizations"], "get">,
+          true
+        >
+      ) => customer_fetchMandateAuthorizations(client, id, ...init),
+      initializeAuthorization: (
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/customer/authorization/initialize"], "post">,
+          false
+        >
+      ) => customer_initializeAuthorization(client, ...init),
+      initializeDirectDebit: (
+        id: string,
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/customer/{id}/initialize-direct-debit"], "post">,
+          true
+        >
+      ) => customer_initializeDirectDebit(client, id, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/customer"], "get">, false>) =>
+        customer_list(client, ...init),
+      riskAction: (
+        ...init: InitArg<MaybeOptionalInit<paths["/customer/set_risk_action"], "post">, false>
+      ) => customer_riskAction(client, ...init),
+      update: (
+        email_or_code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/customer/{email_or_code}"], "put">, true>
+      ) => customer_update(client, email_or_code, ...init),
+      validate: (
+        customer_code: string,
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/customer/{customer_code}/identification"], "post">,
+          true
+        >
+      ) => customer_validate(client, customer_code, ...init),
+      verifyAuthorization: (
+        reference: string,
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/customer/authorization/verify/{reference}"], "get">,
+          true
+        >
+      ) => customer_verifyAuthorization(client, reference, ...init),
+    },
+    dedicatedAccount: {
+      addSplit: (
+        ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/split"], "post">, false>
+      ) => dedicatedAccount_addSplit(client, ...init),
+      assign: (
+        ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/assign"], "post">, false>
+      ) => dedicatedAccount_assign(client, ...init),
+      availableProviders: (
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/dedicated_account/available_providers"], "get">,
+          false
+        >
+      ) => dedicatedAccount_availableProviders(client, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account"], "post">, false>) =>
+        dedicatedAccount_create(client, ...init),
+      deactivate: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/{id}"], "delete">, true>
+      ) => dedicatedAccount_deactivate(client, id, ...init),
+      fetch: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/{id}"], "get">, true>
+      ) => dedicatedAccount_fetch(client, id, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account"], "get">, false>) =>
+        dedicatedAccount_list(client, ...init),
+      removeSplit: (
+        ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/split"], "delete">, false>
+      ) => dedicatedAccount_removeSplit(client, ...init),
+      requery: (
+        ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/requery"], "get">, false>
+      ) => dedicatedAccount_requery(client, ...init),
+    },
+    directdebit: {
+      listMandateAuthorizations: (
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/directdebit/mandate-authorizations"], "get">,
+          false
+        >
+      ) => directdebit_listMandateAuthorizations(client, ...init),
+      triggerActivationCharge: (
+        ...init: InitArg<MaybeOptionalInit<paths["/directdebit/activation-charge"], "put">, false>
+      ) => directdebit_triggerActivationCharge(client, ...init),
+    },
+    dispute: {
+      download: (...init: InitArg<MaybeOptionalInit<paths["/dispute/export"], "get">, false>) =>
+        dispute_download(client, ...init),
+      evidence: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/evidence"], "post">, true>
+      ) => dispute_evidence(client, id, ...init),
+      fetch: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}"], "get">, true>
+      ) => dispute_fetch(client, id, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/dispute"], "get">, false>) =>
+        dispute_list(client, ...init),
+      resolve: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/resolve"], "put">, true>
+      ) => dispute_resolve(client, id, ...init),
+      transaction: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/dispute/transaction/{id}"], "get">, true>
+      ) => dispute_transaction(client, id, ...init),
+      update: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}"], "put">, true>
+      ) => dispute_update(client, id, ...init),
+      uploadUrl: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/upload_url"], "get">, true>
+      ) => dispute_uploadUrl(client, id, ...init),
+    },
+    integration: {
+      fetchPaymentSessionTimeout: (
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/integration/payment_session_timeout"], "get">,
+          false
+        >
+      ) => integration_fetchPaymentSessionTimeout(client, ...init),
+      updatePaymentSessionTimeout: (
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/integration/payment_session_timeout"], "put">,
+          false
+        >
+      ) => integration_updatePaymentSessionTimeout(client, ...init),
+    },
+    miscellaneous: {
+      avs: (
+        ...init: InitArg<MaybeOptionalInit<paths["/address_verification/states"], "get">, false>
+      ) => miscellaneous_avs(client, ...init),
+      listCountries: (...init: InitArg<MaybeOptionalInit<paths["/country"], "get">, false>) =>
+        miscellaneous_listCountries(client, ...init),
+      resolveCardBin: (
+        bin: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/decision/bin/{bin}"], "get">, true>
+      ) => miscellaneous_resolveCardBin(client, bin, ...init),
+    },
+    order: {
+      create: (...init: InitArg<MaybeOptionalInit<paths["/order"], "post">, false>) =>
+        order_create(client, ...init),
+      fetch: (id: string, ...init: InitArg<MaybeOptionalInit<paths["/order/{id}"], "get">, true>) =>
+        order_fetch(client, id, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/order"], "get">, false>) =>
+        order_list(client, ...init),
+      product: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/order/product/{id}"], "get">, true>
+      ) => order_product(client, id, ...init),
+      validate: (
+        code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/order/{code}/validate"], "get">, true>
+      ) => order_validate(client, code, ...init),
+    },
+    page: {
+      addProducts: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/page/{id}/product"], "post">, true>
+      ) => page_addProducts(client, id, ...init),
+      checkSlugAvailability: (
+        slug: string,
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/page/check_slug_availability/{slug}"], "get">,
+          true
+        >
+      ) => page_checkSlugAvailability(client, slug, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/page"], "post">, false>) =>
+        page_create(client, ...init),
+      fetch: (
+        id_or_slug: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/page/{id_or_slug}"], "get">, true>
+      ) => page_fetch(client, id_or_slug, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/page"], "get">, false>) =>
+        page_list(client, ...init),
+      update: (
+        id_or_slug: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/page/{id_or_slug}"], "put">, true>
+      ) => page_update(client, id_or_slug, ...init),
+    },
+    paymentRequest: {
+      archive: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/archive/{id}"], "post">, true>
+      ) => paymentRequest_archive(client, id, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/paymentrequest"], "post">, false>) =>
+        paymentRequest_create(client, ...init),
+      fetch: (
+        id_or_code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/{id_or_code}"], "get">, true>
+      ) => paymentRequest_fetch(client, id_or_code, ...init),
+      finalize: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/finalize/{id}"], "post">, true>
+      ) => paymentRequest_finalize(client, id, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/paymentrequest"], "get">, false>) =>
+        paymentRequest_list(client, ...init),
+      notify: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/notify/{id}"], "post">, true>
+      ) => paymentRequest_notify(client, id, ...init),
+      totals: (
+        ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/totals"], "get">, false>
+      ) => paymentRequest_totals(client, ...init),
+      update: (
+        id_or_code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/{id_or_code}"], "put">, true>
+      ) => paymentRequest_update(client, id_or_code, ...init),
+      verify: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/verify/{id}"], "get">, true>
+      ) => paymentRequest_verify(client, id, ...init),
+    },
+    plan: {
+      create: (...init: InitArg<MaybeOptionalInit<paths["/plan"], "post">, false>) =>
+        plan_create(client, ...init),
+      fetch: (
+        id_or_code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/plan/{id_or_code}"], "get">, true>
+      ) => plan_fetch(client, id_or_code, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/plan"], "get">, false>) =>
+        plan_list(client, ...init),
+      update: (
+        id_or_code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/plan/{id_or_code}"], "put">, true>
+      ) => plan_update(client, id_or_code, ...init),
+    },
+    preauthorization: {
+      capture: (
+        ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/capture"], "post">, false>
+      ) => preauthorization_capture(client, ...init),
+      initialize: (
+        ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/initialize"], "post">, false>
+      ) => preauthorization_initialize(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/preauthorization"], "get">, false>) =>
+        preauthorization_list(client, ...init),
+      release: (
+        ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/release"], "post">, false>
+      ) => preauthorization_release(client, ...init),
+      reserve_authorization: (
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/preauthorization/reserve_authorization"], "post">,
+          false
+        >
+      ) => preauthorization_reserve_authorization(client, ...init),
+      verify: (
+        reference: string,
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/preauthorization/verify/{reference}"], "get">,
+          true
+        >
+      ) => preauthorization_verify(client, reference, ...init),
+    },
+    product: {
+      create: (...init: InitArg<MaybeOptionalInit<paths["/product"], "post">, false>) =>
+        product_create(client, ...init),
+      delete: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "delete">, true>
+      ) => product_delete(client, id, ...init),
+      fetch: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "get">, true>
+      ) => product_fetch(client, id, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/product"], "get">, false>) =>
+        product_list(client, ...init),
+      update: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "put">, true>
+      ) => product_update(client, id, ...init),
+    },
+    refund: {
+      create: (...init: InitArg<MaybeOptionalInit<paths["/refund"], "post">, false>) =>
+        refund_create(client, ...init),
+      fetch: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/refund/{id}"], "get">, true>
+      ) => refund_fetch(client, id, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/refund"], "get">, false>) =>
+        refund_list(client, ...init),
+      retry: (
+        id: string,
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/refund/retry_with_customer_details/{id}"], "post">,
+          true
+        >
+      ) => refund_retry(client, id, ...init),
+    },
+    settlements: {
+      fetch: (...init: InitArg<MaybeOptionalInit<paths["/settlement"], "get">, false>) =>
+        settlements_fetch(client, ...init),
+      transaction: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/settlement/{id}/transactions"], "get">, true>
+      ) => settlements_transaction(client, id, ...init),
+    },
+    split: {
+      addSubaccount: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/split/{id}/subaccount/add"], "post">, true>
+      ) => split_addSubaccount(client, id, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/split"], "post">, false>) =>
+        split_create(client, ...init),
+      fetch: (id: string, ...init: InitArg<MaybeOptionalInit<paths["/split/{id}"], "get">, true>) =>
+        split_fetch(client, id, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/split"], "get">, false>) =>
+        split_list(client, ...init),
+      removeSubaccount: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/split/{id}/subaccount/remove"], "post">, true>
+      ) => split_removeSubaccount(client, id, ...init),
+      update: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/split/{id}"], "put">, true>
+      ) => split_update(client, id, ...init),
+    },
+    storefront: {
+      addProducts: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/product"], "post">, true>
+      ) => storefront_addProducts(client, id, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/storefront"], "post">, false>) =>
+        storefront_create(client, ...init),
+      delete: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "delete">, true>
+      ) => storefront_delete(client, id, ...init),
+      duplicate: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/duplicate"], "post">, true>
+      ) => storefront_duplicate(client, id, ...init),
+      fetch: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "get">, true>
+      ) => storefront_fetch(client, id, ...init),
+      fetchOrders: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/order"], "get">, true>
+      ) => storefront_fetchOrders(client, id, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/storefront"], "get">, false>) =>
+        storefront_list(client, ...init),
+      listProducts: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/product"], "get">, true>
+      ) => storefront_listProducts(client, id, ...init),
+      publish: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/publish"], "post">, true>
+      ) => storefront_publish(client, id, ...init),
+      update: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "put">, true>
+      ) => storefront_update(client, id, ...init),
+      verifySlug: (
+        slug: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/storefront/verify/{slug}"], "get">, true>
+      ) => storefront_verifySlug(client, slug, ...init),
+    },
+    subaccount: {
+      create: (...init: InitArg<MaybeOptionalInit<paths["/subaccount"], "post">, false>) =>
+        subaccount_create(client, ...init),
+      fetch: (
+        id_or_code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/subaccount/{id_or_code}"], "get">, true>
+      ) => subaccount_fetch(client, id_or_code, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/subaccount"], "get">, false>) =>
+        subaccount_list(client, ...init),
+      update: (
+        id_or_code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/subaccount/{id_or_code}"], "put">, true>
+      ) => subaccount_update(client, id_or_code, ...init),
+    },
+    subscription: {
+      create: (...init: InitArg<MaybeOptionalInit<paths["/subscription"], "post">, false>) =>
+        subscription_create(client, ...init),
+      disable: (
+        ...init: InitArg<MaybeOptionalInit<paths["/subscription/disable"], "post">, false>
+      ) => subscription_disable(client, ...init),
+      enable: (...init: InitArg<MaybeOptionalInit<paths["/subscription/enable"], "post">, false>) =>
+        subscription_enable(client, ...init),
+      fetch: (
+        id_or_code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/subscription/{id_or_code}"], "get">, true>
+      ) => subscription_fetch(client, id_or_code, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/subscription"], "get">, false>) =>
+        subscription_list(client, ...init),
+      manageEmail: (
+        code: string,
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/subscription/{code}/manage/email"], "post">,
+          true
+        >
+      ) => subscription_manageEmail(client, code, ...init),
+      manageLink: (
+        code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/subscription/{code}/manage/link"], "get">, true>
+      ) => subscription_manageLink(client, code, ...init),
+    },
+    terminal: {
+      commission: (
+        ...init: InitArg<MaybeOptionalInit<paths["/terminal/commission_device"], "post">, false>
+      ) => terminal_commission(client, ...init),
+      decommission: (
+        ...init: InitArg<MaybeOptionalInit<paths["/terminal/decommission_device"], "post">, false>
+      ) => terminal_decommission(client, ...init),
+      fetch: (
+        terminal_id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}"], "get">, true>
+      ) => terminal_fetch(client, terminal_id, ...init),
+      fetchEventStatus: (
+        terminal_id: string,
+        event_id: string,
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/terminal/{terminal_id}/event/{event_id}"], "get">,
+          true
+        >
+      ) => terminal_fetchEventStatus(client, terminal_id, event_id, ...init),
+      fetchTerminalStatus: (
+        terminal_id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}/presence"], "get">, true>
+      ) => terminal_fetchTerminalStatus(client, terminal_id, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/terminal"], "get">, false>) =>
+        terminal_list(client, ...init),
+      sendEvent: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/terminal/{id}/event"], "post">, true>
+      ) => terminal_sendEvent(client, id, ...init),
+      update: (
+        terminal_id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}"], "put">, true>
+      ) => terminal_update(client, terminal_id, ...init),
+    },
+    transaction: {
+      chargeAuthorization: (
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/transaction/charge_authorization"], "post">,
+          false
+        >
+      ) => transaction_chargeAuthorization(client, ...init),
+      checkAuthorization: (
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/transaction/check_authorization"], "post">,
+          false
+        >
+      ) => transaction_checkAuthorization(client, ...init),
+      event: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}/event"], "get">, true>
+      ) => transaction_event(client, id, ...init),
+      export: (...init: InitArg<MaybeOptionalInit<paths["/transaction/export"], "get">, false>) =>
+        transaction_export(client, ...init),
+      fetch: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}"], "get">, true>
+      ) => transaction_fetch(client, id, ...init),
+      initialize: (
+        ...init: InitArg<MaybeOptionalInit<paths["/transaction/initialize"], "post">, false>
+      ) => transaction_initialize(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/transaction"], "get">, false>) =>
+        transaction_list(client, ...init),
+      partialDebit: (
+        ...init: InitArg<MaybeOptionalInit<paths["/transaction/partial_debit"], "post">, false>
+      ) => transaction_partialDebit(client, ...init),
+      session: (
+        id: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}/session"], "get">, true>
+      ) => transaction_session(client, id, ...init),
+      timeline: (
+        id_or_reference: string,
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/transaction/timeline/{id_or_reference}"], "get">,
+          true
+        >
+      ) => transaction_timeline(client, id_or_reference, ...init),
+      totals: (...init: InitArg<MaybeOptionalInit<paths["/transaction/totals"], "get">, false>) =>
+        transaction_totals(client, ...init),
+      verify: (
+        reference: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/transaction/verify/{reference}"], "get">, true>
+      ) => transaction_verify(client, reference, ...init),
+    },
+    transfer: {
+      bulk: (...init: InitArg<MaybeOptionalInit<paths["/transfer/bulk"], "post">, false>) =>
+        transfer_bulk(client, ...init),
+      disableOtp: (
+        ...init: InitArg<MaybeOptionalInit<paths["/transfer/disable_otp"], "post">, false>
+      ) => transfer_disableOtp(client, ...init),
+      disableOtpFinalize: (
+        ...init: InitArg<MaybeOptionalInit<paths["/transfer/disable_otp_finalize"], "post">, false>
+      ) => transfer_disableOtpFinalize(client, ...init),
+      enableOtp: (
+        ...init: InitArg<MaybeOptionalInit<paths["/transfer/enable_otp"], "post">, false>
+      ) => transfer_enableOtp(client, ...init),
+      exportTransfer: (
+        ...init: InitArg<MaybeOptionalInit<paths["/transfer/export"], "get">, false>
+      ) => transfer_exportTransfer(client, ...init),
+      fetch: (
+        id_or_code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/transfer/{id_or_code}"], "get">, true>
+      ) => transfer_fetch(client, id_or_code, ...init),
+      finalize: (
+        ...init: InitArg<MaybeOptionalInit<paths["/transfer/finalize_transfer"], "post">, false>
+      ) => transfer_finalize(client, ...init),
+      initiate: (...init: InitArg<MaybeOptionalInit<paths["/transfer"], "post">, false>) =>
+        transfer_initiate(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/transfer"], "get">, false>) =>
+        transfer_list(client, ...init),
+      resendOtp: (
+        ...init: InitArg<MaybeOptionalInit<paths["/transfer/resend_otp"], "post">, false>
+      ) => transfer_resendOtp(client, ...init),
+      verify: (
+        reference: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/transfer/verify/{reference}"], "get">, true>
+      ) => transfer_verify(client, reference, ...init),
+    },
+    transferrecipient: {
+      bulk: (
+        ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/bulk"], "post">, false>
+      ) => transferrecipient_bulk(client, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/transferrecipient"], "post">, false>) =>
+        transferrecipient_create(client, ...init),
+      delete: (
+        id_or_code: string,
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "delete">,
+          true
+        >
+      ) => transferrecipient_delete(client, id_or_code, ...init),
+      fetch: (
+        id_or_code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "get">, true>
+      ) => transferrecipient_fetch(client, id_or_code, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/transferrecipient"], "get">, false>) =>
+        transferrecipient_list(client, ...init),
+      update: (
+        id_or_code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "put">, true>
+      ) => transferrecipient_update(client, id_or_code, ...init),
+    },
+    virtualTerminal: {
+      addSplitCode: (
+        code: string,
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/virtual_terminal/{code}/split_code"], "put">,
+          true
+        >
+      ) => virtualTerminal_addSplitCode(client, code, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal"], "post">, false>) =>
+        virtualTerminal_create(client, ...init),
+      deactivate: (
+        code: string,
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/virtual_terminal/{code}/deactivate"], "put">,
+          true
+        >
+      ) => virtualTerminal_deactivate(client, code, ...init),
+      deleteSplitCode: (
+        code: string,
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/virtual_terminal/{code}/split_code"], "delete">,
+          true
+        >
+      ) => virtualTerminal_deleteSplitCode(client, code, ...init),
+      destinationAssign: (
+        code: string,
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/virtual_terminal/{code}/destination/assign"], "post">,
+          true
+        >
+      ) => virtualTerminal_destinationAssign(client, code, ...init),
+      destinationUnassign: (
+        code: string,
+        ...init: InitArg<
+          MaybeOptionalInit<paths["/virtual_terminal/{code}/destination/unassign"], "post">,
+          true
+        >
+      ) => virtualTerminal_destinationUnassign(client, code, ...init),
+      fetch: (
+        code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}"], "get">, true>
+      ) => virtualTerminal_fetch(client, code, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal"], "get">, false>) =>
+        virtualTerminal_list(client, ...init),
+      update: (
+        code: string,
+        ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}"], "put">, true>
+      ) => virtualTerminal_update(client, code, ...init),
+    },
   } as const;
 }

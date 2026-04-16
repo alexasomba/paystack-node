@@ -1,28 +1,25 @@
-export const DEFAULT_REQUEST_ID_HEADERS = [
-  'x-paystack-request-id',
-  'x-request-id',
-] as const;
+export const DEFAULT_REQUEST_ID_HEADERS = ["x-paystack-request-id", "x-request-id"] as const;
 
 export function getPaystackRequestId(headers: Headers | HeadersInit): string | undefined {
   const h = headers instanceof Headers ? headers : new Headers(headers);
 
   for (const name of DEFAULT_REQUEST_ID_HEADERS) {
     const value = h.get(name);
-    if (value && value.trim()) return value.trim();
+    if (value !== null && value.trim() !== "") return value.trim();
   }
 
   return undefined;
 }
 
-export type PaystackApiErrorOptions = {
+export interface PaystackApiErrorOptions {
   status?: number;
   url?: string;
   requestId?: string;
   error?: unknown;
-};
+}
 
 export class PaystackApiError extends Error {
-  readonly name = 'PaystackApiError';
+  readonly name = "PaystackApiError";
   readonly status?: number;
   readonly url?: string;
   readonly requestId?: string;
@@ -37,11 +34,11 @@ export class PaystackApiError extends Error {
   }
 }
 
-export type OpenapiFetchResult<TData = unknown, TError = unknown> = {
+export interface OpenapiFetchResult<TData = unknown, TError = unknown> {
   data?: TData;
   error?: TError;
   response: Response;
-};
+}
 
 export function isPaystackApiError(value: unknown): value is PaystackApiError {
   return value instanceof PaystackApiError;
@@ -54,13 +51,13 @@ export function isPaystackApiError(value: unknown): value is PaystackApiError {
 export function toPaystackApiError<TData = unknown, TError = unknown>(
   result: OpenapiFetchResult<TData, TError>,
 ): PaystackApiError | undefined {
-  if (!result.error) return undefined;
+  if (result.error === undefined || result.error === null) return undefined;
 
   const requestId = getPaystackRequestId(result.response.headers);
   const status = result.response.status;
   const url = result.response.url;
 
-  const suffix = requestId ? ` (requestId: ${requestId})` : '';
+  const suffix = requestId !== undefined && requestId !== "" ? ` (requestId: ${requestId})` : "";
   return new PaystackApiError(`Paystack API request failed with status ${status}${suffix}`, {
     status,
     url,
@@ -73,8 +70,10 @@ export function toPaystackApiError<TData = unknown, TError = unknown>(
  * Convenience helper for openapi-fetch style results.
  * Throws a structured error when `result.error` exists.
  */
-export function assertOk<TData = unknown, TError = unknown>(result: OpenapiFetchResult<TData, TError>): TData {
+export function assertOk<TData = unknown, TError = unknown>(
+  result: OpenapiFetchResult<TData, TError>,
+): TData {
   const maybeError = toPaystackApiError(result);
-  if (maybeError) throw maybeError;
+  if (maybeError !== undefined) throw maybeError;
   return result.data as TData;
 }

@@ -1,28 +1,29 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import YAML from 'yaml';
+/* eslint-disable no-console */
+import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import YAML from "yaml";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const specPath = path.resolve(__dirname, '../openapi.yaml');
-const outPath = path.resolve(__dirname, '../src/operations.ts');
+const specPath = path.resolve(__dirname, "../openapi.yaml");
+const outPath = path.resolve(__dirname, "../src/operations.ts");
 
 function toIdentifier(name) {
   const safe = String(name)
     .trim()
-    .replace(/[^A-Za-z0-9_]+/g, '_')
-    .replace(/^_+/, '')
-    .replace(/_+$/, '');
+    .replace(/[^A-Za-z0-9_]+/g, "_")
+    .replace(/^_+/, "")
+    .replace(/_+$/, "");
   const withPrefix = /^[A-Za-z_]/.test(safe) ? safe : `_${safe}`;
-  return withPrefix.length ? withPrefix : '_operation';
+  return withPrefix.length ? withPrefix : "_operation";
 }
 
 function uniqueName(base, used) {
   let candidate = base;
   let i = 2;
-  while (used.has(candidate)) {
+  while (used.has(candidate) === true) {
     candidate = `${base}_${i}`;
     i += 1;
   }
@@ -30,25 +31,42 @@ function uniqueName(base, used) {
   return candidate;
 }
 
-const raw = await fs.readFile(specPath, 'utf8');
+const raw = await fs.readFile(specPath, "utf8");
 const spec = YAML.parse(raw);
 
 const paths = spec?.paths ?? {};
-const httpMethods = ['get', 'put', 'post', 'delete', 'options', 'head', 'patch', 'trace'];
+const httpMethods = ["get", "put", "post", "delete", "options", "head", "patch", "trace"];
 
 const usedNames = new Set();
 const operations = [];
 
 for (const [apiPath, pathItem] of Object.entries(paths)) {
-  if (!pathItem || typeof pathItem !== 'object') continue;
+  if (pathItem === undefined || typeof pathItem !== "object") continue;
+
+  const pathParams = (pathItem.parameters ?? []).filter((p) => p.in === "path");
 
   for (const method of httpMethods) {
     const op = pathItem[method];
-    if (!op || typeof op !== 'object') continue;
+    if (op === undefined || typeof op !== "object") continue;
+
+    const opParams = (op.parameters ?? []).filter((p) => p.in === "path");
+    const allPathParams = [...pathParams, ...opParams];
 
     const operationId = op.operationId ?? `${method}_${apiPath}`;
     const name = uniqueName(toIdentifier(operationId), usedNames);
-    operations.push({ name, method, apiPath });
+
+    operations.push({
+      name,
+      method,
+      apiPath,
+      summary: op.summary,
+      description: op.description,
+      pathParams: allPathParams.map((p) => ({
+        name: p.name,
+        description: p.description,
+        required: p.required ?? true,
+      })),
+    });
   }
 }
 
@@ -65,30 +83,86 @@ import type { MaybeOptionalInit } from 'openapi-fetch';
 import type { paths } from './openapi-types.js';
 import type { PaystackClient } from './client.js';
 
-type InitArg<T> = undefined extends T ? [init?: Exclude<T, undefined>] : [init: T];
+type InitArg<T, HasPath = false> = HasPath extends true
+  ? [init?: Partial<T>]
+  : undefined extends T
+    ? [init?: Exclude<T, undefined>]
+    : [init: T];
 `;
 
 const fnBlocks = operations
-  .map(({ name, method, apiPath }) => {
+  .map(({ name, method, apiPath, summary, description, pathParams }) => {
     const methodKey = method.toLowerCase();
     const methodUpper = method.toUpperCase();
     const typeExpr = `MaybeOptionalInit<paths[${JSON.stringify(apiPath)}], ${JSON.stringify(methodKey)}>`;
 
-    return `
-export function ${name}(client: PaystackClient, ...init: InitArg<${typeExpr}>) {
-  return client.${methodUpper}(${JSON.stringify(apiPath)}, ...init);
+    const jsDocLines = [];
+    if (summary !== undefined && summary !== null && summary !== "") {
+      summary.split("\n").forEach((line) => jsDocLines.push(` * ${line.trim()}`));
+    }
+    if (description !== undefined && description !== null && description !== "") {
+      if (jsDocLines.length > 0) jsDocLines.push(" *");
+      description.split("\n").forEach((line) => jsDocLines.push(` * ${line.trim()}`));
+    }
+    if (pathParams.length > 0) {
+      if (jsDocLines.length > 0) jsDocLines.push(" *");
+      pathParams.forEach((p) => {
+        jsDocLines.push(` * @param ${p.name} ${p.description ?? ""}`);
+      });
+    }
+
+    const jsDoc = jsDocLines.length > 0 ? `\n/**\n${jsDocLines.join("\n")}\n */` : "";
+
+    const paramList = [
+      "client: PaystackClient",
+      ...pathParams.map((p) => `${p.name}: string`),
+      `...init: InitArg<${typeExpr}>`,
+    ].join(", ");
+
+    const pathParamObj =
+      pathParams.length > 0
+        ? `params: { ...init[0]?.params, path: { ...init[0]?.params?.path, ${pathParams.map((p) => p.name).join(", ")} } }`
+        : "";
+
+    const initArgExpr = pathParamObj ? `{ ...init[0], ${pathParamObj} }` : "...init";
+
+    return `${jsDoc}
+export function ${name}(${paramList}) {
+  return client.${methodUpper}(${JSON.stringify(apiPath)}, ${initArgExpr});
 }
 `;
   })
-  .join('');
+  .join("");
 
-const bindLines = operations
-  .map(({ name, method, apiPath }) => {
-    const methodKey = method.toLowerCase();
-    const typeExpr = `MaybeOptionalInit<paths[${JSON.stringify(apiPath)}], ${JSON.stringify(methodKey)}>`;
-    return `    ${name}: (...init: InitArg<${typeExpr}>) => ${name}(client, ...init),`;
+// Categorization
+const categories = {};
+operations.forEach((op) => {
+  const parts = op.name.split("_");
+  const cat = parts[0];
+  const action = parts.slice(1).join("_") ?? "index";
+  categories[cat] ??= [];
+  categories[cat].push({ ...op, action });
+});
+
+const bindLines = Object.entries(categories)
+  .map(([cat, ops]) => {
+    const methods = ops
+      .map((op) => {
+        const methodKey = op.method.toLowerCase();
+        const typeExpr = `MaybeOptionalInit<paths[${JSON.stringify(op.apiPath)}], ${JSON.stringify(methodKey)}>`;
+        const pathParams = op.pathParams.map((p) => p.name).join(", ");
+        const methodArgs = [
+          ...op.pathParams.map((p) => `${p.name}: string`),
+          `...init: InitArg<${typeExpr}, ${op.pathParams.length > 0}>`,
+        ].join(", ");
+        const callArgs = [pathParams, "...init"].filter(Boolean).join(", ");
+        return `      ${op.action}: (${methodArgs}) => ${op.name}(client, ${callArgs}),`;
+      })
+      .join("\n");
+
+    return `    ${cat}: {\n${methods}\n    },`;
   })
-  .join('\n');
+  .join("\n");
 
 const footer = `
 export function bindOperations(client: PaystackClient) {
