@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.0](https://github.com/alexasomba/paystack-node/compare/v1.8.0...v1.9.0) (2026-04-16)
+
+
+### Features
+
+* infrastructure - production-ready NPM automation with verified Automation Token ([1919b33](https://github.com/alexasomba/paystack-node/commit/1919b338abfba304ba590ee751f5d7c783100db4))
+
 ## [1.8.0](https://github.com/alexasomba/paystack-node/compare/v1.7.0...v1.8.0) (2026-04-16)
 
 
