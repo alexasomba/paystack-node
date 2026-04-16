@@ -26,8 +26,8 @@ fi
 # Initialize the local directory as a Git repository
 git init
 
-# Ensure the branch is named main
-git branch -M main
+# Ensure the branch is named master
+git branch -M master
 
 # Adds the files in the local repository and stages them for commit.
 git add .
