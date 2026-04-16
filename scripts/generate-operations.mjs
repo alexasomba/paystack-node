@@ -61,11 +61,20 @@ for (const [apiPath, pathItem] of Object.entries(paths)) {
       apiPath,
       summary: op.summary,
       description: op.description,
-      pathParams: allPathParams.map((p) => ({
-        name: p.name,
-        description: p.description,
-        required: p.required ?? true,
-      })),
+      pathParams: allPathParams.map((p) => {
+        let type = "string";
+        if (p.schema?.type === "integer" || p.schema?.type === "number") {
+          type = "number";
+        } else if (p.type === "integer" || p.type === "number") {
+          type = "number";
+        }
+        return {
+          name: p.name,
+          description: p.description,
+          required: p.required ?? true,
+          type,
+        };
+      }),
     });
   }
 }
@@ -119,8 +128,8 @@ const fnBlocks = operations
 
     const paramList = [
       "client: PaystackClient",
-      ...pathParams.map((p) => `${p.name}: string`),
-      `...init: InitArg<${typeExpr}>`,
+      ...pathParams.map((p) => `${p.name}: ${p.type}`),
+      `...init: InitArg<${typeExpr}, ${pathParams.length > 0}>`,
     ].join(", ");
 
     const pathParamObj =
@@ -161,7 +170,7 @@ const bindLines = Object.entries(categories)
         const typeExpr = `MaybeOptionalInit<paths[${JSON.stringify(op.apiPath)}], ${JSON.stringify(methodKey)}>`;
         const pathParams = op.pathParams.map((p) => p.name).join(", ");
         const methodArgs = [
-          ...op.pathParams.map((p) => `${p.name}: string`),
+          ...op.pathParams.map((p) => `${p.name}: ${p.type}`),
           `...init: InitArg<${typeExpr}, ${op.pathParams.length > 0}>`,
         ].join(", ");
         const callArgs = [pathParams, "...init"].filter(Boolean).join(", ");
