@@ -6,6 +6,10 @@ import type { components } from "./openapi-types.js";
  * This type is derived from the OpenAPI specification.
  */
 export type PaystackWebhookEvent = components["schemas"]["WebhookEvent"];
+export type PaymentNotificationWebhookEvent = Extract<
+  PaystackWebhookEvent,
+  { event: "invoice.create" | "invoice.update" | "invoice.failed" }
+>;
 
 /**
  * Utilities for handling Paystack Webhooks
