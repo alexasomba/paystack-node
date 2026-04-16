@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.0](https://github.com/alexasomba/paystack-node/compare/v1.4.0...v1.5.0) (2026-04-16)
+
+
+### Features
+
+* infrastructure - switch to pnpm and Node 24 support ([846e158](https://github.com/alexasomba/paystack-node/commit/846e158a4b23ee265750bef1b29b66acaa19181f))
+
+
+### Bug Fixes
+
+* clean up workflow and finalize pnpm switch ([e064bc8](https://github.com/alexasomba/paystack-node/commit/e064bc8119ccd491855c7d6fc4fa1394ecffe7ea))
+* update workflow and switch to pnpm ([823833e](https://github.com/alexasomba/paystack-node/commit/823833eb5208be2222d5faf97c0d72aecdf3eb15))
+
 ## [1.4.0](https://github.com/alexasomba/paystack-node/compare/v1.3.0...v1.4.0) (2026-04-16)
 
 
