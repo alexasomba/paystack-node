@@ -27,20 +27,16 @@ jobs:
       - uses: actions/checkout@v6
         if: ${{ steps.release.outputs.release_created }}
 
-<<<<<<< HEAD
       - uses: pnpm/action-setup@v4
         if: ${{ steps.release.outputs.release_created }}
         with:
           version: 10
 
-=======
->>>>>>> 666729b2eea2bd6a3a73bc5501895b57d87c6579
       - uses: actions/setup-node@v6
         if: ${{ steps.release.outputs.release_created }}
         with:
           node-version: "24"
           registry-url: "https://registry.npmjs.org"
-<<<<<<< HEAD
           cache: "pnpm"
 
       - run: pnpm install --no-frozen-lockfile
@@ -53,19 +49,6 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
 
       - run: pnpm publish --no-git-checks --access public
-=======
-
-      - run: npm ci
-        if: ${{ steps.release.outputs.release_created }}
-
-      - run: npm run build --if-present
-        if: ${{ steps.release.outputs.release_created }}
-
-      - run: npm test
-        if: ${{ steps.release.outputs.release_created }}
-
-      - run: npm publish
->>>>>>> 666729b2eea2bd6a3a73bc5501895b57d87c6579
         if: ${{ steps.release.outputs.release_created }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
