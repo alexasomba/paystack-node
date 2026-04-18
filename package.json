@@ -1,6 +1,6 @@
 {
   "name": "@alexasomba/paystack-node",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "description": "The most comprehensive Node.js SDK for Paystack - Complete, Type-safe, and Spec-compliant with full OpenAPI coverage and webhook verification.",
   "keywords": [
     "africa",

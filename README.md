@@ -31,36 +31,25 @@ process.env.PAYSTACK_SECRET_KEY = "sk_test_...";
 ## Quick Start
 
 ```ts
-import { createPaystack } from "@alexasomba/paystack-node";
+import { createPaystack, assertOk } from "@alexasomba/paystack-node";
 
 const paystack = createPaystack({
   secretKey: process.env.PAYSTACK_SECRET_KEY!,
   idempotencyKey: "auto",
 });
 
-// Option 1: Explicitly unwrap to get typed data (throws on error)
-const data = (
-  await paystack.transaction_initialize({
-    body: {
-      email: "customer@example.com",
-      amount: 5000,
-    },
-  })
-).unwrap();
-
-console.log(data.authorization_url);
-
-// Option 2: Destructure for metadata and status
-const {
-  data: txData,
-  status,
-  message,
-} = await paystack.transaction_initialize({
-  body: { email: "customer@example.com", amount: 5000 },
+const result = await paystack.transaction_initialize({
+  body: {
+    email: "customer@example.com",
+    amount: 5000,
+  },
 });
+
+const data = assertOk(result);
+console.log(data.authorization_url);
 ```
 
-The `.unwrap()` method returns the successful Paystack payload and throws a structured `PaystackError` for non-2xx or `status: false` responses.
+`assertOk` returns the successful Paystack payload and throws a structured `PaystackApiError` for non-2xx responses.
 
 ## API Basics
 
@@ -101,44 +90,59 @@ const paystack = createPaystack({
 
 ## Stable Type Exports
 
-This SDK now exports a stable grouped client type and a curated set of high-traffic request and response aliases so downstream libraries do not need to reconstruct types from `ReturnType<typeof createPaystack>`, `paths`, or `operations`.
+This SDK exports stable grouped client slices and curated request/query/response aliases so downstream integrations do not need to reconstruct types from `ReturnType<typeof createPaystack>`, `paths`, or `operations`.
 
 ```ts
 import {
   createPaystack,
   type Paystack,
-  type PaymentRequestCreatePayload,
-  type TerminalSendEventPayload,
+  type PaystackTransactionClient,
+  type PaystackSubscriptionClient,
   type TransactionInitializePayload,
+  type TransactionChargeAuthorizationPayload,
+  type SubscriptionCreatePayload,
+  type SubscriptionListQueryParams,
+  type RefundCreatePayload,
 } from "@alexasomba/paystack-node";
-import type { PaymentNotificationWebhookEvent } from "@alexasomba/paystack-node/webhooks";
 
 const paystack: Paystack = createPaystack({
   secretKey: process.env.PAYSTACK_SECRET_KEY!,
 });
+
+const transactionClient: PaystackTransactionClient = paystack.transaction;
+const subscriptionClient: PaystackSubscriptionClient = paystack.subscription;
 
 const tx: TransactionInitializePayload = {
   email: "customer@example.com",
   amount: 5000,
 };
 
-const invoice: PaymentRequestCreatePayload = {
+const chargeAuthorization: TransactionChargeAuthorizationPayload = {
+  email: "customer@example.com",
+  amount: 2500,
+  authorization_code: "AUTH_123",
+};
+
+const subscriptionCreate: SubscriptionCreatePayload = {
   customer: "CUS_123",
-  amount: 10000,
+  plan: "PLN_123",
 };
 
-const terminalEvent: TerminalSendEventPayload = {
-  type: "invoice",
-  action: "process",
+const subscriptionList: SubscriptionListQueryParams = {
+  customer: 123,
 };
 
-const webhookEvent: PaymentNotificationWebhookEvent = {
-  event: "invoice.create",
-  data: {} as PaymentNotificationWebhookEvent["data"],
+const refundCreate: RefundCreatePayload = {
+  transaction: "TRX_123",
+  amount: 1000,
 };
 ```
 
-Notable aliases include transaction initialize / verify, subscription fetch / manage link / manage email, payment request create / fetch, terminal send-event, plan / product / split / subaccount / terminal / virtual terminal fetch, and verification helpers for account resolution, account validation, and card BIN lookup.
+Notable aliases include transaction initialize / charge authorization / verify; subscription create / list / disable / enable / fetch / manage link / manage email; customer fetch / create / update; plan list / create / update / fetch; product list / create / update / fetch; dispute list / fetch; refund create / fetch; payment request create / fetch; terminal send-event; and verification helpers for account resolution, account validation, and card BIN lookup.
+
+Client slices include `PaystackTransactionClient`, `PaystackCustomerClient`, `PaystackSubscriptionClient`, `PaystackPlanClient`, `PaystackProductClient`, `PaystackDisputeClient`, and `PaystackRefundClient`.
+
+Grouped methods reflect supported generated OpenAPI operations. Unsupported helpers such as `subscription.update` are intentionally not part of the public SDK surface.
 
 ### Webhooks
 
@@ -175,19 +179,16 @@ const total = result.response.headers.get("x-total-count");
 ## Error Handling
 
 ```ts
-import { PaystackError } from "@alexasomba/paystack-node";
+import { toPaystackApiError } from "@alexasomba/paystack-node";
 
-try {
-  const data = (
-    await paystack.transaction_initialize({
-      body: { email: "customer@example.com", amount: 5000 },
-    })
-  ).unwrap();
-} catch (error) {
-  if (error instanceof PaystackError) {
-    console.error(`Status ${error.status}: ${error.message}`);
-    console.error(`Paystack Request ID: ${error.requestId}`);
-  }
+const result = await paystack.transaction_initialize({
+  /* ... */
+});
+const error = toPaystackApiError(result);
+
+if (error) {
+  console.error(`Status ${error.status}: ${error.message}`);
+  console.error(`Paystack Request ID: ${error.requestId}`);
 }
 ```
 
