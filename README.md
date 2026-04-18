@@ -99,6 +99,47 @@ const paystack = createPaystack({
 });
 ```
 
+## Stable Type Exports
+
+This SDK now exports a stable grouped client type and a curated set of high-traffic request and response aliases so downstream libraries do not need to reconstruct types from `ReturnType<typeof createPaystack>`, `paths`, or `operations`.
+
+```ts
+import {
+  createPaystack,
+  type Paystack,
+  type PaymentRequestCreatePayload,
+  type TerminalSendEventPayload,
+  type TransactionInitializePayload,
+} from "@alexasomba/paystack-node";
+import type { PaymentNotificationWebhookEvent } from "@alexasomba/paystack-node/webhooks";
+
+const paystack: Paystack = createPaystack({
+  secretKey: process.env.PAYSTACK_SECRET_KEY!,
+});
+
+const tx: TransactionInitializePayload = {
+  email: "customer@example.com",
+  amount: 5000,
+};
+
+const invoice: PaymentRequestCreatePayload = {
+  customer: "CUS_123",
+  amount: 10000,
+};
+
+const terminalEvent: TerminalSendEventPayload = {
+  type: "invoice",
+  action: "process",
+};
+
+const webhookEvent: PaymentNotificationWebhookEvent = {
+  event: "invoice.create",
+  data: {} as PaymentNotificationWebhookEvent["data"],
+};
+```
+
+Notable aliases include transaction initialize / verify, subscription fetch / manage link / manage email, payment request create / fetch, terminal send-event, plan / product / split / subaccount / terminal / virtual terminal fetch, and verification helpers for account resolution, account validation, and card BIN lookup.
+
 ### Webhooks
 
 Use the webhook helper when validating server-to-server events from Paystack. Pass the raw request body, not a parsed JSON object.
