@@ -5,10 +5,10 @@
  * Do not edit manually.
  */
 
-import type { MaybeOptionalInit } from "openapi-fetch";
-import type { paths } from "./openapi-types.js";
-import type { PaystackClient } from "./client.js";
-import { PaystackResponse, type PaystackRawResponse } from "./response.js";
+import type { MaybeOptionalInit } from 'openapi-fetch';
+import type { paths } from './openapi-types.js';
+import type { PaystackClient } from './client.js';
+import { PaystackResponse, type PaystackRawResponse } from './response.js';
 
 type InitArg<T, HasPath = false> = HasPath extends true
   ? [init?: Partial<T>]
@@ -24,15 +24,12 @@ type PaystackData<T> = T extends PaystackRawResponse<infer D> ? D : ExtractData<
  *
  * Lists all registered domains on your integration. Returns an empty array if no domains have been added.
  */
-export async function applePay_listDomain(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "get">, false>
-) {
+export async function applePay_listDomain(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "get">, false>) {
   const result = await client.GET("/apple-pay/domain", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -40,19 +37,16 @@ export async function applePay_listDomain(
  * Register Domain
  *
  * Register a top-level domain or subdomain for your Apple Pay integration.
- *
+ * 
  * > This endpoint can only be called with one domain or subdomain at a time.
- *
+ * 
  */
-export async function applePay_registerDomain(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "post">, false>
-) {
+export async function applePay_registerDomain(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "post">, false>) {
   const result = await client.POST("/apple-pay/domain", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -61,17 +55,14 @@ export async function applePay_registerDomain(
  *
  * Unregister a top-level domain or subdomain previously used for your Apple
  * Pay integration.
- *
+ * 
  */
-export async function applePay_unregisterDomain(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "delete">, false>
-) {
+export async function applePay_unregisterDomain(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "delete">, false>) {
   const result = await client.DELETE("/apple-pay/domain", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -80,15 +71,12 @@ export async function applePay_unregisterDomain(
  *
  * Fetch the available balance on your integration
  */
-export async function balance_fetch(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/balance"], "get">, false>
-) {
+export async function balance_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/balance"], "get">, false>) {
   const result = await client.GET("/balance", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -97,15 +85,12 @@ export async function balance_fetch(
  *
  * Fetch all pay-ins and pay-outs that occured on your integration
  */
-export async function balance_ledger(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/balance/ledger"], "get">, false>
-) {
+export async function balance_ledger(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/balance/ledger"], "get">, false>) {
   const result = await client.GET("/balance/ledger", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -114,15 +99,12 @@ export async function balance_ledger(
  *
  * Get a list of all supported banks and their properties
  */
-export async function bank_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/bank"], "get">, false>
-) {
+export async function bank_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/bank"], "get">, false>) {
   const result = await client.GET("/bank", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -131,15 +113,12 @@ export async function bank_list(
  *
  * Resolve an account number to confirm the name associated with it
  */
-export async function bank_resolveAccountNumber(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/bank/resolve"], "get">, false>
-) {
+export async function bank_resolveAccountNumber(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/bank/resolve"], "get">, false>) {
   const result = await client.GET("/bank/resolve", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -148,15 +127,12 @@ export async function bank_resolveAccountNumber(
  *
  * Confirm the authenticity of a customer's account number before sending money
  */
-export async function bank_validateAccountNumber(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/bank/validate"], "post">, false>
-) {
+export async function bank_validateAccountNumber(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/bank/validate"], "post">, false>) {
   const result = await client.POST("/bank/validate", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -167,19 +143,12 @@ export async function bank_validateAccountNumber(
  *
  * @param id_or_code An ID or code for the batch whose charges you want to retrieve.
  */
-export async function bulkCharge_charges(
-  client: PaystackClient,
-  id_or_code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/{id_or_code}/charges"], "get">, true>
-) {
-  const result = await client.GET("/bulkcharge/{id_or_code}/charges", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
-  });
+export async function bulkCharge_charges(client: PaystackClient, id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/{id_or_code}/charges"], "get">, true>) {
+  const result = await client.GET("/bulkcharge/{id_or_code}/charges", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -188,23 +157,16 @@ export async function bulkCharge_charges(
  *
  * This endpoint retrieves a specific batch code. It also returns useful information on its progress by
  * way of the `total_charges` and `pending_charges` attributes.
- *
+ * 
  *
  * @param id_or_code An ID or code for the charge whose batches you want to retrieve.
  */
-export async function bulkCharge_fetch(
-  client: PaystackClient,
-  id_or_code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/{id_or_code}"], "get">, true>
-) {
-  const result = await client.GET("/bulkcharge/{id_or_code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
-  });
+export async function bulkCharge_fetch(client: PaystackClient, id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/{id_or_code}"], "get">, true>) {
+  const result = await client.GET("/bulkcharge/{id_or_code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -213,15 +175,12 @@ export async function bulkCharge_fetch(
  *
  * Charge multiple customers in batches
  */
-export async function bulkCharge_initiate(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge"], "post">, false>
-) {
+export async function bulkCharge_initiate(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge"], "post">, false>) {
   const result = await client.POST("/bulkcharge", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -230,15 +189,12 @@ export async function bulkCharge_initiate(
  *
  * List all bulk charge batches.
  */
-export async function bulkCharge_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge"], "get">, false>
-) {
+export async function bulkCharge_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge"], "get">, false>) {
   const result = await client.GET("/bulkcharge", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -249,19 +205,12 @@ export async function bulkCharge_list(
  *
  * @param code The batch code for the bulk charge you want to pause
  */
-export async function bulkCharge_pause(
-  client: PaystackClient,
-  code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/pause/{code}"], "get">, true>
-) {
-  const result = await client.GET("/bulkcharge/pause/{code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
-  });
+export async function bulkCharge_pause(client: PaystackClient, code: string, ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/pause/{code}"], "get">, true>) {
+  const result = await client.GET("/bulkcharge/pause/{code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -272,19 +221,12 @@ export async function bulkCharge_pause(
  *
  * @param code The batch code for the bulk charge you want to pause
  */
-export async function bulkCharge_resume(
-  client: PaystackClient,
-  code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/resume/{code}"], "get">, true>
-) {
-  const result = await client.GET("/bulkcharge/resume/{code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
-  });
+export async function bulkCharge_resume(client: PaystackClient, code: string, ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/resume/{code}"], "get">, true>) {
+  const result = await client.GET("/bulkcharge/resume/{code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -295,19 +237,12 @@ export async function bulkCharge_resume(
  *
  * @param ref The transaction reference from the previously initiated charge request
  */
-export async function capitecPay_requery(
-  client: PaystackClient,
-  ref: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/capitec-pay/requery/{ref}"], "post">, true>
-) {
-  const result = await client.POST("/capitec-pay/requery/{ref}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, ref } },
-  });
+export async function capitecPay_requery(client: PaystackClient, ref: string, ...init: InitArg<MaybeOptionalInit<paths["/capitec-pay/requery/{ref}"], "post">, true>) {
+  const result = await client.POST("/capitec-pay/requery/{ref}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, ref } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -315,23 +250,16 @@ export async function capitecPay_requery(
  * Check pending charge
  *
  * When you get `pending` as a charge status or if there was an exception when calling any of the `/charge` endpoints, wait 10 seconds or more, then make a check to see if its status has changed. Don't call too early as you may get a lot more pending than you should.
- *
+ * 
  *
  * @param reference The reference of the ongoing transaction
  */
-export async function charge_check(
-  client: PaystackClient,
-  reference: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/charge/{reference}"], "get">, true>
-) {
-  const result = await client.GET("/charge/{reference}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, reference } },
-  });
+export async function charge_check(client: PaystackClient, reference: string, ...init: InitArg<MaybeOptionalInit<paths["/charge/{reference}"], "get">, true>) {
+  const result = await client.GET("/charge/{reference}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, reference } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -340,15 +268,12 @@ export async function charge_check(
  *
  * Initiate a payment by integrating the payment channel of your choice.
  */
-export async function charge_create(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/charge"], "post">, false>
-) {
+export async function charge_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/charge"], "post">, false>) {
   const result = await client.POST("/charge", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -357,15 +282,12 @@ export async function charge_create(
  *
  * Send the details of the customer's address for address verification
  */
-export async function charge_submitAddress(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_address"], "post">, false>
-) {
+export async function charge_submitAddress(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_address"], "post">, false>) {
   const result = await client.POST("/charge/submit_address", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -374,15 +296,12 @@ export async function charge_submitAddress(
  *
  * Submit the customer's birthday when requested
  */
-export async function charge_submitBirthday(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_birthday"], "post">, false>
-) {
+export async function charge_submitBirthday(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_birthday"], "post">, false>) {
   const result = await client.POST("/charge/submit_birthday", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -391,15 +310,12 @@ export async function charge_submitBirthday(
  *
  * Submit OTP to complete a charge
  */
-export async function charge_submitOtp(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_otp"], "post">, false>
-) {
+export async function charge_submitOtp(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_otp"], "post">, false>) {
   const result = await client.POST("/charge/submit_otp", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -408,15 +324,12 @@ export async function charge_submitOtp(
  *
  * Submit phone number when requested
  */
-export async function charge_submitPhone(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_phone"], "post">, false>
-) {
+export async function charge_submitPhone(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_phone"], "post">, false>) {
   const result = await client.POST("/charge/submit_phone", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -425,15 +338,12 @@ export async function charge_submitPhone(
  *
  * Submit PIN to continue a charge
  */
-export async function charge_submitPin(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_pin"], "post">, false>
-) {
+export async function charge_submitPin(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_pin"], "post">, false>) {
   const result = await client.POST("/charge/submit_pin", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -442,15 +352,12 @@ export async function charge_submitPin(
  *
  * Create a customer on your integration
  */
-export async function customer_create(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/customer"], "post">, false>
-) {
+export async function customer_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/customer"], "post">, false>) {
   const result = await client.POST("/customer", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -459,15 +366,12 @@ export async function customer_create(
  *
  * Deactivate an authorization for any payment channel.
  */
-export async function customer_deactivateAuthorization(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/customer/authorization/deactivate"], "post">, false>
-) {
+export async function customer_deactivateAuthorization(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/customer/authorization/deactivate"], "post">, false>) {
   const result = await client.POST("/customer/authorization/deactivate", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -478,22 +382,12 @@ export async function customer_deactivateAuthorization(
  *
  * @param id The customer ID attached to the authorization
  */
-export async function customer_directDebitActivationCharge(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<
-    MaybeOptionalInit<paths["/customer/{id}/directdebit-activation-charge"], "put">,
-    true
-  >
-) {
-  const result = await client.PUT("/customer/{id}/directdebit-activation-charge", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function customer_directDebitActivationCharge(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/customer/{id}/directdebit-activation-charge"], "put">, true>) {
+  const result = await client.PUT("/customer/{id}/directdebit-activation-charge", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -504,19 +398,12 @@ export async function customer_directDebitActivationCharge(
  *
  * @param email_or_code An email or customer code for the customer you want to fetch
  */
-export async function customer_fetch(
-  client: PaystackClient,
-  email_or_code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/customer/{email_or_code}"], "get">, true>
-) {
-  const result = await client.GET("/customer/{email_or_code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, email_or_code } },
-  });
+export async function customer_fetch(client: PaystackClient, email_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/customer/{email_or_code}"], "get">, true>) {
+  const result = await client.GET("/customer/{email_or_code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, email_or_code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -527,22 +414,12 @@ export async function customer_fetch(
  *
  * @param id The customer ID for the authorizations to fetch
  */
-export async function customer_fetchMandateAuthorizations(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<
-    MaybeOptionalInit<paths["/customer/{id}/directdebit-mandate-authorizations"], "get">,
-    true
-  >
-) {
-  const result = await client.GET("/customer/{id}/directdebit-mandate-authorizations", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function customer_fetchMandateAuthorizations(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/customer/{id}/directdebit-mandate-authorizations"], "get">, true>) {
+  const result = await client.GET("/customer/{id}/directdebit-mandate-authorizations", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -551,15 +428,12 @@ export async function customer_fetchMandateAuthorizations(
  *
  * Initiate a request to create a reusable authorization code for recurring transactions
  */
-export async function customer_initializeAuthorization(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/customer/authorization/initialize"], "post">, false>
-) {
+export async function customer_initializeAuthorization(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/customer/authorization/initialize"], "post">, false>) {
   const result = await client.POST("/customer/authorization/initialize", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -570,19 +444,12 @@ export async function customer_initializeAuthorization(
  *
  * @param id The ID of the customer to initialize the direct debit for
  */
-export async function customer_initializeDirectDebit(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/customer/{id}/initialize-direct-debit"], "post">, true>
-) {
-  const result = await client.POST("/customer/{id}/initialize-direct-debit", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function customer_initializeDirectDebit(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/customer/{id}/initialize-direct-debit"], "post">, true>) {
+  const result = await client.POST("/customer/{id}/initialize-direct-debit", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -591,15 +458,12 @@ export async function customer_initializeDirectDebit(
  *
  * List customers available on your integration
  */
-export async function customer_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/customer"], "get">, false>
-) {
+export async function customer_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/customer"], "get">, false>) {
   const result = await client.GET("/customer", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -608,15 +472,12 @@ export async function customer_list(
  *
  * Set customer's risk action by whitelisting or blacklisting the customer
  */
-export async function customer_riskAction(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/customer/set_risk_action"], "post">, false>
-) {
+export async function customer_riskAction(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/customer/set_risk_action"], "post">, false>) {
   const result = await client.POST("/customer/set_risk_action", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -627,19 +488,12 @@ export async function customer_riskAction(
  *
  * @param email_or_code An email or customer code for the customer you want to fetch
  */
-export async function customer_update(
-  client: PaystackClient,
-  email_or_code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/customer/{email_or_code}"], "put">, true>
-) {
-  const result = await client.PUT("/customer/{email_or_code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, email_or_code } },
-  });
+export async function customer_update(client: PaystackClient, email_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/customer/{email_or_code}"], "put">, true>) {
+  const result = await client.PUT("/customer/{email_or_code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, email_or_code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -650,22 +504,12 @@ export async function customer_update(
  *
  * @param customer_code Customer code
  */
-export async function customer_validate(
-  client: PaystackClient,
-  customer_code: string,
-  ...init: InitArg<
-    MaybeOptionalInit<paths["/customer/{customer_code}/identification"], "post">,
-    true
-  >
-) {
-  const result = await client.POST("/customer/{customer_code}/identification", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, customer_code } },
-  });
+export async function customer_validate(client: PaystackClient, customer_code: string, ...init: InitArg<MaybeOptionalInit<paths["/customer/{customer_code}/identification"], "post">, true>) {
+  const result = await client.POST("/customer/{customer_code}/identification", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, customer_code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -676,22 +520,12 @@ export async function customer_validate(
  *
  * @param reference The reference returned in the initialization response
  */
-export async function customer_verifyAuthorization(
-  client: PaystackClient,
-  reference: string,
-  ...init: InitArg<
-    MaybeOptionalInit<paths["/customer/authorization/verify/{reference}"], "get">,
-    true
-  >
-) {
-  const result = await client.GET("/customer/authorization/verify/{reference}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, reference } },
-  });
+export async function customer_verifyAuthorization(client: PaystackClient, reference: string, ...init: InitArg<MaybeOptionalInit<paths["/customer/authorization/verify/{reference}"], "get">, true>) {
+  const result = await client.GET("/customer/authorization/verify/{reference}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, reference } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -700,15 +534,12 @@ export async function customer_verifyAuthorization(
  *
  * Split a dedicated virtual account transaction with one or more accounts
  */
-export async function dedicatedAccount_addSplit(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/split"], "post">, false>
-) {
+export async function dedicatedAccount_addSplit(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/split"], "post">, false>) {
   const result = await client.POST("/dedicated_account/split", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -717,15 +548,12 @@ export async function dedicatedAccount_addSplit(
  *
  * With this endpoint, you can create a customer, validate the customer, and assign a DVA to the customer.
  */
-export async function dedicatedAccount_assign(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/assign"], "post">, false>
-) {
+export async function dedicatedAccount_assign(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/assign"], "post">, false>) {
   const result = await client.POST("/dedicated_account/assign", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -734,15 +562,12 @@ export async function dedicatedAccount_assign(
  *
  * Get available bank providers for a dedicated virtual account
  */
-export async function dedicatedAccount_availableProviders(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/available_providers"], "get">, false>
-) {
+export async function dedicatedAccount_availableProviders(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/available_providers"], "get">, false>) {
   const result = await client.GET("/dedicated_account/available_providers", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -751,15 +576,12 @@ export async function dedicatedAccount_availableProviders(
  *
  * Create a dedicated virtual account for an existing customer
  */
-export async function dedicatedAccount_create(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account"], "post">, false>
-) {
+export async function dedicatedAccount_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account"], "post">, false>) {
   const result = await client.POST("/dedicated_account", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -770,19 +592,12 @@ export async function dedicatedAccount_create(
  *
  * @param id ID of dedicated virtual account
  */
-export async function dedicatedAccount_deactivate(
-  client: PaystackClient,
-  id: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/{id}"], "delete">, true>
-) {
-  const result = await client.DELETE("/dedicated_account/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function dedicatedAccount_deactivate(client: PaystackClient, id: string, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/{id}"], "delete">, true>) {
+  const result = await client.DELETE("/dedicated_account/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -793,19 +608,12 @@ export async function dedicatedAccount_deactivate(
  *
  * @param id ID of dedicated virtual account
  */
-export async function dedicatedAccount_fetch(
-  client: PaystackClient,
-  id: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/{id}"], "get">, true>
-) {
-  const result = await client.GET("/dedicated_account/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function dedicatedAccount_fetch(client: PaystackClient, id: string, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/{id}"], "get">, true>) {
+  const result = await client.GET("/dedicated_account/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -814,15 +622,12 @@ export async function dedicatedAccount_fetch(
  *
  * List dedicated virtual accounts available on your integration.
  */
-export async function dedicatedAccount_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account"], "get">, false>
-) {
+export async function dedicatedAccount_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account"], "get">, false>) {
   const result = await client.GET("/dedicated_account", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -831,15 +636,12 @@ export async function dedicatedAccount_list(
  *
  * If you've previously set up split payment for transactions on a dedicated virtual account, you can remove it with this endpoint
  */
-export async function dedicatedAccount_removeSplit(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/split"], "delete">, false>
-) {
+export async function dedicatedAccount_removeSplit(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/split"], "delete">, false>) {
   const result = await client.DELETE("/dedicated_account/split", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -848,15 +650,12 @@ export async function dedicatedAccount_removeSplit(
  *
  * Requery Dedicated Virtual Account for new transactions
  */
-export async function dedicatedAccount_requery(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/requery"], "get">, false>
-) {
+export async function dedicatedAccount_requery(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/requery"], "get">, false>) {
   const result = await client.GET("/dedicated_account/requery", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -865,15 +664,12 @@ export async function dedicatedAccount_requery(
  *
  * Get a list of all the direct debit mandates on your integration
  */
-export async function directdebit_listMandateAuthorizations(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/directdebit/mandate-authorizations"], "get">, false>
-) {
+export async function directdebit_listMandateAuthorizations(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/directdebit/mandate-authorizations"], "get">, false>) {
   const result = await client.GET("/directdebit/mandate-authorizations", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -882,15 +678,12 @@ export async function directdebit_listMandateAuthorizations(
  *
  * Trigger activation charge for specified customers
  */
-export async function directdebit_triggerActivationCharge(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/directdebit/activation-charge"], "put">, false>
-) {
+export async function directdebit_triggerActivationCharge(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/directdebit/activation-charge"], "put">, false>) {
   const result = await client.PUT("/directdebit/activation-charge", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -899,15 +692,12 @@ export async function directdebit_triggerActivationCharge(
  *
  * Export the disputes available on your integration
  */
-export async function dispute_download(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/dispute/export"], "get">, false>
-) {
+export async function dispute_download(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dispute/export"], "get">, false>) {
   const result = await client.GET("/dispute/export", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -918,19 +708,12 @@ export async function dispute_download(
  *
  * @param id The unique identifier of the dispute
  */
-export async function dispute_evidence(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/evidence"], "post">, true>
-) {
-  const result = await client.POST("/dispute/{id}/evidence", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function dispute_evidence(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/evidence"], "post">, true>) {
+  const result = await client.POST("/dispute/{id}/evidence", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -941,19 +724,12 @@ export async function dispute_evidence(
  *
  * @param id The unique identifier of the dispute
  */
-export async function dispute_fetch(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}"], "get">, true>
-) {
-  const result = await client.GET("/dispute/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function dispute_fetch(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}"], "get">, true>) {
+  const result = await client.GET("/dispute/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -962,15 +738,12 @@ export async function dispute_fetch(
  *
  * List transaction disputes filed by customers
  */
-export async function dispute_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/dispute"], "get">, false>
-) {
+export async function dispute_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/dispute"], "get">, false>) {
   const result = await client.GET("/dispute", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -981,19 +754,12 @@ export async function dispute_list(
  *
  * @param id The unique identifier of the dispute
  */
-export async function dispute_resolve(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/resolve"], "put">, true>
-) {
-  const result = await client.PUT("/dispute/{id}/resolve", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function dispute_resolve(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/resolve"], "put">, true>) {
+  const result = await client.PUT("/dispute/{id}/resolve", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1004,19 +770,12 @@ export async function dispute_resolve(
  *
  * @param id The unique identifier of the transaction
  */
-export async function dispute_transaction(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/dispute/transaction/{id}"], "get">, true>
-) {
-  const result = await client.GET("/dispute/transaction/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function dispute_transaction(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/dispute/transaction/{id}"], "get">, true>) {
+  const result = await client.GET("/dispute/transaction/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1027,19 +786,12 @@ export async function dispute_transaction(
  *
  * @param id The unique identifier of the dispute
  */
-export async function dispute_update(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}"], "put">, true>
-) {
-  const result = await client.PUT("/dispute/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function dispute_update(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}"], "put">, true>) {
+  const result = await client.PUT("/dispute/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1050,19 +802,12 @@ export async function dispute_update(
  *
  * @param id The unique identifier of the dispute
  */
-export async function dispute_uploadUrl(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/upload_url"], "get">, true>
-) {
-  const result = await client.GET("/dispute/{id}/upload_url", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function dispute_uploadUrl(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/upload_url"], "get">, true>) {
+  const result = await client.GET("/dispute/{id}/upload_url", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1071,15 +816,12 @@ export async function dispute_uploadUrl(
  *
  * Fetch the session timeout of a transaction
  */
-export async function integration_fetchPaymentSessionTimeout(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/integration/payment_session_timeout"], "get">, false>
-) {
+export async function integration_fetchPaymentSessionTimeout(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/integration/payment_session_timeout"], "get">, false>) {
   const result = await client.GET("/integration/payment_session_timeout", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1088,15 +830,12 @@ export async function integration_fetchPaymentSessionTimeout(
  *
  * Update the session timeout of a transaction
  */
-export async function integration_updatePaymentSessionTimeout(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/integration/payment_session_timeout"], "put">, false>
-) {
+export async function integration_updatePaymentSessionTimeout(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/integration/payment_session_timeout"], "put">, false>) {
   const result = await client.PUT("/integration/payment_session_timeout", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1105,15 +844,12 @@ export async function integration_updatePaymentSessionTimeout(
  *
  * This path is internal and used to ensure that schemas like WebhookEvent are considered 'used' for SDK generation and linting.
  */
-export async function misc_generateWebhookEventTypes(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/___internal___"], "get">, false>
-) {
+export async function misc_generateWebhookEventTypes(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/___internal___"], "get">, false>) {
   const result = await client.GET("/___internal___", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1122,15 +858,12 @@ export async function misc_generateWebhookEventTypes(
  *
  * Get a list of states for a country for address verification
  */
-export async function miscellaneous_avs(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/address_verification/states"], "get">, false>
-) {
+export async function miscellaneous_avs(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/address_verification/states"], "get">, false>) {
   const result = await client.GET("/address_verification/states", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1139,15 +872,12 @@ export async function miscellaneous_avs(
  *
  * List all supported countries on Paystack
  */
-export async function miscellaneous_listCountries(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/country"], "get">, false>
-) {
+export async function miscellaneous_listCountries(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/country"], "get">, false>) {
   const result = await client.GET("/country", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1158,19 +888,12 @@ export async function miscellaneous_listCountries(
  *
  * @param bin The card bank identification number
  */
-export async function miscellaneous_resolveCardBin(
-  client: PaystackClient,
-  bin: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/decision/bin/{bin}"], "get">, true>
-) {
-  const result = await client.GET("/decision/bin/{bin}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, bin } },
-  });
+export async function miscellaneous_resolveCardBin(client: PaystackClient, bin: string, ...init: InitArg<MaybeOptionalInit<paths["/decision/bin/{bin}"], "get">, true>) {
+  const result = await client.GET("/decision/bin/{bin}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, bin } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1179,15 +902,12 @@ export async function miscellaneous_resolveCardBin(
  *
  * Create an order for selected items
  */
-export async function order_create(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/order"], "post">, false>
-) {
+export async function order_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/order"], "post">, false>) {
   const result = await client.POST("/order", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1198,19 +918,12 @@ export async function order_create(
  *
  * @param id The unique identifier of the order
  */
-export async function order_fetch(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/order/{id}"], "get">, true>
-) {
-  const result = await client.GET("/order/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function order_fetch(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/order/{id}"], "get">, true>) {
+  const result = await client.GET("/order/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1219,15 +932,12 @@ export async function order_fetch(
  *
  * List the previously created orders
  */
-export async function order_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/order"], "get">, false>
-) {
+export async function order_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/order"], "get">, false>) {
   const result = await client.GET("/order", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1238,19 +948,12 @@ export async function order_list(
  *
  * @param id The unique identifier of the order
  */
-export async function order_product(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/order/product/{id}"], "get">, true>
-) {
-  const result = await client.GET("/order/product/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function order_product(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/order/product/{id}"], "get">, true>) {
+  const result = await client.GET("/order/product/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1261,19 +964,12 @@ export async function order_product(
  *
  * @param code The unique code of a previously created order
  */
-export async function order_validate(
-  client: PaystackClient,
-  code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/order/{code}/validate"], "get">, true>
-) {
-  const result = await client.GET("/order/{code}/validate", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
-  });
+export async function order_validate(client: PaystackClient, code: string, ...init: InitArg<MaybeOptionalInit<paths["/order/{code}/validate"], "get">, true>) {
+  const result = await client.GET("/order/{code}/validate", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1282,23 +978,16 @@ export async function order_validate(
  *
  * Add products to a previously created payment page. You can only add products to pages
  * that was created with a `product` type.
+ * 
  *
- *
- * @param id
+ * @param id 
  */
-export async function page_addProducts(
-  client: PaystackClient,
-  id: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/page/{id}/product"], "post">, true>
-) {
-  const result = await client.POST("/page/{id}/product", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function page_addProducts(client: PaystackClient, id: string, ...init: InitArg<MaybeOptionalInit<paths["/page/{id}/product"], "post">, true>) {
+  const result = await client.POST("/page/{id}/product", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1309,19 +998,12 @@ export async function page_addProducts(
  *
  * @param slug The custom slug to check
  */
-export async function page_checkSlugAvailability(
-  client: PaystackClient,
-  slug: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/page/check_slug_availability/{slug}"], "get">, true>
-) {
-  const result = await client.GET("/page/check_slug_availability/{slug}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, slug } },
-  });
+export async function page_checkSlugAvailability(client: PaystackClient, slug: string, ...init: InitArg<MaybeOptionalInit<paths["/page/check_slug_availability/{slug}"], "get">, true>) {
+  const result = await client.GET("/page/check_slug_availability/{slug}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, slug } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1330,15 +1012,12 @@ export async function page_checkSlugAvailability(
  *
  * Create a webpage to receive payments
  */
-export async function page_create(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/page"], "post">, false>
-) {
+export async function page_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/page"], "post">, false>) {
   const result = await client.POST("/page", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1349,19 +1028,12 @@ export async function page_create(
  *
  * @param id_or_slug The page ID or slug you want to fetch
  */
-export async function page_fetch(
-  client: PaystackClient,
-  id_or_slug: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/page/{id_or_slug}"], "get">, true>
-) {
-  const result = await client.GET("/page/{id_or_slug}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_slug } },
-  });
+export async function page_fetch(client: PaystackClient, id_or_slug: string, ...init: InitArg<MaybeOptionalInit<paths["/page/{id_or_slug}"], "get">, true>) {
+  const result = await client.GET("/page/{id_or_slug}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_slug } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1370,15 +1042,12 @@ export async function page_fetch(
  *
  * List all previously created payment pages
  */
-export async function page_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/page"], "get">, false>
-) {
+export async function page_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/page"], "get">, false>) {
   const result = await client.GET("/page", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1389,19 +1058,12 @@ export async function page_list(
  *
  * @param id_or_slug The page ID or slug you want to fetch
  */
-export async function page_update(
-  client: PaystackClient,
-  id_or_slug: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/page/{id_or_slug}"], "put">, true>
-) {
-  const result = await client.PUT("/page/{id_or_slug}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_slug } },
-  });
+export async function page_update(client: PaystackClient, id_or_slug: string, ...init: InitArg<MaybeOptionalInit<paths["/page/{id_or_slug}"], "put">, true>) {
+  const result = await client.PUT("/page/{id_or_slug}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_slug } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1410,23 +1072,16 @@ export async function page_update(
  *
  * Archive a payment request to clean up your records. An archived payment request cannot be verified and will not
  * be returned when listing all previously created payment requests.
- *
+ * 
  *
  * @param id The unique identifier of a previously created payment request
  */
-export async function paymentRequest_archive(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/archive/{id}"], "post">, true>
-) {
-  const result = await client.POST("/paymentrequest/archive/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function paymentRequest_archive(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/archive/{id}"], "post">, true>) {
+  const result = await client.POST("/paymentrequest/archive/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1435,15 +1090,12 @@ export async function paymentRequest_archive(
  *
  * Create a new payment request by issuing an invoice to a customer
  */
-export async function paymentRequest_create(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest"], "post">, false>
-) {
+export async function paymentRequest_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest"], "post">, false>) {
   const result = await client.POST("/paymentrequest", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1454,19 +1106,12 @@ export async function paymentRequest_create(
  *
  * @param id_or_code The payment request ID or code you want to fetch
  */
-export async function paymentRequest_fetch(
-  client: PaystackClient,
-  id_or_code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/{id_or_code}"], "get">, true>
-) {
-  const result = await client.GET("/paymentrequest/{id_or_code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
-  });
+export async function paymentRequest_fetch(client: PaystackClient, id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/{id_or_code}"], "get">, true>) {
+  const result = await client.GET("/paymentrequest/{id_or_code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1477,19 +1122,12 @@ export async function paymentRequest_fetch(
  *
  * @param id The unique identifier of a draft payment request
  */
-export async function paymentRequest_finalize(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/finalize/{id}"], "post">, true>
-) {
-  const result = await client.POST("/paymentrequest/finalize/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function paymentRequest_finalize(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/finalize/{id}"], "post">, true>) {
+  const result = await client.POST("/paymentrequest/finalize/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1498,15 +1136,12 @@ export async function paymentRequest_finalize(
  *
  * List all previously created payment requests to your customers
  */
-export async function paymentRequest_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest"], "get">, false>
-) {
+export async function paymentRequest_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest"], "get">, false>) {
   const result = await client.GET("/paymentrequest", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1517,19 +1152,12 @@ export async function paymentRequest_list(
  *
  * @param id The unique identifier of a previously created payment request
  */
-export async function paymentRequest_notify(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/notify/{id}"], "post">, true>
-) {
-  const result = await client.POST("/paymentrequest/notify/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function paymentRequest_notify(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/notify/{id}"], "post">, true>) {
+  const result = await client.POST("/paymentrequest/notify/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1538,15 +1166,12 @@ export async function paymentRequest_notify(
  *
  * Get the metric of all pending and successful payment requests
  */
-export async function paymentRequest_totals(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/totals"], "get">, false>
-) {
+export async function paymentRequest_totals(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/totals"], "get">, false>) {
   const result = await client.GET("/paymentrequest/totals", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1557,19 +1182,12 @@ export async function paymentRequest_totals(
  *
  * @param id_or_code The payment request ID or code you want to fetch
  */
-export async function paymentRequest_update(
-  client: PaystackClient,
-  id_or_code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/{id_or_code}"], "put">, true>
-) {
-  const result = await client.PUT("/paymentrequest/{id_or_code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
-  });
+export async function paymentRequest_update(client: PaystackClient, id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/{id_or_code}"], "put">, true>) {
+  const result = await client.PUT("/paymentrequest/{id_or_code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1580,19 +1198,12 @@ export async function paymentRequest_update(
  *
  * @param id The unique identifier of a previously created payment request
  */
-export async function paymentRequest_verify(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/verify/{id}"], "get">, true>
-) {
-  const result = await client.GET("/paymentrequest/verify/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function paymentRequest_verify(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/verify/{id}"], "get">, true>) {
+  const result = await client.GET("/paymentrequest/verify/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1601,15 +1212,12 @@ export async function paymentRequest_verify(
  *
  * Create a plan for recurring payments
  */
-export async function plan_create(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/plan"], "post">, false>
-) {
+export async function plan_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/plan"], "post">, false>) {
   const result = await client.POST("/plan", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1620,19 +1228,12 @@ export async function plan_create(
  *
  * @param id_or_code The plan ID or code you want to fetch
  */
-export async function plan_fetch(
-  client: PaystackClient,
-  id_or_code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/plan/{id_or_code}"], "get">, true>
-) {
-  const result = await client.GET("/plan/{id_or_code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
-  });
+export async function plan_fetch(client: PaystackClient, id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/plan/{id_or_code}"], "get">, true>) {
+  const result = await client.GET("/plan/{id_or_code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1641,15 +1242,12 @@ export async function plan_fetch(
  *
  * List all recurring payment plans
  */
-export async function plan_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/plan"], "get">, false>
-) {
+export async function plan_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/plan"], "get">, false>) {
   const result = await client.GET("/plan", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1660,19 +1258,12 @@ export async function plan_list(
  *
  * @param id_or_code The plan ID or code you want to fetch
  */
-export async function plan_update(
-  client: PaystackClient,
-  id_or_code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/plan/{id_or_code}"], "put">, true>
-) {
-  const result = await client.PUT("/plan/{id_or_code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
-  });
+export async function plan_update(client: PaystackClient, id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/plan/{id_or_code}"], "put">, true>) {
+  const result = await client.PUT("/plan/{id_or_code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1681,15 +1272,12 @@ export async function plan_update(
  *
  * Charge a preauthorized transaction upon service delivery
  */
-export async function preauthorization_capture(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/capture"], "post">, false>
-) {
+export async function preauthorization_capture(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/capture"], "post">, false>) {
   const result = await client.POST("/preauthorization/capture", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1698,15 +1286,12 @@ export async function preauthorization_capture(
  *
  * Initialize a preauthorization transaction for a new customer
  */
-export async function preauthorization_initialize(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/initialize"], "post">, false>
-) {
+export async function preauthorization_initialize(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/initialize"], "post">, false>) {
   const result = await client.POST("/preauthorization/initialize", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1715,15 +1300,12 @@ export async function preauthorization_initialize(
  *
  * List preauthorizations carried out on your integration
  */
-export async function preauthorization_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/preauthorization"], "get">, false>
-) {
+export async function preauthorization_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/preauthorization"], "get">, false>) {
   const result = await client.GET("/preauthorization", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1732,15 +1314,12 @@ export async function preauthorization_list(
  *
  * For when a customer cancels an order or you want to release the hold from their card.
  */
-export async function preauthorization_release(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/release"], "post">, false>
-) {
+export async function preauthorization_release(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/release"], "post">, false>) {
   const result = await client.POST("/preauthorization/release", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1749,18 +1328,12 @@ export async function preauthorization_release(
  *
  * Hold an amount using an existing customer's authorization that's marked reusable.
  */
-export async function preauthorization_reserve_authorization(
-  client: PaystackClient,
-  ...init: InitArg<
-    MaybeOptionalInit<paths["/preauthorization/reserve_authorization"], "post">,
-    false
-  >
-) {
+export async function preauthorization_reserve_authorization(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/reserve_authorization"], "post">, false>) {
   const result = await client.POST("/preauthorization/reserve_authorization", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1771,19 +1344,12 @@ export async function preauthorization_reserve_authorization(
  *
  * @param reference The transaction reference used to intiate the transaction
  */
-export async function preauthorization_verify(
-  client: PaystackClient,
-  reference: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/verify/{reference}"], "get">, true>
-) {
-  const result = await client.GET("/preauthorization/verify/{reference}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, reference } },
-  });
+export async function preauthorization_verify(client: PaystackClient, reference: string, ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/verify/{reference}"], "get">, true>) {
+  const result = await client.GET("/preauthorization/verify/{reference}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, reference } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1792,15 +1358,12 @@ export async function preauthorization_verify(
  *
  * Create a new product on your integration
  */
-export async function product_create(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/product"], "post">, false>
-) {
+export async function product_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/product"], "post">, false>) {
   const result = await client.POST("/product", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1811,19 +1374,12 @@ export async function product_create(
  *
  * @param id The unique identifier of the product
  */
-export async function product_delete(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "delete">, true>
-) {
-  const result = await client.DELETE("/product/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function product_delete(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "delete">, true>) {
+  const result = await client.DELETE("/product/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1834,19 +1390,12 @@ export async function product_delete(
  *
  * @param id The unique identifier of the product
  */
-export async function product_fetch(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "get">, true>
-) {
-  const result = await client.GET("/product/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function product_fetch(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "get">, true>) {
+  const result = await client.GET("/product/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1855,15 +1404,12 @@ export async function product_fetch(
  *
  * List all previously created products
  */
-export async function product_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/product"], "get">, false>
-) {
+export async function product_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/product"], "get">, false>) {
   const result = await client.GET("/product", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1874,19 +1420,12 @@ export async function product_list(
  *
  * @param id The unique identifier of the product
  */
-export async function product_update(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "put">, true>
-) {
-  const result = await client.PUT("/product/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function product_update(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "put">, true>) {
+  const result = await client.PUT("/product/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1895,15 +1434,12 @@ export async function product_update(
  *
  * Initiate a refund for a previously completed transaction
  */
-export async function refund_create(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/refund"], "post">, false>
-) {
+export async function refund_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/refund"], "post">, false>) {
   const result = await client.POST("/refund", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1914,19 +1450,12 @@ export async function refund_create(
  *
  * @param id The identifier of the refund
  */
-export async function refund_fetch(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/refund/{id}"], "get">, true>
-) {
-  const result = await client.GET("/refund/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function refund_fetch(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/refund/{id}"], "get">, true>) {
+  const result = await client.GET("/refund/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1935,15 +1464,12 @@ export async function refund_fetch(
  *
  * List previously created refunds
  */
-export async function refund_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/refund"], "get">, false>
-) {
+export async function refund_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/refund"], "get">, false>) {
   const result = await client.GET("/refund", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1954,22 +1480,12 @@ export async function refund_list(
  *
  * @param id The identifier of the refund
  */
-export async function refund_retry(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<
-    MaybeOptionalInit<paths["/refund/retry_with_customer_details/{id}"], "post">,
-    true
-  >
-) {
-  const result = await client.POST("/refund/retry_with_customer_details/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function refund_retry(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/refund/retry_with_customer_details/{id}"], "post">, true>) {
+  const result = await client.POST("/refund/retry_with_customer_details/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1978,15 +1494,12 @@ export async function refund_retry(
  *
  * List settlements made to your settlement accounts
  */
-export async function settlements_fetch(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/settlement"], "get">, false>
-) {
+export async function settlements_fetch(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/settlement"], "get">, false>) {
   const result = await client.GET("/settlement", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -1997,19 +1510,12 @@ export async function settlements_fetch(
  *
  * @param id The settlement ID in which you want to fetch its transactions
  */
-export async function settlements_transaction(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/settlement/{id}/transactions"], "get">, true>
-) {
-  const result = await client.GET("/settlement/{id}/transactions", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function settlements_transaction(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/settlement/{id}/transactions"], "get">, true>) {
+  const result = await client.GET("/settlement/{id}/transactions", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2020,19 +1526,12 @@ export async function settlements_transaction(
  *
  * @param id The ID of the split configuration to fetch
  */
-export async function split_addSubaccount(
-  client: PaystackClient,
-  id: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/split/{id}/subaccount/add"], "post">, true>
-) {
-  const result = await client.POST("/split/{id}/subaccount/add", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function split_addSubaccount(client: PaystackClient, id: string, ...init: InitArg<MaybeOptionalInit<paths["/split/{id}/subaccount/add"], "post">, true>) {
+  const result = await client.POST("/split/{id}/subaccount/add", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2041,15 +1540,12 @@ export async function split_addSubaccount(
  *
  * Create a split configuration for transactions
  */
-export async function split_create(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/split"], "post">, false>
-) {
+export async function split_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/split"], "post">, false>) {
   const result = await client.POST("/split", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2060,19 +1556,12 @@ export async function split_create(
  *
  * @param id The ID of the split configuration to fetch
  */
-export async function split_fetch(
-  client: PaystackClient,
-  id: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/split/{id}"], "get">, true>
-) {
-  const result = await client.GET("/split/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function split_fetch(client: PaystackClient, id: string, ...init: InitArg<MaybeOptionalInit<paths["/split/{id}"], "get">, true>) {
+  const result = await client.GET("/split/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2081,15 +1570,12 @@ export async function split_fetch(
  *
  * List the transaction splits available on your integration
  */
-export async function split_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/split"], "get">, false>
-) {
+export async function split_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/split"], "get">, false>) {
   const result = await client.GET("/split", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2100,19 +1586,12 @@ export async function split_list(
  *
  * @param id The ID of the split configuration to fetch
  */
-export async function split_removeSubaccount(
-  client: PaystackClient,
-  id: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/split/{id}/subaccount/remove"], "post">, true>
-) {
-  const result = await client.POST("/split/{id}/subaccount/remove", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function split_removeSubaccount(client: PaystackClient, id: string, ...init: InitArg<MaybeOptionalInit<paths["/split/{id}/subaccount/remove"], "post">, true>) {
+  const result = await client.POST("/split/{id}/subaccount/remove", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2121,21 +1600,14 @@ export async function split_removeSubaccount(
  *
  * Update a split configuration for transactions
  *
- * @param id
+ * @param id 
  */
-export async function split_update(
-  client: PaystackClient,
-  id: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/split/{id}"], "put">, true>
-) {
-  const result = await client.PUT("/split/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function split_update(client: PaystackClient, id: string, ...init: InitArg<MaybeOptionalInit<paths["/split/{id}"], "put">, true>) {
+  const result = await client.PUT("/split/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2146,19 +1618,12 @@ export async function split_update(
  *
  * @param id The unique identifier of the Storefront
  */
-export async function storefront_addProducts(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/product"], "post">, true>
-) {
-  const result = await client.POST("/storefront/{id}/product", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function storefront_addProducts(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/product"], "post">, true>) {
+  const result = await client.POST("/storefront/{id}/product", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2167,15 +1632,12 @@ export async function storefront_addProducts(
  *
  * Create a digital shop to manage and display your products
  */
-export async function storefront_create(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/storefront"], "post">, false>
-) {
+export async function storefront_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/storefront"], "post">, false>) {
   const result = await client.POST("/storefront", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2186,19 +1648,12 @@ export async function storefront_create(
  *
  * @param id The unique identifier of the Storefront
  */
-export async function storefront_delete(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "delete">, true>
-) {
-  const result = await client.DELETE("/storefront/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function storefront_delete(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "delete">, true>) {
+  const result = await client.DELETE("/storefront/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2209,19 +1664,12 @@ export async function storefront_delete(
  *
  * @param id The unique identifier of the Storefront
  */
-export async function storefront_duplicate(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/duplicate"], "post">, true>
-) {
-  const result = await client.POST("/storefront/{id}/duplicate", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function storefront_duplicate(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/duplicate"], "post">, true>) {
+  const result = await client.POST("/storefront/{id}/duplicate", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2232,19 +1680,12 @@ export async function storefront_duplicate(
  *
  * @param id The unique identifier of the Storefront
  */
-export async function storefront_fetch(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "get">, true>
-) {
-  const result = await client.GET("/storefront/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function storefront_fetch(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "get">, true>) {
+  const result = await client.GET("/storefront/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2255,19 +1696,12 @@ export async function storefront_fetch(
  *
  * @param id The unique identifier of the Storefront
  */
-export async function storefront_fetchOrders(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/order"], "get">, true>
-) {
-  const result = await client.GET("/storefront/{id}/order", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function storefront_fetchOrders(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/order"], "get">, true>) {
+  const result = await client.GET("/storefront/{id}/order", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2276,15 +1710,12 @@ export async function storefront_fetchOrders(
  *
  * List the storefronts you previously created
  */
-export async function storefront_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/storefront"], "get">, false>
-) {
+export async function storefront_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/storefront"], "get">, false>) {
   const result = await client.GET("/storefront", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2295,19 +1726,12 @@ export async function storefront_list(
  *
  * @param id The unique identifier of the Storefront
  */
-export async function storefront_listProducts(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/product"], "get">, true>
-) {
-  const result = await client.GET("/storefront/{id}/product", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function storefront_listProducts(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/product"], "get">, true>) {
+  const result = await client.GET("/storefront/{id}/product", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2318,19 +1742,12 @@ export async function storefront_listProducts(
  *
  * @param id The unique identifier of the Storefront
  */
-export async function storefront_publish(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/publish"], "post">, true>
-) {
-  const result = await client.POST("/storefront/{id}/publish", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function storefront_publish(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/publish"], "post">, true>) {
+  const result = await client.POST("/storefront/{id}/publish", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2341,19 +1758,12 @@ export async function storefront_publish(
  *
  * @param id The unique identifier of the Storefront
  */
-export async function storefront_update(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "put">, true>
-) {
-  const result = await client.PUT("/storefront/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function storefront_update(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "put">, true>) {
+  const result = await client.PUT("/storefront/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2364,19 +1774,12 @@ export async function storefront_update(
  *
  * @param slug The custom slug to check
  */
-export async function storefront_verifySlug(
-  client: PaystackClient,
-  slug: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/storefront/verify/{slug}"], "get">, true>
-) {
-  const result = await client.GET("/storefront/verify/{slug}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, slug } },
-  });
+export async function storefront_verifySlug(client: PaystackClient, slug: string, ...init: InitArg<MaybeOptionalInit<paths["/storefront/verify/{slug}"], "get">, true>) {
+  const result = await client.GET("/storefront/verify/{slug}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, slug } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2385,15 +1788,12 @@ export async function storefront_verifySlug(
  *
  * Create a subacount for a partner
  */
-export async function subaccount_create(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/subaccount"], "post">, false>
-) {
+export async function subaccount_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/subaccount"], "post">, false>) {
   const result = await client.POST("/subaccount", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2404,19 +1804,12 @@ export async function subaccount_create(
  *
  * @param id_or_code The subaccount ID or code you want to fetch
  */
-export async function subaccount_fetch(
-  client: PaystackClient,
-  id_or_code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/subaccount/{id_or_code}"], "get">, true>
-) {
-  const result = await client.GET("/subaccount/{id_or_code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
-  });
+export async function subaccount_fetch(client: PaystackClient, id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/subaccount/{id_or_code}"], "get">, true>) {
+  const result = await client.GET("/subaccount/{id_or_code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2425,15 +1818,12 @@ export async function subaccount_fetch(
  *
  * List subaccounts available on your integration
  */
-export async function subaccount_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/subaccount"], "get">, false>
-) {
+export async function subaccount_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/subaccount"], "get">, false>) {
   const result = await client.GET("/subaccount", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2444,19 +1834,12 @@ export async function subaccount_list(
  *
  * @param id_or_code The subaccount ID or code you want to fetch
  */
-export async function subaccount_update(
-  client: PaystackClient,
-  id_or_code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/subaccount/{id_or_code}"], "put">, true>
-) {
-  const result = await client.PUT("/subaccount/{id_or_code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
-  });
+export async function subaccount_update(client: PaystackClient, id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/subaccount/{id_or_code}"], "put">, true>) {
+  const result = await client.PUT("/subaccount/{id_or_code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2465,15 +1848,12 @@ export async function subaccount_update(
  *
  * Create a subscription a customer
  */
-export async function subscription_create(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/subscription"], "post">, false>
-) {
+export async function subscription_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/subscription"], "post">, false>) {
   const result = await client.POST("/subscription", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2482,15 +1862,12 @@ export async function subscription_create(
  *
  * Disable a subscription on your integration
  */
-export async function subscription_disable(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/subscription/disable"], "post">, false>
-) {
+export async function subscription_disable(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/subscription/disable"], "post">, false>) {
   const result = await client.POST("/subscription/disable", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2499,15 +1876,12 @@ export async function subscription_disable(
  *
  * Enable a subscription on your integration
  */
-export async function subscription_enable(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/subscription/enable"], "post">, false>
-) {
+export async function subscription_enable(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/subscription/enable"], "post">, false>) {
   const result = await client.POST("/subscription/enable", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2518,19 +1892,12 @@ export async function subscription_enable(
  *
  * @param id_or_code The subscription ID or code you want to fetch
  */
-export async function subscription_fetch(
-  client: PaystackClient,
-  id_or_code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/subscription/{id_or_code}"], "get">, true>
-) {
-  const result = await client.GET("/subscription/{id_or_code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
-  });
+export async function subscription_fetch(client: PaystackClient, id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/subscription/{id_or_code}"], "get">, true>) {
+  const result = await client.GET("/subscription/{id_or_code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2539,15 +1906,12 @@ export async function subscription_fetch(
  *
  * List all subscriptions available on your integration
  */
-export async function subscription_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/subscription"], "get">, false>
-) {
+export async function subscription_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/subscription"], "get">, false>) {
   const result = await client.GET("/subscription", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2558,19 +1922,12 @@ export async function subscription_list(
  *
  * @param code Subscription code
  */
-export async function subscription_manageEmail(
-  client: PaystackClient,
-  code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/subscription/{code}/manage/email"], "post">, true>
-) {
-  const result = await client.POST("/subscription/{code}/manage/email", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
-  });
+export async function subscription_manageEmail(client: PaystackClient, code: string, ...init: InitArg<MaybeOptionalInit<paths["/subscription/{code}/manage/email"], "post">, true>) {
+  const result = await client.POST("/subscription/{code}/manage/email", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2581,19 +1938,12 @@ export async function subscription_manageEmail(
  *
  * @param code Subscription code
  */
-export async function subscription_manageLink(
-  client: PaystackClient,
-  code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/subscription/{code}/manage/link"], "get">, true>
-) {
-  const result = await client.GET("/subscription/{code}/manage/link", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
-  });
+export async function subscription_manageLink(client: PaystackClient, code: string, ...init: InitArg<MaybeOptionalInit<paths["/subscription/{code}/manage/link"], "get">, true>) {
+  const result = await client.GET("/subscription/{code}/manage/link", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2602,15 +1952,12 @@ export async function subscription_manageLink(
  *
  * Activate your debug device by linking it to your integration
  */
-export async function terminal_commission(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/terminal/commission_device"], "post">, false>
-) {
+export async function terminal_commission(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/terminal/commission_device"], "post">, false>) {
   const result = await client.POST("/terminal/commission_device", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2619,15 +1966,12 @@ export async function terminal_commission(
  *
  * Unlink your debug device from your integration
  */
-export async function terminal_decommission(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/terminal/decommission_device"], "post">, false>
-) {
+export async function terminal_decommission(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/terminal/decommission_device"], "post">, false>) {
   const result = await client.POST("/terminal/decommission_device", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2638,19 +1982,12 @@ export async function terminal_decommission(
  *
  * @param terminal_id The ID of the Terminal the event should be sent to.
  */
-export async function terminal_fetch(
-  client: PaystackClient,
-  terminal_id: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}"], "get">, true>
-) {
-  const result = await client.GET("/terminal/{terminal_id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, terminal_id } },
-  });
+export async function terminal_fetch(client: PaystackClient, terminal_id: string, ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}"], "get">, true>) {
+  const result = await client.GET("/terminal/{terminal_id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, terminal_id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2662,23 +1999,12 @@ export async function terminal_fetch(
  * @param terminal_id The ID of the Terminal the event should be sent to.
  * @param event_id The ID of the event that was sent to the Terminal
  */
-export async function terminal_fetchEventStatus(
-  client: PaystackClient,
-  terminal_id: string,
-  event_id: string,
-  ...init: InitArg<
-    MaybeOptionalInit<paths["/terminal/{terminal_id}/event/{event_id}"], "get">,
-    true
-  >
-) {
-  const result = await client.GET("/terminal/{terminal_id}/event/{event_id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, terminal_id, event_id } },
-  });
+export async function terminal_fetchEventStatus(client: PaystackClient, terminal_id: string, event_id: string, ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}/event/{event_id}"], "get">, true>) {
+  const result = await client.GET("/terminal/{terminal_id}/event/{event_id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, terminal_id, event_id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2689,19 +2015,12 @@ export async function terminal_fetchEventStatus(
  *
  * @param terminal_id The ID of the Terminal the event should be sent to.
  */
-export async function terminal_fetchTerminalStatus(
-  client: PaystackClient,
-  terminal_id: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}/presence"], "get">, true>
-) {
-  const result = await client.GET("/terminal/{terminal_id}/presence", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, terminal_id } },
-  });
+export async function terminal_fetchTerminalStatus(client: PaystackClient, terminal_id: string, ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}/presence"], "get">, true>) {
+  const result = await client.GET("/terminal/{terminal_id}/presence", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, terminal_id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2710,15 +2029,12 @@ export async function terminal_fetchTerminalStatus(
  *
  * List the Terminals available on your integration
  */
-export async function terminal_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/terminal"], "get">, false>
-) {
+export async function terminal_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/terminal"], "get">, false>) {
   const result = await client.GET("/terminal", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2729,19 +2045,12 @@ export async function terminal_list(
  *
  * @param id The ID of the Terminal the event should be sent to.
  */
-export async function terminal_sendEvent(
-  client: PaystackClient,
-  id: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/terminal/{id}/event"], "post">, true>
-) {
-  const result = await client.POST("/terminal/{id}/event", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function terminal_sendEvent(client: PaystackClient, id: string, ...init: InitArg<MaybeOptionalInit<paths["/terminal/{id}/event"], "post">, true>) {
+  const result = await client.POST("/terminal/{id}/event", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2752,19 +2061,12 @@ export async function terminal_sendEvent(
  *
  * @param terminal_id The ID of the Terminal the event should be sent to.
  */
-export async function terminal_update(
-  client: PaystackClient,
-  terminal_id: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}"], "put">, true>
-) {
-  const result = await client.PUT("/terminal/{terminal_id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, terminal_id } },
-  });
+export async function terminal_update(client: PaystackClient, terminal_id: string, ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}"], "put">, true>) {
+  const result = await client.PUT("/terminal/{terminal_id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, terminal_id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2773,15 +2075,12 @@ export async function terminal_update(
  *
  * Charge all authorizations marked as reusable with this endpoint whenever you need to receive payments
  */
-export async function transaction_chargeAuthorization(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transaction/charge_authorization"], "post">, false>
-) {
+export async function transaction_chargeAuthorization(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction/charge_authorization"], "post">, false>) {
   const result = await client.POST("/transaction/charge_authorization", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2790,15 +2089,12 @@ export async function transaction_chargeAuthorization(
  *
  * Check if an authorization code can be used for a charge.
  */
-export async function transaction_checkAuthorization(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transaction/check_authorization"], "post">, false>
-) {
+export async function transaction_checkAuthorization(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction/check_authorization"], "post">, false>) {
   const result = await client.POST("/transaction/check_authorization", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2809,19 +2105,12 @@ export async function transaction_checkAuthorization(
  *
  * @param id The ID of the transaction
  */
-export async function transaction_event(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}/event"], "get">, true>
-) {
-  const result = await client.GET("/transaction/{id}/event", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function transaction_event(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}/event"], "get">, true>) {
+  const result = await client.GET("/transaction/{id}/event", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2830,15 +2119,12 @@ export async function transaction_event(
  *
  * Download transactions that occurred on your integration for a specific timeframe
  */
-export async function transaction_export(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transaction/export"], "get">, false>
-) {
+export async function transaction_export(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction/export"], "get">, false>) {
   const result = await client.GET("/transaction/export", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2849,19 +2135,12 @@ export async function transaction_export(
  *
  * @param id The ID of the transaction to fetch
  */
-export async function transaction_fetch(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}"], "get">, true>
-) {
-  const result = await client.GET("/transaction/{id}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function transaction_fetch(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}"], "get">, true>) {
+  const result = await client.GET("/transaction/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2870,15 +2149,12 @@ export async function transaction_fetch(
  *
  * Create a new transaction
  */
-export async function transaction_initialize(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transaction/initialize"], "post">, false>
-) {
+export async function transaction_initialize(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction/initialize"], "post">, false>) {
   const result = await client.POST("/transaction/initialize", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2887,15 +2163,12 @@ export async function transaction_initialize(
  *
  * List transactions carried out on your integration
  */
-export async function transaction_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transaction"], "get">, false>
-) {
+export async function transaction_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction"], "get">, false>) {
   const result = await client.GET("/transaction", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2904,15 +2177,12 @@ export async function transaction_list(
  *
  * Retrieve part of a payment from a customer
  */
-export async function transaction_partialDebit(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transaction/partial_debit"], "post">, false>
-) {
+export async function transaction_partialDebit(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction/partial_debit"], "post">, false>) {
   const result = await client.POST("/transaction/partial_debit", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2923,19 +2193,12 @@ export async function transaction_partialDebit(
  *
  * @param id The ID of the transaction
  */
-export async function transaction_session(
-  client: PaystackClient,
-  id: number,
-  ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}/session"], "get">, true>
-) {
-  const result = await client.GET("/transaction/{id}/session", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } },
-  });
+export async function transaction_session(client: PaystackClient, id: number, ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}/session"], "get">, true>) {
+  const result = await client.GET("/transaction/{id}/session", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2946,19 +2209,12 @@ export async function transaction_session(
  *
  * @param id_or_reference The ID or the reference of the transaction
  */
-export async function transaction_timeline(
-  client: PaystackClient,
-  id_or_reference: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/transaction/timeline/{id_or_reference}"], "get">, true>
-) {
-  const result = await client.GET("/transaction/timeline/{id_or_reference}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_reference } },
-  });
+export async function transaction_timeline(client: PaystackClient, id_or_reference: string, ...init: InitArg<MaybeOptionalInit<paths["/transaction/timeline/{id_or_reference}"], "get">, true>) {
+  const result = await client.GET("/transaction/timeline/{id_or_reference}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_reference } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2967,15 +2223,12 @@ export async function transaction_timeline(
  *
  * Get the total amount of all transactions
  */
-export async function transaction_totals(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transaction/totals"], "get">, false>
-) {
+export async function transaction_totals(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transaction/totals"], "get">, false>) {
   const result = await client.GET("/transaction/totals", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -2986,19 +2239,12 @@ export async function transaction_totals(
  *
  * @param reference The transaction reference to verify
  */
-export async function transaction_verify(
-  client: PaystackClient,
-  reference: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/transaction/verify/{reference}"], "get">, true>
-) {
-  const result = await client.GET("/transaction/verify/{reference}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, reference } },
-  });
+export async function transaction_verify(client: PaystackClient, reference: string, ...init: InitArg<MaybeOptionalInit<paths["/transaction/verify/{reference}"], "get">, true>) {
+  const result = await client.GET("/transaction/verify/{reference}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, reference } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3006,19 +2252,16 @@ export async function transaction_verify(
  * Initiate Bulk Transfer
  *
  * Batch multiple transfers in a single request.
- *
+ * 
  * You need to disable the Transfers OTP requirement to use this endpoint.
- *
+ * 
  */
-export async function transfer_bulk(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transfer/bulk"], "post">, false>
-) {
+export async function transfer_bulk(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/bulk"], "post">, false>) {
   const result = await client.POST("/transfer/bulk", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3027,17 +2270,14 @@ export async function transfer_bulk(
  *
  * This is used in the event that you want to be able to complete transfers programmatically without use of OTPs.
  * No arguments required. You will get an OTP to complete the request.
- *
+ * 
  */
-export async function transfer_disableOtp(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transfer/disable_otp"], "post">, false>
-) {
+export async function transfer_disableOtp(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/disable_otp"], "post">, false>) {
   const result = await client.POST("/transfer/disable_otp", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3046,15 +2286,12 @@ export async function transfer_disableOtp(
  *
  * Finalize the request to disable OTP on your transfers
  */
-export async function transfer_disableOtpFinalize(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transfer/disable_otp_finalize"], "post">, false>
-) {
+export async function transfer_disableOtpFinalize(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/disable_otp_finalize"], "post">, false>) {
   const result = await client.POST("/transfer/disable_otp_finalize", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3063,17 +2300,14 @@ export async function transfer_disableOtpFinalize(
  *
  * In the event that a customer wants to stop being able to complete transfers programmatically, this endpoint helps turn OTP requirement back on.
  * No arguments required.
- *
+ * 
  */
-export async function transfer_enableOtp(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transfer/enable_otp"], "post">, false>
-) {
+export async function transfer_enableOtp(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/enable_otp"], "post">, false>) {
   const result = await client.POST("/transfer/enable_otp", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3082,15 +2316,12 @@ export async function transfer_enableOtp(
  *
  * Export a list of transfers carried out on your integration
  */
-export async function transfer_exportTransfer(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transfer/export"], "get">, false>
-) {
+export async function transfer_exportTransfer(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/export"], "get">, false>) {
   const result = await client.GET("/transfer/export", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3101,19 +2332,12 @@ export async function transfer_exportTransfer(
  *
  * @param id_or_code The transfer ID or code you want to fetch
  */
-export async function transfer_fetch(
-  client: PaystackClient,
-  id_or_code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/transfer/{id_or_code}"], "get">, true>
-) {
-  const result = await client.GET("/transfer/{id_or_code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
-  });
+export async function transfer_fetch(client: PaystackClient, id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/transfer/{id_or_code}"], "get">, true>) {
+  const result = await client.GET("/transfer/{id_or_code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3122,15 +2346,12 @@ export async function transfer_fetch(
  *
  * Finalize an initiated transfer
  */
-export async function transfer_finalize(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transfer/finalize_transfer"], "post">, false>
-) {
+export async function transfer_finalize(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/finalize_transfer"], "post">, false>) {
   const result = await client.POST("/transfer/finalize_transfer", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3139,15 +2360,12 @@ export async function transfer_finalize(
  *
  * Send money to your customers
  */
-export async function transfer_initiate(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transfer"], "post">, false>
-) {
+export async function transfer_initiate(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer"], "post">, false>) {
   const result = await client.POST("/transfer", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3156,15 +2374,12 @@ export async function transfer_initiate(
  *
  * List the transfers made on your integration
  */
-export async function transfer_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transfer"], "get">, false>
-) {
+export async function transfer_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer"], "get">, false>) {
   const result = await client.GET("/transfer", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3173,15 +2388,12 @@ export async function transfer_list(
  *
  * Generates and send a new OTP to customer in the event they are having trouble receiving one.
  */
-export async function transfer_resendOtp(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transfer/resend_otp"], "post">, false>
-) {
+export async function transfer_resendOtp(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/resend_otp"], "post">, false>) {
   const result = await client.POST("/transfer/resend_otp", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3192,19 +2404,12 @@ export async function transfer_resendOtp(
  *
  * @param reference Transfer reference
  */
-export async function transfer_verify(
-  client: PaystackClient,
-  reference: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/transfer/verify/{reference}"], "get">, true>
-) {
-  const result = await client.GET("/transfer/verify/{reference}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, reference } },
-  });
+export async function transfer_verify(client: PaystackClient, reference: string, ...init: InitArg<MaybeOptionalInit<paths["/transfer/verify/{reference}"], "get">, true>) {
+  const result = await client.GET("/transfer/verify/{reference}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, reference } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3212,17 +2417,14 @@ export async function transfer_verify(
  * Bulk Create Transfer Recipient
  *
  * Create multiple transfer recipients in batches. A duplicate account number will lead to the retrieval of the existing record.
- *
+ * 
  */
-export async function transferrecipient_bulk(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/bulk"], "post">, false>
-) {
+export async function transferrecipient_bulk(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/bulk"], "post">, false>) {
   const result = await client.POST("/transferrecipient/bulk", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3231,15 +2433,12 @@ export async function transferrecipient_bulk(
  *
  * Creates a new recipient. A duplicate account number will lead to the retrieval of the existing record.
  */
-export async function transferrecipient_create(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient"], "post">, false>
-) {
+export async function transferrecipient_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient"], "post">, false>) {
   const result = await client.POST("/transferrecipient", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3250,19 +2449,12 @@ export async function transferrecipient_create(
  *
  * @param id_or_code An ID or code for the recipient whose details you want to receive.
  */
-export async function transferrecipient_delete(
-  client: PaystackClient,
-  id_or_code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "delete">, true>
-) {
-  const result = await client.DELETE("/transferrecipient/{id_or_code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
-  });
+export async function transferrecipient_delete(client: PaystackClient, id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "delete">, true>) {
+  const result = await client.DELETE("/transferrecipient/{id_or_code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3273,19 +2465,12 @@ export async function transferrecipient_delete(
  *
  * @param id_or_code An ID or code for the recipient whose details you want to receive.
  */
-export async function transferrecipient_fetch(
-  client: PaystackClient,
-  id_or_code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "get">, true>
-) {
-  const result = await client.GET("/transferrecipient/{id_or_code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
-  });
+export async function transferrecipient_fetch(client: PaystackClient, id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "get">, true>) {
+  const result = await client.GET("/transferrecipient/{id_or_code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3294,15 +2479,12 @@ export async function transferrecipient_fetch(
  *
  * List transfer recipients available on your integration
  */
-export async function transferrecipient_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient"], "get">, false>
-) {
+export async function transferrecipient_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient"], "get">, false>) {
   const result = await client.GET("/transferrecipient", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3313,19 +2495,12 @@ export async function transferrecipient_list(
  *
  * @param id_or_code An ID or code for the recipient whose details you want to receive.
  */
-export async function transferrecipient_update(
-  client: PaystackClient,
-  id_or_code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "put">, true>
-) {
-  const result = await client.PUT("/transferrecipient/{id_or_code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } },
-  });
+export async function transferrecipient_update(client: PaystackClient, id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "put">, true>) {
+  const result = await client.PUT("/transferrecipient/{id_or_code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id_or_code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3336,19 +2511,12 @@ export async function transferrecipient_update(
  *
  * @param code Code of the Virtual Terminal
  */
-export async function virtualTerminal_addSplitCode(
-  client: PaystackClient,
-  code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/split_code"], "put">, true>
-) {
-  const result = await client.PUT("/virtual_terminal/{code}/split_code", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
-  });
+export async function virtualTerminal_addSplitCode(client: PaystackClient, code: string, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/split_code"], "put">, true>) {
+  const result = await client.PUT("/virtual_terminal/{code}/split_code", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3357,15 +2525,12 @@ export async function virtualTerminal_addSplitCode(
  *
  * Create a Virtual Terminal on your integration
  */
-export async function virtualTerminal_create(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal"], "post">, false>
-) {
+export async function virtualTerminal_create(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal"], "post">, false>) {
   const result = await client.POST("/virtual_terminal", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3376,19 +2541,12 @@ export async function virtualTerminal_create(
  *
  * @param code Code of the Virtual Terminal
  */
-export async function virtualTerminal_deactivate(
-  client: PaystackClient,
-  code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/deactivate"], "put">, true>
-) {
-  const result = await client.PUT("/virtual_terminal/{code}/deactivate", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
-  });
+export async function virtualTerminal_deactivate(client: PaystackClient, code: string, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/deactivate"], "put">, true>) {
+  const result = await client.PUT("/virtual_terminal/{code}/deactivate", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3399,19 +2557,12 @@ export async function virtualTerminal_deactivate(
  *
  * @param code Code of the Virtual Terminal
  */
-export async function virtualTerminal_deleteSplitCode(
-  client: PaystackClient,
-  code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/split_code"], "delete">, true>
-) {
-  const result = await client.DELETE("/virtual_terminal/{code}/split_code", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
-  });
+export async function virtualTerminal_deleteSplitCode(client: PaystackClient, code: string, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/split_code"], "delete">, true>) {
+  const result = await client.DELETE("/virtual_terminal/{code}/split_code", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3422,22 +2573,12 @@ export async function virtualTerminal_deleteSplitCode(
  *
  * @param code Code of the Virtual Terminal
  */
-export async function virtualTerminal_destinationAssign(
-  client: PaystackClient,
-  code: string,
-  ...init: InitArg<
-    MaybeOptionalInit<paths["/virtual_terminal/{code}/destination/assign"], "post">,
-    true
-  >
-) {
-  const result = await client.POST("/virtual_terminal/{code}/destination/assign", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
-  });
+export async function virtualTerminal_destinationAssign(client: PaystackClient, code: string, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/destination/assign"], "post">, true>) {
+  const result = await client.POST("/virtual_terminal/{code}/destination/assign", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3448,22 +2589,12 @@ export async function virtualTerminal_destinationAssign(
  *
  * @param code Code of the Virtual Terminal
  */
-export async function virtualTerminal_destinationUnassign(
-  client: PaystackClient,
-  code: string,
-  ...init: InitArg<
-    MaybeOptionalInit<paths["/virtual_terminal/{code}/destination/unassign"], "post">,
-    true
-  >
-) {
-  const result = await client.POST("/virtual_terminal/{code}/destination/unassign", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
-  });
+export async function virtualTerminal_destinationUnassign(client: PaystackClient, code: string, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/destination/unassign"], "post">, true>) {
+  const result = await client.POST("/virtual_terminal/{code}/destination/unassign", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3474,19 +2605,12 @@ export async function virtualTerminal_destinationUnassign(
  *
  * @param code Code of the Virtual Terminal
  */
-export async function virtualTerminal_fetch(
-  client: PaystackClient,
-  code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}"], "get">, true>
-) {
-  const result = await client.GET("/virtual_terminal/{code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
-  });
+export async function virtualTerminal_fetch(client: PaystackClient, code: string, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}"], "get">, true>) {
+  const result = await client.GET("/virtual_terminal/{code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3495,15 +2619,12 @@ export async function virtualTerminal_fetch(
  *
  * List Virtual Terminals on your integration
  */
-export async function virtualTerminal_list(
-  client: PaystackClient,
-  ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal"], "get">, false>
-) {
+export async function virtualTerminal_list(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal"], "get">, false>) {
   const result = await client.GET("/virtual_terminal", ...init);
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3514,19 +2635,12 @@ export async function virtualTerminal_list(
  *
  * @param code Code of the Virtual Terminal
  */
-export async function virtualTerminal_update(
-  client: PaystackClient,
-  code: string,
-  ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}"], "put">, true>
-) {
-  const result = await client.PUT("/virtual_terminal/{code}", {
-    ...init[0],
-    params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } },
-  });
+export async function virtualTerminal_update(client: PaystackClient, code: string, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}"], "put">, true>) {
+  const result = await client.PUT("/virtual_terminal/{code}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, code } } });
   return new PaystackResponse<PaystackData<ExtractData<typeof result>>>(
     result.data as any,
     result.error,
-    result.response,
+    result.response
   );
 }
 
@@ -3534,12 +2648,11 @@ export function bindOperations(client: PaystackClient) {
   return {
     applePay: {
       /**
-       * List Domains
-       *
-       * Lists all registered domains on your integration. Returns an empty array if no domains have been added.
+  * List Domains
+  *
+  * Lists all registered domains on your integration. Returns an empty array if no domains have been added.
        */
-      listDomain: (...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "get">, false>) =>
-        applePay_listDomain(client, ...init),
+      listDomain: (...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "get">, false>) => applePay_listDomain(client, ...init),
       /**
   * Register Domain
   *
@@ -3547,574 +2660,407 @@ export function bindOperations(client: PaystackClient) {
 
 > This endpoint can only be called with one domain or subdomain at a time.
        */
-      registerDomain: (
-        ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "post">, false>
-      ) => applePay_registerDomain(client, ...init),
+      registerDomain: (...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "post">, false>) => applePay_registerDomain(client, ...init),
       /**
   * Unregister Domain
   *
   * Unregister a top-level domain or subdomain previously used for your Apple
 Pay integration.
        */
-      unregisterDomain: (
-        ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "delete">, false>
-      ) => applePay_unregisterDomain(client, ...init),
+      unregisterDomain: (...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "delete">, false>) => applePay_unregisterDomain(client, ...init),
     },
     balance: {
       /**
-       * Fetch Balance
-       *
-       * Fetch the available balance on your integration
+  * Fetch Balance
+  *
+  * Fetch the available balance on your integration
        */
-      fetch: (...init: InitArg<MaybeOptionalInit<paths["/balance"], "get">, false>) =>
-        balance_fetch(client, ...init),
+      fetch: (...init: InitArg<MaybeOptionalInit<paths["/balance"], "get">, false>) => balance_fetch(client, ...init),
       /**
-       * Balance Ledger
-       *
-       * Fetch all pay-ins and pay-outs that occured on your integration
+  * Balance Ledger
+  *
+  * Fetch all pay-ins and pay-outs that occured on your integration
        */
-      ledger: (...init: InitArg<MaybeOptionalInit<paths["/balance/ledger"], "get">, false>) =>
-        balance_ledger(client, ...init),
+      ledger: (...init: InitArg<MaybeOptionalInit<paths["/balance/ledger"], "get">, false>) => balance_ledger(client, ...init),
     },
     bank: {
       /**
-       * List Banks
-       *
-       * Get a list of all supported banks and their properties
+  * List Banks
+  *
+  * Get a list of all supported banks and their properties
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/bank"], "get">, false>) =>
-        bank_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/bank"], "get">, false>) => bank_list(client, ...init),
       /**
-       * Resolve Account Number
-       *
-       * Resolve an account number to confirm the name associated with it
+  * Resolve Account Number
+  *
+  * Resolve an account number to confirm the name associated with it
        */
-      resolveAccountNumber: (
-        ...init: InitArg<MaybeOptionalInit<paths["/bank/resolve"], "get">, false>
-      ) => bank_resolveAccountNumber(client, ...init),
+      resolveAccountNumber: (...init: InitArg<MaybeOptionalInit<paths["/bank/resolve"], "get">, false>) => bank_resolveAccountNumber(client, ...init),
       /**
-       * Validate Bank Account
-       *
-       * Confirm the authenticity of a customer's account number before sending money
+  * Validate Bank Account
+  *
+  * Confirm the authenticity of a customer's account number before sending money
        */
-      validateAccountNumber: (
-        ...init: InitArg<MaybeOptionalInit<paths["/bank/validate"], "post">, false>
-      ) => bank_validateAccountNumber(client, ...init),
+      validateAccountNumber: (...init: InitArg<MaybeOptionalInit<paths["/bank/validate"], "post">, false>) => bank_validateAccountNumber(client, ...init),
     },
     bulkCharge: {
       /**
-       * List Charges in a Batch
-       *
-       * This endpoint retrieves the charges associated with a specified batch code
+  * List Charges in a Batch
+  *
+  * This endpoint retrieves the charges associated with a specified batch code
        */
-      charges: (
-        id_or_code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/{id_or_code}/charges"], "get">, true>
-      ) => bulkCharge_charges(client, id_or_code, ...init),
+      charges: (id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/{id_or_code}/charges"], "get">, true>) => bulkCharge_charges(client, id_or_code, ...init),
       /**
   * Fetch Bulk Charge Batch
   *
   * This endpoint retrieves a specific batch code. It also returns useful information on its progress by 
 way of the `total_charges` and `pending_charges` attributes.
        */
-      fetch: (
-        id_or_code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/{id_or_code}"], "get">, true>
-      ) => bulkCharge_fetch(client, id_or_code, ...init),
+      fetch: (id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/{id_or_code}"], "get">, true>) => bulkCharge_fetch(client, id_or_code, ...init),
       /**
-       * Initiate Bulk Charge
-       *
-       * Charge multiple customers in batches
+  * Initiate Bulk Charge
+  *
+  * Charge multiple customers in batches
        */
-      initiate: (...init: InitArg<MaybeOptionalInit<paths["/bulkcharge"], "post">, false>) =>
-        bulkCharge_initiate(client, ...init),
+      initiate: (...init: InitArg<MaybeOptionalInit<paths["/bulkcharge"], "post">, false>) => bulkCharge_initiate(client, ...init),
       /**
-       * List Bulk Charge Batches
-       *
-       * List all bulk charge batches.
+  * List Bulk Charge Batches
+  *
+  * List all bulk charge batches.
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/bulkcharge"], "get">, false>) =>
-        bulkCharge_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/bulkcharge"], "get">, false>) => bulkCharge_list(client, ...init),
       /**
-       * Pause Bulk Charge Batch
-       *
-       * Pause the processing of a charge batch
+  * Pause Bulk Charge Batch
+  *
+  * Pause the processing of a charge batch
        */
-      pause: (
-        code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/pause/{code}"], "get">, true>
-      ) => bulkCharge_pause(client, code, ...init),
+      pause: (code: string, ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/pause/{code}"], "get">, true>) => bulkCharge_pause(client, code, ...init),
       /**
-       * Resume Bulk Charge Batch
-       *
-       * Resume the processing of a previously paused charge batch
+  * Resume Bulk Charge Batch
+  *
+  * Resume the processing of a previously paused charge batch
        */
-      resume: (
-        code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/resume/{code}"], "get">, true>
-      ) => bulkCharge_resume(client, code, ...init),
+      resume: (code: string, ...init: InitArg<MaybeOptionalInit<paths["/bulkcharge/resume/{code}"], "get">, true>) => bulkCharge_resume(client, code, ...init),
     },
     capitecPay: {
       /**
-       * Requery Transaction
-       *
-       * Check the status of a charge made with Capitec Pay. This endpoint should be used from your frontend application as it requires the use of your public key for request authorization.
+  * Requery Transaction
+  *
+  * Check the status of a charge made with Capitec Pay. This endpoint should be used from your frontend application as it requires the use of your public key for request authorization.
        */
-      requery: (
-        ref: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/capitec-pay/requery/{ref}"], "post">, true>
-      ) => capitecPay_requery(client, ref, ...init),
+      requery: (ref: string, ...init: InitArg<MaybeOptionalInit<paths["/capitec-pay/requery/{ref}"], "post">, true>) => capitecPay_requery(client, ref, ...init),
     },
     charge: {
       /**
-       * Check pending charge
-       *
-       * When you get `pending` as a charge status or if there was an exception when calling any of the `/charge` endpoints, wait 10 seconds or more, then make a check to see if its status has changed. Don't call too early as you may get a lot more pending than you should.
+  * Check pending charge
+  *
+  * When you get `pending` as a charge status or if there was an exception when calling any of the `/charge` endpoints, wait 10 seconds or more, then make a check to see if its status has changed. Don't call too early as you may get a lot more pending than you should.
        */
-      check: (
-        reference: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/charge/{reference}"], "get">, true>
-      ) => charge_check(client, reference, ...init),
+      check: (reference: string, ...init: InitArg<MaybeOptionalInit<paths["/charge/{reference}"], "get">, true>) => charge_check(client, reference, ...init),
       /**
-       * Create Charge
-       *
-       * Initiate a payment by integrating the payment channel of your choice.
+  * Create Charge
+  *
+  * Initiate a payment by integrating the payment channel of your choice.
        */
-      create: (...init: InitArg<MaybeOptionalInit<paths["/charge"], "post">, false>) =>
-        charge_create(client, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/charge"], "post">, false>) => charge_create(client, ...init),
       /**
-       * Submit Address
-       *
-       * Send the details of the customer's address for address verification
+  * Submit Address
+  *
+  * Send the details of the customer's address for address verification
        */
-      submitAddress: (
-        ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_address"], "post">, false>
-      ) => charge_submitAddress(client, ...init),
+      submitAddress: (...init: InitArg<MaybeOptionalInit<paths["/charge/submit_address"], "post">, false>) => charge_submitAddress(client, ...init),
       /**
-       * Submit Birthday
-       *
-       * Submit the customer's birthday when requested
+  * Submit Birthday
+  *
+  * Submit the customer's birthday when requested
        */
-      submitBirthday: (
-        ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_birthday"], "post">, false>
-      ) => charge_submitBirthday(client, ...init),
+      submitBirthday: (...init: InitArg<MaybeOptionalInit<paths["/charge/submit_birthday"], "post">, false>) => charge_submitBirthday(client, ...init),
       /**
-       * Submit OTP
-       *
-       * Submit OTP to complete a charge
+  * Submit OTP
+  *
+  * Submit OTP to complete a charge
        */
-      submitOtp: (
-        ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_otp"], "post">, false>
-      ) => charge_submitOtp(client, ...init),
+      submitOtp: (...init: InitArg<MaybeOptionalInit<paths["/charge/submit_otp"], "post">, false>) => charge_submitOtp(client, ...init),
       /**
-       * Submit Phone
-       *
-       * Submit phone number when requested
+  * Submit Phone
+  *
+  * Submit phone number when requested
        */
-      submitPhone: (
-        ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_phone"], "post">, false>
-      ) => charge_submitPhone(client, ...init),
+      submitPhone: (...init: InitArg<MaybeOptionalInit<paths["/charge/submit_phone"], "post">, false>) => charge_submitPhone(client, ...init),
       /**
-       * Submit PIN
-       *
-       * Submit PIN to continue a charge
+  * Submit PIN
+  *
+  * Submit PIN to continue a charge
        */
-      submitPin: (
-        ...init: InitArg<MaybeOptionalInit<paths["/charge/submit_pin"], "post">, false>
-      ) => charge_submitPin(client, ...init),
+      submitPin: (...init: InitArg<MaybeOptionalInit<paths["/charge/submit_pin"], "post">, false>) => charge_submitPin(client, ...init),
     },
     customer: {
       /**
-       * Create Customer
-       *
-       * Create a customer on your integration
+  * Create Customer
+  *
+  * Create a customer on your integration
        */
-      create: (...init: InitArg<MaybeOptionalInit<paths["/customer"], "post">, false>) =>
-        customer_create(client, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/customer"], "post">, false>) => customer_create(client, ...init),
       /**
-       * Deactivate Authorization
-       *
-       * Deactivate an authorization for any payment channel.
+  * Deactivate Authorization
+  *
+  * Deactivate an authorization for any payment channel.
        */
-      deactivateAuthorization: (
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/customer/authorization/deactivate"], "post">,
-          false
-        >
-      ) => customer_deactivateAuthorization(client, ...init),
+      deactivateAuthorization: (...init: InitArg<MaybeOptionalInit<paths["/customer/authorization/deactivate"], "post">, false>) => customer_deactivateAuthorization(client, ...init),
       /**
-       * Direct Debit Activation Charge
-       *
-       * Trigger an activation charge on an inactive mandate on behalf of your customer
+  * Direct Debit Activation Charge
+  *
+  * Trigger an activation charge on an inactive mandate on behalf of your customer
        */
-      directDebitActivationCharge: (
-        id: number,
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/customer/{id}/directdebit-activation-charge"], "put">,
-          true
-        >
-      ) => customer_directDebitActivationCharge(client, id, ...init),
+      directDebitActivationCharge: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/customer/{id}/directdebit-activation-charge"], "put">, true>) => customer_directDebitActivationCharge(client, id, ...init),
       /**
-       * Fetch Customer
-       *
-       * Get details of a customer on your integration.
+  * Fetch Customer
+  *
+  * Get details of a customer on your integration.
        */
-      fetch: (
-        email_or_code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/customer/{email_or_code}"], "get">, true>
-      ) => customer_fetch(client, email_or_code, ...init),
+      fetch: (email_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/customer/{email_or_code}"], "get">, true>) => customer_fetch(client, email_or_code, ...init),
       /**
-       * Fetch Mandate Authorizations
-       *
-       * Get the list of direct debit mandates associated with a customer
+  * Fetch Mandate Authorizations
+  *
+  * Get the list of direct debit mandates associated with a customer
        */
-      fetchMandateAuthorizations: (
-        id: number,
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/customer/{id}/directdebit-mandate-authorizations"], "get">,
-          true
-        >
-      ) => customer_fetchMandateAuthorizations(client, id, ...init),
+      fetchMandateAuthorizations: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/customer/{id}/directdebit-mandate-authorizations"], "get">, true>) => customer_fetchMandateAuthorizations(client, id, ...init),
       /**
-       * Initialize Authorization
-       *
-       * Initiate a request to create a reusable authorization code for recurring transactions
+  * Initialize Authorization
+  *
+  * Initiate a request to create a reusable authorization code for recurring transactions
        */
-      initializeAuthorization: (
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/customer/authorization/initialize"], "post">,
-          false
-        >
-      ) => customer_initializeAuthorization(client, ...init),
+      initializeAuthorization: (...init: InitArg<MaybeOptionalInit<paths["/customer/authorization/initialize"], "post">, false>) => customer_initializeAuthorization(client, ...init),
       /**
-       * Initialize Direct Debit
-       *
-       * Initialize the process of linking an account to a customer for Direct Debit transactions
+  * Initialize Direct Debit
+  *
+  * Initialize the process of linking an account to a customer for Direct Debit transactions
        */
-      initializeDirectDebit: (
-        id: number,
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/customer/{id}/initialize-direct-debit"], "post">,
-          true
-        >
-      ) => customer_initializeDirectDebit(client, id, ...init),
+      initializeDirectDebit: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/customer/{id}/initialize-direct-debit"], "post">, true>) => customer_initializeDirectDebit(client, id, ...init),
       /**
-       * List Customers
-       *
-       * List customers available on your integration
+  * List Customers
+  *
+  * List customers available on your integration
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/customer"], "get">, false>) =>
-        customer_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/customer"], "get">, false>) => customer_list(client, ...init),
       /**
-       * Set Risk Action
-       *
-       * Set customer's risk action by whitelisting or blacklisting the customer
+  * Set Risk Action
+  *
+  * Set customer's risk action by whitelisting or blacklisting the customer
        */
-      riskAction: (
-        ...init: InitArg<MaybeOptionalInit<paths["/customer/set_risk_action"], "post">, false>
-      ) => customer_riskAction(client, ...init),
+      riskAction: (...init: InitArg<MaybeOptionalInit<paths["/customer/set_risk_action"], "post">, false>) => customer_riskAction(client, ...init),
       /**
-       * Update Customer
-       *
-       * Update a customer's details on your integration
+  * Update Customer
+  *
+  * Update a customer's details on your integration
        */
-      update: (
-        email_or_code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/customer/{email_or_code}"], "put">, true>
-      ) => customer_update(client, email_or_code, ...init),
+      update: (email_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/customer/{email_or_code}"], "put">, true>) => customer_update(client, email_or_code, ...init),
       /**
-       * Validate Customer
-       *
-       * Validate a customer's identity
+  * Validate Customer
+  *
+  * Validate a customer's identity
        */
-      validate: (
-        customer_code: string,
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/customer/{customer_code}/identification"], "post">,
-          true
-        >
-      ) => customer_validate(client, customer_code, ...init),
+      validate: (customer_code: string, ...init: InitArg<MaybeOptionalInit<paths["/customer/{customer_code}/identification"], "post">, true>) => customer_validate(client, customer_code, ...init),
       /**
-       * Verify Authorization
-       *
-       * Check the status of an authorization request
+  * Verify Authorization
+  *
+  * Check the status of an authorization request
        */
-      verifyAuthorization: (
-        reference: string,
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/customer/authorization/verify/{reference}"], "get">,
-          true
-        >
-      ) => customer_verifyAuthorization(client, reference, ...init),
+      verifyAuthorization: (reference: string, ...init: InitArg<MaybeOptionalInit<paths["/customer/authorization/verify/{reference}"], "get">, true>) => customer_verifyAuthorization(client, reference, ...init),
     },
     dedicatedAccount: {
       /**
-       * Split Dedicated Account Transaction
-       *
-       * Split a dedicated virtual account transaction with one or more accounts
+  * Split Dedicated Account Transaction
+  *
+  * Split a dedicated virtual account transaction with one or more accounts
        */
-      addSplit: (
-        ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/split"], "post">, false>
-      ) => dedicatedAccount_addSplit(client, ...init),
+      addSplit: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/split"], "post">, false>) => dedicatedAccount_addSplit(client, ...init),
       /**
-       * Assign Dedicated Account
-       *
-       * With this endpoint, you can create a customer, validate the customer, and assign a DVA to the customer.
+  * Assign Dedicated Account
+  *
+  * With this endpoint, you can create a customer, validate the customer, and assign a DVA to the customer.
        */
-      assign: (
-        ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/assign"], "post">, false>
-      ) => dedicatedAccount_assign(client, ...init),
+      assign: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/assign"], "post">, false>) => dedicatedAccount_assign(client, ...init),
       /**
-       * Fetch Bank Providers
-       *
-       * Get available bank providers for a dedicated virtual account
+  * Fetch Bank Providers
+  *
+  * Get available bank providers for a dedicated virtual account
        */
-      availableProviders: (
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/dedicated_account/available_providers"], "get">,
-          false
-        >
-      ) => dedicatedAccount_availableProviders(client, ...init),
+      availableProviders: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/available_providers"], "get">, false>) => dedicatedAccount_availableProviders(client, ...init),
       /**
-       * Create Dedicated Account
-       *
-       * Create a dedicated virtual account for an existing customer
+  * Create Dedicated Account
+  *
+  * Create a dedicated virtual account for an existing customer
        */
-      create: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account"], "post">, false>) =>
-        dedicatedAccount_create(client, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account"], "post">, false>) => dedicatedAccount_create(client, ...init),
       /**
-       * Deactivate Dedicated Account
-       *
-       * Deactivate a dedicated virtual account on your integration.
+  * Deactivate Dedicated Account
+  *
+  * Deactivate a dedicated virtual account on your integration.
        */
-      deactivate: (
-        id: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/{id}"], "delete">, true>
-      ) => dedicatedAccount_deactivate(client, id, ...init),
+      deactivate: (id: string, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/{id}"], "delete">, true>) => dedicatedAccount_deactivate(client, id, ...init),
       /**
-       * Fetch Dedicated Account
-       *
-       * Get details of a dedicated virtual account on your integration.
+  * Fetch Dedicated Account
+  *
+  * Get details of a dedicated virtual account on your integration.
        */
-      fetch: (
-        id: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/{id}"], "get">, true>
-      ) => dedicatedAccount_fetch(client, id, ...init),
+      fetch: (id: string, ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/{id}"], "get">, true>) => dedicatedAccount_fetch(client, id, ...init),
       /**
-       * List Dedicated Accounts
-       *
-       * List dedicated virtual accounts available on your integration.
+  * List Dedicated Accounts
+  *
+  * List dedicated virtual accounts available on your integration.
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account"], "get">, false>) =>
-        dedicatedAccount_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account"], "get">, false>) => dedicatedAccount_list(client, ...init),
       /**
-       * Remove Split from Dedicated Account
-       *
-       * If you've previously set up split payment for transactions on a dedicated virtual account, you can remove it with this endpoint
+  * Remove Split from Dedicated Account
+  *
+  * If you've previously set up split payment for transactions on a dedicated virtual account, you can remove it with this endpoint
        */
-      removeSplit: (
-        ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/split"], "delete">, false>
-      ) => dedicatedAccount_removeSplit(client, ...init),
+      removeSplit: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/split"], "delete">, false>) => dedicatedAccount_removeSplit(client, ...init),
       /**
-       * Requery Dedicated Account
-       *
-       * Requery Dedicated Virtual Account for new transactions
+  * Requery Dedicated Account
+  *
+  * Requery Dedicated Virtual Account for new transactions
        */
-      requery: (
-        ...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/requery"], "get">, false>
-      ) => dedicatedAccount_requery(client, ...init),
+      requery: (...init: InitArg<MaybeOptionalInit<paths["/dedicated_account/requery"], "get">, false>) => dedicatedAccount_requery(client, ...init),
     },
     directdebit: {
       /**
-       * List Mandate Authorizations
-       *
-       * Get a list of all the direct debit mandates on your integration
+  * List Mandate Authorizations
+  *
+  * Get a list of all the direct debit mandates on your integration
        */
-      listMandateAuthorizations: (
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/directdebit/mandate-authorizations"], "get">,
-          false
-        >
-      ) => directdebit_listMandateAuthorizations(client, ...init),
+      listMandateAuthorizations: (...init: InitArg<MaybeOptionalInit<paths["/directdebit/mandate-authorizations"], "get">, false>) => directdebit_listMandateAuthorizations(client, ...init),
       /**
-       * Trigger Activation Charge
-       *
-       * Trigger activation charge for specified customers
+  * Trigger Activation Charge
+  *
+  * Trigger activation charge for specified customers
        */
-      triggerActivationCharge: (
-        ...init: InitArg<MaybeOptionalInit<paths["/directdebit/activation-charge"], "put">, false>
-      ) => directdebit_triggerActivationCharge(client, ...init),
+      triggerActivationCharge: (...init: InitArg<MaybeOptionalInit<paths["/directdebit/activation-charge"], "put">, false>) => directdebit_triggerActivationCharge(client, ...init),
     },
     dispute: {
       /**
-       * Export Disputes
-       *
-       * Export the disputes available on your integration
+  * Export Disputes
+  *
+  * Export the disputes available on your integration
        */
-      download: (...init: InitArg<MaybeOptionalInit<paths["/dispute/export"], "get">, false>) =>
-        dispute_download(client, ...init),
+      download: (...init: InitArg<MaybeOptionalInit<paths["/dispute/export"], "get">, false>) => dispute_download(client, ...init),
       /**
-       * Add Evidence
-       *
-       * Provide evidence for a dispute
+  * Add Evidence
+  *
+  * Provide evidence for a dispute
        */
-      evidence: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/evidence"], "post">, true>
-      ) => dispute_evidence(client, id, ...init),
+      evidence: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/evidence"], "post">, true>) => dispute_evidence(client, id, ...init),
       /**
-       * Fetch Dispute
-       *
-       * Fetch a transaction dispute
+  * Fetch Dispute
+  *
+  * Fetch a transaction dispute
        */
-      fetch: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}"], "get">, true>
-      ) => dispute_fetch(client, id, ...init),
+      fetch: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}"], "get">, true>) => dispute_fetch(client, id, ...init),
       /**
-       * List Disputes
-       *
-       * List transaction disputes filed by customers
+  * List Disputes
+  *
+  * List transaction disputes filed by customers
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/dispute"], "get">, false>) =>
-        dispute_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/dispute"], "get">, false>) => dispute_list(client, ...init),
       /**
-       * Resolve Dispute
-       *
-       * Resolve a transaction dispute
+  * Resolve Dispute
+  *
+  * Resolve a transaction dispute
        */
-      resolve: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/resolve"], "put">, true>
-      ) => dispute_resolve(client, id, ...init),
+      resolve: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/resolve"], "put">, true>) => dispute_resolve(client, id, ...init),
       /**
-       * List Transaction Disputes
-       *
-       * List all disputes filed for a transaction
+  * List Transaction Disputes
+  *
+  * List all disputes filed for a transaction
        */
-      transaction: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/dispute/transaction/{id}"], "get">, true>
-      ) => dispute_transaction(client, id, ...init),
+      transaction: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/dispute/transaction/{id}"], "get">, true>) => dispute_transaction(client, id, ...init),
       /**
-       * Update Dispute
-       *
-       * Update a transaction dispute
+  * Update Dispute
+  *
+  * Update a transaction dispute
        */
-      update: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}"], "put">, true>
-      ) => dispute_update(client, id, ...init),
+      update: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}"], "put">, true>) => dispute_update(client, id, ...init),
       /**
-       * Fetch Upload URL
-       *
-       * Get the URL to upload a dispute evidence
+  * Fetch Upload URL
+  *
+  * Get the URL to upload a dispute evidence
        */
-      uploadUrl: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/upload_url"], "get">, true>
-      ) => dispute_uploadUrl(client, id, ...init),
+      uploadUrl: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/dispute/{id}/upload_url"], "get">, true>) => dispute_uploadUrl(client, id, ...init),
     },
     integration: {
       /**
-       * Fetch Payment Session Timeout
-       *
-       * Fetch the session timeout of a transaction
+  * Fetch Payment Session Timeout
+  *
+  * Fetch the session timeout of a transaction
        */
-      fetchPaymentSessionTimeout: (
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/integration/payment_session_timeout"], "get">,
-          false
-        >
-      ) => integration_fetchPaymentSessionTimeout(client, ...init),
+      fetchPaymentSessionTimeout: (...init: InitArg<MaybeOptionalInit<paths["/integration/payment_session_timeout"], "get">, false>) => integration_fetchPaymentSessionTimeout(client, ...init),
       /**
-       * Update Payment Session Timeout
-       *
-       * Update the session timeout of a transaction
+  * Update Payment Session Timeout
+  *
+  * Update the session timeout of a transaction
        */
-      updatePaymentSessionTimeout: (
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/integration/payment_session_timeout"], "put">,
-          false
-        >
-      ) => integration_updatePaymentSessionTimeout(client, ...init),
+      updatePaymentSessionTimeout: (...init: InitArg<MaybeOptionalInit<paths["/integration/payment_session_timeout"], "put">, false>) => integration_updatePaymentSessionTimeout(client, ...init),
     },
     misc: {
       /**
-       * Internal path for schema generation
-       *
-       * This path is internal and used to ensure that schemas like WebhookEvent are considered 'used' for SDK generation and linting.
+  * Internal path for schema generation
+  *
+  * This path is internal and used to ensure that schemas like WebhookEvent are considered 'used' for SDK generation and linting.
        */
-      generateWebhookEventTypes: (
-        ...init: InitArg<MaybeOptionalInit<paths["/___internal___"], "get">, false>
-      ) => misc_generateWebhookEventTypes(client, ...init),
+      generateWebhookEventTypes: (...init: InitArg<MaybeOptionalInit<paths["/___internal___"], "get">, false>) => misc_generateWebhookEventTypes(client, ...init),
     },
     miscellaneous: {
       /**
-       * List States (AVS)
-       *
-       * Get a list of states for a country for address verification
+  * List States (AVS)
+  *
+  * Get a list of states for a country for address verification
        */
-      avs: (
-        ...init: InitArg<MaybeOptionalInit<paths["/address_verification/states"], "get">, false>
-      ) => miscellaneous_avs(client, ...init),
+      avs: (...init: InitArg<MaybeOptionalInit<paths["/address_verification/states"], "get">, false>) => miscellaneous_avs(client, ...init),
       /**
-       * List Countries
-       *
-       * List all supported countries on Paystack
+  * List Countries
+  *
+  * List all supported countries on Paystack
        */
-      listCountries: (...init: InitArg<MaybeOptionalInit<paths["/country"], "get">, false>) =>
-        miscellaneous_listCountries(client, ...init),
+      listCountries: (...init: InitArg<MaybeOptionalInit<paths["/country"], "get">, false>) => miscellaneous_listCountries(client, ...init),
       /**
-       * Resolve Card BIN
-       *
-       * Get the details of a card BIN
+  * Resolve Card BIN
+  *
+  * Get the details of a card BIN
        */
-      resolveCardBin: (
-        bin: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/decision/bin/{bin}"], "get">, true>
-      ) => miscellaneous_resolveCardBin(client, bin, ...init),
+      resolveCardBin: (bin: string, ...init: InitArg<MaybeOptionalInit<paths["/decision/bin/{bin}"], "get">, true>) => miscellaneous_resolveCardBin(client, bin, ...init),
     },
     order: {
       /**
-       * Create Order
-       *
-       * Create an order for selected items
+  * Create Order
+  *
+  * Create an order for selected items
        */
-      create: (...init: InitArg<MaybeOptionalInit<paths["/order"], "post">, false>) =>
-        order_create(client, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/order"], "post">, false>) => order_create(client, ...init),
       /**
-       * Fetch Order
-       *
-       * Fetch the details of a previously created order
+  * Fetch Order
+  *
+  * Fetch the details of a previously created order
        */
-      fetch: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/order/{id}"], "get">, true>) =>
-        order_fetch(client, id, ...init),
+      fetch: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/order/{id}"], "get">, true>) => order_fetch(client, id, ...init),
       /**
-       * List Orders
-       *
-       * List the previously created orders
+  * List Orders
+  *
+  * List the previously created orders
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/order"], "get">, false>) =>
-        order_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/order"], "get">, false>) => order_list(client, ...init),
       /**
-       * Fetch Product Orders
-       *
-       * Fetch all orders for a particular product
+  * Fetch Product Orders
+  *
+  * Fetch all orders for a particular product
        */
-      product: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/order/product/{id}"], "get">, true>
-      ) => order_product(client, id, ...init),
+      product: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/order/product/{id}"], "get">, true>) => order_product(client, id, ...init),
       /**
-       * Validate Order
-       *
-       * Validate a pay for me order
+  * Validate Order
+  *
+  * Validate a pay for me order
        */
-      validate: (
-        code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/order/{code}/validate"], "get">, true>
-      ) => order_validate(client, code, ...init),
+      validate: (code: string, ...init: InitArg<MaybeOptionalInit<paths["/order/{code}/validate"], "get">, true>) => order_validate(client, code, ...init),
     },
     page: {
       /**
@@ -4123,54 +3069,37 @@ way of the `total_charges` and `pending_charges` attributes.
   * Add products to a previously created payment page. You can only add products to pages
 that was created with a `product` type.
        */
-      addProducts: (
-        id: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/page/{id}/product"], "post">, true>
-      ) => page_addProducts(client, id, ...init),
+      addProducts: (id: string, ...init: InitArg<MaybeOptionalInit<paths["/page/{id}/product"], "post">, true>) => page_addProducts(client, id, ...init),
       /**
-       * Check Slug Availability
-       *
-       * Check if a custom slug is available for use when creating a payment page
+  * Check Slug Availability
+  *
+  * Check if a custom slug is available for use when creating a payment page
        */
-      checkSlugAvailability: (
-        slug: string,
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/page/check_slug_availability/{slug}"], "get">,
-          true
-        >
-      ) => page_checkSlugAvailability(client, slug, ...init),
+      checkSlugAvailability: (slug: string, ...init: InitArg<MaybeOptionalInit<paths["/page/check_slug_availability/{slug}"], "get">, true>) => page_checkSlugAvailability(client, slug, ...init),
       /**
-       * Create Page
-       *
-       * Create a webpage to receive payments
+  * Create Page
+  *
+  * Create a webpage to receive payments
        */
-      create: (...init: InitArg<MaybeOptionalInit<paths["/page"], "post">, false>) =>
-        page_create(client, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/page"], "post">, false>) => page_create(client, ...init),
       /**
-       * Fetch Page
-       *
-       * Get a previously created payment page
+  * Fetch Page
+  *
+  * Get a previously created payment page
        */
-      fetch: (
-        id_or_slug: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/page/{id_or_slug}"], "get">, true>
-      ) => page_fetch(client, id_or_slug, ...init),
+      fetch: (id_or_slug: string, ...init: InitArg<MaybeOptionalInit<paths["/page/{id_or_slug}"], "get">, true>) => page_fetch(client, id_or_slug, ...init),
       /**
-       * List Pages
-       *
-       * List all previously created payment pages
+  * List Pages
+  *
+  * List all previously created payment pages
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/page"], "get">, false>) =>
-        page_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/page"], "get">, false>) => page_list(client, ...init),
       /**
-       * Update Page
-       *
-       * Update a previously created payment page
+  * Update Page
+  *
+  * Update a previously created payment page
        */
-      update: (
-        id_or_slug: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/page/{id_or_slug}"], "put">, true>
-      ) => page_update(client, id_or_slug, ...init),
+      update: (id_or_slug: string, ...init: InitArg<MaybeOptionalInit<paths["/page/{id_or_slug}"], "put">, true>) => page_update(client, id_or_slug, ...init),
     },
     paymentRequest: {
       /**
@@ -4179,690 +3108,491 @@ that was created with a `product` type.
   * Archive a payment request to clean up your records. An archived payment request cannot be verified and will not 
 be returned when listing all previously created payment requests.
        */
-      archive: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/archive/{id}"], "post">, true>
-      ) => paymentRequest_archive(client, id, ...init),
+      archive: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/archive/{id}"], "post">, true>) => paymentRequest_archive(client, id, ...init),
       /**
-       * Create Payment Request
-       *
-       * Create a new payment request by issuing an invoice to a customer
+  * Create Payment Request
+  *
+  * Create a new payment request by issuing an invoice to a customer
        */
-      create: (...init: InitArg<MaybeOptionalInit<paths["/paymentrequest"], "post">, false>) =>
-        paymentRequest_create(client, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/paymentrequest"], "post">, false>) => paymentRequest_create(client, ...init),
       /**
-       * Fetch Payment Request
-       *
-       * Fetch a previously created payment request
+  * Fetch Payment Request
+  *
+  * Fetch a previously created payment request
        */
-      fetch: (
-        id_or_code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/{id_or_code}"], "get">, true>
-      ) => paymentRequest_fetch(client, id_or_code, ...init),
+      fetch: (id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/{id_or_code}"], "get">, true>) => paymentRequest_fetch(client, id_or_code, ...init),
       /**
-       * Finalize Payment Request
-       *
-       * Finalise the creation of a draft payment request for a customer
+  * Finalize Payment Request
+  *
+  * Finalise the creation of a draft payment request for a customer
        */
-      finalize: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/finalize/{id}"], "post">, true>
-      ) => paymentRequest_finalize(client, id, ...init),
+      finalize: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/finalize/{id}"], "post">, true>) => paymentRequest_finalize(client, id, ...init),
       /**
-       * List Payment Request
-       *
-       * List all previously created payment requests to your customers
+  * List Payment Request
+  *
+  * List all previously created payment requests to your customers
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/paymentrequest"], "get">, false>) =>
-        paymentRequest_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/paymentrequest"], "get">, false>) => paymentRequest_list(client, ...init),
       /**
-       * Send Notification
-       *
-       * Trigger an email reminder to a customer for a previously created payment request
+  * Send Notification
+  *
+  * Trigger an email reminder to a customer for a previously created payment request
        */
-      notify: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/notify/{id}"], "post">, true>
-      ) => paymentRequest_notify(client, id, ...init),
+      notify: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/notify/{id}"], "post">, true>) => paymentRequest_notify(client, id, ...init),
       /**
-       * Payment Request Total
-       *
-       * Get the metric of all pending and successful payment requests
+  * Payment Request Total
+  *
+  * Get the metric of all pending and successful payment requests
        */
-      totals: (
-        ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/totals"], "get">, false>
-      ) => paymentRequest_totals(client, ...init),
+      totals: (...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/totals"], "get">, false>) => paymentRequest_totals(client, ...init),
       /**
-       * Update Payment Request
-       *
-       * Update a previously created payment request
+  * Update Payment Request
+  *
+  * Update a previously created payment request
        */
-      update: (
-        id_or_code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/{id_or_code}"], "put">, true>
-      ) => paymentRequest_update(client, id_or_code, ...init),
+      update: (id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/{id_or_code}"], "put">, true>) => paymentRequest_update(client, id_or_code, ...init),
       /**
-       * Verify Payment Request
-       *
-       * Verify the status of a previously created payment request
+  * Verify Payment Request
+  *
+  * Verify the status of a previously created payment request
        */
-      verify: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/verify/{id}"], "get">, true>
-      ) => paymentRequest_verify(client, id, ...init),
+      verify: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/paymentrequest/verify/{id}"], "get">, true>) => paymentRequest_verify(client, id, ...init),
     },
     plan: {
       /**
-       * Create Plan
-       *
-       * Create a plan for recurring payments
+  * Create Plan
+  *
+  * Create a plan for recurring payments
        */
-      create: (...init: InitArg<MaybeOptionalInit<paths["/plan"], "post">, false>) =>
-        plan_create(client, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/plan"], "post">, false>) => plan_create(client, ...init),
       /**
-       * Fetch Plan
-       *
-       * Get the details of a payment plan
+  * Fetch Plan
+  *
+  * Get the details of a payment plan
        */
-      fetch: (
-        id_or_code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/plan/{id_or_code}"], "get">, true>
-      ) => plan_fetch(client, id_or_code, ...init),
+      fetch: (id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/plan/{id_or_code}"], "get">, true>) => plan_fetch(client, id_or_code, ...init),
       /**
-       * List Plans
-       *
-       * List all recurring payment plans
+  * List Plans
+  *
+  * List all recurring payment plans
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/plan"], "get">, false>) =>
-        plan_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/plan"], "get">, false>) => plan_list(client, ...init),
       /**
-       * Update Plan
-       *
-       * Update a plan details on your integration
+  * Update Plan
+  *
+  * Update a plan details on your integration
        */
-      update: (
-        id_or_code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/plan/{id_or_code}"], "put">, true>
-      ) => plan_update(client, id_or_code, ...init),
+      update: (id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/plan/{id_or_code}"], "put">, true>) => plan_update(client, id_or_code, ...init),
     },
     preauthorization: {
       /**
-       * Capture Preauthorization
-       *
-       * Charge a preauthorized transaction upon service delivery
+  * Capture Preauthorization
+  *
+  * Charge a preauthorized transaction upon service delivery
        */
-      capture: (
-        ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/capture"], "post">, false>
-      ) => preauthorization_capture(client, ...init),
+      capture: (...init: InitArg<MaybeOptionalInit<paths["/preauthorization/capture"], "post">, false>) => preauthorization_capture(client, ...init),
       /**
-       * Initialize Preauthorization
-       *
-       * Initialize a preauthorization transaction for a new customer
+  * Initialize Preauthorization
+  *
+  * Initialize a preauthorization transaction for a new customer
        */
-      initialize: (
-        ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/initialize"], "post">, false>
-      ) => preauthorization_initialize(client, ...init),
+      initialize: (...init: InitArg<MaybeOptionalInit<paths["/preauthorization/initialize"], "post">, false>) => preauthorization_initialize(client, ...init),
       /**
-       * List Preauthorizations
-       *
-       * List preauthorizations carried out on your integration
+  * List Preauthorizations
+  *
+  * List preauthorizations carried out on your integration
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/preauthorization"], "get">, false>) =>
-        preauthorization_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/preauthorization"], "get">, false>) => preauthorization_list(client, ...init),
       /**
-       * Release Preauthorization
-       *
-       * For when a customer cancels an order or you want to release the hold from their card.
+  * Release Preauthorization
+  *
+  * For when a customer cancels an order or you want to release the hold from their card.
        */
-      release: (
-        ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/release"], "post">, false>
-      ) => preauthorization_release(client, ...init),
+      release: (...init: InitArg<MaybeOptionalInit<paths["/preauthorization/release"], "post">, false>) => preauthorization_release(client, ...init),
       /**
-       * Reserve Preauthorization
-       *
-       * Hold an amount using an existing customer's authorization that's marked reusable.
+  * Reserve Preauthorization
+  *
+  * Hold an amount using an existing customer's authorization that's marked reusable.
        */
-      reserve_authorization: (
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/preauthorization/reserve_authorization"], "post">,
-          false
-        >
-      ) => preauthorization_reserve_authorization(client, ...init),
+      reserve_authorization: (...init: InitArg<MaybeOptionalInit<paths["/preauthorization/reserve_authorization"], "post">, false>) => preauthorization_reserve_authorization(client, ...init),
       /**
-       * Verify Preauthorization
-       *
-       * Fetch and confirm the status of a preauthorized transaction.
+  * Verify Preauthorization
+  *
+  * Fetch and confirm the status of a preauthorized transaction.
        */
-      verify: (
-        reference: string,
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/preauthorization/verify/{reference}"], "get">,
-          true
-        >
-      ) => preauthorization_verify(client, reference, ...init),
+      verify: (reference: string, ...init: InitArg<MaybeOptionalInit<paths["/preauthorization/verify/{reference}"], "get">, true>) => preauthorization_verify(client, reference, ...init),
     },
     product: {
       /**
-       * Create Product
-       *
-       * Create a new product on your integration
+  * Create Product
+  *
+  * Create a new product on your integration
        */
-      create: (...init: InitArg<MaybeOptionalInit<paths["/product"], "post">, false>) =>
-        product_create(client, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/product"], "post">, false>) => product_create(client, ...init),
       /**
-       * Delete Product
-       *
-       * Delete a previously created product
+  * Delete Product
+  *
+  * Delete a previously created product
        */
-      delete: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "delete">, true>
-      ) => product_delete(client, id, ...init),
+      delete: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "delete">, true>) => product_delete(client, id, ...init),
       /**
-       * Fetch Product
-       *
-       * Fetch a previously created product
+  * Fetch Product
+  *
+  * Fetch a previously created product
        */
-      fetch: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "get">, true>
-      ) => product_fetch(client, id, ...init),
+      fetch: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "get">, true>) => product_fetch(client, id, ...init),
       /**
-       * List Products
-       *
-       * List all previously created products
+  * List Products
+  *
+  * List all previously created products
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/product"], "get">, false>) =>
-        product_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/product"], "get">, false>) => product_list(client, ...init),
       /**
-       * Update product
-       *
-       * Update a previously created product
+  * Update product
+  *
+  * Update a previously created product
        */
-      update: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "put">, true>
-      ) => product_update(client, id, ...init),
+      update: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/product/{id}"], "put">, true>) => product_update(client, id, ...init),
     },
     refund: {
       /**
-       * Create Refund
-       *
-       * Initiate a refund for a previously completed transaction
+  * Create Refund
+  *
+  * Initiate a refund for a previously completed transaction
        */
-      create: (...init: InitArg<MaybeOptionalInit<paths["/refund"], "post">, false>) =>
-        refund_create(client, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/refund"], "post">, false>) => refund_create(client, ...init),
       /**
-       * Fetch Refund
-       *
-       * Get a previously created refund
+  * Fetch Refund
+  *
+  * Get a previously created refund
        */
-      fetch: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/refund/{id}"], "get">, true>
-      ) => refund_fetch(client, id, ...init),
+      fetch: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/refund/{id}"], "get">, true>) => refund_fetch(client, id, ...init),
       /**
-       * List Refunds
-       *
-       * List previously created refunds
+  * List Refunds
+  *
+  * List previously created refunds
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/refund"], "get">, false>) =>
-        refund_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/refund"], "get">, false>) => refund_list(client, ...init),
       /**
-       * Retry Refund
-       *
-       * Retry a refund with a `needs-attention` status by providing the bank account details of a customer.
+  * Retry Refund
+  *
+  * Retry a refund with a `needs-attention` status by providing the bank account details of a customer.
        */
-      retry: (
-        id: number,
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/refund/retry_with_customer_details/{id}"], "post">,
-          true
-        >
-      ) => refund_retry(client, id, ...init),
+      retry: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/refund/retry_with_customer_details/{id}"], "post">, true>) => refund_retry(client, id, ...init),
     },
     settlements: {
       /**
-       * List Settlements
-       *
-       * List settlements made to your settlement accounts
+  * List Settlements
+  *
+  * List settlements made to your settlement accounts
        */
-      fetch: (...init: InitArg<MaybeOptionalInit<paths["/settlement"], "get">, false>) =>
-        settlements_fetch(client, ...init),
+      fetch: (...init: InitArg<MaybeOptionalInit<paths["/settlement"], "get">, false>) => settlements_fetch(client, ...init),
       /**
-       * Fetch Settlement Transactions
-       *
-       * Get the transactions that make up a particular settlement
+  * Fetch Settlement Transactions
+  *
+  * Get the transactions that make up a particular settlement
        */
-      transaction: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/settlement/{id}/transactions"], "get">, true>
-      ) => settlements_transaction(client, id, ...init),
+      transaction: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/settlement/{id}/transactions"], "get">, true>) => settlements_transaction(client, id, ...init),
     },
     split: {
       /**
-       * Add Subaccount to Split
-       *
-       * Add a subaccount to a split configuration, or update the share of an existing subaccount
+  * Add Subaccount to Split
+  *
+  * Add a subaccount to a split configuration, or update the share of an existing subaccount
        */
-      addSubaccount: (
-        id: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/split/{id}/subaccount/add"], "post">, true>
-      ) => split_addSubaccount(client, id, ...init),
+      addSubaccount: (id: string, ...init: InitArg<MaybeOptionalInit<paths["/split/{id}/subaccount/add"], "post">, true>) => split_addSubaccount(client, id, ...init),
       /**
-       * Create Split
-       *
-       * Create a split configuration for transactions
+  * Create Split
+  *
+  * Create a split configuration for transactions
        */
-      create: (...init: InitArg<MaybeOptionalInit<paths["/split"], "post">, false>) =>
-        split_create(client, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/split"], "post">, false>) => split_create(client, ...init),
       /**
-       * Fetch Split
-       *
-       * Get details of a split configuration for a transaction
+  * Fetch Split
+  *
+  * Get details of a split configuration for a transaction
        */
-      fetch: (id: string, ...init: InitArg<MaybeOptionalInit<paths["/split/{id}"], "get">, true>) =>
-        split_fetch(client, id, ...init),
+      fetch: (id: string, ...init: InitArg<MaybeOptionalInit<paths["/split/{id}"], "get">, true>) => split_fetch(client, id, ...init),
       /**
-       * List Splits
-       *
-       * List the transaction splits available on your integration
+  * List Splits
+  *
+  * List the transaction splits available on your integration
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/split"], "get">, false>) =>
-        split_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/split"], "get">, false>) => split_list(client, ...init),
       /**
-       * Remove Subaccount from split
-       *
-       * Remove a subaccount from a split configuration
+  * Remove Subaccount from split
+  *
+  * Remove a subaccount from a split configuration
        */
-      removeSubaccount: (
-        id: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/split/{id}/subaccount/remove"], "post">, true>
-      ) => split_removeSubaccount(client, id, ...init),
+      removeSubaccount: (id: string, ...init: InitArg<MaybeOptionalInit<paths["/split/{id}/subaccount/remove"], "post">, true>) => split_removeSubaccount(client, id, ...init),
       /**
-       * Update Split
-       *
-       * Update a split configuration for transactions
+  * Update Split
+  *
+  * Update a split configuration for transactions
        */
-      update: (
-        id: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/split/{id}"], "put">, true>
-      ) => split_update(client, id, ...init),
+      update: (id: string, ...init: InitArg<MaybeOptionalInit<paths["/split/{id}"], "put">, true>) => split_update(client, id, ...init),
     },
     storefront: {
       /**
-       * Add Products to Storefront
-       *
-       * Add previously created products to a Storefront
+  * Add Products to Storefront
+  *
+  * Add previously created products to a Storefront
        */
-      addProducts: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/product"], "post">, true>
-      ) => storefront_addProducts(client, id, ...init),
+      addProducts: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/product"], "post">, true>) => storefront_addProducts(client, id, ...init),
       /**
-       * Create Storefront
-       *
-       * Create a digital shop to manage and display your products
+  * Create Storefront
+  *
+  * Create a digital shop to manage and display your products
        */
-      create: (...init: InitArg<MaybeOptionalInit<paths["/storefront"], "post">, false>) =>
-        storefront_create(client, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/storefront"], "post">, false>) => storefront_create(client, ...init),
       /**
-       * Delete Storefront
-       *
-       * Delete a previously created Storefront
+  * Delete Storefront
+  *
+  * Delete a previously created Storefront
        */
-      delete: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "delete">, true>
-      ) => storefront_delete(client, id, ...init),
+      delete: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "delete">, true>) => storefront_delete(client, id, ...init),
       /**
-       * Duplicate Storefront
-       *
-       * Duplicate a previously created Storefront
+  * Duplicate Storefront
+  *
+  * Duplicate a previously created Storefront
        */
-      duplicate: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/duplicate"], "post">, true>
-      ) => storefront_duplicate(client, id, ...init),
+      duplicate: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/duplicate"], "post">, true>) => storefront_duplicate(client, id, ...init),
       /**
-       * Fetch Storefront
-       *
-       * Get the details of a previously created Storefront
+  * Fetch Storefront
+  *
+  * Get the details of a previously created Storefront
        */
-      fetch: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "get">, true>
-      ) => storefront_fetch(client, id, ...init),
+      fetch: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "get">, true>) => storefront_fetch(client, id, ...init),
       /**
-       * Fetch Storefront Orders
-       *
-       * Fetch all orders in your Storefront
+  * Fetch Storefront Orders
+  *
+  * Fetch all orders in your Storefront
        */
-      fetchOrders: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/order"], "get">, true>
-      ) => storefront_fetchOrders(client, id, ...init),
+      fetchOrders: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/order"], "get">, true>) => storefront_fetchOrders(client, id, ...init),
       /**
-       * List Storefronts
-       *
-       * List the storefronts you previously created
+  * List Storefronts
+  *
+  * List the storefronts you previously created
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/storefront"], "get">, false>) =>
-        storefront_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/storefront"], "get">, false>) => storefront_list(client, ...init),
       /**
-       * List Storefront Products
-       *
-       * List the products in a Storefront
+  * List Storefront Products
+  *
+  * List the products in a Storefront
        */
-      listProducts: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/product"], "get">, true>
-      ) => storefront_listProducts(client, id, ...init),
+      listProducts: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/product"], "get">, true>) => storefront_listProducts(client, id, ...init),
       /**
-       * Publish Storefront
-       *
-       * Make your Storefront publicly available
+  * Publish Storefront
+  *
+  * Make your Storefront publicly available
        */
-      publish: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/publish"], "post">, true>
-      ) => storefront_publish(client, id, ...init),
+      publish: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}/publish"], "post">, true>) => storefront_publish(client, id, ...init),
       /**
-       * Update Storefront
-       *
-       * Update the details of a previously created Storefront
+  * Update Storefront
+  *
+  * Update the details of a previously created Storefront
        */
-      update: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "put">, true>
-      ) => storefront_update(client, id, ...init),
+      update: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/storefront/{id}"], "put">, true>) => storefront_update(client, id, ...init),
       /**
-       * Verify Storefront Slug
-       *
-       * Verify the availability of a slug before using it for your Storefront
+  * Verify Storefront Slug
+  *
+  * Verify the availability of a slug before using it for your Storefront
        */
-      verifySlug: (
-        slug: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/storefront/verify/{slug}"], "get">, true>
-      ) => storefront_verifySlug(client, slug, ...init),
+      verifySlug: (slug: string, ...init: InitArg<MaybeOptionalInit<paths["/storefront/verify/{slug}"], "get">, true>) => storefront_verifySlug(client, slug, ...init),
     },
     subaccount: {
       /**
-       * Create Subaccount
-       *
-       * Create a subacount for a partner
+  * Create Subaccount
+  *
+  * Create a subacount for a partner
        */
-      create: (...init: InitArg<MaybeOptionalInit<paths["/subaccount"], "post">, false>) =>
-        subaccount_create(client, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/subaccount"], "post">, false>) => subaccount_create(client, ...init),
       /**
-       * Fetch Subaccount
-       *
-       * Get details of a subaccount on your integration
+  * Fetch Subaccount
+  *
+  * Get details of a subaccount on your integration
        */
-      fetch: (
-        id_or_code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/subaccount/{id_or_code}"], "get">, true>
-      ) => subaccount_fetch(client, id_or_code, ...init),
+      fetch: (id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/subaccount/{id_or_code}"], "get">, true>) => subaccount_fetch(client, id_or_code, ...init),
       /**
-       * List Subaccounts
-       *
-       * List subaccounts available on your integration
+  * List Subaccounts
+  *
+  * List subaccounts available on your integration
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/subaccount"], "get">, false>) =>
-        subaccount_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/subaccount"], "get">, false>) => subaccount_list(client, ...init),
       /**
-       * Update Subaccount
-       *
-       * Update a subaccount details on your integration
+  * Update Subaccount
+  *
+  * Update a subaccount details on your integration
        */
-      update: (
-        id_or_code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/subaccount/{id_or_code}"], "put">, true>
-      ) => subaccount_update(client, id_or_code, ...init),
+      update: (id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/subaccount/{id_or_code}"], "put">, true>) => subaccount_update(client, id_or_code, ...init),
     },
     subscription: {
       /**
-       * Create Subscription
-       *
-       * Create a subscription a customer
+  * Create Subscription
+  *
+  * Create a subscription a customer
        */
-      create: (...init: InitArg<MaybeOptionalInit<paths["/subscription"], "post">, false>) =>
-        subscription_create(client, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/subscription"], "post">, false>) => subscription_create(client, ...init),
       /**
-       * Disable Subscription
-       *
-       * Disable a subscription on your integration
+  * Disable Subscription
+  *
+  * Disable a subscription on your integration
        */
-      disable: (
-        ...init: InitArg<MaybeOptionalInit<paths["/subscription/disable"], "post">, false>
-      ) => subscription_disable(client, ...init),
+      disable: (...init: InitArg<MaybeOptionalInit<paths["/subscription/disable"], "post">, false>) => subscription_disable(client, ...init),
       /**
-       * Enable Subscription
-       *
-       * Enable a subscription on your integration
+  * Enable Subscription
+  *
+  * Enable a subscription on your integration
        */
-      enable: (...init: InitArg<MaybeOptionalInit<paths["/subscription/enable"], "post">, false>) =>
-        subscription_enable(client, ...init),
+      enable: (...init: InitArg<MaybeOptionalInit<paths["/subscription/enable"], "post">, false>) => subscription_enable(client, ...init),
       /**
-       * Fetch Subscription
-       *
-       * Get details of a customer's subscription
+  * Fetch Subscription
+  *
+  * Get details of a customer's subscription
        */
-      fetch: (
-        id_or_code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/subscription/{id_or_code}"], "get">, true>
-      ) => subscription_fetch(client, id_or_code, ...init),
+      fetch: (id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/subscription/{id_or_code}"], "get">, true>) => subscription_fetch(client, id_or_code, ...init),
       /**
-       * List Subscriptions
-       *
-       * List all subscriptions available on your integration
+  * List Subscriptions
+  *
+  * List all subscriptions available on your integration
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/subscription"], "get">, false>) =>
-        subscription_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/subscription"], "get">, false>) => subscription_list(client, ...init),
       /**
-       * Send Update Subscription Link
-       *
-       * Email a customer a link for updating the card on their subscription
+  * Send Update Subscription Link
+  *
+  * Email a customer a link for updating the card on their subscription
        */
-      manageEmail: (
-        code: string,
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/subscription/{code}/manage/email"], "post">,
-          true
-        >
-      ) => subscription_manageEmail(client, code, ...init),
+      manageEmail: (code: string, ...init: InitArg<MaybeOptionalInit<paths["/subscription/{code}/manage/email"], "post">, true>) => subscription_manageEmail(client, code, ...init),
       /**
-       * Generate Update Subscription Link
-       *
-       * Generate a link for updating the card on a subscription
+  * Generate Update Subscription Link
+  *
+  * Generate a link for updating the card on a subscription
        */
-      manageLink: (
-        code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/subscription/{code}/manage/link"], "get">, true>
-      ) => subscription_manageLink(client, code, ...init),
+      manageLink: (code: string, ...init: InitArg<MaybeOptionalInit<paths["/subscription/{code}/manage/link"], "get">, true>) => subscription_manageLink(client, code, ...init),
     },
     terminal: {
       /**
-       * Commission Terminal
-       *
-       * Activate your debug device by linking it to your integration
+  * Commission Terminal
+  *
+  * Activate your debug device by linking it to your integration
        */
-      commission: (
-        ...init: InitArg<MaybeOptionalInit<paths["/terminal/commission_device"], "post">, false>
-      ) => terminal_commission(client, ...init),
+      commission: (...init: InitArg<MaybeOptionalInit<paths["/terminal/commission_device"], "post">, false>) => terminal_commission(client, ...init),
       /**
-       * Decommission Terminal
-       *
-       * Unlink your debug device from your integration
+  * Decommission Terminal
+  *
+  * Unlink your debug device from your integration
        */
-      decommission: (
-        ...init: InitArg<MaybeOptionalInit<paths["/terminal/decommission_device"], "post">, false>
-      ) => terminal_decommission(client, ...init),
+      decommission: (...init: InitArg<MaybeOptionalInit<paths["/terminal/decommission_device"], "post">, false>) => terminal_decommission(client, ...init),
       /**
-       * Fetch Terminal
-       *
-       * Get the details of a Terminal
+  * Fetch Terminal
+  *
+  * Get the details of a Terminal
        */
-      fetch: (
-        terminal_id: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}"], "get">, true>
-      ) => terminal_fetch(client, terminal_id, ...init),
+      fetch: (terminal_id: string, ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}"], "get">, true>) => terminal_fetch(client, terminal_id, ...init),
       /**
-       * Fetch Event Status
-       *
-       * Check the status of an event sent to the Terminal
+  * Fetch Event Status
+  *
+  * Check the status of an event sent to the Terminal
        */
-      fetchEventStatus: (
-        terminal_id: string,
-        event_id: string,
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/terminal/{terminal_id}/event/{event_id}"], "get">,
-          true
-        >
-      ) => terminal_fetchEventStatus(client, terminal_id, event_id, ...init),
+      fetchEventStatus: (terminal_id: string, event_id: string, ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}/event/{event_id}"], "get">, true>) => terminal_fetchEventStatus(client, terminal_id, event_id, ...init),
       /**
-       * Fetch Terminal Status
-       *
-       * Check the availiability of a Terminal before sending an event to it
+  * Fetch Terminal Status
+  *
+  * Check the availiability of a Terminal before sending an event to it
        */
-      fetchTerminalStatus: (
-        terminal_id: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}/presence"], "get">, true>
-      ) => terminal_fetchTerminalStatus(client, terminal_id, ...init),
+      fetchTerminalStatus: (terminal_id: string, ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}/presence"], "get">, true>) => terminal_fetchTerminalStatus(client, terminal_id, ...init),
       /**
-       * List Terminals
-       *
-       * List the Terminals available on your integration
+  * List Terminals
+  *
+  * List the Terminals available on your integration
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/terminal"], "get">, false>) =>
-        terminal_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/terminal"], "get">, false>) => terminal_list(client, ...init),
       /**
-       * Send Event
-       *
-       * Send an event from your application to the Paystack Terminal
+  * Send Event
+  *
+  * Send an event from your application to the Paystack Terminal
        */
-      sendEvent: (
-        id: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/terminal/{id}/event"], "post">, true>
-      ) => terminal_sendEvent(client, id, ...init),
+      sendEvent: (id: string, ...init: InitArg<MaybeOptionalInit<paths["/terminal/{id}/event"], "post">, true>) => terminal_sendEvent(client, id, ...init),
       /**
-       * Update Terminal
-       *
-       * Update the details of a Terminal
+  * Update Terminal
+  *
+  * Update the details of a Terminal
        */
-      update: (
-        terminal_id: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}"], "put">, true>
-      ) => terminal_update(client, terminal_id, ...init),
+      update: (terminal_id: string, ...init: InitArg<MaybeOptionalInit<paths["/terminal/{terminal_id}"], "put">, true>) => terminal_update(client, terminal_id, ...init),
     },
     transaction: {
       /**
-       * Charge Authorization
-       *
-       * Charge all authorizations marked as reusable with this endpoint whenever you need to receive payments
+  * Charge Authorization
+  *
+  * Charge all authorizations marked as reusable with this endpoint whenever you need to receive payments
        */
-      chargeAuthorization: (
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/transaction/charge_authorization"], "post">,
-          false
-        >
-      ) => transaction_chargeAuthorization(client, ...init),
+      chargeAuthorization: (...init: InitArg<MaybeOptionalInit<paths["/transaction/charge_authorization"], "post">, false>) => transaction_chargeAuthorization(client, ...init),
       /**
-       * Check Authorization
-       *
-       * Check if an authorization code can be used for a charge.
+  * Check Authorization
+  *
+  * Check if an authorization code can be used for a charge.
        */
-      checkAuthorization: (
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/transaction/check_authorization"], "post">,
-          false
-        >
-      ) => transaction_checkAuthorization(client, ...init),
+      checkAuthorization: (...init: InitArg<MaybeOptionalInit<paths["/transaction/check_authorization"], "post">, false>) => transaction_checkAuthorization(client, ...init),
       /**
-       * Get Transaction Event
-       *
-       * Fetch the event for a specific transaction.
+  * Get Transaction Event
+  *
+  * Fetch the event for a specific transaction.
        */
-      event: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}/event"], "get">, true>
-      ) => transaction_event(client, id, ...init),
+      event: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}/event"], "get">, true>) => transaction_event(client, id, ...init),
       /**
-       * Export Transactions
-       *
-       * Download transactions that occurred on your integration for a specific timeframe
+  * Export Transactions
+  *
+  * Download transactions that occurred on your integration for a specific timeframe
        */
-      export: (...init: InitArg<MaybeOptionalInit<paths["/transaction/export"], "get">, false>) =>
-        transaction_export(client, ...init),
+      export: (...init: InitArg<MaybeOptionalInit<paths["/transaction/export"], "get">, false>) => transaction_export(client, ...init),
       /**
-       * Fetch Transaction
-       *
-       * Fetch a transaction to get its details
+  * Fetch Transaction
+  *
+  * Fetch a transaction to get its details
        */
-      fetch: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}"], "get">, true>
-      ) => transaction_fetch(client, id, ...init),
+      fetch: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}"], "get">, true>) => transaction_fetch(client, id, ...init),
       /**
-       * Initialize Transaction
-       *
-       * Create a new transaction
+  * Initialize Transaction
+  *
+  * Create a new transaction
        */
-      initialize: (
-        ...init: InitArg<MaybeOptionalInit<paths["/transaction/initialize"], "post">, false>
-      ) => transaction_initialize(client, ...init),
+      initialize: (...init: InitArg<MaybeOptionalInit<paths["/transaction/initialize"], "post">, false>) => transaction_initialize(client, ...init),
       /**
-       * List Transactions
-       *
-       * List transactions carried out on your integration
+  * List Transactions
+  *
+  * List transactions carried out on your integration
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/transaction"], "get">, false>) =>
-        transaction_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/transaction"], "get">, false>) => transaction_list(client, ...init),
       /**
-       * Partial Debit
-       *
-       * Retrieve part of a payment from a customer
+  * Partial Debit
+  *
+  * Retrieve part of a payment from a customer
        */
-      partialDebit: (
-        ...init: InitArg<MaybeOptionalInit<paths["/transaction/partial_debit"], "post">, false>
-      ) => transaction_partialDebit(client, ...init),
+      partialDebit: (...init: InitArg<MaybeOptionalInit<paths["/transaction/partial_debit"], "post">, false>) => transaction_partialDebit(client, ...init),
       /**
-       * Get Transaction Session
-       *
-       * Fetch the session for a specific transaction.
+  * Get Transaction Session
+  *
+  * Fetch the session for a specific transaction.
        */
-      session: (
-        id: number,
-        ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}/session"], "get">, true>
-      ) => transaction_session(client, id, ...init),
+      session: (id: number, ...init: InitArg<MaybeOptionalInit<paths["/transaction/{id}/session"], "get">, true>) => transaction_session(client, id, ...init),
       /**
-       * Fetch Transaction Timeline
-       *
-       * Fetch the steps taken from the initiation to the completion of a transaction
+  * Fetch Transaction Timeline
+  *
+  * Fetch the steps taken from the initiation to the completion of a transaction
        */
-      timeline: (
-        id_or_reference: string,
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/transaction/timeline/{id_or_reference}"], "get">,
-          true
-        >
-      ) => transaction_timeline(client, id_or_reference, ...init),
+      timeline: (id_or_reference: string, ...init: InitArg<MaybeOptionalInit<paths["/transaction/timeline/{id_or_reference}"], "get">, true>) => transaction_timeline(client, id_or_reference, ...init),
       /**
-       * Transaction Totals
-       *
-       * Get the total amount of all transactions
+  * Transaction Totals
+  *
+  * Get the total amount of all transactions
        */
-      totals: (...init: InitArg<MaybeOptionalInit<paths["/transaction/totals"], "get">, false>) =>
-        transaction_totals(client, ...init),
+      totals: (...init: InitArg<MaybeOptionalInit<paths["/transaction/totals"], "get">, false>) => transaction_totals(client, ...init),
       /**
-       * Verify Transaction
-       *
-       * Verify a previously initiated transaction using it's reference
+  * Verify Transaction
+  *
+  * Verify a previously initiated transaction using it's reference
        */
-      verify: (
-        reference: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/transaction/verify/{reference}"], "get">, true>
-      ) => transaction_verify(client, reference, ...init),
+      verify: (reference: string, ...init: InitArg<MaybeOptionalInit<paths["/transaction/verify/{reference}"], "get">, true>) => transaction_verify(client, reference, ...init),
     },
     transfer: {
       /**
@@ -4872,238 +3602,163 @@ be returned when listing all previously created payment requests.
 
 You need to disable the Transfers OTP requirement to use this endpoint.
        */
-      bulk: (...init: InitArg<MaybeOptionalInit<paths["/transfer/bulk"], "post">, false>) =>
-        transfer_bulk(client, ...init),
+      bulk: (...init: InitArg<MaybeOptionalInit<paths["/transfer/bulk"], "post">, false>) => transfer_bulk(client, ...init),
       /**
   * Disable OTP for Transfers
   *
   * This is used in the event that you want to be able to complete transfers programmatically without use of OTPs. 
 No arguments required. You will get an OTP to complete the request.
        */
-      disableOtp: (
-        ...init: InitArg<MaybeOptionalInit<paths["/transfer/disable_otp"], "post">, false>
-      ) => transfer_disableOtp(client, ...init),
+      disableOtp: (...init: InitArg<MaybeOptionalInit<paths["/transfer/disable_otp"], "post">, false>) => transfer_disableOtp(client, ...init),
       /**
-       * Finalize Disabling OTP for Transfers
-       *
-       * Finalize the request to disable OTP on your transfers
+  * Finalize Disabling OTP for Transfers
+  *
+  * Finalize the request to disable OTP on your transfers
        */
-      disableOtpFinalize: (
-        ...init: InitArg<MaybeOptionalInit<paths["/transfer/disable_otp_finalize"], "post">, false>
-      ) => transfer_disableOtpFinalize(client, ...init),
+      disableOtpFinalize: (...init: InitArg<MaybeOptionalInit<paths["/transfer/disable_otp_finalize"], "post">, false>) => transfer_disableOtpFinalize(client, ...init),
       /**
   * Enable OTP requirement for Transfers
   *
   * In the event that a customer wants to stop being able to complete transfers programmatically, this endpoint helps turn OTP requirement back on. 
 No arguments required.
        */
-      enableOtp: (
-        ...init: InitArg<MaybeOptionalInit<paths["/transfer/enable_otp"], "post">, false>
-      ) => transfer_enableOtp(client, ...init),
+      enableOtp: (...init: InitArg<MaybeOptionalInit<paths["/transfer/enable_otp"], "post">, false>) => transfer_enableOtp(client, ...init),
       /**
-       * Export Transfers
-       *
-       * Export a list of transfers carried out on your integration
+  * Export Transfers
+  *
+  * Export a list of transfers carried out on your integration
        */
-      exportTransfer: (
-        ...init: InitArg<MaybeOptionalInit<paths["/transfer/export"], "get">, false>
-      ) => transfer_exportTransfer(client, ...init),
+      exportTransfer: (...init: InitArg<MaybeOptionalInit<paths["/transfer/export"], "get">, false>) => transfer_exportTransfer(client, ...init),
       /**
-       * Fetch Transfer
-       *
-       * Get details of a transfer on your integration
+  * Fetch Transfer
+  *
+  * Get details of a transfer on your integration
        */
-      fetch: (
-        id_or_code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/transfer/{id_or_code}"], "get">, true>
-      ) => transfer_fetch(client, id_or_code, ...init),
+      fetch: (id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/transfer/{id_or_code}"], "get">, true>) => transfer_fetch(client, id_or_code, ...init),
       /**
-       * Finalize Transfer
-       *
-       * Finalize an initiated transfer
+  * Finalize Transfer
+  *
+  * Finalize an initiated transfer
        */
-      finalize: (
-        ...init: InitArg<MaybeOptionalInit<paths["/transfer/finalize_transfer"], "post">, false>
-      ) => transfer_finalize(client, ...init),
+      finalize: (...init: InitArg<MaybeOptionalInit<paths["/transfer/finalize_transfer"], "post">, false>) => transfer_finalize(client, ...init),
       /**
-       * Initiate Transfer
-       *
-       * Send money to your customers
+  * Initiate Transfer
+  *
+  * Send money to your customers
        */
-      initiate: (...init: InitArg<MaybeOptionalInit<paths["/transfer"], "post">, false>) =>
-        transfer_initiate(client, ...init),
+      initiate: (...init: InitArg<MaybeOptionalInit<paths["/transfer"], "post">, false>) => transfer_initiate(client, ...init),
       /**
-       * List Transfers
-       *
-       * List the transfers made on your integration
+  * List Transfers
+  *
+  * List the transfers made on your integration
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/transfer"], "get">, false>) =>
-        transfer_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/transfer"], "get">, false>) => transfer_list(client, ...init),
       /**
-       * Resend OTP for Transfer
-       *
-       * Generates and send a new OTP to customer in the event they are having trouble receiving one.
+  * Resend OTP for Transfer
+  *
+  * Generates and send a new OTP to customer in the event they are having trouble receiving one.
        */
-      resendOtp: (
-        ...init: InitArg<MaybeOptionalInit<paths["/transfer/resend_otp"], "post">, false>
-      ) => transfer_resendOtp(client, ...init),
+      resendOtp: (...init: InitArg<MaybeOptionalInit<paths["/transfer/resend_otp"], "post">, false>) => transfer_resendOtp(client, ...init),
       /**
-       * Verify Transfer
-       *
-       * Verify the status of a transfer on your integration
+  * Verify Transfer
+  *
+  * Verify the status of a transfer on your integration
        */
-      verify: (
-        reference: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/transfer/verify/{reference}"], "get">, true>
-      ) => transfer_verify(client, reference, ...init),
+      verify: (reference: string, ...init: InitArg<MaybeOptionalInit<paths["/transfer/verify/{reference}"], "get">, true>) => transfer_verify(client, reference, ...init),
     },
     transferrecipient: {
       /**
-       * Bulk Create Transfer Recipient
-       *
-       * Create multiple transfer recipients in batches. A duplicate account number will lead to the retrieval of the existing record.
+  * Bulk Create Transfer Recipient
+  *
+  * Create multiple transfer recipients in batches. A duplicate account number will lead to the retrieval of the existing record.
        */
-      bulk: (
-        ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/bulk"], "post">, false>
-      ) => transferrecipient_bulk(client, ...init),
+      bulk: (...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/bulk"], "post">, false>) => transferrecipient_bulk(client, ...init),
       /**
-       * Create Transfer Recipient
-       *
-       * Creates a new recipient. A duplicate account number will lead to the retrieval of the existing record.
+  * Create Transfer Recipient
+  *
+  * Creates a new recipient. A duplicate account number will lead to the retrieval of the existing record.
        */
-      create: (...init: InitArg<MaybeOptionalInit<paths["/transferrecipient"], "post">, false>) =>
-        transferrecipient_create(client, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/transferrecipient"], "post">, false>) => transferrecipient_create(client, ...init),
       /**
-       * Delete Transfer Recipient
-       *
-       * Delete a transfer recipient (sets the transfer recipient to inactive)
+  * Delete Transfer Recipient
+  *
+  * Delete a transfer recipient (sets the transfer recipient to inactive)
        */
-      delete: (
-        id_or_code: string,
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "delete">,
-          true
-        >
-      ) => transferrecipient_delete(client, id_or_code, ...init),
+      delete: (id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "delete">, true>) => transferrecipient_delete(client, id_or_code, ...init),
       /**
-       * Fetch Transfer recipient
-       *
-       * Fetch the details of a transfer recipient
+  * Fetch Transfer recipient
+  *
+  * Fetch the details of a transfer recipient
        */
-      fetch: (
-        id_or_code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "get">, true>
-      ) => transferrecipient_fetch(client, id_or_code, ...init),
+      fetch: (id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "get">, true>) => transferrecipient_fetch(client, id_or_code, ...init),
       /**
-       * List Transfer Recipients
-       *
-       * List transfer recipients available on your integration
+  * List Transfer Recipients
+  *
+  * List transfer recipients available on your integration
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/transferrecipient"], "get">, false>) =>
-        transferrecipient_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/transferrecipient"], "get">, false>) => transferrecipient_list(client, ...init),
       /**
-       * Update Transfer Recipient
-       *
-       * Update the details of a transfer recipient
+  * Update Transfer Recipient
+  *
+  * Update the details of a transfer recipient
        */
-      update: (
-        id_or_code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "put">, true>
-      ) => transferrecipient_update(client, id_or_code, ...init),
+      update: (id_or_code: string, ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/{id_or_code}"], "put">, true>) => transferrecipient_update(client, id_or_code, ...init),
     },
     virtualTerminal: {
       /**
-       * Add Split Code to Virtual Terminal
-       *
-       * Add Split Code to Virtual Terminal
+  * Add Split Code to Virtual Terminal
+  *
+  * Add Split Code to Virtual Terminal
        */
-      addSplitCode: (
-        code: string,
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/virtual_terminal/{code}/split_code"], "put">,
-          true
-        >
-      ) => virtualTerminal_addSplitCode(client, code, ...init),
+      addSplitCode: (code: string, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/split_code"], "put">, true>) => virtualTerminal_addSplitCode(client, code, ...init),
       /**
-       * Create Virtual Terminal
-       *
-       * Create a Virtual Terminal on your integration
+  * Create Virtual Terminal
+  *
+  * Create a Virtual Terminal on your integration
        */
-      create: (...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal"], "post">, false>) =>
-        virtualTerminal_create(client, ...init),
+      create: (...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal"], "post">, false>) => virtualTerminal_create(client, ...init),
       /**
-       * Deactivate Virtual Terminal
-       *
-       * Deactivate a Virtual Terminal on your integration
+  * Deactivate Virtual Terminal
+  *
+  * Deactivate a Virtual Terminal on your integration
        */
-      deactivate: (
-        code: string,
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/virtual_terminal/{code}/deactivate"], "put">,
-          true
-        >
-      ) => virtualTerminal_deactivate(client, code, ...init),
+      deactivate: (code: string, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/deactivate"], "put">, true>) => virtualTerminal_deactivate(client, code, ...init),
       /**
-       * Remove Split Code from Virtual Terminal
-       *
-       * Remove Split Code from Virtual Terminal
+  * Remove Split Code from Virtual Terminal
+  *
+  * Remove Split Code from Virtual Terminal
        */
-      deleteSplitCode: (
-        code: string,
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/virtual_terminal/{code}/split_code"], "delete">,
-          true
-        >
-      ) => virtualTerminal_deleteSplitCode(client, code, ...init),
+      deleteSplitCode: (code: string, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/split_code"], "delete">, true>) => virtualTerminal_deleteSplitCode(client, code, ...init),
       /**
-       * Assign Destination to Virtual Terminal
-       *
-       * Add a destination (WhatsApp number) to a Virtual Terminal on your integration
+  * Assign Destination to Virtual Terminal
+  *
+  * Add a destination (WhatsApp number) to a Virtual Terminal on your integration
        */
-      destinationAssign: (
-        code: string,
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/virtual_terminal/{code}/destination/assign"], "post">,
-          true
-        >
-      ) => virtualTerminal_destinationAssign(client, code, ...init),
+      destinationAssign: (code: string, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/destination/assign"], "post">, true>) => virtualTerminal_destinationAssign(client, code, ...init),
       /**
-       * Unassign Destination from Virtual Terminal
-       *
-       * Unassign a destination (WhatsApp Number) from a Virtual Terminal on your integration
+  * Unassign Destination from Virtual Terminal
+  *
+  * Unassign a destination (WhatsApp Number) from a Virtual Terminal on your integration
        */
-      destinationUnassign: (
-        code: string,
-        ...init: InitArg<
-          MaybeOptionalInit<paths["/virtual_terminal/{code}/destination/unassign"], "post">,
-          true
-        >
-      ) => virtualTerminal_destinationUnassign(client, code, ...init),
+      destinationUnassign: (code: string, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}/destination/unassign"], "post">, true>) => virtualTerminal_destinationUnassign(client, code, ...init),
       /**
-       * Fetch Virtual Terminal
-       *
-       * Fetch a Virtual Terminal on your integration
+  * Fetch Virtual Terminal
+  *
+  * Fetch a Virtual Terminal on your integration
        */
-      fetch: (
-        code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}"], "get">, true>
-      ) => virtualTerminal_fetch(client, code, ...init),
+      fetch: (code: string, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}"], "get">, true>) => virtualTerminal_fetch(client, code, ...init),
       /**
-       * List Virtual Terminals
-       *
-       * List Virtual Terminals on your integration
+  * List Virtual Terminals
+  *
+  * List Virtual Terminals on your integration
        */
-      list: (...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal"], "get">, false>) =>
-        virtualTerminal_list(client, ...init),
+      list: (...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal"], "get">, false>) => virtualTerminal_list(client, ...init),
       /**
-       * Update Virtual Terminal
-       *
-       * Update a Virtual Terminal on your integration
+  * Update Virtual Terminal
+  *
+  * Update a Virtual Terminal on your integration
        */
-      update: (
-        code: string,
-        ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}"], "put">, true>
-      ) => virtualTerminal_update(client, code, ...init),
+      update: (code: string, ...init: InitArg<MaybeOptionalInit<paths["/virtual_terminal/{code}"], "put">, true>) => virtualTerminal_update(client, code, ...init),
     },
   } as const;
 }
