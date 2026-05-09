@@ -4,15564 +4,15636 @@
  */
 
 export interface paths {
-    "/transaction/initialize": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Initialize Transaction
-         * @description Create a new transaction
-         */
-        post: operations["transaction_initialize"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transaction/charge_authorization": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Charge Authorization
-         * @description Charge all authorizations marked as reusable with this endpoint whenever you need to receive payments
-         */
-        post: operations["transaction_chargeAuthorization"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transaction/partial_debit": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Partial Debit
-         * @description Retrieve part of a payment from a customer
-         */
-        post: operations["transaction_partialDebit"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transaction/check_authorization": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Check Authorization
-         * @description Check if an authorization code can be used for a charge.
-         */
-        post: operations["transaction_checkAuthorization"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transaction/verify/{reference}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Verify Transaction
-         * @description Verify a previously initiated transaction using it's reference
-         */
-        get: operations["transaction_verify"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transaction": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Transactions
-         * @description List transactions carried out on your integration
-         */
-        get: operations["transaction_list"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transaction/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Fetch Transaction
-         * @description Fetch a transaction to get its details
-         */
-        get: operations["transaction_fetch"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transaction/{id}/event": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get Transaction Event
-         * @description Fetch the event for a specific transaction.
-         */
-        get: operations["transaction_event"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transaction/{id}/session": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get Transaction Session
-         * @description Fetch the session for a specific transaction.
-         */
-        get: operations["transaction_session"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transaction/timeline/{id_or_reference}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Fetch Transaction Timeline
-         * @description Fetch the steps taken from the initiation to the completion of a transaction
-         */
-        get: operations["transaction_timeline"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transaction/totals": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Transaction Totals
-         * @description Get the total amount of all transactions
-         */
-        get: operations["transaction_totals"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transaction/export": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Export Transactions
-         * @description Download transactions that occurred on your integration for a specific timeframe
-         */
-        get: operations["transaction_export"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/charge": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Create Charge
-         * @description Initiate a payment by integrating the payment channel of your choice.
-         */
-        post: operations["charge_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/charge/submit_pin": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Submit PIN
-         * @description Submit PIN to continue a charge
-         */
-        post: operations["charge_submitPin"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/charge/submit_otp": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Submit OTP
-         * @description Submit OTP to complete a charge
-         */
-        post: operations["charge_submitOtp"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/charge/submit_phone": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Submit Phone
-         * @description Submit phone number when requested
-         */
-        post: operations["charge_submitPhone"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/charge/submit_birthday": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Submit Birthday
-         * @description Submit the customer's birthday when requested
-         */
-        post: operations["charge_submitBirthday"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/charge/submit_address": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Submit Address
-         * @description Send the details of the customer's address for address verification
-         */
-        post: operations["charge_submitAddress"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/charge/{reference}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Check pending charge
-         * @description When you get `pending` as a charge status or if there was an exception when calling any of the `/charge` endpoints, wait 10 seconds or more, then make a check to see if its status has changed. Don't call too early as you may get a lot more pending than you should.
-         */
-        get: operations["charge_check"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/bulkcharge": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Bulk Charge Batches
-         * @description List all bulk charge batches.
-         */
-        get: operations["bulkCharge_list"];
-        put?: never;
-        /**
-         * Initiate Bulk Charge
-         * @description Charge multiple customers in batches
-         */
-        post: operations["bulkCharge_initiate"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/bulkcharge/{id_or_code}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description An ID or code for the charge whose batches you want to retrieve.
-                 * @example BCH_180tl7oq7cayggh
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch Bulk Charge Batch
-         * @description This endpoint retrieves a specific batch code. It also returns useful information on its progress by
-         *     way of the `total_charges` and `pending_charges` attributes.
-         */
-        get: operations["bulkCharge_fetch"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/bulkcharge/{id_or_code}/charges": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Charges in a Batch
-         * @description This endpoint retrieves the charges associated with a specified batch code
-         */
-        get: operations["bulkCharge_charges"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/bulkcharge/pause/{code}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Pause Bulk Charge Batch
-         * @description Pause the processing of a charge batch
-         */
-        get: operations["bulkCharge_pause"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/bulkcharge/resume/{code}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Resume Bulk Charge Batch
-         * @description Resume the processing of a previously paused charge batch
-         */
-        get: operations["bulkCharge_resume"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/subaccount": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Subaccounts
-         * @description List subaccounts available on your integration
-         */
-        get: operations["subaccount_list"];
-        put?: never;
-        /**
-         * Create Subaccount
-         * @description Create a subacount for a partner
-         */
-        post: operations["subaccount_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/subaccount/{id_or_code}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The subaccount ID or code you want to fetch
-                 * @example ACCT_6uujpqtzmnufzkw
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch Subaccount
-         * @description Get details of a subaccount on your integration
-         */
-        get: operations["subaccount_fetch"];
-        /**
-         * Update Subaccount
-         * @description Update a subaccount details on your integration
-         */
-        put: operations["subaccount_update"];
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/split": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Splits
-         * @description List the transaction splits available on your integration
-         */
-        get: operations["split_list"];
-        put?: never;
-        /**
-         * Create Split
-         * @description Create a split configuration for transactions
-         */
-        post: operations["split_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/split/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Fetch Split
-         * @description Get details of a split configuration for a transaction
-         */
-        get: operations["split_fetch"];
-        /**
-         * Update Split
-         * @description Update a split configuration for transactions
-         */
-        put: operations["split_update"];
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/split/{id}/subaccount/add": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Add Subaccount to Split
-         * @description Add a subaccount to a split configuration, or update the share of an existing subaccount
-         */
-        post: operations["split_addSubaccount"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/split/{id}/subaccount/remove": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Remove Subaccount from split
-         * @description Remove a subaccount from a split configuration
-         */
-        post: operations["split_removeSubaccount"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/terminal/{id}/event": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Send Event
-         * @description Send an event from your application to the Paystack Terminal
-         */
-        post: operations["terminal_sendEvent"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/terminal/{terminal_id}/event/{event_id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Fetch Event Status
-         * @description Check the status of an event sent to the Terminal
-         */
-        get: operations["terminal_fetchEventStatus"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/terminal/{terminal_id}/presence": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Fetch Terminal Status
-         * @description Check the availiability of a Terminal before sending an event to it
-         */
-        get: operations["terminal_fetchTerminalStatus"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/terminal": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Terminals
-         * @description List the Terminals available on your integration
-         */
-        get: operations["terminal_list"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/terminal/{terminal_id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The ID of the Terminal the event should be sent to.
-                 * @example Z0R4orOU
-                 */
-                terminal_id: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch Terminal
-         * @description Get the details of a Terminal
-         */
-        get: operations["terminal_fetch"];
-        /**
-         * Update Terminal
-         * @description Update the details of a Terminal
-         */
-        put: operations["terminal_update"];
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/terminal/commission_device": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Commission Terminal
-         * @description Activate your debug device by linking it to your integration
-         */
-        post: operations["terminal_commission"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/terminal/decommission_device": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Decommission Terminal
-         * @description Unlink your debug device from your integration
-         */
-        post: operations["terminal_decommission"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/virtual_terminal": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Virtual Terminals
-         * @description List Virtual Terminals on your integration
-         */
-        get: operations["virtualTerminal_list"];
-        put?: never;
-        /**
-         * Create Virtual Terminal
-         * @description Create a Virtual Terminal on your integration
-         */
-        post: operations["virtualTerminal_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/virtual_terminal/{code}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Code of the Virtual Terminal
-                 * @example VT_MCK5292Z
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch Virtual Terminal
-         * @description Fetch a Virtual Terminal on your integration
-         */
-        get: operations["virtualTerminal_fetch"];
-        /**
-         * Update Virtual Terminal
-         * @description Update a Virtual Terminal on your integration
-         */
-        put: operations["virtualTerminal_update"];
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/virtual_terminal/{code}/deactivate": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Code of the Virtual Terminal
-                 * @example VT_MCK5292Z
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        get?: never;
-        /**
-         * Deactivate Virtual Terminal
-         * @description Deactivate a Virtual Terminal on your integration
-         */
-        put: operations["virtualTerminal_deactivate"];
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/virtual_terminal/{code}/destination/assign": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Code of the Virtual Terminal
-                 * @example VT_MCK5292Z
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Assign Destination to Virtual Terminal
-         * @description Add a destination (WhatsApp number) to a Virtual Terminal on your integration
-         */
-        post: operations["virtualTerminal_destinationAssign"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/virtual_terminal/{code}/destination/unassign": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Code of the Virtual Terminal
-                 * @example VT_MCK5292Z
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Unassign Destination from Virtual Terminal
-         * @description Unassign a destination (WhatsApp Number) from a Virtual Terminal on your integration
-         */
-        post: operations["virtualTerminal_destinationUnassign"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/virtual_terminal/{code}/split_code": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Code of the Virtual Terminal
-                 * @example VT_MCK5292Z
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        get?: never;
-        /**
-         * Add Split Code to Virtual Terminal
-         * @description Add Split Code to Virtual Terminal
-         */
-        put: operations["virtualTerminal_addSplitCode"];
-        post?: never;
-        /**
-         * Remove Split Code from Virtual Terminal
-         * @description Remove Split Code from Virtual Terminal
-         */
-        delete: operations["virtualTerminal_deleteSplitCode"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/customer": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Customers
-         * @description List customers available on your integration
-         */
-        get: operations["customer_list"];
-        put?: never;
-        /**
-         * Create Customer
-         * @description Create a customer on your integration
-         */
-        post: operations["customer_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/customer/{email_or_code}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description An email or customer code for the customer you want to fetch
-                 * @example CUS_c6wqvwmvwopw4ms
-                 */
-                email_or_code: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch Customer
-         * @description Get details of a customer on your integration.
-         */
-        get: operations["customer_fetch"];
-        /**
-         * Update Customer
-         * @description Update a customer's details on your integration
-         */
-        put: operations["customer_update"];
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/customer/set_risk_action": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Set Risk Action
-         * @description Set customer's risk action by whitelisting or blacklisting the customer
-         */
-        post: operations["customer_riskAction"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/customer/{customer_code}/identification": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Customer code
-                 * @example CUS_c6wqvwmvwopw4ms
-                 */
-                customer_code: string;
-            };
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Validate Customer
-         * @description Validate a customer's identity
-         */
-        post: operations["customer_validate"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/customer/authorization/initialize": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Initialize Authorization
-         * @description Initiate a request to create a reusable authorization code for recurring transactions
-         */
-        post: operations["customer_initializeAuthorization"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/customer/authorization/verify/{reference}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Verify Authorization
-         * @description Check the status of an authorization request
-         */
-        get: operations["customer_verifyAuthorization"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/customer/authorization/deactivate": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Deactivate Authorization
-         * @description Deactivate an authorization for any payment channel.
-         */
-        post: operations["customer_deactivateAuthorization"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/customer/{id}/initialize-direct-debit": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The ID of the customer to initialize the direct debit for
-                 * @example 297346561
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Initialize Direct Debit
-         * @description Initialize the process of linking an account to a customer for Direct Debit transactions
-         */
-        post: operations["customer_initializeDirectDebit"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/customer/{id}/directdebit-activation-charge": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        /**
-         * Direct Debit Activation Charge
-         * @description Trigger an activation charge on an inactive mandate on behalf of your customer
-         */
-        put: operations["customer_directDebitActivationCharge"];
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/customer/{id}/directdebit-mandate-authorizations": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Fetch Mandate Authorizations
-         * @description Get the list of direct debit mandates associated with a customer
-         */
-        get: operations["customer_fetchMandateAuthorizations"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/directdebit/activation-charge": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        /**
-         * Trigger Activation Charge
-         * @description Trigger activation charge for specified customers
-         */
-        put: operations["directdebit_triggerActivationCharge"];
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/directdebit/mandate-authorizations": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Mandate Authorizations
-         * @description Get a list of all the direct debit mandates on your integration
-         */
-        get: operations["directdebit_listMandateAuthorizations"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/dedicated_account": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Dedicated Accounts
-         * @description List dedicated virtual accounts available on your integration.
-         */
-        get: operations["dedicatedAccount_list"];
-        put?: never;
-        /**
-         * Create Dedicated Account
-         * @description Create a dedicated virtual account for an existing customer
-         */
-        post: operations["dedicatedAccount_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/dedicated_account/assign": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Assign Dedicated Account
-         * @description With this endpoint, you can create a customer, validate the customer, and assign a DVA to the customer.
-         */
-        post: operations["dedicatedAccount_assign"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/dedicated_account/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description ID of dedicated virtual account */
-                id: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch Dedicated Account
-         * @description Get details of a dedicated virtual account on your integration.
-         */
-        get: operations["dedicatedAccount_fetch"];
-        put?: never;
-        post?: never;
-        /**
-         * Deactivate Dedicated Account
-         * @description Deactivate a dedicated virtual account on your integration.
-         */
-        delete: operations["dedicatedAccount_deactivate"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/dedicated_account/requery": {
-        parameters: {
-            query?: {
-                /**
-                 * @description Virtual account number to requery
-                 * @example 0033322211
-                 */
-                account_number?: string;
-                /**
-                 * @description The bank's slug in lowercase, without spaces.
-                 * @example titan-paystack
-                 */
-                provider_slug?: string;
-                /** @description The day the transfer was made */
-                date?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Requery Dedicated Account
-         * @description Requery Dedicated Virtual Account for new transactions
-         */
-        get: operations["dedicatedAccount_requery"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/dedicated_account/split": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Split Dedicated Account Transaction
-         * @description Split a dedicated virtual account transaction with one or more accounts
-         */
-        post: operations["dedicatedAccount_addSplit"];
-        /**
-         * Remove Split from Dedicated Account
-         * @description If you've previously set up split payment for transactions on a dedicated virtual account, you can remove it with this endpoint
-         */
-        delete: operations["dedicatedAccount_removeSplit"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/dedicated_account/available_providers": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Fetch Bank Providers
-         * @description Get available bank providers for a dedicated virtual account
-         */
-        get: operations["dedicatedAccount_availableProviders"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/apple-pay/domain": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Domains
-         * @description Lists all registered domains on your integration. Returns an empty array if no domains have been added.
-         */
-        get: operations["applePay_listDomain"];
-        put?: never;
-        /**
-         * Register Domain
-         * @description Register a top-level domain or subdomain for your Apple Pay integration.
-         *
-         *     > This endpoint can only be called with one domain or subdomain at a time.
-         */
-        post: operations["applePay_registerDomain"];
-        /**
-         * Unregister Domain
-         * @description Unregister a top-level domain or subdomain previously used for your Apple
-         *     Pay integration.
-         */
-        delete: operations["applePay_unregisterDomain"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/capitec-pay/requery/{ref}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Requery Transaction
-         * @description Check the status of a charge made with Capitec Pay. This endpoint should be used from your frontend application as it requires the use of your public key for request authorization.
-         */
-        post: operations["capitecPay_requery"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/preauthorization/initialize": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Initialize Preauthorization
-         * @description Initialize a preauthorization transaction for a new customer
-         */
-        post: operations["preauthorization_initialize"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/preauthorization/capture": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Capture Preauthorization
-         * @description Charge a preauthorized transaction upon service delivery
-         */
-        post: operations["preauthorization_capture"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/preauthorization/reserve_authorization": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Reserve Preauthorization
-         * @description Hold an amount using an existing customer's authorization that's marked reusable.
-         */
-        post: operations["preauthorization_reserve_authorization"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/preauthorization/verify/{reference}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The transaction reference used to intiate the transaction */
-                reference: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Verify Preauthorization
-         * @description Fetch and confirm the status of a preauthorized transaction.
-         */
-        get: operations["preauthorization_verify"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/preauthorization/release": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Release Preauthorization
-         * @description For when a customer cancels an order or you want to release the hold from their card.
-         */
-        post: operations["preauthorization_release"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/preauthorization": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Preauthorizations
-         * @description List preauthorizations carried out on your integration
-         */
-        get: operations["preauthorization_list"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/plan": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Plans
-         * @description List all recurring payment plans
-         */
-        get: operations["plan_list"];
-        put?: never;
-        /**
-         * Create Plan
-         * @description Create a plan for recurring payments
-         */
-        post: operations["plan_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/plan/{id_or_code}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The plan ID or code you want to fetch
-                 * @example PLN_gx2wn530m0i3w3m
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch Plan
-         * @description Get the details of a payment plan
-         */
-        get: operations["plan_fetch"];
-        /**
-         * Update Plan
-         * @description Update a plan details on your integration
-         */
-        put: operations["plan_update"];
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/subscription": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Subscriptions
-         * @description List all subscriptions available on your integration
-         */
-        get: operations["subscription_list"];
-        put?: never;
-        /**
-         * Create Subscription
-         * @description Create a subscription a customer
-         */
-        post: operations["subscription_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/subscription/{id_or_code}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The subscription ID or code you want to fetch
-                 * @example SUB_5co81xgmwg78x3d
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch Subscription
-         * @description Get details of a customer's subscription
-         */
-        get: operations["subscription_fetch"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/subscription/disable": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Disable Subscription
-         * @description Disable a subscription on your integration
-         */
-        post: operations["subscription_disable"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/subscription/enable": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Enable Subscription
-         * @description Enable a subscription on your integration
-         */
-        post: operations["subscription_enable"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/subscription/{code}/manage/link": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Generate Update Subscription Link
-         * @description Generate a link for updating the card on a subscription
-         */
-        get: operations["subscription_manageLink"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/subscription/{code}/manage/email": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Send Update Subscription Link
-         * @description Email a customer a link for updating the card on their subscription
-         */
-        post: operations["subscription_manageEmail"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transferrecipient": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Transfer Recipients
-         * @description List transfer recipients available on your integration
-         */
-        get: operations["transferrecipient_list"];
-        put?: never;
-        /**
-         * Create Transfer Recipient
-         * @description Creates a new recipient. A duplicate account number will lead to the retrieval of the existing record.
-         */
-        post: operations["transferrecipient_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transferrecipient/bulk": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Bulk Create Transfer Recipient
-         * @description Create multiple transfer recipients in batches. A duplicate account number will lead to the retrieval of the existing record.
-         */
-        post: operations["transferrecipient_bulk"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transferrecipient/{id_or_code}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description An ID or code for the recipient whose details you want to receive.
-                 * @example RCP_5ap8rcimmcj8lbi
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch Transfer recipient
-         * @description Fetch the details of a transfer recipient
-         */
-        get: operations["transferrecipient_fetch"];
-        /**
-         * Update Transfer Recipient
-         * @description Update the details of a transfer recipient
-         */
-        put: operations["transferrecipient_update"];
-        post?: never;
-        /**
-         * Delete Transfer Recipient
-         * @description Delete a transfer recipient (sets the transfer recipient to inactive)
-         */
-        delete: operations["transferrecipient_delete"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transfer": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Transfers
-         * @description List the transfers made on your integration
-         */
-        get: operations["transfer_list"];
-        put?: never;
-        /**
-         * Initiate Transfer
-         * @description Send money to your customers
-         */
-        post: operations["transfer_initiate"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transfer/finalize_transfer": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Finalize Transfer
-         * @description Finalize an initiated transfer
-         */
-        post: operations["transfer_finalize"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transfer/bulk": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Initiate Bulk Transfer
-         * @description Batch multiple transfers in a single request.
-         *
-         *     You need to disable the Transfers OTP requirement to use this endpoint.
-         */
-        post: operations["transfer_bulk"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transfer/{id_or_code}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The transfer ID or code you want to fetch
-                 * @example TRF_1ptvuv321ahaa7q
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch Transfer
-         * @description Get details of a transfer on your integration
-         */
-        get: operations["transfer_fetch"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transfer/verify/{reference}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Verify Transfer
-         * @description Verify the status of a transfer on your integration
-         */
-        get: operations["transfer_verify"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transfer/export": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Export Transfers
-         * @description Export a list of transfers carried out on your integration
-         */
-        get: operations["transfer_exportTransfer"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transfer/resend_otp": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Resend OTP for Transfer
-         * @description Generates and send a new OTP to customer in the event they are having trouble receiving one.
-         */
-        post: operations["transfer_resendOtp"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transfer/disable_otp": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Disable OTP for Transfers
-         * @description This is used in the event that you want to be able to complete transfers programmatically without use of OTPs.
-         *     No arguments required. You will get an OTP to complete the request.
-         */
-        post: operations["transfer_disableOtp"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transfer/disable_otp_finalize": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Finalize Disabling OTP for Transfers
-         * @description Finalize the request to disable OTP on your transfers
-         */
-        post: operations["transfer_disableOtpFinalize"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/transfer/enable_otp": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Enable OTP requirement for Transfers
-         * @description In the event that a customer wants to stop being able to complete transfers programmatically, this endpoint helps turn OTP requirement back on.
-         *     No arguments required.
-         */
-        post: operations["transfer_enableOtp"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/balance": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Fetch Balance
-         * @description Fetch the available balance on your integration
-         */
-        get: operations["balance_fetch"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/balance/ledger": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Balance Ledger
-         * @description Fetch all pay-ins and pay-outs that occured on your integration
-         */
-        get: operations["balance_ledger"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/paymentrequest": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Payment Request
-         * @description List all previously created payment requests to your customers
-         */
-        get: operations["paymentRequest_list"];
-        put?: never;
-        /**
-         * Create Payment Request
-         * @description Create a new payment request by issuing an invoice to a customer
-         */
-        post: operations["paymentRequest_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/paymentrequest/{id_or_code}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The payment request ID or code you want to fetch
-                 * @example 18823736
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch Payment Request
-         * @description Fetch a previously created payment request
-         */
-        get: operations["paymentRequest_fetch"];
-        /**
-         * Update Payment Request
-         * @description Update a previously created payment request
-         */
-        put: operations["paymentRequest_update"];
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/paymentrequest/verify/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of a previously created payment request
-                 * @example 18823736
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        /**
-         * Verify Payment Request
-         * @description Verify the status of a previously created payment request
-         */
-        get: operations["paymentRequest_verify"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/paymentrequest/notify/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of a previously created payment request
-                 * @example 18823736
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Send Notification
-         * @description Trigger an email reminder to a customer for a previously created payment request
-         */
-        post: operations["paymentRequest_notify"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/paymentrequest/totals": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Payment Request Total
-         * @description Get the metric of all pending and successful payment requests
-         */
-        get: operations["paymentRequest_totals"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/paymentrequest/finalize/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of a draft payment request
-                 * @example 18823736
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Finalize Payment Request
-         * @description Finalise the creation of a draft payment request for a customer
-         */
-        post: operations["paymentRequest_finalize"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/paymentrequest/archive/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of a previously created payment request
-                 * @example 18823736
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Archive Payment Request
-         * @description Archive a payment request to clean up your records. An archived payment request cannot be verified and will not
-         *     be returned when listing all previously created payment requests.
-         */
-        post: operations["paymentRequest_archive"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/product": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Products
-         * @description List all previously created products
-         */
-        get: operations["product_list"];
-        put?: never;
-        /**
-         * Create Product
-         * @description Create a new product on your integration
-         */
-        post: operations["product_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/product/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the product
-                 * @example 2196244
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch Product
-         * @description Fetch a previously created product
-         */
-        get: operations["product_fetch"];
-        /**
-         * Update product
-         * @description Update a previously created product
-         */
-        put: operations["product_update"];
-        post?: never;
-        /**
-         * Delete Product
-         * @description Delete a previously created product
-         */
-        delete: operations["product_delete"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/storefront": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Storefronts
-         * @description List the storefronts you previously created
-         */
-        get: operations["storefront_list"];
-        put?: never;
-        /**
-         * Create Storefront
-         * @description Create a digital shop to manage and display your products
-         */
-        post: operations["storefront_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/storefront/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the Storefront
-                 * @example 1559046
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch Storefront
-         * @description Get the details of a previously created Storefront
-         */
-        get: operations["storefront_fetch"];
-        /**
-         * Update Storefront
-         * @description Update the details of a previously created Storefront
-         */
-        put: operations["storefront_update"];
-        post?: never;
-        /**
-         * Delete Storefront
-         * @description Delete a previously created Storefront
-         */
-        delete: operations["storefront_delete"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/storefront/verify/{slug}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The custom slug to check
-                 * @example struct_and_faces
-                 */
-                slug: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Verify Storefront Slug
-         * @description Verify the availability of a slug before using it for your Storefront
-         */
-        get: operations["storefront_verifySlug"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/storefront/{id}/order": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Fetch Storefront Orders
-         * @description Fetch all orders in your Storefront
-         */
-        get: operations["storefront_fetchOrders"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/storefront/{id}/product": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the Storefront
-                 * @example 1559046
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        /**
-         * List Storefront Products
-         * @description List the products in a Storefront
-         */
-        get: operations["storefront_listProducts"];
-        put?: never;
-        /**
-         * Add Products to Storefront
-         * @description Add previously created products to a Storefront
-         */
-        post: operations["storefront_addProducts"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/storefront/{id}/publish": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the Storefront
-                 * @example 1559046
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Publish Storefront
-         * @description Make your Storefront publicly available
-         */
-        post: operations["storefront_publish"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/storefront/{id}/duplicate": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the Storefront
-                 * @example 1559046
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Duplicate Storefront
-         * @description Duplicate a previously created Storefront
-         */
-        post: operations["storefront_duplicate"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/order": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Orders
-         * @description List the previously created orders
-         */
-        get: operations["order_list"];
-        put?: never;
-        /**
-         * Create Order
-         * @description Create an order for selected items
-         */
-        post: operations["order_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/order/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the order
-                 * @example 1559046
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch Order
-         * @description Fetch the details of a previously created order
-         */
-        get: operations["order_fetch"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/order/product/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the order
-                 * @example 1559046
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch Product Orders
-         * @description Fetch all orders for a particular product
-         */
-        get: operations["order_product"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/order/{code}/validate": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique code of a previously created order
-                 * @example ORD_6z0lqwpmxrm7dsp
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Validate Order
-         * @description Validate a pay for me order
-         */
-        get: operations["order_validate"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/page": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Pages
-         * @description List all previously created payment pages
-         */
-        get: operations["page_list"];
-        put?: never;
-        /**
-         * Create Page
-         * @description Create a webpage to receive payments
-         */
-        post: operations["page_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/page/{id_or_slug}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The page ID or slug you want to fetch
-                 * @example 1891222
-                 */
-                id_or_slug: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch Page
-         * @description Get a previously created payment page
-         */
-        get: operations["page_fetch"];
-        /**
-         * Update Page
-         * @description Update a previously created payment page
-         */
-        put: operations["page_update"];
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/page/check_slug_availability/{slug}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The custom slug to check
-                 * @example risky-burger
-                 */
-                slug: string;
-            };
-            cookie?: never;
-        };
-        /**
-         * Check Slug Availability
-         * @description Check if a custom slug is available for use when creating a payment page
-         */
-        get: operations["page_checkSlugAvailability"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/page/{id}/product": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                id: string;
-            };
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Add Products
-         * @description Add products to a previously created payment page. You can only add products to pages
-         *     that was created with a `product` type.
-         */
-        post: operations["page_addProducts"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/settlement": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Settlements
-         * @description List settlements made to your settlement accounts
-         */
-        get: operations["settlements_fetch"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/settlement/{id}/transactions": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Fetch Settlement Transactions
-         * @description Get the transactions that make up a particular settlement
-         */
-        get: operations["settlements_transaction"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/integration/payment_session_timeout": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Fetch Payment Session Timeout
-         * @description Fetch the session timeout of a transaction
-         */
-        get: operations["integration_fetchPaymentSessionTimeout"];
-        /**
-         * Update Payment Session Timeout
-         * @description Update the session timeout of a transaction
-         */
-        put: operations["integration_updatePaymentSessionTimeout"];
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/refund": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Refunds
-         * @description List previously created refunds
-         */
-        get: operations["refund_list"];
-        put?: never;
-        /**
-         * Create Refund
-         * @description Initiate a refund for a previously completed transaction
-         */
-        post: operations["refund_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/refund/retry_with_customer_details/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Retry Refund
-         * @description Retry a refund with a `needs-attention` status by providing the bank account details of a customer.
-         */
-        post: operations["refund_retry"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/refund/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Fetch Refund
-         * @description Get a previously created refund
-         */
-        get: operations["refund_fetch"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/dispute": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Disputes
-         * @description List transaction disputes filed by customers
-         */
-        get: operations["dispute_list"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/dispute/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the dispute
-                 * @example 1801929
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        /**
-         * Fetch Dispute
-         * @description Fetch a transaction dispute
-         */
-        get: operations["dispute_fetch"];
-        /**
-         * Update Dispute
-         * @description Update a transaction dispute
-         */
-        put: operations["dispute_update"];
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/dispute/{id}/upload_url": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Fetch Upload URL
-         * @description Get the URL to upload a dispute evidence
-         */
-        get: operations["dispute_uploadUrl"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/dispute/export": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Export Disputes
-         * @description Export the disputes available on your integration
-         */
-        get: operations["dispute_download"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/dispute/transaction/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Transaction Disputes
-         * @description List all disputes filed for a transaction
-         */
-        get: operations["dispute_transaction"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/dispute/{id}/resolve": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        /**
-         * Resolve Dispute
-         * @description Resolve a transaction dispute
-         */
-        put: operations["dispute_resolve"];
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/dispute/{id}/evidence": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Add Evidence
-         * @description Provide evidence for a dispute
-         */
-        post: operations["dispute_evidence"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/bank": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Banks
-         * @description Get a list of all supported banks and their properties
-         */
-        get: operations["bank_list"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/bank/resolve": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Resolve Account Number
-         * @description Resolve an account number to confirm the name associated with it
-         */
-        get: operations["bank_resolveAccountNumber"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/bank/validate": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Validate Bank Account
-         * @description Confirm the authenticity of a customer's account number before sending money
-         */
-        post: operations["bank_validateAccountNumber"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/decision/bin/{bin}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Resolve Card BIN
-         * @description Get the details of a card BIN
-         */
-        get: operations["miscellaneous_resolveCardBin"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/country": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Countries
-         * @description List all supported countries on Paystack
-         */
-        get: operations["miscellaneous_listCountries"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/address_verification/states": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List States (AVS)
-         * @description Get a list of states for a country for address verification
-         */
-        get: operations["miscellaneous_avs"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/___internal___": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Internal path for schema generation
-         * @description This path is internal and used to ensure that schemas like WebhookEvent are considered 'used' for SDK generation and linting.
-         */
-        get: operations["misc_generateWebhookEventTypes"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
+  "/transaction/initialize": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Initialize Transaction
+     * @description Create a new transaction
+     */
+    post: operations["transaction_initialize"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transaction/charge_authorization": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Charge Authorization
+     * @description Charge all authorizations marked as reusable with this endpoint whenever you need to receive payments
+     */
+    post: operations["transaction_chargeAuthorization"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transaction/partial_debit": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Partial Debit
+     * @description Retrieve part of a payment from a customer
+     */
+    post: operations["transaction_partialDebit"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transaction/check_authorization": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Check Authorization
+     * @description Check if an authorization code can be used for a charge.
+     */
+    post: operations["transaction_checkAuthorization"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transaction/verify/{reference}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Verify Transaction
+     * @description Verify a previously initiated transaction using it's reference
+     */
+    get: operations["transaction_verify"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transaction": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Transactions
+     * @description List transactions carried out on your integration
+     */
+    get: operations["transaction_list"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transaction/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Fetch Transaction
+     * @description Fetch a transaction to get its details
+     */
+    get: operations["transaction_fetch"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transaction/{id}/event": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get Transaction Event
+     * @description Fetch the event for a specific transaction.
+     */
+    get: operations["transaction_event"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transaction/{id}/session": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get Transaction Session
+     * @description Fetch the session for a specific transaction.
+     */
+    get: operations["transaction_session"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transaction/timeline/{id_or_reference}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Fetch Transaction Timeline
+     * @description Fetch the steps taken from the initiation to the completion of a transaction
+     */
+    get: operations["transaction_timeline"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transaction/totals": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Transaction Totals
+     * @description Get the total amount of all transactions
+     */
+    get: operations["transaction_totals"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transaction/export": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Export Transactions
+     * @description Download transactions that occurred on your integration for a specific timeframe
+     */
+    get: operations["transaction_export"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/charge": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Create Charge
+     * @description Initiate a payment by integrating the payment channel of your choice.
+     */
+    post: operations["charge_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/charge/submit_pin": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Submit PIN
+     * @description Submit PIN to continue a charge
+     */
+    post: operations["charge_submitPin"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/charge/submit_otp": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Submit OTP
+     * @description Submit OTP to complete a charge
+     */
+    post: operations["charge_submitOtp"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/charge/submit_phone": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Submit Phone
+     * @description Submit phone number when requested
+     */
+    post: operations["charge_submitPhone"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/charge/submit_birthday": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Submit Birthday
+     * @description Submit the customer's birthday when requested
+     */
+    post: operations["charge_submitBirthday"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/charge/submit_address": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Submit Address
+     * @description Send the details of the customer's address for address verification
+     */
+    post: operations["charge_submitAddress"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/charge/{reference}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Check pending charge
+     * @description When you get `pending` as a charge status or if there was an exception when calling any of the `/charge` endpoints, wait 10 seconds or more, then make a check to see if its status has changed. Don't call too early as you may get a lot more pending than you should.
+     */
+    get: operations["charge_check"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/bulkcharge": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Bulk Charge Batches
+     * @description List all bulk charge batches.
+     */
+    get: operations["bulkCharge_list"];
+    put?: never;
+    /**
+     * Initiate Bulk Charge
+     * @description Charge multiple customers in batches
+     */
+    post: operations["bulkCharge_initiate"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/bulkcharge/{id_or_code}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description An ID or code for the charge whose batches you want to retrieve.
+         * @example BCH_180tl7oq7cayggh
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch Bulk Charge Batch
+     * @description This endpoint retrieves a specific batch code. It also returns useful information on its progress by
+     *     way of the `total_charges` and `pending_charges` attributes.
+     */
+    get: operations["bulkCharge_fetch"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/bulkcharge/{id_or_code}/charges": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Charges in a Batch
+     * @description This endpoint retrieves the charges associated with a specified batch code
+     */
+    get: operations["bulkCharge_charges"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/bulkcharge/pause/{code}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Pause Bulk Charge Batch
+     * @description Pause the processing of a charge batch
+     */
+    get: operations["bulkCharge_pause"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/bulkcharge/resume/{code}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Resume Bulk Charge Batch
+     * @description Resume the processing of a previously paused charge batch
+     */
+    get: operations["bulkCharge_resume"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/subaccount": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Subaccounts
+     * @description List subaccounts available on your integration
+     */
+    get: operations["subaccount_list"];
+    put?: never;
+    /**
+     * Create Subaccount
+     * @description Create a subacount for a partner
+     */
+    post: operations["subaccount_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/subaccount/{id_or_code}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The subaccount ID or code you want to fetch
+         * @example ACCT_6uujpqtzmnufzkw
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch Subaccount
+     * @description Get details of a subaccount on your integration
+     */
+    get: operations["subaccount_fetch"];
+    /**
+     * Update Subaccount
+     * @description Update a subaccount details on your integration
+     */
+    put: operations["subaccount_update"];
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/split": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Splits
+     * @description List the transaction splits available on your integration
+     */
+    get: operations["split_list"];
+    put?: never;
+    /**
+     * Create Split
+     * @description Create a split configuration for transactions
+     */
+    post: operations["split_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/split/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Fetch Split
+     * @description Get details of a split configuration for a transaction
+     */
+    get: operations["split_fetch"];
+    /**
+     * Update Split
+     * @description Update a split configuration for transactions
+     */
+    put: operations["split_update"];
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/split/{id}/subaccount/add": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Add Subaccount to Split
+     * @description Add a subaccount to a split configuration, or update the share of an existing subaccount
+     */
+    post: operations["split_addSubaccount"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/split/{id}/subaccount/remove": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Remove Subaccount from split
+     * @description Remove a subaccount from a split configuration
+     */
+    post: operations["split_removeSubaccount"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/terminal/{id}/event": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Send Event
+     * @description Send an event from your application to the Paystack Terminal
+     */
+    post: operations["terminal_sendEvent"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/terminal/{terminal_id}/event/{event_id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Fetch Event Status
+     * @description Check the status of an event sent to the Terminal
+     */
+    get: operations["terminal_fetchEventStatus"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/terminal/{terminal_id}/presence": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Fetch Terminal Status
+     * @description Check the availiability of a Terminal before sending an event to it
+     */
+    get: operations["terminal_fetchTerminalStatus"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/terminal": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Terminals
+     * @description List the Terminals available on your integration
+     */
+    get: operations["terminal_list"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/terminal/{terminal_id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The ID of the Terminal the event should be sent to.
+         * @example Z0R4orOU
+         */
+        terminal_id: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch Terminal
+     * @description Get the details of a Terminal
+     */
+    get: operations["terminal_fetch"];
+    /**
+     * Update Terminal
+     * @description Update the details of a Terminal
+     */
+    put: operations["terminal_update"];
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/terminal/commission_device": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Commission Terminal
+     * @description Activate your debug device by linking it to your integration
+     */
+    post: operations["terminal_commission"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/terminal/decommission_device": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Decommission Terminal
+     * @description Unlink your debug device from your integration
+     */
+    post: operations["terminal_decommission"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/virtual_terminal": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Virtual Terminals
+     * @description List Virtual Terminals on your integration
+     */
+    get: operations["virtualTerminal_list"];
+    put?: never;
+    /**
+     * Create Virtual Terminal
+     * @description Create a Virtual Terminal on your integration
+     */
+    post: operations["virtualTerminal_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/virtual_terminal/{code}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description Code of the Virtual Terminal
+         * @example VT_MCK5292Z
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch Virtual Terminal
+     * @description Fetch a Virtual Terminal on your integration
+     */
+    get: operations["virtualTerminal_fetch"];
+    /**
+     * Update Virtual Terminal
+     * @description Update a Virtual Terminal on your integration
+     */
+    put: operations["virtualTerminal_update"];
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/virtual_terminal/{code}/deactivate": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description Code of the Virtual Terminal
+         * @example VT_MCK5292Z
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    get?: never;
+    /**
+     * Deactivate Virtual Terminal
+     * @description Deactivate a Virtual Terminal on your integration
+     */
+    put: operations["virtualTerminal_deactivate"];
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/virtual_terminal/{code}/destination/assign": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description Code of the Virtual Terminal
+         * @example VT_MCK5292Z
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Assign Destination to Virtual Terminal
+     * @description Add a destination (WhatsApp number) to a Virtual Terminal on your integration
+     */
+    post: operations["virtualTerminal_destinationAssign"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/virtual_terminal/{code}/destination/unassign": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description Code of the Virtual Terminal
+         * @example VT_MCK5292Z
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Unassign Destination from Virtual Terminal
+     * @description Unassign a destination (WhatsApp Number) from a Virtual Terminal on your integration
+     */
+    post: operations["virtualTerminal_destinationUnassign"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/virtual_terminal/{code}/split_code": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description Code of the Virtual Terminal
+         * @example VT_MCK5292Z
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    get?: never;
+    /**
+     * Add Split Code to Virtual Terminal
+     * @description Add Split Code to Virtual Terminal
+     */
+    put: operations["virtualTerminal_addSplitCode"];
+    post?: never;
+    /**
+     * Remove Split Code from Virtual Terminal
+     * @description Remove Split Code from Virtual Terminal
+     */
+    delete: operations["virtualTerminal_deleteSplitCode"];
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/customer": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Customers
+     * @description List customers available on your integration
+     */
+    get: operations["customer_list"];
+    put?: never;
+    /**
+     * Create Customer
+     * @description Create a customer on your integration
+     */
+    post: operations["customer_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/customer/{email_or_code}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description An email or customer code for the customer you want to fetch
+         * @example CUS_c6wqvwmvwopw4ms
+         */
+        email_or_code: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch Customer
+     * @description Get details of a customer on your integration.
+     */
+    get: operations["customer_fetch"];
+    /**
+     * Update Customer
+     * @description Update a customer's details on your integration
+     */
+    put: operations["customer_update"];
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/customer/set_risk_action": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Set Risk Action
+     * @description Set customer's risk action by whitelisting or blacklisting the customer
+     */
+    post: operations["customer_riskAction"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/customer/{customer_code}/identification": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description Customer code
+         * @example CUS_c6wqvwmvwopw4ms
+         */
+        customer_code: string;
+      };
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Validate Customer
+     * @description Validate a customer's identity
+     */
+    post: operations["customer_validate"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/customer/authorization/initialize": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Initialize Authorization
+     * @description Initiate a request to create a reusable authorization code for recurring transactions
+     */
+    post: operations["customer_initializeAuthorization"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/customer/authorization/verify/{reference}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Verify Authorization
+     * @description Check the status of an authorization request
+     */
+    get: operations["customer_verifyAuthorization"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/customer/authorization/deactivate": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Deactivate Authorization
+     * @description Deactivate an authorization for any payment channel.
+     */
+    post: operations["customer_deactivateAuthorization"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/customer/{id}/initialize-direct-debit": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The ID of the customer to initialize the direct debit for
+         * @example 297346561
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Initialize Direct Debit
+     * @description Initialize the process of linking an account to a customer for Direct Debit transactions
+     */
+    post: operations["customer_initializeDirectDebit"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/customer/{id}/directdebit-activation-charge": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    /**
+     * Direct Debit Activation Charge
+     * @description Trigger an activation charge on an inactive mandate on behalf of your customer
+     */
+    put: operations["customer_directDebitActivationCharge"];
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/customer/{id}/directdebit-mandate-authorizations": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Fetch Mandate Authorizations
+     * @description Get the list of direct debit mandates associated with a customer
+     */
+    get: operations["customer_fetchMandateAuthorizations"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/directdebit/activation-charge": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    /**
+     * Trigger Activation Charge
+     * @description Trigger activation charge for specified customers
+     */
+    put: operations["directdebit_triggerActivationCharge"];
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/directdebit/mandate-authorizations": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Mandate Authorizations
+     * @description Get a list of all the direct debit mandates on your integration
+     */
+    get: operations["directdebit_listMandateAuthorizations"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/dedicated_account": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Dedicated Accounts
+     * @description List dedicated virtual accounts available on your integration.
+     */
+    get: operations["dedicatedAccount_list"];
+    put?: never;
+    /**
+     * Create Dedicated Account
+     * @description Create a dedicated virtual account for an existing customer
+     */
+    post: operations["dedicatedAccount_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/dedicated_account/assign": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Assign Dedicated Account
+     * @description With this endpoint, you can create a customer, validate the customer, and assign a DVA to the customer.
+     */
+    post: operations["dedicatedAccount_assign"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/dedicated_account/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description ID of dedicated virtual account */
+        id: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch Dedicated Account
+     * @description Get details of a dedicated virtual account on your integration.
+     */
+    get: operations["dedicatedAccount_fetch"];
+    put?: never;
+    post?: never;
+    /**
+     * Deactivate Dedicated Account
+     * @description Deactivate a dedicated virtual account on your integration.
+     */
+    delete: operations["dedicatedAccount_deactivate"];
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/dedicated_account/requery": {
+    parameters: {
+      query?: {
+        /**
+         * @description Virtual account number to requery
+         * @example 0033322211
+         */
+        account_number?: string;
+        /**
+         * @description The bank's slug in lowercase, without spaces.
+         * @example titan-paystack
+         */
+        provider_slug?: string;
+        /** @description The day the transfer was made */
+        date?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Requery Dedicated Account
+     * @description Requery Dedicated Virtual Account for new transactions
+     */
+    get: operations["dedicatedAccount_requery"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/dedicated_account/split": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Split Dedicated Account Transaction
+     * @description Split a dedicated virtual account transaction with one or more accounts
+     */
+    post: operations["dedicatedAccount_addSplit"];
+    /**
+     * Remove Split from Dedicated Account
+     * @description If you've previously set up split payment for transactions on a dedicated virtual account, you can remove it with this endpoint
+     */
+    delete: operations["dedicatedAccount_removeSplit"];
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/dedicated_account/available_providers": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Fetch Bank Providers
+     * @description Get available bank providers for a dedicated virtual account
+     */
+    get: operations["dedicatedAccount_availableProviders"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/apple-pay/domain": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Domains
+     * @description Lists all registered domains on your integration. Returns an empty array if no domains have been added.
+     */
+    get: operations["applePay_listDomain"];
+    put?: never;
+    /**
+     * Register Domain
+     * @description Register a top-level domain or subdomain for your Apple Pay integration.
+     *
+     *     > This endpoint can only be called with one domain or subdomain at a time.
+     */
+    post: operations["applePay_registerDomain"];
+    /**
+     * Unregister Domain
+     * @description Unregister a top-level domain or subdomain previously used for your Apple
+     *     Pay integration.
+     */
+    delete: operations["applePay_unregisterDomain"];
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/capitec-pay/requery/{ref}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Requery Transaction
+     * @description Check the status of a charge made with Capitec Pay. This endpoint should be used from your frontend application as it requires the use of your public key for request authorization.
+     */
+    post: operations["capitecPay_requery"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/preauthorization/initialize": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Initialize Preauthorization
+     * @description Initialize a preauthorization transaction for a new customer
+     */
+    post: operations["preauthorization_initialize"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/preauthorization/capture": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Capture Preauthorization
+     * @description Charge a preauthorized transaction upon service delivery
+     */
+    post: operations["preauthorization_capture"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/preauthorization/reserve_authorization": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Reserve Preauthorization
+     * @description Hold an amount using an existing customer's authorization that's marked reusable.
+     */
+    post: operations["preauthorization_reserve_authorization"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/preauthorization/verify/{reference}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The transaction reference used to intiate the transaction */
+        reference: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Verify Preauthorization
+     * @description Fetch and confirm the status of a preauthorized transaction.
+     */
+    get: operations["preauthorization_verify"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/preauthorization/release": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Release Preauthorization
+     * @description For when a customer cancels an order or you want to release the hold from their card.
+     */
+    post: operations["preauthorization_release"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/preauthorization": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Preauthorizations
+     * @description List preauthorizations carried out on your integration
+     */
+    get: operations["preauthorization_list"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/plan": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Plans
+     * @description List all recurring payment plans
+     */
+    get: operations["plan_list"];
+    put?: never;
+    /**
+     * Create Plan
+     * @description Create a plan for recurring payments
+     */
+    post: operations["plan_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/plan/{id_or_code}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The plan ID or code you want to fetch
+         * @example PLN_gx2wn530m0i3w3m
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch Plan
+     * @description Get the details of a payment plan
+     */
+    get: operations["plan_fetch"];
+    /**
+     * Update Plan
+     * @description Update a plan details on your integration
+     */
+    put: operations["plan_update"];
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/subscription": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Subscriptions
+     * @description List all subscriptions available on your integration
+     */
+    get: operations["subscription_list"];
+    put?: never;
+    /**
+     * Create Subscription
+     * @description Create a subscription a customer
+     */
+    post: operations["subscription_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/subscription/{id_or_code}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The subscription ID or code you want to fetch
+         * @example SUB_5co81xgmwg78x3d
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch Subscription
+     * @description Get details of a customer's subscription
+     */
+    get: operations["subscription_fetch"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/subscription/disable": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Disable Subscription
+     * @description Disable a subscription on your integration
+     */
+    post: operations["subscription_disable"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/subscription/enable": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Enable Subscription
+     * @description Enable a subscription on your integration
+     */
+    post: operations["subscription_enable"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/subscription/{code}/manage/link": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Generate Update Subscription Link
+     * @description Generate a link for updating the card on a subscription
+     */
+    get: operations["subscription_manageLink"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/subscription/{code}/manage/email": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Send Update Subscription Link
+     * @description Email a customer a link for updating the card on their subscription
+     */
+    post: operations["subscription_manageEmail"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transferrecipient": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Transfer Recipients
+     * @description List transfer recipients available on your integration
+     */
+    get: operations["transferrecipient_list"];
+    put?: never;
+    /**
+     * Create Transfer Recipient
+     * @description Creates a new recipient. A duplicate account number will lead to the retrieval of the existing record.
+     */
+    post: operations["transferrecipient_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transferrecipient/bulk": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Bulk Create Transfer Recipient
+     * @description Create multiple transfer recipients in batches. A duplicate account number will lead to the retrieval of the existing record.
+     */
+    post: operations["transferrecipient_bulk"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transferrecipient/{id_or_code}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description An ID or code for the recipient whose details you want to receive.
+         * @example RCP_5ap8rcimmcj8lbi
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch Transfer recipient
+     * @description Fetch the details of a transfer recipient
+     */
+    get: operations["transferrecipient_fetch"];
+    /**
+     * Update Transfer Recipient
+     * @description Update the details of a transfer recipient
+     */
+    put: operations["transferrecipient_update"];
+    post?: never;
+    /**
+     * Delete Transfer Recipient
+     * @description Delete a transfer recipient (sets the transfer recipient to inactive)
+     */
+    delete: operations["transferrecipient_delete"];
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transfer": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Transfers
+     * @description List the transfers made on your integration
+     */
+    get: operations["transfer_list"];
+    put?: never;
+    /**
+     * Initiate Transfer
+     * @description Send money to your customers
+     */
+    post: operations["transfer_initiate"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transfer/finalize_transfer": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Finalize Transfer
+     * @description Finalize an initiated transfer
+     */
+    post: operations["transfer_finalize"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transfer/bulk": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Initiate Bulk Transfer
+     * @description Batch multiple transfers in a single request.
+     *
+     *     You need to disable the Transfers OTP requirement to use this endpoint.
+     */
+    post: operations["transfer_bulk"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transfer/{id_or_code}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The transfer ID or code you want to fetch
+         * @example TRF_1ptvuv321ahaa7q
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch Transfer
+     * @description Get details of a transfer on your integration
+     */
+    get: operations["transfer_fetch"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transfer/verify/{reference}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Verify Transfer
+     * @description Verify the status of a transfer on your integration
+     */
+    get: operations["transfer_verify"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transfer/export": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Export Transfers
+     * @description Export a list of transfers carried out on your integration
+     */
+    get: operations["transfer_exportTransfer"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transfer/resend_otp": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Resend OTP for Transfer
+     * @description Generates and send a new OTP to customer in the event they are having trouble receiving one.
+     */
+    post: operations["transfer_resendOtp"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transfer/disable_otp": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Disable OTP for Transfers
+     * @description This is used in the event that you want to be able to complete transfers programmatically without use of OTPs.
+     *     No arguments required. You will get an OTP to complete the request.
+     */
+    post: operations["transfer_disableOtp"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transfer/disable_otp_finalize": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Finalize Disabling OTP for Transfers
+     * @description Finalize the request to disable OTP on your transfers
+     */
+    post: operations["transfer_disableOtpFinalize"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/transfer/enable_otp": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Enable OTP requirement for Transfers
+     * @description In the event that a customer wants to stop being able to complete transfers programmatically, this endpoint helps turn OTP requirement back on.
+     *     No arguments required.
+     */
+    post: operations["transfer_enableOtp"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/balance": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Fetch Balance
+     * @description Fetch the available balance on your integration
+     */
+    get: operations["balance_fetch"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/balance/ledger": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Balance Ledger
+     * @description Fetch all pay-ins and pay-outs that occured on your integration
+     */
+    get: operations["balance_ledger"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/paymentrequest": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Payment Request
+     * @description List all previously created payment requests to your customers
+     */
+    get: operations["paymentRequest_list"];
+    put?: never;
+    /**
+     * Create Payment Request
+     * @description Create a new payment request by issuing an invoice to a customer
+     */
+    post: operations["paymentRequest_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/paymentrequest/{id_or_code}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The payment request ID or code you want to fetch
+         * @example 18823736
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch Payment Request
+     * @description Fetch a previously created payment request
+     */
+    get: operations["paymentRequest_fetch"];
+    /**
+     * Update Payment Request
+     * @description Update a previously created payment request
+     */
+    put: operations["paymentRequest_update"];
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/paymentrequest/verify/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of a previously created payment request
+         * @example 18823736
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    /**
+     * Verify Payment Request
+     * @description Verify the status of a previously created payment request
+     */
+    get: operations["paymentRequest_verify"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/paymentrequest/notify/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of a previously created payment request
+         * @example 18823736
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Send Notification
+     * @description Trigger an email reminder to a customer for a previously created payment request
+     */
+    post: operations["paymentRequest_notify"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/paymentrequest/totals": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Payment Request Total
+     * @description Get the metric of all pending and successful payment requests
+     */
+    get: operations["paymentRequest_totals"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/paymentrequest/finalize/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of a draft payment request
+         * @example 18823736
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Finalize Payment Request
+     * @description Finalise the creation of a draft payment request for a customer
+     */
+    post: operations["paymentRequest_finalize"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/paymentrequest/archive/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of a previously created payment request
+         * @example 18823736
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Archive Payment Request
+     * @description Archive a payment request to clean up your records. An archived payment request cannot be verified and will not
+     *     be returned when listing all previously created payment requests.
+     */
+    post: operations["paymentRequest_archive"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/product": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Products
+     * @description List all previously created products
+     */
+    get: operations["product_list"];
+    put?: never;
+    /**
+     * Create Product
+     * @description Create a new product on your integration
+     */
+    post: operations["product_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/product/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the product
+         * @example 2196244
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch Product
+     * @description Fetch a previously created product
+     */
+    get: operations["product_fetch"];
+    /**
+     * Update product
+     * @description Update a previously created product
+     */
+    put: operations["product_update"];
+    post?: never;
+    /**
+     * Delete Product
+     * @description Delete a previously created product
+     */
+    delete: operations["product_delete"];
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/storefront": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Storefronts
+     * @description List the storefronts you previously created
+     */
+    get: operations["storefront_list"];
+    put?: never;
+    /**
+     * Create Storefront
+     * @description Create a digital shop to manage and display your products
+     */
+    post: operations["storefront_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/storefront/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the Storefront
+         * @example 1559046
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch Storefront
+     * @description Get the details of a previously created Storefront
+     */
+    get: operations["storefront_fetch"];
+    /**
+     * Update Storefront
+     * @description Update the details of a previously created Storefront
+     */
+    put: operations["storefront_update"];
+    post?: never;
+    /**
+     * Delete Storefront
+     * @description Delete a previously created Storefront
+     */
+    delete: operations["storefront_delete"];
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/storefront/verify/{slug}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The custom slug to check
+         * @example struct_and_faces
+         */
+        slug: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Verify Storefront Slug
+     * @description Verify the availability of a slug before using it for your Storefront
+     */
+    get: operations["storefront_verifySlug"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/storefront/{id}/order": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Fetch Storefront Orders
+     * @description Fetch all orders in your Storefront
+     */
+    get: operations["storefront_fetchOrders"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/storefront/{id}/product": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the Storefront
+         * @example 1559046
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    /**
+     * List Storefront Products
+     * @description List the products in a Storefront
+     */
+    get: operations["storefront_listProducts"];
+    put?: never;
+    /**
+     * Add Products to Storefront
+     * @description Add previously created products to a Storefront
+     */
+    post: operations["storefront_addProducts"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/storefront/{id}/publish": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the Storefront
+         * @example 1559046
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Publish Storefront
+     * @description Make your Storefront publicly available
+     */
+    post: operations["storefront_publish"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/storefront/{id}/duplicate": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the Storefront
+         * @example 1559046
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Duplicate Storefront
+     * @description Duplicate a previously created Storefront
+     */
+    post: operations["storefront_duplicate"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/order": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Orders
+     * @description List the previously created orders
+     */
+    get: operations["order_list"];
+    put?: never;
+    /**
+     * Create Order
+     * @description Create an order for selected items
+     */
+    post: operations["order_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/order/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the order
+         * @example 1559046
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch Order
+     * @description Fetch the details of a previously created order
+     */
+    get: operations["order_fetch"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/order/product/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the order
+         * @example 1559046
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch Product Orders
+     * @description Fetch all orders for a particular product
+     */
+    get: operations["order_product"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/order/{code}/validate": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique code of a previously created order
+         * @example ORD_6z0lqwpmxrm7dsp
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Validate Order
+     * @description Validate a pay for me order
+     */
+    get: operations["order_validate"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/page": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Pages
+     * @description List all previously created payment pages
+     */
+    get: operations["page_list"];
+    put?: never;
+    /**
+     * Create Page
+     * @description Create a webpage to receive payments
+     */
+    post: operations["page_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/page/{id_or_slug}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The page ID or slug you want to fetch
+         * @example 1891222
+         */
+        id_or_slug: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch Page
+     * @description Get a previously created payment page
+     */
+    get: operations["page_fetch"];
+    /**
+     * Update Page
+     * @description Update a previously created payment page
+     */
+    put: operations["page_update"];
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/page/check_slug_availability/{slug}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The custom slug to check
+         * @example risky-burger
+         */
+        slug: string;
+      };
+      cookie?: never;
+    };
+    /**
+     * Check Slug Availability
+     * @description Check if a custom slug is available for use when creating a payment page
+     */
+    get: operations["page_checkSlugAvailability"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/page/{id}/product": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Add Products
+     * @description Add products to a previously created payment page. You can only add products to pages
+     *     that was created with a `product` type.
+     */
+    post: operations["page_addProducts"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/settlement": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Settlements
+     * @description List settlements made to your settlement accounts
+     */
+    get: operations["settlements_fetch"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/settlement/{id}/transactions": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Fetch Settlement Transactions
+     * @description Get the transactions that make up a particular settlement
+     */
+    get: operations["settlements_transaction"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/integration/payment_session_timeout": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Fetch Payment Session Timeout
+     * @description Fetch the session timeout of a transaction
+     */
+    get: operations["integration_fetchPaymentSessionTimeout"];
+    /**
+     * Update Payment Session Timeout
+     * @description Update the session timeout of a transaction
+     */
+    put: operations["integration_updatePaymentSessionTimeout"];
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/refund": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Refunds
+     * @description List previously created refunds
+     */
+    get: operations["refund_list"];
+    put?: never;
+    /**
+     * Create Refund
+     * @description Initiate a refund for a previously completed transaction
+     */
+    post: operations["refund_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/refund/retry_with_customer_details/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Retry Refund
+     * @description Retry a refund with a `needs-attention` status by providing the bank account details of a customer.
+     */
+    post: operations["refund_retry"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/refund/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Fetch Refund
+     * @description Get a previously created refund
+     */
+    get: operations["refund_fetch"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/dispute": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Disputes
+     * @description List transaction disputes filed by customers
+     */
+    get: operations["dispute_list"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/dispute/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the dispute
+         * @example 1801929
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    /**
+     * Fetch Dispute
+     * @description Fetch a transaction dispute
+     */
+    get: operations["dispute_fetch"];
+    /**
+     * Update Dispute
+     * @description Update a transaction dispute
+     */
+    put: operations["dispute_update"];
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/dispute/{id}/upload_url": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Fetch Upload URL
+     * @description Get the URL to upload a dispute evidence
+     */
+    get: operations["dispute_uploadUrl"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/dispute/export": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Export Disputes
+     * @description Export the disputes available on your integration
+     */
+    get: operations["dispute_download"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/dispute/transaction/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Transaction Disputes
+     * @description List all disputes filed for a transaction
+     */
+    get: operations["dispute_transaction"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/dispute/{id}/resolve": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    /**
+     * Resolve Dispute
+     * @description Resolve a transaction dispute
+     */
+    put: operations["dispute_resolve"];
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/dispute/{id}/evidence": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Add Evidence
+     * @description Provide evidence for a dispute
+     */
+    post: operations["dispute_evidence"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/bank": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Banks
+     * @description Get a list of all supported banks and their properties
+     */
+    get: operations["bank_list"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/bank/resolve": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Resolve Account Number
+     * @description Resolve an account number to confirm the name associated with it
+     */
+    get: operations["bank_resolveAccountNumber"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/bank/validate": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Validate Bank Account
+     * @description Confirm the authenticity of a customer's account number before sending money
+     */
+    post: operations["bank_validateAccountNumber"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/decision/bin/{bin}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Resolve Card BIN
+     * @description Get the details of a card BIN
+     */
+    get: operations["miscellaneous_resolveCardBin"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/country": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Countries
+     * @description List all supported countries on Paystack
+     */
+    get: operations["miscellaneous_listCountries"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/address_verification/states": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List States (AVS)
+     * @description Get a list of states for a country for address verification
+     */
+    get: operations["miscellaneous_avs"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/___internal___": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Internal path for schema generation
+     * @description This path is internal and used to ensure that schemas like WebhookEvent are considered 'used' for SDK generation and linting.
+     */
+    get: operations["misc_generateWebhookEventTypes"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
 }
 export type webhooks = Record<string, never>;
 export interface components {
-    schemas: {
-        WebhookEvent: {
-            /** @description The type of event that occurred. */
-            event?: string;
-            /** @description The payload of the event. */
-            data?: Record<string, never>;
-        } & ({
-            /** @enum {string} */
-            event: "charge.success";
-            data: components["schemas"]["data"];
-        } | {
-            /** @enum {string} */
-            event: "transfer.success";
-            data: components["schemas"]["data-2"];
-        } | {
-            /** @enum {string} */
-            event: "transfer.failed";
-            data: components["schemas"]["data-2"];
-        } | {
-            /** @enum {string} */
-            event: "transfer.reversed";
-            data: components["schemas"]["data-2"];
-        } | {
-            /** @enum {string} */
-            event: "subscription.create";
-            data: components["schemas"]["data-3"];
-        } | {
-            /** @enum {string} */
-            event: "subscription.disable";
-            data: components["schemas"]["data-3"];
-        } | {
-            /** @enum {string} */
-            event: "subscription.not_renew";
-            data: components["schemas"]["data-3"];
-        } | {
-            /** @enum {string} */
-            event: "invoice.create";
-            data: components["schemas"]["data-4"];
-        } | {
-            /** @enum {string} */
-            event: "invoice.update";
-            data: components["schemas"]["data-4"];
-        } | {
-            /** @enum {string} */
-            event: "invoice.failed";
-            data: components["schemas"]["data-4"];
-        } | {
-            /** @enum {string} */
-            event: "dedicatedaccount.assign.success";
-            data: components["schemas"]["data-5"];
-        } | {
-            /** @enum {string} */
-            event: "dedicatedaccount.assign.failed";
-            data: components["schemas"]["data-5"];
-        } | {
-            /** @enum {string} */
-            event: "refund.processed";
-            data: components["schemas"]["data-6"];
-        } | {
-            /** @enum {string} */
-            event: "refund.failed";
-            data: components["schemas"]["data-6"];
-        } | {
-            /** @enum {string} */
-            event: "charge.dispute.create";
-            data: components["schemas"]["data-7"];
-        } | {
-            /** @enum {string} */
-            event: "charge.dispute.resolve";
-            data: components["schemas"]["data-7"];
-        });
-        /**
-         * @description List of all support currencies
-         * @example GHS
-         * @enum {string}
-         */
-        Currency: "GHS" | "KES" | "NGN" | "ZAR" | "USD" | "XOF";
-        /**
-         * @example {
-         *       "subaccount": "ACCT_6uujpqtzmnufzkw",
-         *       "share": 50
-         *     }
-         */
-        SplitSubaccounts: {
-            /** @description Subaccount code of the customer or partner */
-            subaccount?: string;
-            /** @description The percentage or flat quota of the customer or partner */
-            share?: number;
-        };
-        /**
-         * @description Split configuration for transactions
-         * @example {
-         *       "name": "Halfsies",
-         *       "type": "percentage",
-         *       "currency": "NGN",
-         *       "subaccounts": [
-         *         {
-         *           "subaccount": "ACCT_6uujpqtzmnufzkw",
-         *           "share": 50
-         *         }
-         *       ]
-         *     }
-         */
-        SplitCreate: {
-            /** @description Name of the transaction split */
-            name: string;
-            /**
-             * @description The type of transaction split you want to create.
-             * @enum {string}
-             */
-            type: "percentage" | "flat";
-            /** @description A list of object containing subaccount code and number of shares */
-            subaccounts: components["schemas"]["SplitSubaccounts"][];
-            /**
-             * @description The transaction currency
-             * @enum {string}
-             */
-            currency: "NGN" | "GHS" | "ZAR" | "USD" | "XOF";
-            /**
-             * @description This allows you specify how the transaction charge should be processed
-             * @enum {string}
-             */
-            bearer_type?: "subaccount" | "account" | "all-proportional" | "all";
-            /** @description This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type */
-            bearer_subaccount?: string;
-        };
-        /**
-         * @description Initialize a transaction
-         * @example {
-         *       "email": "test@demo.com",
-         *       "amount": 10000
-         *     }
-         */
-        TransactionInitialize: {
-            /** @description Customer's email address */
-            email: string;
-            /**
-             * @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100).
-             *
-             *     Minimum amounts:
-             *      - NGN: ₦50.00 (5000 kobo)
-             *      - GHS: ₵0.10 (10 pesewas)
-             *      - ZAR: R1.00 (100 cents)
-             *      - KES: Ksh 3.00 (300 cents)
-             *      - USD: $2.00 (200 cents)
-             *      - XOF: 1.00 (1 XOF)
-             */
-            amount: number | string;
-            currency?: components["schemas"]["Currency"];
-            /** @description Unique transaction reference. Only -, ., = and alphanumeric characters allowed. */
-            reference?: string;
-            /** @description An array of payment channels to control what channels you want to make available to the user to make a payment with */
-            channels?: ("card" | "bank" | "ussd" | "qr" | "eft" | "mobile_money" | "bank_transfer" | "apple_pay" | "capitec_pay" | "payattitude")[];
-            /** @description Fully qualified url, e.g. https://example.com/ to redirect your customers to after a successful payment. Use this to override the callback url provided on the dashboard for this transaction */
-            callback_url?: string;
-            /**
-             * @description If transaction is to create a subscription to a predefined plan, provide plan code here.
-             *     This would invalidate the value provided in amount
-             */
-            plan?: string;
-            /** @description Number of times to charge customer during subscription to plan */
-            invoice_limit?: number;
-            /** @description The split code of the transaction split */
-            split_code?: string;
-            split?: components["schemas"]["SplitCreate"];
-            /** @description The code for the subaccount that owns the payment */
-            subaccount?: string;
-            /**
-             * @description A flat fee to charge the subaccount for a transaction.
-             *     This overrides the split percentage set when the subaccount was created
-             */
-            transaction_charge?: number;
-            /**
-             * @description The bearer of the transaction charge
-             * @enum {string}
-             */
-            bearer?: "account" | "subaccount";
-            /** @description Used to replace the email address shown on the Checkout */
-            label?: string;
-            /** @description JSON object or stringified JSON of custom data */
-            metadata?: string | Record<string, never> | number;
-        };
-        TransactionInitializeResponse: {
-            status: boolean;
+  schemas: {
+    WebhookEvent: {
+      /** @description The type of event that occurred. */
+      event?: string;
+      /** @description The payload of the event. */
+      data?: Record<string, never>;
+    } & (
+      | {
+          /** @enum {string} */
+          event: "charge.success";
+          data: components["schemas"]["data"];
+        }
+      | {
+          /** @enum {string} */
+          event: "transfer.success";
+          data: components["schemas"]["data-2"];
+        }
+      | {
+          /** @enum {string} */
+          event: "transfer.failed";
+          data: components["schemas"]["data-2"];
+        }
+      | {
+          /** @enum {string} */
+          event: "transfer.reversed";
+          data: components["schemas"]["data-2"];
+        }
+      | {
+          /** @enum {string} */
+          event: "subscription.create";
+          data: components["schemas"]["data-3"];
+        }
+      | {
+          /** @enum {string} */
+          event: "subscription.disable";
+          data: components["schemas"]["data-3"];
+        }
+      | {
+          /** @enum {string} */
+          event: "subscription.not_renew";
+          data: components["schemas"]["data-3"];
+        }
+      | {
+          /** @enum {string} */
+          event: "invoice.create";
+          data: components["schemas"]["data-4"];
+        }
+      | {
+          /** @enum {string} */
+          event: "invoice.update";
+          data: components["schemas"]["data-4"];
+        }
+      | {
+          /** @enum {string} */
+          event: "invoice.failed";
+          data: components["schemas"]["data-4"];
+        }
+      | {
+          /** @enum {string} */
+          event: "dedicatedaccount.assign.success";
+          data: components["schemas"]["data-5"];
+        }
+      | {
+          /** @enum {string} */
+          event: "dedicatedaccount.assign.failed";
+          data: components["schemas"]["data-5"];
+        }
+      | {
+          /** @enum {string} */
+          event: "refund.processed";
+          data: components["schemas"]["data-6"];
+        }
+      | {
+          /** @enum {string} */
+          event: "refund.failed";
+          data: components["schemas"]["data-6"];
+        }
+      | {
+          /** @enum {string} */
+          event: "charge.dispute.create";
+          data: components["schemas"]["data-7"];
+        }
+      | {
+          /** @enum {string} */
+          event: "charge.dispute.resolve";
+          data: components["schemas"]["data-7"];
+        }
+    );
+    /**
+     * @description List of all support currencies
+     * @example GHS
+     * @enum {string}
+     */
+    Currency: "GHS" | "KES" | "NGN" | "ZAR" | "USD" | "XOF";
+    /**
+     * @example {
+     *       "subaccount": "ACCT_6uujpqtzmnufzkw",
+     *       "share": 50
+     *     }
+     */
+    SplitSubaccounts: {
+      /** @description Subaccount code of the customer or partner */
+      subaccount?: string;
+      /** @description The percentage or flat quota of the customer or partner */
+      share?: number;
+    };
+    /**
+     * @description Split configuration for transactions
+     * @example {
+     *       "name": "Halfsies",
+     *       "type": "percentage",
+     *       "currency": "NGN",
+     *       "subaccounts": [
+     *         {
+     *           "subaccount": "ACCT_6uujpqtzmnufzkw",
+     *           "share": 50
+     *         }
+     *       ]
+     *     }
+     */
+    SplitCreate: {
+      /** @description Name of the transaction split */
+      name: string;
+      /**
+       * @description The type of transaction split you want to create.
+       * @enum {string}
+       */
+      type: "percentage" | "flat";
+      /** @description A list of object containing subaccount code and number of shares */
+      subaccounts: components["schemas"]["SplitSubaccounts"][];
+      /**
+       * @description The transaction currency
+       * @enum {string}
+       */
+      currency: "NGN" | "GHS" | "ZAR" | "USD" | "XOF";
+      /**
+       * @description This allows you specify how the transaction charge should be processed
+       * @enum {string}
+       */
+      bearer_type?: "subaccount" | "account" | "all-proportional" | "all";
+      /** @description This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type */
+      bearer_subaccount?: string;
+    };
+    /**
+     * @description Initialize a transaction
+     * @example {
+     *       "email": "test@demo.com",
+     *       "amount": 10000
+     *     }
+     */
+    TransactionInitialize: {
+      /** @description Customer's email address */
+      email: string;
+      /**
+       * @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100).
+       *
+       *     Minimum amounts:
+       *      - NGN: ₦50.00 (5000 kobo)
+       *      - GHS: ₵0.10 (10 pesewas)
+       *      - ZAR: R1.00 (100 cents)
+       *      - KES: Ksh 3.00 (300 cents)
+       *      - USD: $2.00 (200 cents)
+       *      - XOF: 1.00 (1 XOF)
+       */
+      amount: number | string;
+      currency?: components["schemas"]["Currency"];
+      /** @description Unique transaction reference. Only -, ., = and alphanumeric characters allowed. */
+      reference?: string;
+      /** @description An array of payment channels to control what channels you want to make available to the user to make a payment with */
+      channels?: (
+        | "card"
+        | "bank"
+        | "ussd"
+        | "qr"
+        | "eft"
+        | "mobile_money"
+        | "bank_transfer"
+        | "apple_pay"
+        | "capitec_pay"
+        | "payattitude"
+      )[];
+      /** @description Fully qualified url, e.g. https://example.com/ to redirect your customers to after a successful payment. Use this to override the callback url provided on the dashboard for this transaction */
+      callback_url?: string;
+      /**
+       * @description If transaction is to create a subscription to a predefined plan, provide plan code here.
+       *     This would invalidate the value provided in amount
+       */
+      plan?: string;
+      /** @description Number of times to charge customer during subscription to plan */
+      invoice_limit?: number;
+      /** @description The split code of the transaction split */
+      split_code?: string;
+      split?: components["schemas"]["SplitCreate"];
+      /** @description The code for the subaccount that owns the payment */
+      subaccount?: string;
+      /**
+       * @description A flat fee to charge the subaccount for a transaction.
+       *     This overrides the split percentage set when the subaccount was created
+       */
+      transaction_charge?: number;
+      /**
+       * @description The bearer of the transaction charge
+       * @enum {string}
+       */
+      bearer?: "account" | "subaccount";
+      /** @description Used to replace the email address shown on the Checkout */
+      label?: string;
+      /** @description JSON object or stringified JSON of custom data */
+      metadata?: string | Record<string, never> | number;
+    };
+    TransactionInitializeResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        authorization_url: string;
+        access_code: string;
+        reference: string;
+      };
+    };
+    /** @description Extra diagnostic information to help resolve an error */
+    ErrorMeta: {
+      /** @description A suggested next action to take to resolve the error */
+      nextStep?: string;
+    };
+    /**
+     * @description Error response returned when a transaction is initialized with incorrect parameters
+     * @example {
+     *       "status": false,
+     *       "message": "Duplicate Transaction Reference",
+     *       "meta": {
+     *         "nextStep": "Try and create the Transaction or Charge with a new reference"
+     *       },
+     *       "type": "validation_error",
+     *       "code": "duplicate_reference",
+     *       "errorCodeMappingNotFound": false
+     *     }
+     */
+    TransactionInitializeBadRequestModel: {
+      /** @description An indicator for the state of the request */
+      status?: boolean;
+      /** @description A short description of the error */
+      message?: string;
+      meta?: components["schemas"]["ErrorMeta"];
+      /**
+       * @description A tag to indicate the type of the error
+       * @enum {string}
+       */
+      type?: "validation_error" | "processor_error" | "api_error";
+      /** @description The error code */
+      code?: string;
+      /** @description An indicator for error mapping for the request */
+      errorCodeMappingNotFound?: boolean;
+    };
+    /** @description Standard error response returned when a Paystack API request fails. */
+    Error: {
+      /** @description An indicator for the state of the request */
+      status?: boolean;
+      /** @description A short description of the error */
+      message?: string;
+      meta?: components["schemas"]["ErrorMeta"];
+      /**
+       * @description A category describing the kind of error that occurred
+       * @enum {string}
+       */
+      type?: "api_error" | "validation_error" | "processor_error";
+      /** @description A Paystack-defined machine-readable code for the error */
+      code?: string;
+      /** @description An indicator for error mapping for the request */
+      errorCodeMappingNotFound?: boolean;
+    };
+    /**
+     * @example {
+     *       "email": "jb@email.com",
+     *       "amount": 30000,
+     *       "authorization_code": "AUTH_df1l5ehnym"
+     *     }
+     */
+    TransactionChargeAuthorization: {
+      /** @description Customer's email address */
+      email: string;
+      /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100). */
+      amount: unknown;
+      /** @description Valid authorization code to charge */
+      authorization_code: string;
+      /** @description Unique transaction reference. Only -, ., = and alphanumeric characters allowed. */
+      reference?: string;
+      currency?: components["schemas"]["Currency"];
+      /** @description Send us 'card' or 'bank' or 'card','bank' as an array to specify what options to show the user paying */
+      channels?: ("card" | "bank")[];
+      /** @description The split code of the transaction split */
+      split_code?: string;
+      split?: components["schemas"]["SplitCreate"];
+      /** @description The code for the subaccount that owns the payment */
+      subaccount?: string;
+      /**
+       * @description A flat fee to charge the subaccount for a transaction.
+       *     This overrides the split percentage set when the subaccount was created
+       */
+      transaction_charge?: number;
+      /**
+       * @description The bearer of the transaction charge
+       * @enum {string}
+       */
+      bearer?: "account" | "subaccount";
+      /** @description Stringified JSON object of custom data */
+      metadata?: string | Record<string, never>;
+      /** @description If you are making a scheduled charge call, it is a good idea to queue them so the processing system does not get overloaded causing transaction processing errors. */
+      queue?: boolean;
+    };
+    ChargeAuthorizationResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        amount: number;
+        currency: string;
+        transaction_date: string;
+        status: string;
+        reference: string;
+        domain: string;
+        metadata:
+          | (
+              | string
+              | {
+                  [key: string]: unknown;
+                }
+            )
+          | null;
+        gateway_response: string;
+        message: string | null;
+        channel: string;
+        ip_address: unknown;
+        log: {
+          start_time: number;
+          time_spent: number;
+          attempts: number;
+          errors: number;
+          success: boolean;
+          mobile: boolean;
+          input: unknown[];
+          history: {
+            type: string;
             message: string;
-            data: {
-                authorization_url: string;
-                access_code: string;
-                reference: string;
+            time: number;
+          }[];
+        } | null;
+        fees: number | null;
+        authorization: {
+          authorization_code: string;
+          bin: string | null;
+          last4: string;
+          exp_month: string;
+          exp_year: string;
+          channel: string;
+          card_type: string;
+          bank: string;
+          country_code: string;
+          brand: string;
+          reusable: boolean;
+          signature: string;
+          account_name: string | null;
+        };
+        customer: {
+          id: number;
+          first_name: string | null;
+          last_name: string | null;
+          email: string;
+          customer_code: string;
+          phone: string | null;
+          metadata: {
+            [key: string]: unknown;
+          } | null;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+        plan: unknown;
+        id: number;
+      };
+    };
+    /**
+     * @example {
+     *       "email": "tap@email.com",
+     *       "amount": 40510,
+     *       "authorization_code": "AUTH_df1l5ehnym",
+     *       "currency": "NGN"
+     *     }
+     */
+    TransactionPartialDebit: {
+      /** @description Customer's email address */
+      email: string;
+      /**
+       * Format: int64
+       * @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100).
+       */
+      amount: number | string;
+      /** @description Valid authorization code to charge */
+      authorization_code: string;
+      /**
+       * @description Specified as NGN or GHS
+       * @enum {string}
+       */
+      currency: "NGN" | "GHS";
+      /** @description Minimum amount to charge */
+      at_least?: string;
+      /** @description Unique transaction reference. Only -, ., = and alphanumeric characters allowed. */
+      reference?: string;
+    };
+    TransactionPartialDebitResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        amount: number;
+        currency: string;
+        transaction_date: string;
+        status: string;
+        reference: string;
+        domain: string;
+        metadata: (string | Record<string, never>) | null;
+        gateway_response: string;
+        message: unknown;
+        channel: string;
+        ip_address: unknown;
+        log: {
+          start_time: number;
+          time_spent: number;
+          attempts: number;
+          errors: number;
+          success: boolean;
+          mobile: boolean;
+          input: unknown[];
+          history: {
+            type: string;
+            message: string;
+            time: number;
+          }[];
+        } | null;
+        fees: number;
+        authorization: {
+          authorization_code: string;
+          bin: string;
+          last4: string;
+          exp_month: string;
+          exp_year: string;
+          channel: string;
+          card_type: string;
+          bank: string;
+          country_code: string;
+          brand: string;
+          reusable: boolean;
+          signature: string;
+          account_name: string | null;
+        };
+        customer: {
+          id: number;
+          first_name: string | null;
+          last_name: string | null;
+          email: string;
+          customer_code: string;
+          phone: string | null;
+          metadata: Record<string, never> | null;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+        plan: number;
+        requested_amount: number;
+        id: number;
+      };
+    };
+    TransactionCheckAuthorization: {
+      /** @description Customer's email address */
+      email: string;
+      /**
+       * Format: int32
+       * @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, send the amount multiplied by 100 even though the currency does not use fractional subunits.
+       */
+      amount: number;
+      /** @description Valid authorization code to charge */
+      authorization_code?: string;
+      /** @description The transaction currency */
+      currency?: string;
+    };
+    Response: {
+      status?: boolean;
+      message?: string;
+      data?: Record<string, never>;
+    };
+    VerifyResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        /** Format: int64 */
+        id: number;
+        domain: string;
+        status: string;
+        reference: string;
+        receipt_number: string | null;
+        amount: number;
+        message: string | null;
+        gateway_response: string;
+        channel: string;
+        currency: string;
+        ip_address: string | null;
+        metadata: (string | Record<string, never> | number) | null;
+        log: {
+          start_time: number;
+          time_spent: number;
+          attempts: number;
+          errors: number;
+          success: boolean;
+          mobile: boolean;
+          input: unknown[];
+          history: {
+            type: string;
+            message: string;
+            time: number;
+          }[];
+        } | null;
+        fees: number | null;
+        fees_split: unknown;
+        authorization: {
+          authorization_code?: string;
+          bin?: string | null;
+          last4?: string;
+          exp_month?: string;
+          exp_year?: string;
+          channel?: string;
+          card_type?: string;
+          bank?: string;
+          country_code?: string;
+          brand?: string;
+          reusable?: boolean;
+          signature?: string;
+          account_name?: string | null;
+          receiver_bank_account_number?: string | null;
+          receiver_bank?: string | null;
+        };
+        customer: {
+          /** Format: int64 */
+          id: number;
+          first_name: string | null;
+          last_name: string | null;
+          email: string;
+          customer_code: string;
+          phone: string | null;
+          metadata: Record<string, never> | null;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+        plan: (string | Record<string, never>) | null;
+        split: Record<string, never> | null;
+        order_id: unknown;
+        paidAt: string | null;
+        createdAt: string;
+        requested_amount: number;
+        pos_transaction_data: unknown;
+        source: unknown;
+        fees_breakdown: unknown;
+        connect: unknown;
+        transaction_date: string;
+        plan_object: {
+          id?: number;
+          name?: string;
+          plan_code?: string;
+          description?: unknown;
+          amount?: number;
+          interval?: string;
+          send_invoices?: boolean;
+          send_sms?: boolean;
+          currency?: string;
+        } & (Record<string, never> | (unknown & unknown));
+        subaccount: Record<string, never> | null;
+      };
+    };
+    TransactionListResponseArray: {
+      id: number;
+      domain: string;
+      status: string;
+      reference: string;
+      amount: number;
+      message: unknown;
+      gateway_response: string;
+      paid_at: string | null;
+      created_at: string;
+      channel: string;
+      currency: string;
+      ip_address: string | null;
+      metadata:
+        | (
+            | string
+            | {
+                [key: string]: unknown;
+              }
+          )
+        | null;
+      log: {
+        start_time: number;
+        time_spent: number;
+        attempts: number;
+        errors: number;
+        success: boolean;
+        mobile: boolean;
+        input: unknown[];
+        history: {
+          type: string;
+          message: string;
+          time: number;
+        }[];
+      } | null;
+      fees: number | null;
+      fees_split: number | null;
+      customer: {
+        id: number;
+        first_name: string | null;
+        last_name: string | null;
+        email: string;
+        phone: string | null;
+        metadata: Record<string, never> | null;
+        customer_code: string;
+        risk_action: string;
+      };
+      authorization: {
+        authorization_code: string | null;
+        bin: string | null;
+        last4: string | null;
+        exp_month: string | null;
+        exp_year: string | null;
+        channel: string | null;
+        card_type: string | null;
+        bank: string | null;
+        country_code: string | null;
+        brand: string | null;
+        reusable: boolean;
+        signature: string | null;
+        account_name: string | null;
+      };
+      plan: Record<string, never>;
+      split: Record<string, never>;
+      subaccount: Record<string, never>;
+      order_id: unknown;
+      requested_amount: number;
+      source: {
+        source?: string;
+        type?: string;
+        identifier?: string | null;
+        entry_point?: string;
+      } | null;
+      connect: Record<string, never> | null;
+      pos_transaction_data: unknown;
+    };
+    Meta: {
+      total: number;
+      skipped: number;
+      perPage: number | string;
+      page: number;
+      pageCount: number;
+    };
+    MetaWithVolume: components["schemas"]["Meta"] & {
+      total_volume: number;
+    };
+    CursorMeta: {
+      next: string | null;
+      previous: string | null;
+      perPage: number;
+    };
+    TransactionListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["TransactionListResponseArray"][];
+      meta: components["schemas"]["MetaWithVolume"] | components["schemas"]["CursorMeta"];
+    };
+    TransactionFetchResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        domain: string;
+        status: string;
+        reference: string;
+        receipt_number: unknown;
+        amount: number;
+        message: unknown;
+        gateway_response: string;
+        helpdesk_link: unknown;
+        paid_at: string;
+        created_at: string;
+        channel: string;
+        currency: string;
+        ip_address: string | null;
+        metadata:
+          | (
+              | string
+              | {
+                  [key: string]: unknown;
+                }
+            )
+          | null;
+        log: {
+          start_time: number;
+          time_spent: number;
+          attempts: number;
+          errors: number;
+          success: boolean;
+          mobile: boolean;
+          input: unknown[];
+          history: {
+            type: string;
+            message: string;
+            time: number;
+          }[];
+        } | null;
+        fees: number;
+        fees_split: number | null;
+        authorization: {
+          authorization_code: string;
+          bin: string;
+          last4: string;
+          exp_month: string;
+          exp_year: string;
+          channel: string;
+          card_type: string;
+          bank: string;
+          country_code: string;
+          brand: string;
+          reusable: boolean;
+          signature: string;
+          account_name: string | null;
+          receiver_bank_account_number?: string | null;
+          receiver_bank?: string | null;
+        };
+        customer: {
+          id: number;
+          first_name: string | null;
+          last_name: string | null;
+          email: string;
+          customer_code: string;
+          phone: string | null;
+          metadata: Record<string, never> | null;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+        plan: Record<string, never> | null;
+        subaccount: Record<string, never> | null;
+        split: Record<string, never> | null;
+        order_id: unknown;
+        requested_amount: number;
+        pos_transaction_data: unknown;
+        source: {
+          type?: string;
+          source?: string;
+          identifier?: string | null;
+        } | null;
+        fees_breakdown: unknown;
+        connect: unknown;
+      };
+    };
+    TransactionTimelineResponse: {
+      status: boolean;
+      message: string;
+      data: Record<string, never>;
+    };
+    TransactionTotalVolumeByCurrencyArray: {
+      currency: string;
+      amount: number;
+    };
+    TransactionPendingTransfersByCurrencyArray: {
+      currency: string;
+      amount: number;
+    };
+    TransactionTotalsResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        total_transactions: number;
+        total_volume: number;
+        total_volume_by_currency: components["schemas"]["TransactionTotalVolumeByCurrencyArray"][];
+        pending_transfers: number;
+        pending_transfers_by_currency: components["schemas"]["TransactionPendingTransfersByCurrencyArray"][];
+      };
+    };
+    TransactionExportResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        path: string;
+        expiresAt: string;
+      };
+    };
+    /**
+     * @example {
+     *       "email": "customer@email.com",
+     *       "amount": 350000,
+     *       "authorization_code": "AUTH_df1l5ehnym"
+     *     }
+     */
+    ChargeCreate: {
+      /** @description Customer's email address */
+      email: string;
+      /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100). */
+      amount: number;
+      /** @description An authorization code to charge. */
+      authorization_code?: string;
+      /** @description 4-digit PIN (send with a non-reusable authorization code) */
+      pin?: string;
+      /** @description Unique transaction reference. Only -, .`, = and alphanumeric characters allowed. */
+      reference?: string;
+      /**
+       * Format: date
+       * @description The customer's birthday in the format YYYY-MM-DD e.g 2017-05-16
+       */
+      birthday?: string;
+      /**
+       * @description This is the unique identifier of the device a user uses in making payment.
+       *     Only -, .`, = and alphanumeric characters are allowed.
+       */
+      device_id?: string;
+      /** @description JSON object or stringified JSON of custom data */
+      metadata?: string | Record<string, never> | number;
+    };
+    /** @description The bank object if charging a bank account */
+    Bank: {
+      /** @description Customer's bank code */
+      code?: string;
+      /** @description Customer's account number */
+      account_number?: string;
+    };
+    /** @description Details of the mobile service provider */
+    MobileMoney: {
+      /** @description Customer's phone number */
+      phone?: string;
+      /** @description The telco provider of customer's phone number. This can be fetched from the List Bank endpoint */
+      provider?: string;
+    };
+    /** @description The USSD code for the provider to charge */
+    USSD: {
+      /**
+       * @description The three-digit USSD code.
+       * @enum {string}
+       */
+      type?: "737" | "919" | "822" | "966";
+    };
+    /** @description Details of the EFT provider */
+    EFT: {
+      /** @description The EFT provider */
+      provider?: string;
+    };
+    ChargeCreateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        domain: string;
+        status: string;
+        reference: string;
+        receipt_number?: string | null;
+        amount: number;
+        message: string | null;
+        gateway_response: string;
+        paid_at?: string;
+        created_at?: string;
+        channel: string;
+        currency: string;
+        ip_address: string | null;
+        metadata:
+          | (
+              | string
+              | {
+                  [key: string]: unknown;
+                }
+            )
+          | null;
+        log: {
+          start_time: number;
+          time_spent: number;
+          attempts: number;
+          errors: number;
+          success: boolean;
+          mobile: boolean;
+          input: unknown[];
+          history: {
+            type: string;
+            message: string;
+            time: number;
+          }[];
+        } | null;
+        fees: number;
+        fees_split?: number | null;
+        authorization: {
+          authorization_code: string;
+          bin: string;
+          last4: string;
+          exp_month: string;
+          exp_year: string;
+          channel: string;
+          card_type: string;
+          bank: string;
+          country_code: string;
+          brand: string;
+          reusable: boolean;
+          signature: string;
+          account_name: string | null;
+          receiver_bank_account_number?: string | null;
+          receiver_bank?: string | null;
+        };
+        customer: {
+          id: number;
+          first_name: string | null;
+          last_name: string | null;
+          email: string;
+          customer_code: string;
+          phone: string | null;
+          metadata: Record<string, never> | null;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+        plan: unknown;
+        split?: Record<string, never> | null;
+        order_id?: unknown;
+        requested_amount?: number;
+        pos_transaction_data?: unknown;
+        source?: Record<string, never> | null;
+        fees_breakdown?: Record<string, never> | null;
+        connect?: Record<string, never> | null;
+        transaction_date: string;
+        plan_object?: Record<string, never>;
+        subaccount?: Record<string, never>;
+      };
+    };
+    /**
+     * @example {
+     *       "pin": "1234",
+     *       "reference": "5bwib5v6anhe9xa"
+     *     }
+     */
+    ChargeSubmitPin: {
+      /** @description Customer's PIN for the ongoing transaction */
+      pin: string;
+      /** @description Transaction reference that requires the PIN */
+      reference: string;
+    };
+    ChargeSubmitPinResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        domain: string;
+        status: string;
+        reference: string;
+        amount: number;
+        message?: string | null;
+        gateway_response: string;
+        channel: string;
+        currency: string;
+        ip_address: string | null;
+        metadata: Record<string, never> | null;
+        log: unknown;
+        fees: number | null;
+        fees_split: unknown;
+        authorization: {
+          authorization_code?: string | null;
+          bin?: string;
+          last4?: string;
+          exp_month?: string;
+          exp_year?: string;
+          channel?: string;
+          card_type?: string;
+          bank?: string;
+          country_code?: string;
+          brand?: string;
+          reusable?: boolean;
+          signature?: unknown;
+          account_name?: unknown;
+        };
+        customer: {
+          id: number;
+          first_name?: string | null;
+          last_name?: string | null;
+          email: string;
+          customer_code: string;
+          phone?: string | null;
+          metadata?: unknown;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+        plan: Record<string, never> | null;
+        split: Record<string, never> | null;
+        order_id: string | null;
+        paidAt: string | null;
+        createdAt: string;
+        requested_amount: number;
+        pos_transaction_data: unknown;
+        source: unknown;
+        fees_breakdown: Record<string, never> | null;
+        connect: Record<string, never> | null;
+        transaction_date: string;
+        plan_object: Record<string, never>;
+        subaccount: Record<string, never>;
+      };
+    };
+    /**
+     * @example {
+     *       "otp": "123456",
+     *       "reference": "5bwib5v6anhe9xa"
+     *     }
+     */
+    ChargeSubmitOTP: {
+      /** @description Customer's OTP for ongoing transaction */
+      otp: string;
+      /** @description The reference of the ongoing transaction */
+      reference: string;
+    };
+    ChargeSubmitOtpResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        domain: string;
+        status: string;
+        reference: string;
+        amount: number;
+        message?: string | null;
+        gateway_response: string;
+        channel: string;
+        currency: string;
+        ip_address: string | null;
+        metadata: Record<string, never> | null;
+        log: unknown;
+        fees: number | null;
+        fees_split: unknown;
+        authorization: {
+          authorization_code?: string | null;
+          bin?: string;
+          last4?: string;
+          exp_month?: string;
+          exp_year?: string;
+          channel?: string;
+          card_type?: string;
+          bank?: string;
+          country_code?: string;
+          brand?: string;
+          reusable?: boolean;
+          signature?: unknown;
+          account_name?: unknown;
+        };
+        customer: {
+          id: number;
+          first_name?: string | null;
+          last_name?: string | null;
+          email: string;
+          customer_code: string;
+          phone?: string | null;
+          metadata?: unknown;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+        plan: Record<string, never> | null;
+        split: Record<string, never> | null;
+        order_id: string | null;
+        paidAt: string | null;
+        createdAt: string;
+        requested_amount: number;
+        pos_transaction_data: unknown;
+        source: unknown;
+        fees_breakdown: Record<string, never> | null;
+        connect: Record<string, never> | null;
+        transaction_date: string;
+        plan_object: Record<string, never>;
+        subaccount: Record<string, never>;
+      };
+    };
+    /**
+     * @example {
+     *       "phone": "08012345678",
+     *       "reference": "5bwib5v6anhe9xa"
+     *     }
+     */
+    ChargeSubmitPhone: {
+      /** @description Customer's mobile number */
+      phone: string;
+      /** @description The reference of the ongoing transaction */
+      reference: string;
+    };
+    ChargeSubmitPhoneResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        domain: string;
+        status: string;
+        reference: string;
+        amount: number;
+        message?: string | null;
+        gateway_response: string;
+        channel: string;
+        currency: string;
+        ip_address: string | null;
+        metadata: Record<string, never> | null;
+        log: unknown;
+        fees: number | null;
+        fees_split: unknown;
+        authorization: {
+          authorization_code?: string | null;
+          bin?: string;
+          last4?: string;
+          exp_month?: string;
+          exp_year?: string;
+          channel?: string;
+          card_type?: string;
+          bank?: string;
+          country_code?: string;
+          brand?: string;
+          reusable?: boolean;
+          signature?: unknown;
+          account_name?: unknown;
+        };
+        customer: {
+          id: number;
+          first_name?: string | null;
+          last_name?: string | null;
+          email: string;
+          customer_code: string;
+          phone?: string | null;
+          metadata?: unknown;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+        plan: Record<string, never> | null;
+        split: Record<string, never> | null;
+        order_id: string | null;
+        paidAt: string | null;
+        createdAt: string;
+        requested_amount: number;
+        pos_transaction_data: unknown;
+        source: unknown;
+        fees_breakdown: Record<string, never> | null;
+        connect: Record<string, never> | null;
+        transaction_date: string;
+        plan_object: Record<string, never>;
+        subaccount: Record<string, never>;
+      };
+    };
+    /**
+     * @example {
+     *       "birthday": "1961-09-21",
+     *       "reference": "5bwib5v6anhe9xa"
+     *     }
+     */
+    ChargeSubmitBirthday: {
+      /**
+       * Format: date
+       * @description Customer's birthday in the format YYYY-MM-DD e.g 2016-09-21
+       */
+      birthday: string;
+      /** @description The reference of the ongoing transaction */
+      reference: string;
+    };
+    ChargeSubmitBirthdayResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        domain: string;
+        status: string;
+        reference: string;
+        amount: number;
+        message?: string | null;
+        gateway_response: string;
+        channel: string;
+        currency: string;
+        ip_address: string | null;
+        metadata: Record<string, never> | null;
+        log: unknown;
+        fees: number | null;
+        fees_split: unknown;
+        authorization: {
+          authorization_code?: string | null;
+          bin?: string;
+          last4?: string;
+          exp_month?: string;
+          exp_year?: string;
+          channel?: string;
+          card_type?: string;
+          bank?: string;
+          country_code?: string;
+          brand?: string;
+          reusable?: boolean;
+          signature?: unknown;
+          account_name?: unknown;
+        };
+        customer: {
+          id: number;
+          first_name?: string | null;
+          last_name?: string | null;
+          email: string;
+          customer_code: string;
+          phone?: string | null;
+          metadata?: unknown;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+        plan: Record<string, never> | null;
+        split: Record<string, never> | null;
+        order_id: string | null;
+        paidAt: string | null;
+        createdAt: string;
+        requested_amount: number;
+        pos_transaction_data: unknown;
+        source: unknown;
+        fees_breakdown: Record<string, never> | null;
+        connect: Record<string, never> | null;
+        transaction_date: string;
+        plan_object: Record<string, never>;
+        subaccount: Record<string, never>;
+      };
+    };
+    /**
+     * @example {
+     *       "address": "140 N 2ND ST",
+     *       "city": "Stroudsburg",
+     *       "state": "PA",
+     *       "zip_code": "18360",
+     *       "reference": "5bwib5v6anhe9xa"
+     *     }
+     */
+    ChargeSubmitAddress: {
+      /** @description Customer's address */
+      address: string;
+      /** @description Customer's city */
+      city: string;
+      /** @description Customer's state */
+      state: string;
+      /** @description Customer's zipcode */
+      zip_code: string;
+      /** @description The reference of the ongoing transaction */
+      reference: string;
+    };
+    ChargeCheckPendingResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        domain: string;
+        status: string;
+        reference: string;
+        amount: number;
+        message?: string | null;
+        gateway_response: string;
+        channel: string;
+        currency: string;
+        ip_address: string | null;
+        metadata: Record<string, never> | null;
+        log: unknown;
+        fees: number | null;
+        fees_split: unknown;
+        authorization: {
+          authorization_code?: string | null;
+          bin?: string;
+          last4?: string;
+          exp_month?: string;
+          exp_year?: string;
+          channel?: string;
+          card_type?: string;
+          bank?: string;
+          country_code?: string;
+          brand?: string;
+          reusable?: boolean;
+          signature?: unknown;
+          account_name?: unknown;
+        };
+        customer: {
+          id: number;
+          first_name?: string | null;
+          last_name?: string | null;
+          email: string;
+          customer_code: string;
+          phone?: string | null;
+          metadata?: unknown;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+        plan: Record<string, never> | null;
+        split: Record<string, never> | null;
+        order_id: string | null;
+        paidAt: string | null;
+        createdAt: string;
+        requested_amount: number;
+        pos_transaction_data: unknown;
+        source: unknown;
+        fees_breakdown: Record<string, never> | null;
+        connect: Record<string, never> | null;
+        transaction_date: string;
+        plan_object: Record<string, never>;
+        subaccount: Record<string, never>;
+      };
+    };
+    BulkChargeListResponseArray: {
+      domain: string;
+      batch_code: string;
+      status: string;
+      id: number;
+      createdAt: string;
+      updatedAt: string;
+    };
+    BulkChargeListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["BulkChargeListResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    /**
+     * @description A list of charge object
+     * @example {
+     *       "authorization": "AUTH_ncx8hews93",
+     *       "amount": 250000,
+     *       "reference": "dam1266638dhhd"
+     *     }
+     */
+    BulkChargeInitiate: {
+      /** @description Customer's card authorization code */
+      authorization: string;
+      /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100). */
+      amount: number;
+      /** @description A unique identifier containing lowercase letters `(a-z)`, digits `(0-9)` and these symbols: dash (`-`), underscore(`_`) */
+      reference?: string;
+      /** @description A flag to indicate if you want us to try recouping lower amounts when the customer has insufficient fund */
+      attempt_partial_debit?: boolean;
+      /**
+       * @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100).
+       *     Minimum amount to charge if the attempt_partial_debit flag is set.
+       */
+      at_least?: number;
+      /** @description JSON object of custom data */
+      metadata?: Record<string, never>;
+    };
+    BulkChargeInitiateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        batch_code: string;
+        reference: string;
+        id: number;
+        integration: number;
+        domain: string;
+        status: string;
+        total_charges: number;
+        pending_charges: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    BulkChargeFetchResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        batch_code: string;
+        id: number;
+        domain: string;
+        status: string;
+        total_charges: number;
+        pending_charges: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    MetadataCustomFieldsArray: {
+      value: string;
+      display_name: string;
+      variable_name: string;
+    };
+    BulkChargeFetchBulkBatchChargesResponseArray: {
+      integration: number;
+      bulkcharge: number;
+      customer: {
+        id: number;
+        first_name: string;
+        last_name: string;
+        email: string;
+        customer_code: string;
+        phone: string;
+        metadata: {
+          calling_code?: string;
+        };
+        risk_action: string;
+        international_format_phone: string;
+      };
+      authorization: {
+        authorization_code: string;
+        bin: string;
+        last4: string;
+        exp_month: string;
+        exp_year: string;
+        channel: string;
+        card_type: string;
+        bank: string;
+        country_code: string;
+        brand: string;
+        reusable: boolean;
+        signature: string;
+        account_name: unknown;
+      };
+      domain: string;
+      amount: number;
+      at_least: number;
+      currency: string;
+      reference: string;
+      metadata: {
+        custom_fields: components["schemas"]["MetadataCustomFieldsArray"][];
+      };
+      status: string;
+      message: string;
+      attempt_partial_debit: boolean;
+      id: number;
+      createdAt: string;
+      updatedAt: string;
+    };
+    BulkChargeFetchBulkBatchChargesResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["BulkChargeFetchBulkBatchChargesResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    BulkChargePauseResponse: {
+      status: boolean;
+      message: string;
+    };
+    BulkChargeResumeResponse: {
+      status: boolean;
+      message: string;
+    };
+    SubaccountListResponseArray: {
+      id: number;
+      subaccount_code: string;
+      business_name: string;
+      description: string | null;
+      primary_contact_name: string | null;
+      primary_contact_email: string | null;
+      primary_contact_phone: string | null;
+      metadata: unknown;
+      percentage_charge: number;
+      settlement_bank: string;
+      bank_id: number;
+      account_number: string;
+      currency: string;
+      active: number;
+    };
+    SubaccountListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["SubaccountListResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    /**
+     * @example {
+     *       "business_name": "Oasis",
+     *       "account_number": "0123456047",
+     *       "settlement_bank": "058",
+     *       "percentage_charge": 30
+     *     }
+     */
+    SubaccountCreate: {
+      /** @description Name of business for subaccount */
+      business_name: string;
+      /** @description Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint. */
+      settlement_bank: string;
+      /** @description Bank account number */
+      account_number: string;
+      /**
+       * Format: float
+       * @description The percentage the main account receives from each payment made to the subaccount
+       */
+      percentage_charge: number;
+      /** @description A description for this subaccount */
+      description?: string;
+      /** @description A contact email for the subaccount */
+      primary_contact_email?: string;
+      /** @description The name of the contact person for this subaccount */
+      primary_contact_name?: string;
+      /** @description A phone number to call for this subaccount */
+      primary_contact_phone?: string;
+      /** @description Stringified JSON object or JSON object of custom data */
+      metadata?: string | Record<string, never>;
+    };
+    SubaccountCreateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        business_name: string;
+        account_name?: string | null;
+        description?: string | null;
+        primary_contact_name?: string | null;
+        primary_contact_email?: string | null;
+        primary_contact_phone?: string | null;
+        metadata?: unknown;
+        account_number: string;
+        percentage_charge: number;
+        settlement_bank: string;
+        currency: string;
+        bank: number;
+        integration: number;
+        domain: string;
+        product: string;
+        managed_by_integration?: number;
+        subaccount_code: string;
+        is_verified: boolean;
+        settlement_schedule: string;
+        active: boolean;
+        migrate: boolean;
+        id: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    SubaccountFetchResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        integration: number;
+        account_name: string | null;
+        bank: number;
+        managed_by_integration: number;
+        domain: string;
+        subaccount_code: string;
+        business_name: string;
+        description: string | null;
+        primary_contact_name: string | null;
+        primary_contact_email: string | null;
+        primary_contact_phone: string | null;
+        metadata: Record<string, never> | null;
+        percentage_charge: number;
+        is_verified: boolean;
+        settlement_bank: string;
+        account_number: string;
+        settlement_schedule: string;
+        active: boolean;
+        migrate: boolean;
+        currency: string;
+        product: string;
+        id: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    /**
+     * @example {
+     *       "business_name": "Sandalwood"
+     *     }
+     */
+    SubaccountUpdate: {
+      /** @description Name of business for subaccount */
+      business_name?: string;
+      /** @description Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint. */
+      settlement_bank?: string;
+      /** @description Bank account number */
+      account_number?: string;
+      /** @description Activate or deactivate a subaccount */
+      active?: boolean;
+      /**
+       * Format: float
+       * @description The percentage the main account receives from each payment made to the subaccount
+       */
+      percentage_charge?: number;
+      /** @description A description for this subaccount */
+      description?: string;
+      /** @description A contact email for the subaccount */
+      primary_contact_email?: string;
+      /** @description The name of the contact person for this subaccount */
+      primary_contact_name?: string;
+      /** @description A phone number to call for this subaccount */
+      primary_contact_phone?: string;
+      /** @description Stringified JSON object or JSON object of custom data */
+      metadata?: string | Record<string, never> | number;
+    };
+    SubaccountUpdateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        domain: string;
+        subaccount_code: string;
+        account_name?: string | null;
+        business_name: string;
+        description?: string | null;
+        primary_contact_name?: string | null;
+        primary_contact_email?: string | null;
+        primary_contact_phone?: string | null;
+        metadata?: unknown;
+        percentage_charge: number;
+        is_verified: boolean;
+        settlement_bank: string;
+        account_number: string;
+        settlement_schedule: string;
+        active: boolean;
+        migrate: boolean;
+        currency: string;
+        product: string;
+        id: number;
+        integration: number;
+        bank: number;
+        managed_by_integration: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    SplitSubaccountsArray: {
+      subaccount: {
+        id: number;
+        subaccount_code: string;
+        business_name: string;
+        description: string;
+        primary_contact_name: string;
+        primary_contact_email: string;
+        primary_contact_phone: string;
+        metadata: string;
+        settlement_bank: string;
+        currency: string;
+        account_number: string;
+      };
+      share: number;
+    };
+    SplitListResponseArray: {
+      id: number;
+      name: string;
+      type: string;
+      currency: string;
+      integration: number;
+      domain: string;
+      split_code: string;
+      active: boolean;
+      bearer_type: string;
+      bearer_subaccount: number | null;
+      createdAt: string;
+      updatedAt: string;
+      is_dynamic: boolean;
+      subaccounts: components["schemas"]["SplitSubaccountsArray"][];
+      total_subaccounts: number;
+    };
+    SplitListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["SplitListResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    SplitCreateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        name: string;
+        type: string;
+        currency: string;
+        integration: number;
+        domain: string;
+        split_code: string;
+        active: boolean;
+        bearer_type: string;
+        bearer_subaccount?: number;
+        createdAt: string;
+        updatedAt: string;
+        is_dynamic: boolean;
+        subaccounts: components["schemas"]["SplitSubaccountsArray"][];
+        total_subaccounts: number;
+      };
+    };
+    SplitFetchResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        name: string;
+        type: string;
+        currency: string;
+        integration: number;
+        domain: string;
+        split_code: string;
+        active: boolean;
+        bearer_type: string;
+        bearer_subaccount: number;
+        createdAt: string;
+        updatedAt: string;
+        is_dynamic: boolean;
+        subaccounts: components["schemas"]["SplitSubaccountsArray"][];
+        total_subaccounts: number;
+      };
+    };
+    SplitUpdate: {
+      /** @description Name of the transaction split */
+      name?: string;
+      /** @description Toggle status of split. When true, the split is active, else it's inactive */
+      active?: boolean;
+      /**
+       * @description This allows you specify how the transaction charge should be processed
+       * @enum {string}
+       */
+      bearer_type?: "subaccount" | "account" | "all-proportional" | "all";
+      /** @description This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type */
+      bearer_subaccount?: string;
+    };
+    SplitUpdateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        name: string;
+        type: string;
+        currency: string;
+        integration: number;
+        domain: string;
+        split_code: string;
+        active: boolean;
+        bearer_type: string;
+        bearer_subaccount: number;
+        createdAt: string;
+        updatedAt: string;
+        is_dynamic: boolean;
+        subaccounts: components["schemas"]["SplitSubaccountsArray"][];
+        total_subaccounts: number;
+      };
+    };
+    SplitAddUpdateSubaccountResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        name: string;
+        type: string;
+        currency: string;
+        integration: number;
+        domain: string;
+        split_code: string;
+        active: boolean;
+        bearer_type: string;
+        bearer_subaccount: number;
+        createdAt: string;
+        updatedAt: string;
+        is_dynamic: boolean;
+        subaccounts: components["schemas"]["SplitSubaccountsArray"][];
+        total_subaccounts: number;
+      };
+    };
+    /**
+     * @example {
+     *       "subaccount": "ACCT_eg4sob4590pq9vb"
+     *     }
+     */
+    SplitSubaccountRemove: {
+      /** @description This is the sub account code */
+      subaccount: string;
+    };
+    SplitRemoveSubaccountResponse: {
+      status: boolean;
+      message: string;
+    };
+    /**
+     * @description The parameters needed to perform the specified action
+     * @example {
+     *       "id": 7895939,
+     *       "reference": "4634337895939"
+     *     }
+     */
+    TerminalSendEventData: {
+      /**
+       * Format: int64
+       * @description The invoice or transaction  ID you want to push to the Terminal
+       */
+      id?: number;
+      /** @description The offline_reference from the Payment Request response */
+      reference?: string;
+    };
+    /**
+     * @example {
+     *       "type": "invoice",
+     *       "action": "process",
+     *       "data": {
+     *         "id": 7895939,
+     *         "reference": "4634337895939"
+     *       }
+     *     }
+     */
+    TerminalSendEvent: {
+      /**
+       * @description The type of event to push
+       * @enum {string}
+       */
+      type?: "invoice" | "transaction";
+      /**
+       * @description The action the Terminal needs to perform. For the invoice type, the action can either be process or view.
+       *     For the transaction type, the action can either be process or print.
+       * @enum {string}
+       */
+      action?: "process" | "view" | "print";
+      data?: components["schemas"]["TerminalSendEventData"];
+    };
+    TerminalGetStatusResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        online: boolean;
+        available: boolean;
+      };
+    };
+    TerminalListsResponseArray: {
+      id: number;
+      serial_number: string | null;
+      device_make: string | null;
+      terminal_id: string;
+      integration: number;
+      domain: string;
+      name: string | null;
+      address: string | null;
+      status: string;
+    };
+    TerminalListsResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["TerminalListsResponseArray"][];
+      meta: components["schemas"]["CursorMeta"];
+    };
+    TerminalGetResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        serial_number: string;
+        device_make: string | null;
+        terminal_id: string;
+        integration: number;
+        domain: string;
+        name: string | null;
+        address: string | null;
+        status: string;
+        split_code: string | null;
+      };
+    };
+    /**
+     * @example {
+     *       "name": "Oreos",
+     *       "address": "Somewhere on earth"
+     *     }
+     */
+    TerminalUpate: {
+      /** @description The new name for the Terminal */
+      name?: string;
+      /** @description The new address for the Terminal */
+      address?: string;
+    };
+    TerminalUpdateResponse: {
+      status: boolean;
+      message: string;
+    };
+    /**
+     * @description Model for activating and deactivating a debug Terminal
+     * @example {
+     *       "serial_number": "1111150412230003899"
+     *     }
+     */
+    TerminalActivationToggle: {
+      /** @description Device Serial Number */
+      serial_number: string;
+    };
+    TerminalCommissionDeviceResponse: {
+      status: boolean;
+      message: string;
+    };
+    TerminalDecommissionDeviceResponse: {
+      status: boolean;
+      message: string;
+    };
+    VirtualTerminalListResponseArray: {
+      id: number;
+      code: string;
+      name: string;
+      integration: number;
+      domain: string;
+      paymentMethods: unknown[];
+      active: boolean;
+      created_at: string;
+      currency: string;
+    };
+    VirtualTerminalListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["VirtualTerminalListResponseArray"][];
+      meta: components["schemas"]["CursorMeta"];
+    };
+    /**
+     * @example {
+     *       "name": "Sample Terminal",
+     *       "destinations": [
+     *         {
+     *           "target": "+2548012345678",
+     *           "name": "John Doe"
+     *         },
+     *         {
+     *           "target": "+2548098765432",
+     *           "name": "Jane Smith"
+     *         }
+     *       ]
+     *     }
+     */
+    VirtualTerminalCreate: {
+      /** @description Name of the Virtual Terminal */
+      name: string;
+      /** @description An array of objects containing the notification recipients for payments to the Virtual Terminal. Each object includes a target parameter for the Whatsapp phone number to send notifications to, and a name parameter for a descriptive label. */
+      destinations: {
+        /** @description The Whatsapp phone number to send notifications to */
+        target?: string;
+        /** @description A descriptive label for the destination */
+        name?: string;
+      }[];
+      /** @description Stringified JSON object of custom data. Kindly check the Metadata page for more information */
+      metadata?: Record<string, never>;
+      /** @description The transaction currency for the Virtual Terminal. Defaults to your integration currency */
+      currency?: string;
+      /** @description An array of objects representing custom fields to display on the form. Each object contains a display_name parameter, representing what will be displayed on the Virtual Terminal page, and variable_name parameter for referencing the custom field programmatically */
+      custom_fields?: {
+        display_name?: string;
+        variable_name?: string;
+      }[];
+    };
+    VirtualTerminalCreateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        name: string;
+        integration: number;
+        domain: string;
+        code: string;
+        paymentMethods: unknown[];
+        active: boolean;
+        metadata: unknown;
+        destinations: {
+          target?: string;
+          type?: string;
+          name?: string;
+        }[];
+        currency: string;
+      };
+    };
+    VirtualTerminalFetchResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        code: string;
+        name: string;
+        integration: number;
+        domain: string;
+        paymentMethods: unknown[];
+        active: boolean;
+        created_at: string;
+        connect_account_id: unknown;
+        destinations: {
+          target?: string;
+          type?: string;
+          name?: string;
+          created_at?: string;
+        }[];
+        currency: string;
+      };
+    };
+    /**
+     * @example {
+     *       "name": "Lagos_Mainland_Zone_1"
+     *     }
+     */
+    VirtualTerminalUpdate: {
+      /** @description Name of the virtual terminal */
+      name: string;
+    };
+    VirtualTerminalUpdateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        code: string;
+        name: string;
+        integration: number;
+        domain: string;
+        paymentMethods: unknown[];
+        active: boolean;
+        created_at: string;
+        connect_account_id: unknown;
+        destinations: {
+          target?: string;
+          type?: string;
+          name?: string;
+          created_at?: string;
+        }[];
+        currency: string;
+      };
+    };
+    VirtualTerminalDeactivateResponse: {
+      status: boolean;
+      message: string;
+    };
+    /**
+     * @example {
+     *       "destinations": [
+     *         {
+     *           "target": "+2548012345678",
+     *           "name": "John Doe"
+     *         },
+     *         {
+     *           "target": "+2548098765432",
+     *           "name": "Jane Smith"
+     *         }
+     *       ]
+     *     }
+     */
+    VirtualTerminalDestinationAssign: {
+      /** @description Array of objects containing recipients for payment notifications for the Virtual Terminal. */
+      destinations: {
+        /** @description The WhatsApp number to receive payment notifications */
+        target?: string;
+        /** @description The name of the associated WhatsApp number */
+        name?: string;
+      }[];
+    };
+    VirtualTerminalDestinationAssignResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        integration: number;
+        target: string;
+        name: string;
+        type: string;
+        id: number;
+        createdAt: string;
+        updatedAt: string;
+      }[];
+    };
+    /**
+     * @example {
+     *       "targets": [
+     *         "+2548012345678",
+     *         "+2548098765432"
+     *       ]
+     *     }
+     */
+    VirtualTerminalDestinationUnassign: {
+      /** @description Array of destination targets to unassign */
+      targets: string[];
+    };
+    VirtualTerminalDestinationUnassignResponse: {
+      status: boolean;
+      message: string;
+    };
+    /**
+     * @example {
+     *       "split_code": "SPL_1234567890abcdef"
+     *     }
+     */
+    VirtualTerminalAddSplitCode: {
+      /** @description The split code to assign to the virtual terminal */
+      split_code: string;
+    };
+    VirtualTerminalAddSplitCodeResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        name: string;
+        type: string;
+        currency: string;
+        integration: number;
+        domain: string;
+        split_code: string;
+        active: boolean;
+        bearer_type: string;
+        bearer_subaccount: unknown;
+        createdAt: string;
+        updatedAt: string;
+        is_dynamic: boolean;
+        subaccounts: components["schemas"]["SplitSubaccountsArray"][];
+        total_subaccounts: number;
+      };
+    };
+    /**
+     * @example {
+     *       "split_code": "SPL_1234567890abcdef"
+     *     }
+     */
+    VirtualTerminalDeleteSplitCode: {
+      /** @description The split code to assign to the virtual terminal */
+      split_code: string;
+    };
+    VirtualTerminalDeleteSplitCodeResponse: {
+      status: boolean;
+      message: string;
+    };
+    CustomerListResponseArray: {
+      integration: number;
+      first_name: string | null;
+      last_name: string | null;
+      email: string;
+      phone: string | null;
+      metadata: Record<string, never> | null;
+      domain: string;
+      customer_code: string;
+      risk_action: string;
+      id: number;
+      createdAt: string;
+      updatedAt: string;
+    };
+    CustomerListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["CustomerListResponseArray"][];
+      meta: components["schemas"]["Meta"] | components["schemas"]["CursorMeta"];
+    };
+    /**
+     * @example {
+     *       "email": "rock@sandy.com",
+     *       "first_name": "Rock",
+     *       "last_name": "Sandy"
+     *     }
+     */
+    CustomerCreate: {
+      /** @description Customer's email address */
+      email: string;
+      /** @description Customer's first name */
+      first_name?: string;
+      /** @description Customer's last name */
+      last_name?: string;
+      /** @description Customer's phone number */
+      phone?: string;
+      /** @description Stringified JSON object or JSON object of custom data */
+      metadata?: string | Record<string, never>;
+    };
+    CustomerCreateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        email: string;
+        integration: number;
+        domain: string;
+        customer_code: string;
+        id: number;
+        identified: boolean;
+        identifications: unknown;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    CustomerFetchResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        transactions: unknown[];
+        subscriptions: unknown[];
+        authorizations: unknown[];
+        first_name: string | null;
+        last_name: string | null;
+        email: string;
+        phone: string | null;
+        metadata: {
+          [key: string]: unknown;
+        } | null;
+        domain: string;
+        customer_code: string;
+        risk_action: string;
+        id: number;
+        integration: number;
+        createdAt: string;
+        updatedAt: string;
+        total_transactions: number;
+        total_transaction_value: unknown[];
+        dedicated_account: unknown;
+        dedicated_accounts?: unknown[] | null;
+        identified: boolean;
+        identifications: unknown;
+      };
+    };
+    /**
+     * @example {
+     *       "first_name": "Cecilia",
+     *       "last_name": "Jones"
+     *     }
+     */
+    CustomerUpdate: {
+      /** @description Customer's first name */
+      first_name?: string;
+      /** @description Customer's last name */
+      last_name?: string;
+      /** @description Customer's phone number */
+      phone?: string;
+      /** @description Stringified JSON object or JSON object of custom data */
+      metadata?: string | Record<string, never> | number;
+    };
+    CustomerUpdateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        integration: number;
+        first_name: string;
+        last_name: string;
+        email: string;
+        phone: string | null;
+        metadata: Record<string, never> | null;
+        identified: boolean;
+        identifications: unknown;
+        domain: string;
+        customer_code: string;
+        id: number;
+        transactions: unknown[];
+        subscriptions: unknown[];
+        authorizations: unknown[];
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    /**
+     * @example {
+     *       "customer": "CUS_c6wqvwmvwopw4ms",
+     *       "risk_action": "deny"
+     *     }
+     */
+    CustomerRiskAction: {
+      /** @description The customer code from the response of the customer creation */
+      customer: string;
+      /**
+       * @description This determines the fraud rules that should be applied to the customer
+       * @default default
+       * @enum {string}
+       */
+      risk_action: "allow" | "deny" | "default";
+    };
+    CustomerWhitelistBlacklistResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        transactions: unknown[];
+        subscriptions: unknown[];
+        authorizations: unknown[];
+        first_name: string | null;
+        last_name: string | null;
+        email: string;
+        phone: string | null;
+        metadata: Record<string, never> | null;
+        domain: string;
+        customer_code: string;
+        risk_action: string;
+        id: number;
+        integration: number;
+        createdAt: string;
+        updatedAt: string;
+        identified: boolean;
+        identifications: unknown;
+      };
+    };
+    /**
+     * @example {
+     *       "first_name": "Jabal",
+     *       "last_name": "Cedar",
+     *       "country": "NG",
+     *       "type": "bank_account",
+     *       "account_number": "0123456789",
+     *       "bank_code": "007",
+     *       "bvn": "20012345677"
+     *     }
+     */
+    CustomerValidate: {
+      /** @description Customer's first name */
+      first_name: string;
+      /** @description Customer's middle name */
+      middle_name?: string;
+      /** @description Customer's last name */
+      last_name: string;
+      /**
+       * @description Predefined types of identification.
+       * @default bank_account
+       */
+      type: string;
+      /** @description Customer's identification number. */
+      value?: string;
+      /** @description Two-letter country code of identification issuer */
+      country: string;
+      /** @description Customer's Bank Verification Number */
+      bvn: string;
+      /** @description You can get the list of bank codes by calling the List Banks endpoint (https://api.paystack.co/bank). */
+      bank_code: string;
+      /** @description Customer's bank account number. */
+      account_number: string;
+    };
+    CustomerValidateResponse: {
+      status: boolean;
+      message: string;
+    };
+    CustomerAuthorizationInitializeAccount: {
+      /**
+       * @description The customer's account number
+       * @example 0123456789
+       */
+      number: string;
+      /**
+       * @description The code representing the customer's bank
+       * @example 058
+       */
+      bank_code: string;
+    };
+    CustomerAuthorizationInitializeAddress: {
+      /**
+       * @description The customer's street
+       * @example 123 Main Street
+       */
+      street: string;
+      /**
+       * @description The customer's city
+       * @example Lagos
+       */
+      city: string;
+      /**
+       * @description The customer's state
+       * @example Lagos
+       */
+      state: string;
+    };
+    CustomerAuthorizationInitializeRequest: {
+      /**
+       * @description Customer's email address
+       * @example ravi@demo.com
+       */
+      email: string;
+      /**
+       * @description direct_debit is the only supported option for now
+       * @example direct_debit
+       * @enum {string}
+       */
+      channel: "direct_debit";
+      /**
+       * @description Fully qualified url (e.g. https://example.com/) to redirect your customer to
+       * @example http://test.url.com
+       */
+      callback_url?: string;
+      account?: components["schemas"]["CustomerAuthorizationInitializeAccount"];
+      address?: components["schemas"]["CustomerAuthorizationInitializeAddress"];
+    };
+    CustomerAuthorizationInitializeResponseData: {
+      /** @example https://checkout.paystack.com/82t4mp5b5mfn51h */
+      redirect_url: string;
+      /** @example 82t4mp5b5mfn51h */
+      access_code: string;
+      /** @example dfbzfotsrbv4n5s82t4mp5b5mfn51h */
+      reference: string;
+    };
+    CustomerAuthorizationInitializeResponse: {
+      /** @example true */
+      status: boolean;
+      /** @example Authorization initialized */
+      message: string;
+      data: components["schemas"]["CustomerAuthorizationInitializeResponseData"];
+    };
+    CustomerAuthorizationVerifyResponseCustomer: {
+      /** @example CUS_24lze1c8i2zl76y */
+      code: string;
+      /** @example ravi@demo.com */
+      email: string;
+    };
+    CustomerAuthorizationVerifyResponseData: {
+      /** @example AUTH_JV4T9Wawdj */
+      authorization_code: string;
+      /** @example direct_debit */
+      channel: string;
+      /** @example Guaranty Trust Bank */
+      bank: string;
+      /** @example true */
+      active: boolean;
+      customer: components["schemas"]["CustomerAuthorizationVerifyResponseCustomer"];
+    };
+    CustomerAuthorizationVerifyResponse: {
+      /** @example true */
+      status: boolean;
+      /** @example Authorization retrieved successfully */
+      message: string;
+      data: components["schemas"]["CustomerAuthorizationVerifyResponseData"];
+    };
+    /**
+     * @example {
+     *       "authorization_code": "AUTH_xxxIjkZVj5"
+     *     }
+     */
+    CustomerDeactivateAuthorization: {
+      /** @description Authorization code to be deactivated */
+      authorization_code: string;
+    };
+    CustomerDeactivateAuthorizationResponse: {
+      status: boolean;
+      message: string;
+    };
+    CustomerInitializeDirectDebitAccount: {
+      /**
+       * @description The customer's account number
+       * @example 0123456789
+       */
+      number: string;
+      /**
+       * @description The code representing the customer's bank
+       * @example 058
+       */
+      bank_code: string;
+    };
+    CustomerInitializeDirectDebitAddress: {
+      /**
+       * @description The customer's street
+       * @example Some Where
+       */
+      street: string;
+      /**
+       * @description The customer's city
+       * @example Ikeja
+       */
+      city: string;
+      /**
+       * @description The customer's state
+       * @example Lagos
+       */
+      state: string;
+    };
+    CustomerInitializeDirectDebitRequest: {
+      account: components["schemas"]["CustomerInitializeDirectDebitAccount"];
+      address: components["schemas"]["CustomerInitializeDirectDebitAddress"];
+    };
+    CustomerInitializeDirectDebitResponseData: {
+      /** @example https://link.paystack.com/ll6b0szngj1f27k */
+      redirect_url: string;
+      /** @example ll6b0szngj1f27k */
+      access_code: string;
+      /** @example 1er945lpy4txyki */
+      reference: string;
+    };
+    CustomerInitializeDirectDebitResponse: {
+      /** @example true */
+      status: boolean;
+      /** @example Authorization initialized */
+      message: string;
+      data: components["schemas"]["CustomerInitializeDirectDebitResponseData"];
+    };
+    CustomerDirectDebitActivationChargeRequest: {
+      /**
+       * @description The authorization ID gotten from the initiation response
+       * @example 1069309917
+       */
+      authorization_id: number;
+    };
+    CustomerDirectDebitActivationChargeResponse: {
+      /** @example true */
+      status: boolean;
+      /** @example Mandate is queued for retry */
+      message: string;
+    };
+    CustomerFetchMandateAuthorizationsResponseData: {
+      /** @example 164098 */
+      id: number;
+      /** @example active */
+      status: string;
+      /** @example 512003 */
+      mandate_id: number;
+      /** @example 110049014 */
+      authorization_id: number;
+      /** @example AUTH_8Lol0pNt14 */
+      authorization_code: string;
+      /** @example 463433 */
+      integration_id: number;
+      /** @example 0123456789 */
+      account_number: string;
+      /** @example 032 */
+      bank_code: string;
+      /** @example null */
+      bank_name?: string | null;
+      customer: {
+        /** @example 43975700 */
+        id?: number;
+        /** @example CUS_2eusy8uwe34s23fy */
+        customer_code?: string;
+        /** @example customer@email.com */
+        email?: string;
+        /** @example Smith */
+        first_name?: string;
+        /** @example Bel */
+        last_name?: string;
+      };
+      /**
+       * Format: date-time
+       * @example 2024-09-27T10:57:53.824Z
+       */
+      authorized_at: string;
+    };
+    CustomerFetchMandateAuthorizationsResponseMeta: {
+      /** @example 50 */
+      per_page: number;
+      /** @example null */
+      next?: string | null;
+      /** @example 1 */
+      count: number;
+      /** @example 1 */
+      total: number;
+    };
+    CustomerFetchMandateAuthorizationsResponse: {
+      /** @example true */
+      status: boolean;
+      /** @example Mandate authorizations retrieved successfully */
+      message: string;
+      data: components["schemas"]["CustomerFetchMandateAuthorizationsResponseData"][];
+      meta: components["schemas"]["CustomerFetchMandateAuthorizationsResponseMeta"];
+    };
+    DirectDebitActivationChargeRequest: {
+      /**
+       * @description Array of customer IDs to trigger activation charge for
+       * @example [
+       *       28958104,
+       *       983697220
+       *     ]
+       */
+      customer_ids: number[];
+    };
+    DirectDebitActivationChargeResponse: {
+      /** @example true */
+      status: boolean;
+      /** @example Mandate is queued for retry */
+      message: string;
+    };
+    DedicatedNubanListResponseArray: {
+      customer: {
+        id: number;
+        first_name: string;
+        last_name: string;
+        email: string;
+        customer_code: string;
+        phone: string | null;
+        risk_action: string;
+        international_format_phone: string | null;
+      };
+      bank: {
+        name: string;
+        id: number;
+        slug: string;
+      };
+      id: number;
+      account_name: string;
+      account_number: string;
+      created_at: string;
+      updated_at: string;
+      currency: string;
+      split_config:
+        | (
+            | string
+            | {
+                subaccount: string;
+              }
+          )
+        | null;
+      active: boolean;
+      assigned: boolean;
+    };
+    DedicatedNubanListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["DedicatedNubanListResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    /**
+     * @example {
+     *       "customer": "CUS_bo732eugpb2qrg6",
+     *       "preferred_bank": "titan-paystack"
+     *     }
+     */
+    DedicatedVirtualAccountCreate: {
+      /** @description The code for the previously created customer */
+      customer: string;
+      /** @description The bank slug for preferred bank. To get a list of available banks, use the List Providers endpoint */
+      preferred_bank?: string;
+      /** @description Subaccount code of the account you want to split the transaction with */
+      subaccount?: string;
+      /** @description Split code consisting of the lists of accounts you want to split the transaction with */
+      split_code?: string;
+      /** @description JSON object or stringified JSON of custom data */
+      metadata?: string | Record<string, never> | number;
+    };
+    DedicatedNubanCreateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        bank: {
+          name: string;
+          id: number;
+          slug: string;
+        };
+        account_name: string;
+        account_number: string;
+        assigned: boolean;
+        currency: string;
+        metadata: unknown;
+        active: boolean;
+        id: number;
+        created_at: string;
+        updated_at: string;
+        assignment: {
+          integration: number;
+          assignee_id: number;
+          assignee_type: string;
+          expired: boolean;
+          account_type: string;
+          assigned_at: string;
+          expired_at: unknown;
+        };
+        customer: {
+          id: number;
+          first_name: string;
+          last_name: string;
+          email: string;
+          customer_code: string;
+          phone: string | null;
+          metadata: Record<string, never> | null;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+      };
+    };
+    /**
+     * @example {
+     *       "email": "salmon.orange@email.com",
+     *       "first_name": "Salmon",
+     *       "last_name": "Orange",
+     *       "phone": "+2348100000000",
+     *       "preferred_bank": "titan-paystack",
+     *       "country": "NG"
+     *     }
+     */
+    DedicatedVirtualAccountAssign: {
+      /** @description Customer's email address */
+      email: string;
+      /** @description Customer's first name */
+      first_name: string;
+      /** @description Customer's last name */
+      last_name: string;
+      /** @description Customer's phone name */
+      phone: string;
+      /**
+       * @description The bank slug for preferred bank. To get a list of available banks,
+       *     use the List Banks endpoint, passing `pay_with_bank_transfer=true` query parameter
+       */
+      preferred_bank: string;
+      /**
+       * @description The two letter code country
+       * @enum {string}
+       */
+      country: "NG" | "GH";
+      /** @description Customer's account number */
+      account_number?: string;
+      /** @description Customer's Bank Verification Number */
+      bvn?: string;
+      /** @description Customer's bank code */
+      bank_code?: string;
+      /** @description Subaccount code of the account you want to split the transaction with */
+      subaccount?: string;
+      /** @description Split code consisting of the lists of accounts you want to split the transaction with */
+      split_code?: string;
+    };
+    DedicatedNubanFetchResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        customer: {
+          id: number;
+          first_name: string;
+          last_name: string;
+          email: string;
+          customer_code: string;
+          phone: string | null;
+          metadata: Record<string, never> | null;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+        bank: {
+          name: string;
+          id: number;
+          slug: string;
+        };
+        id: number;
+        account_name: string;
+        account_number: string;
+        created_at: string;
+        updated_at: string;
+        currency: string;
+        split_config: (string | Record<string, never>) | null;
+        active: boolean;
+        assigned: boolean;
+      };
+    };
+    DedicatedNubanDeactivateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        bank: {
+          name: string;
+          id: number;
+          slug: string;
+        };
+        account_name: string;
+        account_number: string;
+        assigned: boolean;
+        currency: string;
+        metadata: unknown;
+        active: boolean;
+        id: number;
+        created_at: string;
+        updated_at: string;
+        assignment: {
+          assignee_id: number;
+          assignee_type: string;
+          assigned_at: string;
+          integration: number;
+          account_type: string;
+        };
+      };
+    };
+    /**
+     * @example {
+     *       "account_number": "0033322211",
+     *       "split_code": "SPL_e7jnRLtzla"
+     *     }
+     */
+    DedicatedVirtualAccountSplit: {
+      /** @description Valid Dedicated virtual account */
+      account_number: string;
+      /** @description Subaccount code of the account you want to split the transaction with */
+      subaccount?: string;
+      /** @description Split code consisting of the lists of accounts you want to split the transaction with */
+      split_code?: string;
+    };
+    /**
+     * @example {
+     *       "account_number": "0033322211"
+     *     }
+     */
+    DedicatedVirtualAccountRemoveSplit: {
+      /** @description Valid Dedicated virtual account */
+      account_number: string;
+    };
+    ApplePayDomainsResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        domainNames: string[];
+      };
+    };
+    /**
+     * @example {
+     *       "domainName": "example.com"
+     *     }
+     */
+    ApplePayParam: {
+      /** @description The domain or subdomain for your application */
+      domainName: string;
+    };
+    /**
+     * @example {
+     *       "status": true,
+     *       "message": "Domain successfully registered on Apple Pay"
+     *     }
+     */
+    ApplePayCreateOkModel: {
+      /** @description An indicator */
+      status?: boolean;
+      /** @description A short description of the response */
+      message?: string;
+    };
+    CapitecPayRequeryResponse: {
+      status: boolean;
+      type: string;
+      code: string;
+      data: {
+        status: string;
+      };
+      message: string;
+    };
+    PreAuthorizationInitialize: {
+      /** @description Amount should be in the subunit of the supported currency */
+      amount: string;
+      /** @description Customer's email address */
+      email: string;
+      /**
+       * @description Only ZAR is supported for now
+       * @enum {string}
+       */
+      currency: "ZAR";
+      /** @description Unique transaction reference. Only -, ., = and alphanumeric characters allowed. */
+      reference?: string;
+      /** @description Fully qualified url, e.g. https://example.com/ . Use this to override the callback url provided on the dashboard for this transaction */
+      callback_url?: string;
+      /** @description Stringified JSON object of custom data. */
+      metadata?: string | Record<string, never>;
+      /** @description The split code of the transaction split. e.g. SPL_98WF13Eb3w */
+      split_code?: string;
+      /** @description The code for the subaccount that owns the payment. e.g. ACCT_8f4s1eq7ml6rlzj */
+      subaccount?: string;
+      /** @description An amount used to override the split configuration for a single split payment. If set, the amount specified goes to the main account regardless of the split configuration. */
+      transaction_charge?: number;
+      /**
+       * @description Specifies who will pay the Paystack transaction charges for this transaction. Either account or subaccount (defaults to account).
+       * @enum {string}
+       */
+      bearer?: "account" | "subaccount";
+      /**
+       * @description Specify the action to take on the expiry date. It’s either capture or release. Defaults to release.
+       * @enum {string}
+       */
+      expire_action?: "capture" | "release";
+      /** @description The number of days until the expire_action is executed. The minimum is 1 day and maximum 30 days. Defaults to 5 days. */
+      expire_after_days?: number;
+    };
+    PreAuthorizationInitializeResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        authorization_url: string;
+        access_code: string;
+        reference: string;
+      };
+    };
+    PreAuthorizationCapture: {
+      /** @description Unique transaction reference. Only -, ., = and alphanumeric characters allowed. */
+      reference: string;
+      /**
+       * @description Only ZAR is supported for now
+       * @enum {string}
+       */
+      currency: "ZAR";
+      /** @description Amount should be in the subunit of the supported currency */
+      amount: string;
+    };
+    FormulaSubaccountsArray: {
+      original_share: number;
+      fees: number;
+      share: number;
+      subaccount_code: string;
+      id: number;
+      name: string;
+      integration: string;
+    };
+    ShareSubaccountsArray: {
+      amount: number;
+      original_share: number;
+      fees: number;
+      subaccount_code: string;
+      id: number;
+      integration: string;
+    };
+    PreAuthorizationCaptureResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        amount: number;
+        status: string;
+        gateway_response: string;
+        transaction: {
+          currency: string;
+          transaction_date: string;
+          status: string;
+          reference: string;
+          domain: string;
+          metadata:
+            | (
+                | string
+                | {
+                    [key: string]: unknown;
+                  }
+              )
+            | null;
+          gateway_response: string;
+          message: string | null;
+          channel: string;
+          fees: number;
+          authorization: {
+            authorization_code: string;
+            bin: string;
+            last4: string;
+            exp_month: string;
+            exp_year: string;
+            channel: string;
+            card_type: string;
+            bank: string;
+            country_code: string;
+            brand: string;
+            reusable: boolean;
+            signature: string;
+            account_name: string | null;
+          };
+          customer: {
+            id: number;
+            first_name: string;
+            last_name: string;
+            email: string;
+            customer_code: string;
+            phone: string;
+            metadata: Record<string, never> | null;
+            risk_action: string;
+            international_format_phone?: string | null;
+          };
+          id: number;
+          split?: {
+            id: number;
+            name: string;
+            split_code: string;
+            formula: {
+              type: string;
+              bearer_type: string;
+              bearer_subaccount: number;
+              subaccounts: components["schemas"]["FormulaSubaccountsArray"][];
+              integration: number;
             };
+            shares: {
+              paystack: number;
+              subaccounts: components["schemas"]["ShareSubaccountsArray"][];
+              integration: number;
+              original_share: number;
+              fees: number;
+            };
+          };
         };
-        /** @description Extra diagnostic information to help resolve an error */
-        ErrorMeta: {
-            /** @description A suggested next action to take to resolve the error */
-            nextStep?: string;
+        amount_released?: number;
+        split_code: string | null;
+        split: {
+          type: string;
+          bearer_type: string;
+          subaccounts: components["schemas"]["SplitSubaccountsArray"][];
+        } | null;
+      };
+    };
+    PreAuthorizationReserve: {
+      /** @description Customer's email address */
+      email: string;
+      /** @description Amount should be in the subunit of the supported currency */
+      amount: string;
+      /** @description This is the code that is used to charge and identify a customer's previously used card */
+      authorization_code: string;
+      /**
+       * @description Only ZAR is supported for now
+       * @enum {string}
+       */
+      currency: "ZAR";
+      /** @description Unique transaction reference. Only -, ., = and alphanumeric characters allowed. */
+      reference?: string;
+    };
+    PreAuthorizationReserveWithAuthCodeResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        domain: string;
+        status: string;
+        reference: string;
+        amount: number;
+        message: string;
+        created_at: string;
+        released_at: string | null;
+        authorized_at: string | null;
+        expiry_date: string | null;
+        currency: string;
+        metadata: Record<string, never> | null;
+        fees: number;
+        authorization: {
+          authorization_code: string;
+          bin: string;
+          last4: string;
+          exp_month: string;
+          exp_year: string;
+          channel: string;
+          card_type: string;
+          bank: string;
+          country_code: string;
+          brand: string;
+          reusable: boolean;
+          signature: string;
+          account_name: string | null;
         };
+        customer: {
+          id: number;
+          first_name: string | null;
+          last_name: string | null;
+          email: string;
+          customer_code: string;
+          phone: string | null;
+          metadata: Record<string, never> | null;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+        merchant_id: number;
+        merchant_name: string;
+        expire_action: string;
+        split_code: string | null;
+        split: Record<string, never> | null;
+      };
+    };
+    PreAuthorizationVerifyResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        domain: string;
+        status: string;
+        reference: string;
+        amount: number;
+        message: string;
+        currency: string;
+        redirecturl?: string;
+      };
+    };
+    PreAuthorizationRelease: {
+      /** @description Unique transaction reference. Only -, ., = and alphanumeric characters allowed. */
+      reference: string;
+    };
+    PreAuthorizationReleaseResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        status: string;
+        reference: string;
+      };
+    };
+    PreAuthorizationListResponseArray: {
+      domain: string;
+      status: string;
+      reference: string;
+      amount: number;
+      created_at: string;
+      transaction_id: string | null;
+      captured_at: string | null;
+      released_at: string | null;
+      currency: string;
+      fees: number;
+      customer: {
+        id: number;
+        first_name: string | null;
+        last_name: string | null;
+        email: string;
+        customer_code: string;
+        phone: string | null;
+        metadata: Record<string, never> | null;
+        risk_action: string;
+        international_format_phone?: string | null;
+      };
+      id: number;
+    };
+    PreAuthorizationListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["PreAuthorizationListResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    PlanListResponseArray: {
+      subscriptions: unknown[];
+      integration: number;
+      domain: string;
+      name: string;
+      plan_code: string;
+      description: unknown;
+      amount: number;
+      interval: string;
+      invoice_limit: number;
+      send_invoices: boolean;
+      send_sms: boolean;
+      hosted_page: boolean;
+      hosted_page_url: unknown;
+      hosted_page_summary: unknown;
+      currency: string;
+      id: number;
+      createdAt: string;
+      updatedAt: string;
+    };
+    PlanListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["PlanListResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    /**
+     * @example {
+     *       "name": "Basic",
+     *       "amount": 150000,
+     *       "interval": "monthly"
+     *     }
+     */
+    PlanCreate: {
+      /** @description Name of plan */
+      name: string;
+      /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100). */
+      amount: number;
+      /**
+       * @description Payment interval
+       * @enum {string}
+       */
+      interval: "daily" | "weekly" | "monthly" | "biannually" | "annually";
+      /** @description A description for this plan */
+      description?: string;
+      /** @description Set to false if you don't want invoices to be sent to your customers */
+      send_invoices?: boolean;
+      /** @description Set to false if you don't want text messages to be sent to your customers */
+      send_sms?: boolean;
+      /** @description Currency in which amount is set. Allowed values are NGN, GHS, ZAR, USD or XOF */
+      currency?: string;
+      /**
+       * @description Number of invoices to raise during subscription to this plan.
+       *     Can be overridden by specifying an invoice_limit while subscribing.
+       */
+      invoice_limit?: number;
+      /** @description Stringified JSON object or JSON object of custom data */
+      metadata?: string | Record<string, never> | number;
+    };
+    PlanCreateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        currency: string;
+        name: string;
+        amount: number;
+        interval: string;
+        integration: number;
+        domain: string;
+        plan_code: string;
+        send_invoices: boolean;
+        send_sms: boolean;
+        hosted_page: boolean;
+        id: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    PlanFetchResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        subscriptions: unknown[];
+        integration: number;
+        domain: string;
+        name: string;
+        plan_code: string;
+        description: unknown;
+        amount: number;
+        interval: string;
+        invoice_limit?: number | null;
+        send_invoices: boolean;
+        send_sms: boolean;
+        hosted_page: boolean;
+        hosted_page_url: unknown;
+        hosted_page_summary: unknown;
+        currency: string;
+        id: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    /**
+     * @example {
+     *       "name": "Starter"
+     *     }
+     */
+    PlanUpdate: {
+      /** @description Name of plan */
+      name?: string;
+      /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, send the amount multiplied by 100 even though the currency does not use fractional subunits. */
+      amount?: number;
+      /**
+       * @description Payment interval
+       * @enum {string}
+       */
+      interval?: "daily" | "weekly" | "monthly" | "biannually" | "annually";
+      /** @description A description for this plan */
+      description?: string;
+      /** @description Stringified JSON object or JSON object of custom data */
+      metadata?: string | Record<string, never> | number;
+      /** @description Set to false if you don't want invoices to be sent to your customers */
+      send_invoices?: boolean;
+      /** @description Set to false if you don't want text messages to be sent to your customers */
+      send_sms?: boolean;
+      /** @description Currency in which amount is set. Allowed values are NGN, GHS, ZAR, USD or XOF */
+      currency?: string;
+      /**
+       * @description Number of invoices to raise during subscription to this plan.
+       *     Can be overridden by specifying an invoice_limit while subscribing.
+       */
+      invoice_limit?: number;
+    };
+    PlanUpdateResponse: {
+      status: boolean;
+      message: string;
+    };
+    SubscriptionListResponseArray: {
+      id: number;
+      domain: string;
+      status: string;
+      start: number;
+      quantity: number;
+      subscription_code: string;
+      email_token: string;
+      amount: number;
+      cron_expression: string | null;
+      next_payment_date: string | null;
+      open_invoice: unknown;
+      createdAt: string;
+      integration: number;
+      plan: {
+        id: number;
+        domain: string;
+        name: string;
+        plan_code: string;
+        description: unknown;
+        amount: number;
+        interval: string;
+        send_invoices: boolean;
+        send_sms: boolean;
+        currency: string;
+        integration: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+      authorization: {
+        authorization_code: string;
+        bin: string | null;
+        last4: string;
+        exp_month: string;
+        exp_year: string;
+        channel: string;
+        card_type: string | null;
+        bank: string;
+        country_code: string;
+        brand: string;
+        reusable: number;
+        signature: string | null;
+        account_name: unknown;
+      };
+      customer: {
+        first_name: string;
+        last_name: string;
+        email: string;
+        phone: string;
+        metadata: unknown;
+        domain: string;
+        customer_code: string;
+        risk_action: string;
+        id: number;
+        integration: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    SubscriptionListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["SubscriptionListResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    /**
+     * @example {
+     *       "customer": "CUS_xnxdt6s1zg1f4nx",
+     *       "plan": "PLN_gx2wn530m0i3w3m"
+     *     }
+     */
+    SubscriptionCreate: {
+      /** @description Customer's email address or customer code */
+      customer: string;
+      /** @description Plan code */
+      plan: string;
+      /**
+       * @description If customer has multiple authorizations, you can set the desired authorization you wish to use for this subscription here.
+       *     If this is not supplied, the customer's most recent authorization would be used
+       */
+      authorization?: string;
+      /**
+       * Format: date-time
+       * @description Set the date for the first debit. (ISO 8601 format) e.g. 2017-05-16T00:30:13+01:00
+       */
+      start_date?: string;
+    };
+    SubscriptionCreateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        customer: number;
+        plan: number;
+        integration: number;
+        domain: string;
+        start: number;
+        status: string;
+        quantity: number;
+        amount: number;
+        authorization: {
+          authorization_code?: string;
+          bin?: string;
+          last4?: string;
+          exp_month?: string;
+          exp_year?: string;
+          channel?: string;
+          card_type?: string;
+          bank?: string;
+          country_code?: string;
+          brand?: string;
+          reusable?: boolean;
+          signature?: string;
+          account_name?: unknown;
+        };
+        subscription_code: string;
+        email_token: string;
+        id: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    SubscriptionFetchResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        domain: string;
+        status: string;
+        subscription_code: string;
+        email_token: string;
+        amount: number;
+        cron_expression: string;
+        next_payment_date: string;
+        open_invoice: unknown;
+        createdAt: string;
+        integration: number;
+        plan: {
+          domain: string;
+          id: number;
+          integration: number;
+          name: string;
+          plan_code: string;
+          description: unknown;
+          amount: number;
+          interval: string;
+          send_invoices: boolean;
+          send_sms: boolean;
+          hosted_page: boolean;
+          hosted_page_url: unknown;
+          hosted_page_summary: unknown;
+          currency: string;
+          createdAt: string;
+          updatedAt: string;
+        };
+        authorization: {
+          authorization_code: string;
+          bin: string;
+          last4: string;
+          exp_month: string;
+          exp_year: string;
+          channel: string;
+          card_type: string;
+          bank: string;
+          country_code: string;
+          brand: string;
+          reusable: boolean;
+          signature: string;
+          account_name: unknown;
+        };
+        customer: {
+          domain: string;
+          id: number;
+          integration: number;
+          first_name: string;
+          last_name: string;
+          email: string;
+          customer_code: string;
+          phone: string | null;
+          metadata: Record<string, never>;
+          createdAt: string;
+          updatedAt: string;
+          risk_action?: string;
+          international_format_phone?: string | null;
+        };
+        start: number;
+        quantity: number;
+        invoices: unknown[];
+      };
+    };
+    /**
+     * @example {
+     *       "code": "SUB_vsyqdmlzble3uii",
+     *       "token": "d7gofp6yppn3qz7"
+     *     }
+     */
+    SubscriptionToggle: {
+      /** @description Subscription code */
+      code: string;
+      /** @description Email token */
+      token: string;
+    };
+    SubscriptionDisableResponse: {
+      status: boolean;
+      message: string;
+    };
+    TransferRecipientListResponseArray: {
+      active: boolean;
+      createdAt: string;
+      currency: string;
+      description?: string | null;
+      domain: string;
+      email?: string | null;
+      id: number;
+      integration?: number;
+      metadata?: Record<string, never> | null;
+      name: string;
+      recipient_code: string;
+      type: string;
+      updatedAt: string;
+      is_deleted?: boolean;
+      isDeleted?: boolean;
+      details: {
+        authorization_code: string | null;
+        account_number: string | null;
+        account_name: string | null;
+        bank_code: string;
+        bank_name: string;
+      };
+    };
+    TransferRecipientListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["TransferRecipientListResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    /**
+     * @example {
+     *       "type": "nuban",
+     *       "name": "Smith Taplo",
+     *       "account_number": "01000000010",
+     *       "bank_code": "058"
+     *     }
+     */
+    TransferRecipientCreate: {
+      /**
+       * @description Recipient Type
+       * @enum {string}
+       */
+      type: "nuban" | "ghipss" | "mobile_money" | "basa" | "authorization";
+      /** @description The recipient's name according to their account registration. */
+      name: string;
+      /** @description Recipient's bank account number */
+      account_number: string;
+      /** @description Recipient's bank code. You can get the list of Bank Codes by calling the List Banks endpoint */
+      bank_code: string;
+      /** @description A description for this recipient */
+      description?: string;
+      /** @description Currency for the account receiving the transfer */
+      currency?: string;
+      /** @description An authorization code from a previous transaction */
+      authorization_code?: string;
+      /** @description JSON object or stringified JSON of custom data */
+      metadata?: string | Record<string, never> | number;
+    };
+    TransferRecipientCreateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        active: boolean;
+        createdAt: string;
+        currency: string;
+        description?: string | null;
+        domain: string;
+        email?: string | null;
+        id: number;
+        integration?: number;
+        metadata?: Record<string, never> | null;
+        name: string;
+        recipient_code: string;
+        type: string;
+        updatedAt: string;
+        is_deleted?: boolean;
+        isDeleted?: boolean;
+        details: {
+          authorization_code: string | null;
+          account_number: string | null;
+          account_name: string | null;
+          bank_code: string;
+          bank_name: string;
+        };
+      };
+    };
+    TransferRecipientBulk: {
+      /** @description A list of transfer recipient object. */
+      batch: components["schemas"]["TransferRecipientCreate"][];
+    };
+    ErrorRecordsArray: {
+      type: string;
+      name: string;
+      description: string;
+      account_number: string;
+      bank_code: string;
+      currency: string;
+      email: string;
+    };
+    TransferRecipientErrorsArray: {
+      message: string;
+      records: components["schemas"]["ErrorRecordsArray"][];
+    };
+    TransferRecipientBulkCreateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        success: unknown[];
+        errors: components["schemas"]["TransferRecipientErrorsArray"][];
+      };
+    };
+    TransferRecipientFetchResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        integration?: number;
+        domain: string;
+        type: string;
+        currency: string;
+        name: string;
+        details: {
+          account_number: string | null;
+          account_name: string | null;
+          bank_code: string;
+          bank_name: string;
+        };
+        description?: string | null;
+        metadata?: Record<string, never> | null;
+        recipient_code: string;
+        active: boolean;
+        recipient_account?: string | null;
+        institution_code?: string | null;
+        email?: string | null;
+        id: number;
+        isDeleted?: boolean;
+        is_deleted?: boolean;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    TransferRecipientUpdate: {
+      /** @description Recipient's name */
+      name?: string;
+      /** @description Recipient's email address */
+      email?: string;
+      /** @description JSON object or stringified JSON of custom data */
+      metadata?: string | Record<string, never> | number;
+    };
+    TransferRecipientUpdateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        type: string;
+        name: string;
+        metadata: Record<string, never> | null;
+        domain: string;
+        details: {
+          account_number: string;
+          account_name: string | null;
+          bank_code: string;
+          bank_name: string;
+        };
+        currency: string;
+        recipient_code: string;
+        active: boolean;
+        id: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    TransferRecipientDeleteResponse: {
+      status: boolean;
+      message: string;
+    };
+    TransferListResponseArray: {
+      amount: number;
+      createdAt: string;
+      currency: string;
+      domain: string;
+      failures: unknown;
+      id: number;
+      integration: number;
+      reason: string;
+      reference: string;
+      source: string;
+      source_details: Record<string, never> | null;
+      status: string;
+      titan_code: string | null;
+      transfer_code: string;
+      updatedAt: string;
+      recipient: {
+        active: boolean;
+        createdAt: string;
+        currency: string;
+        description?: string | null;
+        domain: string;
+        email?: string | null;
+        id: number;
+        integration: number;
+        metadata?: Record<string, never> | null;
+        name: string;
+        recipient_code: string;
+        type: string;
+        updatedAt: string;
+        is_deleted?: boolean;
+        isDeleted?: boolean;
+        details: {
+          authorization_code: unknown;
+          account_number: string;
+          account_name: string | null;
+          bank_code: string;
+          bank_name: string;
+        };
+      };
+    };
+    TransferListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["TransferListResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    /**
+     * @example {
+     *       "amount": 120000,
+     *       "recipient": "RCP_gd9vgag7n5lr5ix",
+     *       "reference": "acv_9ee55786-2323-4760-98e2-6380c9cb3f68"
+     *     }
+     */
+    TransferBase: {
+      /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100). */
+      amount: number;
+      /** @description The transfer recipient's code */
+      recipient: string;
+      /** @description To ensure idempotency, you need to provide e a unique identifier for the request.  The identifier should be a lowercase alphanumeric string with only -,_  symbols allowed. */
+      reference: string;
+      /** @description The reason or narration for the transfer. */
+      reason?: string;
+      /** @description JSON object or stringified JSON of custom data */
+      metadata?: string | Record<string, never> | number;
+    };
+    /** @description Transfer initiation model */
+    TransferInitiate: components["schemas"]["TransferBase"] & {
+      /**
+       * @description The source of funds to send from
+       * @default balance
+       */
+      source: string;
+      /**
+       * @description Specify the currency of the transfer.
+       * @default NGN
+       * @enum {string}
+       */
+      currency: "NGN" | "ZAR" | "KES" | "GHS";
+    };
+    TransferCreateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        transfersessionid: unknown[];
+        transfertrials: unknown[];
+        domain: string;
+        amount: number;
+        currency: string;
+        reference: string;
+        source: string;
+        source_details: unknown;
+        reason: string;
+        status: string;
+        failures: unknown;
+        transfer_code: string;
+        titan_code: unknown;
+        transferred_at: unknown;
+        id: number;
+        integration: number;
+        request: number;
+        recipient: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    /**
+     * @example {
+     *       "transfer_code": "TRF_vsyqdmlzble3uii",
+     *       "otp": "928783"
+     *     }
+     */
+    TransferFinalize: {
+      /** @description The transfer code you want to finalize */
+      transfer_code: string;
+      /** @description OTP sent to business phone to verify transfer */
+      otp: string;
+    };
+    /**
+     * @example {
+     *       "source": "balance",
+     *       "transfers": [
+     *         {
+     *           "amount": 120000,
+     *           "recipient": "RCP_gd9vgag7n5lr5ix",
+     *           "reference": "acv_9ee55786-2323-4760-98e2-6380c9cb3f68"
+     *         }
+     *       ]
+     *     }
+     */
+    TransferBulk: {
+      /**
+       * @description The source of funds for the transfer.
+       * @default balance
+       */
+      source: string;
+      /**
+       * @description Specify the currency of the transfer.
+       * @default NGN
+       * @enum {string}
+       */
+      currency: "NGN" | "ZAR" | "KES" | "GHS" | "XOF";
+      /** @description A list of transfer object */
+      transfers: components["schemas"]["TransferBase"][];
+    };
+    TransferBulkResponseArray: {
+      reference: string;
+      recipient: string;
+      amount: number;
+      transfer_code: string;
+      currency: string;
+      status: string;
+    };
+    TransferBulkResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["TransferBulkResponseArray"][];
+    };
+    TransferFeesBreakdownArray: {
+      amount: string;
+      formula: unknown;
+      type: string;
+    };
+    TransferFetchResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        amount: number;
+        createdAt: string;
+        currency: string;
+        domain: string;
+        failures: Record<string, never> | null;
+        id: number;
+        integration: number;
+        reason: string;
+        reference: string;
+        source: string;
+        source_details: Record<string, never> | null;
+        status: string;
+        titan_code: string | null;
+        transfer_code: string;
+        request: number;
+        transferred_at: string | null;
+        updatedAt: string;
+        recipient: {
+          active: boolean;
+          createdAt: string;
+          currency: string;
+          description?: string | null;
+          domain: string;
+          email?: string | null;
+          id: number;
+          integration: number;
+          metadata?: Record<string, never> | null;
+          name: string;
+          recipient_code: string;
+          type: string;
+          updatedAt: string;
+          is_deleted?: boolean;
+          isDeleted?: boolean;
+          details: {
+            authorization_code: unknown;
+            account_number: string;
+            account_name: string | null;
+            bank_code: string;
+            bank_name: string;
+          };
+        };
+        session: {
+          provider: string | null;
+          id: string | null;
+        };
+        fee_charged: number;
+        fees_breakdown: components["schemas"]["TransferFeesBreakdownArray"][] | null;
+        gateway_response: string | null;
+      };
+    };
+    TransferVerifyResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        amount: number;
+        createdAt: string;
+        currency: string;
+        domain: string;
+        failures: Record<string, never> | null;
+        id: number;
+        integration: number;
+        reason: string;
+        reference: string;
+        source: string;
+        source_details: Record<string, never> | null;
+        status: string;
+        titan_code: string | null;
+        transfer_code: string;
+        transferred_at: string | null;
+        updatedAt: string;
+        recipient: {
+          active: boolean;
+          createdAt: string;
+          currency: string;
+          description?: string | null;
+          domain: string;
+          email?: string | null;
+          id: number;
+          integration: number;
+          metadata?: Record<string, never> | null;
+          name: string;
+          recipient_code: string;
+          type: string;
+          updatedAt: string;
+          is_deleted?: boolean;
+          isDeleted?: boolean;
+          details: {
+            authorization_code: unknown;
+            account_number: string;
+            account_name: string;
+            bank_code: string;
+            bank_name: string;
+          };
+        };
+        session: {
+          provider: string | null;
+          id: string | null;
+        };
+        gateway_response: string | null;
+      };
+    };
+    /**
+     * @example {
+     *       "transfer_code": "TRF_vsyqdmlzble3uii",
+     *       "reason": "resend_otp"
+     *     }
+     */
+    TransferResendOTP: {
+      /** @description The transfer code that requires an OTP validation */
+      transfer_code: string;
+      /**
+       * @description Specify the flag to indicate the purpose of the OTP
+       * @default transfer
+       * @enum {string}
+       */
+      reason: "disable_otp" | "resend_otp" | "transfer";
+    };
+    TransferResendsOtpResponse: {
+      status: boolean;
+      message: string;
+    };
+    TransferDisablesOtpResponse: {
+      status: boolean;
+      message: string;
+    };
+    /**
+     * @example {
+     *       "otp": "928783"
+     *     }
+     */
+    TransferFinalizeDisableOTP: {
+      /** @description OTP sent to business phone to verify disabling OTP requirement */
+      otp: string;
+    };
+    TransferFinalizeDisablesOtpResponse: {
+      status: boolean;
+      message: string;
+    };
+    TransferEnablesOtpResponse: {
+      status: boolean;
+      message: string;
+    };
+    BalanceCheckResponseArray: {
+      currency: string;
+      balance: number;
+    };
+    BalanceCheckResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["BalanceCheckResponseArray"][];
+    };
+    BalanceFetchLedgerResponseArray: {
+      integration: number;
+      domain: string;
+      balance: number;
+      currency: string;
+      difference: number;
+      reason: string;
+      model_responsible: string;
+      model_row: number;
+      id: number;
+      createdAt: string;
+      updatedAt: string;
+    };
+    BalanceFetchLedgerResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["BalanceFetchLedgerResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    PaymentRequestLineItemsArray: {
+      name: string;
+      amount: number;
+      quantity: number;
+    };
+    PaymentRequestTaxArray: {
+      name: string;
+      amount: number;
+    };
+    PaymentRequestListResponseArray: {
+      id: number;
+      integration: number;
+      domain: string;
+      amount: number;
+      currency: string;
+      due_date: string | null;
+      has_invoice: boolean;
+      invoice_number: number | null;
+      description: string | null;
+      pdf_url: string | null;
+      line_items: components["schemas"]["PaymentRequestLineItemsArray"][];
+      tax: components["schemas"]["PaymentRequestTaxArray"][];
+      request_code: string;
+      status: string;
+      paid: boolean;
+      paid_at: string | null;
+      metadata: Record<string, never> | null;
+      notifications: unknown[];
+      offline_reference: string;
+      customer: {
+        id: number;
+        first_name: string;
+        last_name: string;
+        email: string;
+        customer_code: string;
+        phone: string | null;
+        metadata: Record<string, never> | null;
+        risk_action: string;
+        international_format_phone?: string | null;
+      };
+      created_at: string;
+      discount: Record<string, never> | null;
+      split_code: string | null;
+    };
+    PaymentRequestListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["PaymentRequestListResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    /**
+     * @example {
+     *       "customer": "CUS_xqp6o5oja5cackf",
+     *       "amount": 10000
+     *     }
+     */
+    PaymentRequestCreate: {
+      /** @description Customer id or code */
+      customer: string;
+      /**
+       * @description Payment request amount. Only useful if line items and tax values are ignored.
+       *     The endpoint will throw a friendly warning if neither is available.
+       */
+      amount: number;
+      /** @description Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN */
+      currency?: string;
+      /**
+       * Format: date-time
+       * @description ISO 8601 representation of request due date
+       */
+      due_date?: string;
+      /** @description A short description of the payment request */
+      description?: string;
+      /** @description Array of line items */
+      line_items?: Record<string, never>[];
+      /** @description Array of taxes */
+      tax?: Record<string, never>[];
+      /** @description Indicates whether Paystack sends an email notification to customer. Defaults to true */
+      send_notification?: boolean;
+      /** @description Indicate if request should be saved as draft. Defaults to false and overrides send_notification */
+      draft?: boolean;
+      /** @description Set to true to create a draft invoice (adds an auto incrementing invoice number if none is provided) even if there are no line_items or tax passed */
+      has_invoice?: boolean;
+      /** @description Numeric value of invoice. Invoice will start from 1 and auto increment from there.  This field is to help override whatever value Paystack decides. Auto increment for  subsequent invoices continue from this point. */
+      invoice_number?: number;
+      /** @description The split code of the transaction split. */
+      split_code?: string;
+    };
+    PaymentRequestCreateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        integration: number;
+        domain: string;
+        amount: number;
+        currency: string;
+        due_date: string | null;
+        has_invoice: boolean;
+        invoice_number: number | null;
+        description: string | null;
+        line_items: unknown[];
+        tax: unknown[];
+        request_code: string;
+        status: string;
+        paid: boolean;
+        metadata: Record<string, never> | null;
+        notifications: unknown[];
+        offline_reference: string;
+        customer: number;
+        created_at: string;
+        discount: unknown;
+        split_code: string | null;
+      };
+    };
+    PaymentRequestNotificationsArray: {
+      sent_at: string;
+      channel: string;
+    };
+    PaymentRequestViewResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        domain: string;
+        request_code: string;
+        description: string | null;
+        line_items: components["schemas"]["PaymentRequestLineItemsArray"][];
+        tax: components["schemas"]["PaymentRequestTaxArray"][];
+        amount: number;
+        discount: number | null;
+        currency: string;
+        due_date: string | null;
+        status: string;
+        paid: boolean;
+        paid_at: string | null;
+        metadata: Record<string, never> | null;
+        has_invoice: boolean;
+        invoice_number: number | null;
+        offline_reference: string;
+        pdf_url: string | null;
+        notifications: components["schemas"]["PaymentRequestNotificationsArray"][];
+        archived: boolean;
+        source: string;
+        payment_method: string | null;
+        note: string | null;
+        amount_paid: number | null;
+        split_code: string | null;
+        id: number;
+        integration: number;
+        customer: {
+          first_name: string;
+          last_name: string;
+          email: string;
+          phone: string | null;
+          metadata: Record<string, never> | null;
+          customer_code: string;
+          risk_action: string;
+          id: number;
+          international_format_phone?: string | null;
+        };
+        createdAt: string;
+        updatedAt: string;
+        pending_amount: number;
+      };
+    };
+    /**
+     * @example {
+     *       "amount": 15000
+     *     }
+     */
+    PaymentRequestUpdate: {
+      /** @description Customer id or code */
+      customer?: string;
+      /**
+       * @description Payment request amount. Only useful if line items and tax values are ignored.
+       *     The endpoint will throw a friendly warning if neither is available.
+       */
+      amount?: number;
+      /** @description Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN */
+      currency?: string;
+      /**
+       * Format: date-time
+       * @description ISO 8601 representation of request due date
+       */
+      due_date?: string;
+      /** @description A short description of the payment request */
+      description?: string;
+      /** @description Array of line items */
+      line_items?: Record<string, never>[];
+      /** @description Array of taxes */
+      tax?: Record<string, never>[];
+      /** @description Indicates whether Paystack sends an email notification to customer. Defaults to true */
+      send_notification?: boolean;
+      /** @description Indicate if request should be saved as draft. Defaults to false and overrides send_notification */
+      draft?: boolean;
+      /** @description Set to true to create a draft invoice (adds an auto incrementing invoice number if none is provided) even if there are no line_items or tax passed */
+      has_invoice?: boolean;
+      /** @description Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field is to help override whatever value Paystack decides.  Auto increment for subsequent invoices continue from this point. */
+      invoice_number?: number;
+      /** @description The split code of the transaction split. */
+      split_code?: string;
+    };
+    PaymentRequestUpdateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        domain: string;
+        amount: number;
+        currency: string;
+        due_date: string | null;
+        has_invoice: boolean;
+        invoice_number: number | null;
+        description: string | null;
+        pdf_url: string | null;
+        line_items: unknown[];
+        tax: unknown[];
+        request_code: string;
+        status: string;
+        paid: boolean;
+        paid_at: string | null;
+        metadata: Record<string, never> | null;
+        notifications: components["schemas"]["PaymentRequestNotificationsArray"][];
+        offline_reference: string;
+        customer: {
+          id: number;
+          first_name: string;
+          last_name: string;
+          email: string;
+          customer_code: string;
+          phone: string | null;
+          metadata: Record<string, never> | null;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+        created_at: string;
+        discount?: Record<string, never> | null;
+        split_code?: string | null;
+      };
+    };
+    PaymentRequestVerifyResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        integration: {
+          key: string;
+          name: string;
+          logo: string;
+          allowed_currencies: string[];
+        };
+        domain: string;
+        amount: number;
+        currency: string;
+        due_date: string | null;
+        has_invoice: boolean;
+        invoice_number: number | null;
+        description: string | null;
+        pdf_url: string | null;
+        line_items: unknown[];
+        tax: unknown[];
+        request_code: string;
+        status: string;
+        paid: boolean;
+        paid_at: string | null;
+        metadata: Record<string, never> | null;
+        notifications: components["schemas"]["PaymentRequestNotificationsArray"][];
+        offline_reference: string;
+        customer: {
+          id: number;
+          first_name: string;
+          last_name: string;
+          email: string;
+          customer_code: string;
+          phone: string | null;
+          metadata: Record<string, never> | null;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+        created_at: string;
+        discount?: Record<string, never> | null;
+        split_code?: string | null;
+        pending_amount: number;
+      };
+    };
+    PaymentRequestSendNotificationResponse: {
+      status: boolean;
+      message: string;
+    };
+    PaymentRequestPendingArray: {
+      currency: string;
+      amount: number;
+    };
+    PaymentRequestSuccessfulArray: {
+      currency: string;
+      amount: number;
+    };
+    PaymentRequestTotalArray: {
+      currency: string;
+      amount: number;
+    };
+    PaymentRequestTotalResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        pending: components["schemas"]["PaymentRequestPendingArray"][];
+        successful: components["schemas"]["PaymentRequestSuccessfulArray"][];
+        total: components["schemas"]["PaymentRequestTotalArray"][];
+      };
+    };
+    PaymentRequestFinalizeResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        domain: string;
+        amount: number;
+        currency: string;
+        due_date: string | null;
+        has_invoice: boolean;
+        invoice_number: number | null;
+        description: string | null;
+        pdf_url: string | null;
+        line_items: components["schemas"]["PaymentRequestLineItemsArray"][];
+        tax: components["schemas"]["PaymentRequestTaxArray"][];
+        request_code: string;
+        status: string;
+        paid: boolean;
+        paid_at: string | null;
+        metadata: Record<string, never> | null;
+        notifications: unknown[];
+        offline_reference: string;
+        customer: {
+          id: number;
+          first_name: string;
+          last_name: string;
+          email: string;
+          customer_code: string;
+          phone: string | null;
+          metadata: Record<string, never> | null;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+        created_at: string;
+        discount?: {
+          type: string;
+          amount: number;
+        } | null;
+        split_code?: string | null;
+        pending_amount: number;
+      };
+    };
+    PaymentRequestArchiveResponse: {
+      status: boolean;
+      message: string;
+    };
+    ProductListsResponseArray: {
+      id: number;
+      name: string;
+      description: string;
+      product_code: string;
+      slug: string;
+      currency: string;
+      price: number;
+      quantity: number;
+      quantity_sold: number;
+      active: boolean;
+      domain: string;
+      type: string;
+      in_stock: boolean;
+      unlimited: boolean;
+      metadata: {
+        background_color: string;
+      };
+      files: unknown[];
+      success_message: string | null;
+      redirect_url: string | null;
+      split_code: string | null;
+      notification_emails: string[] | null;
+      minimum_orderable: number;
+      maximum_orderable: number | null;
+      createdAt: string;
+      updatedAt: string;
+      digital_assets: unknown[];
+      variant_options: unknown[];
+      is_shippable: boolean;
+      shipping_fields: {
+        delivery_note: string;
+        shipping_address?: string;
+        shipping_fees?: unknown[];
+      };
+      integration: number;
+      low_stock_alert: number;
+    };
+    ProductListsResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["ProductListsResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    /**
+     * @example {
+     *       "name": "Cups",
+     *       "description": "Environment friendly paper cups",
+     *       "price": 10000,
+     *       "currency": "NGN"
+     *     }
+     */
+    ProductCreate: {
+      /** @description Name of product */
+      name: string;
+      /** @description The description of the product */
+      description: string;
+      /** @description Price should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the price is the same as the base units (not multiplied by 100). */
+      price: number;
+      /** @description Currency in which price is set. Allowed values are: NGN, GHS, ZAR, USD or XOF */
+      currency: string;
+      /**
+       * @description Set to true if the product has unlimited stock. Leave as false if the
+       *     product has limited stock
+       */
+      unlimited?: boolean;
+      /** @description Number of products in stock. Use if limited is true */
+      quantity?: number;
+      /** @description The split code if sharing the transaction with partners */
+      split_code?: string;
+      /** @description Stringified JSON object of custom data */
+      metadata?: string;
+    };
+    ProductCreateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        name: string;
+        description: string;
+        currency: string;
+        price: number;
+        quantity: number;
+        is_shippable: boolean;
+        unlimited: boolean;
+        integration: number;
+        domain: string;
+        metadata: {
+          background_color: string;
+        };
+        slug: string;
+        product_code: string;
+        quantity_sold: number;
+        type: string;
+        shipping_fields: {
+          delivery_note: string;
+        };
+        active: boolean;
+        in_stock: boolean;
+        minimum_orderable: number;
+        maximum_orderable: unknown;
+        low_stock_alert: boolean;
+        id: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    ProductFetchResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        digital_assets: unknown[];
+        integration: number;
+        name: string;
+        description: string;
+        product_code: string;
+        price: number;
+        currency: string;
+        quantity: number;
+        quantity_sold: unknown;
+        type: string;
+        files: unknown[] | null;
+        file_path: string | null;
+        is_shippable: boolean;
+        shipping_fields: {
+          delivery_note: string;
+          shipping_address?: string;
+          shipping_fees?: unknown[];
+        };
+        unlimited: boolean;
+        domain: string;
+        active: boolean;
+        features: Record<string, never> | null;
+        in_stock: boolean;
+        metadata: {
+          background_color: string;
+        };
+        slug: string;
+        success_message: string | null;
+        redirect_url: string | null;
+        split_code: string | null;
+        notification_emails: string[] | null;
+        minimum_orderable: number;
+        maximum_orderable: number | null;
+        low_stock_alert: boolean;
+        stock_threshold: number | null;
+        expires_in: number | null;
+        id: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    /**
+     * @example {
+     *       "name": "Spoon",
+     *       "description": "Environment friendly paper spoons",
+     *       "price": 5000,
+     *       "currency": "NGN"
+     *     }
+     */
+    ProductUpdate: {
+      /** @description Name of product */
+      name?: string;
+      /** @description The description of the product */
+      description?: string;
+      /** @description Price should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the price is the same as the base units (not multiplied by 100). */
+      price?: number;
+      /** @description Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD */
+      currency?: string;
+      /**
+       * @description Set to true if the product has unlimited stock. Leave as false if the
+       *     product has limited stock
+       */
+      unlimited?: boolean;
+      /** @description Number of products in stock. Use if limited is true */
+      quantity?: number;
+      /** @description The split code if sharing the transaction with partners */
+      split_code?: string;
+      /** @description JSON object of custom data */
+      metadata?: Record<string, never>;
+    };
+    ProductUpdateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        name: string;
+        description: string;
+        product_code: string;
+        price: number;
+        currency: string;
+        quantity: number;
+        quantity_sold: unknown;
+        type: string;
+        image_path: string;
+        file_path: string;
+        is_shippable: boolean;
+        unlimited: boolean;
+        domain: string;
+        active: boolean;
+        features: unknown;
+        in_stock: boolean;
+        metadata: unknown;
+        id: number;
+        integration: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    ProductDeleteResponse: {
+      status: boolean;
+      message: string;
+    };
+    StorefrontListResponseArray: {
+      id: number;
+      name: string;
+      slug: string;
+      description: string | null;
+      status: string;
+      currency: string;
+      createdAt: string;
+      updatedAt: string;
+    };
+    StorefrontListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["StorefrontListResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    /**
+     * @example {
+     *       "name": "Obi and Sons",
+     *       "slug": "obi_and_sons",
+     *       "currency": "NGN"
+     *     }
+     */
+    StorefrontCreate: {
+      /** @description Name of the storefront */
+      name: string;
+      /** @description A unique identifier to access your store. Once the storefront is created, it can be accessed from https://paystack.shop/your-slug */
+      slug: string;
+      /**
+       * @description Currency for prices of products in your storefront.
+       * @enum {string}
+       */
+      currency: "GHS" | "KES" | "NGN" | "USD" | "ZAR";
+      /** @description The description of the storefront */
+      description?: string;
+    };
+    StorefrontCreateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        name: string;
+        slug: string;
+        description: string | null;
+        status: string;
+        currency: string;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    StorefrontFetchResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        name: string;
+        slug: string;
+        description: string | null;
+        status: string;
+        currency: string;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    /**
+     * @example {
+     *       "description": "Import and Export"
+     *     }
+     */
+    StorefrontUpdate: {
+      /** @description Name of the storefront */
+      name?: string;
+      /**
+       * @description A unique identifier to access your store. Once the storefront is created, it can be accessed from
+       *     https://paystack.shop/your-slug
+       */
+      slug?: string;
+      /** @description The description of the storefront */
+      description?: string;
+    };
+    StorefrontUpdateResponse: {
+      status: boolean;
+      message: string;
+    };
+    StorefrontDeleteResponse: {
+      status: boolean;
+      message: string;
+    };
+    /**
+     * @example {
+     *       "products": [
+     *         2196244,
+     *         2179824
+     *       ]
+     *     }
+     */
+    StorefrontAddProducts: {
+      /** @description An array of product IDs */
+      products: number[];
+    };
+    OrderListResponseArray: {
+      id: number;
+      code: string;
+      amount: number;
+      currency: string;
+      status: string;
+      customer: {
+        email: string;
+      };
+      createdAt: string;
+    };
+    OrderListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["OrderListResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    /**
+     * @description The collection of items that make up the order
+     * @example {
+     *       "item": 2179824,
+     *       "type": "product",
+     *       "quantity": 200000,
+     *       "amount": 2
+     *     }
+     */
+    OrderItems: {
+      /** @description The product ID of the item */
+      item: number;
+      /** @description The type of the item. `product` is currently the acceptable value */
+      type: string;
+      /** @description The number of items to get */
+      quantity: number;
+      /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100). */
+      amount: number;
+    };
+    /**
+     * @description The shipping details of the order
+     * @example {
+     *       "street_line": "Somewhere on Earth",
+     *       "city": "Atlantic",
+     *       "state": "Pacific",
+     *       "country": "Equator",
+     *       "shipping_fee": 10000
+     *     }
+     */
+    OrderShipping: {
+      /** @description The address of for the delivery */
+      street_line: string;
+      /** @description The city of the delivery address */
+      city: string;
+      /** @description The state of the delivery address */
+      state: string;
+      /** @description The country of the delivery address */
+      country: string;
+      /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100). */
+      shipping_fee: number;
+      /** @description Extra details to be aware of for the delivery */
+      delivery_note?: string;
+    };
+    /**
+     * @example {
+     *       "email": "test@email.com",
+     *       "first_name": "Demo",
+     *       "last_name": "User",
+     *       "phone": "+2348031245678",
+     *       "currency": "NGN",
+     *       "items": [
+     *         {
+     *           "item": 2179824,
+     *           "type": "product",
+     *           "quantity": 200000,
+     *           "amount": 2
+     *         }
+     *       ],
+     *       "shipping": {
+     *         "street_line": "Somewhere on Earth",
+     *         "city": "Atlantic",
+     *         "state": "Pacific",
+     *         "country": "Equator",
+     *         "shipping_fee": 10000
+     *       }
+     *     }
+     */
+    OrderCreate: {
+      /** @description The email of the customer placing the order */
+      email: string;
+      /** @description The customer's first name */
+      first_name: string;
+      /** @description The customer's last name */
+      last_name: string;
+      /** @description The customer's mobile number */
+      phone: string;
+      /**
+       * @description Currency in which amount is set
+       * @enum {string}
+       */
+      currency: "GHS" | "KES" | "NGN" | "USD" | "ZAR" | "XOF";
+      items: components["schemas"]["OrderItems"][];
+      shipping: components["schemas"]["OrderShipping"];
+      /** @description A flag to indicate if the order is for someone else */
+      is_gift?: boolean;
+      /** @description A flag to indicate if the someone else should pay for the order */
+      pay_for_me?: boolean;
+    };
+    OrderCreateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        discounts: unknown[];
+        currency: string;
+        shipping_address: unknown;
+        integration: number;
+        domain: string;
+        email: string;
+        customer: number;
+        amount: number;
+        pay_for_me: boolean;
+        shipping: {
+          customer: number;
+          integration: number;
+          domain: string;
+          fees: number;
+          delivery_note: unknown;
+          street_line: string;
+          city: string;
+          state: string;
+          country: string;
+          is_shipped: boolean;
+          delivery_tracking_link: unknown;
+          id: number;
+          createdAt: string;
+          updatedAt: string;
+        } | null;
+        shipping_fees: number;
+        shipping_method?: {
+          region: string;
+          fee: number;
+          currency: string;
+        };
+        metadata: Record<string, never>;
+        order_code: string;
+        status: string;
+        refunded: boolean;
+        is_viewed: boolean;
+        expiration_date: unknown;
+        id: number;
+        createdAt: string;
+        updatedAt: string;
+        items: unknown[];
+        pay_for_me_code: string;
+        discount_amount: number;
+      };
+    };
+    OrderFetchResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        code: string;
+        amount: number;
+        currency: string;
+        status: string;
+        customer: {
+          id: number;
+          email: string;
+        };
+        line_items: {
+          product: {
+            id: number;
+            name: string;
+          };
+          quantity: number;
+          amount: number;
+        }[];
+        createdAt: string;
+      };
+    };
+    OrderFetchProductResponseArray: {
+      order_id: number;
+      transaction: number;
+      order_code: string;
+      customer: number;
+      first_name: string;
+      last_name: string;
+      customer_name: string;
+      phone: string;
+      email: string;
+      product_code: string;
+      product_id: number;
+      product_name: string;
+      price: number;
+      quantity_sold: number;
+      currency: string;
+      quantity: number;
+      variant_id: unknown;
+      variant_price: unknown;
+      variant_code: unknown;
+      amount: number;
+      shipping_method: unknown;
+      status: string;
+      shipping_address: unknown;
+      refunded: boolean;
+      shipping: unknown;
+      paid_at: string;
+      created_at: string;
+      is_shipped: boolean;
+      is_viewed: number;
+      delivery_note: unknown;
+      shipping_fee: unknown;
+      amount_paid: number;
+      storefront_slug: string;
+    };
+    OrderFetchProductResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["OrderFetchProductResponseArray"][];
+      meta: components["schemas"]["Meta"] & {
+        quantity_sold: number;
+        revenue: number;
+      };
+    };
+    OrderValidateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        order_code: string;
+        domain: string;
+        currency: string;
+        amount: number;
+        email: string;
+        status: string;
+        refunded: boolean;
+        paid_at: unknown;
+        shipping_address: unknown;
+        metadata: unknown;
+        shipping_fees: number;
+        shipping_method: unknown;
+        is_viewed: boolean;
+        expiration_date: string;
+        pay_for_me: boolean;
+        id: number;
+        integration: {
+          key: string;
+          name: string;
+          logo: string;
+          allowed_currencies: unknown[];
+        };
+        transaction: unknown;
+        page: unknown;
+        customer: {
+          id: number;
+          first_name: string;
+          last_name: string;
+          email: string;
+          customer_code: string;
+          phone: string;
+          metadata: Record<string, never>;
+          risk_action: string;
+          international_format_phone: string;
+        };
+        shipping: unknown;
+        createdAt: string;
+        updatedAt: string;
+        payer: unknown;
+      };
+    };
+    PageListResponseArray: {
+      integration: number;
+      plan: unknown;
+      domain: string;
+      name: string;
+      description: string | null;
+      amount: number | null;
+      currency: string;
+      slug: string;
+      custom_fields: unknown[] | null;
+      type: string;
+      redirect_url: string | null;
+      success_message: string | null;
+      collect_phone: boolean;
+      active: boolean;
+      published: boolean;
+      migrate: boolean;
+      notification_email: unknown;
+      metadata: Record<string, never> | null;
+      split_code: unknown;
+      id: number;
+      createdAt: string;
+      updatedAt: string;
+    };
+    PageListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["PageListResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    /**
+     * @example {
+     *       "name": "Extra Charges",
+     *       "amount": 200000
+     *     }
+     */
+    PageCreate: {
+      /** @description Name of page */
+      name: string;
+      /** @description The description of the page */
+      description?: string;
+      /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100). */
+      amount?: number;
+      /**
+       * @description The transaction currency. Defaults to your integration currency.
+       * @enum {string}
+       */
+      currency?: "NGN" | "GHS" | "ZAR" | "KES" | "USD" | "XOF";
+      /** @description URL slug you would like to be associated with this page. Page will be accessible at `https://paystack.com/pay/[slug]` */
+      slug?: string;
+      /**
+       * @description The type of payment page to create. Defaults to `payment` if no type is specified.
+       * @enum {string}
+       */
+      type?: "payment" | "subscription" | "product" | "plan";
+      /** @description The ID of the plan to subscribe customers on this payment page to when `type` is set to `subscription`. */
+      plan?: string;
+      /** @description Specifies whether to collect a fixed amount on the payment page. If true, `amount` must be passed. */
+      fixed_amount?: boolean;
+      /** @description The split code of the transaction split. e.g. `SPL_98WF13Eb3w` */
+      split_code?: string;
+      /** @description JSON object of custom data */
+      metadata?: Record<string, never>;
+      /** @description If you would like Paystack to redirect to a URL upon successful payment, specify the URL here. */
+      redirect_url?: string;
+      /** @description A success message to display to the customer after a successful transaction */
+      success_message?: string;
+      /** @description An email address that will receive transaction notifications for this payment page */
+      notification_email?: string;
+      /** @description Specify whether to collect phone numbers on the payment page */
+      collect_phone?: boolean;
+      /** @description If you would like to accept custom fields, specify them here. */
+      custom_fields?: Record<string, never>[];
+    };
+    PageCreateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        name: string;
+        description?: string | null;
+        amount: number | null;
+        split_code?: string | null;
+        integration: number;
+        domain: string;
+        slug: string;
+        currency: string;
+        type: string;
+        collect_phone: boolean;
+        active: boolean;
+        published: boolean;
+        migrate: boolean;
+        id: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    PageProductsArray: {
+      product_id: number;
+      name: string;
+      description: string;
+      product_code: string;
+      page: number;
+      price: number;
+      currency: string;
+      quantity: number;
+      type: string;
+      features: unknown;
+      is_shippable: number;
+      domain: string;
+      integration: number;
+      active: number;
+      in_stock: number;
+    };
+    PageFetchResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        integration: number;
+        domain: string;
+        name: string;
+        description?: string | null;
+        amount: number | null;
+        currency: string;
+        slug: string;
+        active: boolean;
+        id: number;
+        createdAt: string;
+        updatedAt: string;
+        products: components["schemas"]["PageProductsArray"][];
+      };
+    };
+    /**
+     * @example {
+     *       "name": "Backyard Sale"
+     *     }
+     */
+    PageUpdate: {
+      /** @description Name of page */
+      name?: string;
+      /** @description The description of the page */
+      description?: string;
+      /** @description Amount should be in the subunit of the currency */
+      amount?: number;
+      /** @description Set to false to deactivate page url */
+      active?: boolean;
+    };
+    PageUpdateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        domain: string;
+        name: string;
+        description?: string | null;
+        amount: number | null;
+        currency: string;
+        slug: string;
+        active: boolean;
+        id: number;
+        integration: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    PageCheckSlugAvailabilityResponse: {
+      status: boolean;
+      message: string;
+    };
+    /**
+     * @example {
+     *       "products": [
+     *         2196244,
+     *         2179824
+     *       ]
+     *     }
+     */
+    PageProduct: {
+      /** @description A list of IDs of products to add to a page. */
+      products: number[];
+    };
+    PageAddProductsResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        integration: number;
+        plan: unknown;
+        domain: string;
+        name: string;
+        description?: string | null;
+        amount: number | null;
+        currency: string;
+        slug: string;
+        custom_fields?: unknown;
+        type: string;
+        redirect_url?: unknown;
+        success_message?: unknown;
+        collect_phone: boolean;
+        active: boolean;
+        published: boolean;
+        migrate: boolean;
+        notification_email?: string | null;
+        metadata?: Record<string, never> | null;
+        split_code?: string | null;
+        id: number;
+        createdAt: string;
+        updatedAt: string;
+        products: components["schemas"]["PageProductsArray"][];
+      };
+    };
+    SettlementListResponseArray: {
+      id: number;
+      domain: string;
+      status: string;
+      currency: string;
+      integration: number;
+      total_amount: number;
+      effective_amount: number;
+      total_fees: number;
+      total_processed: number;
+      deductions: number | null;
+      /** Format: date-time */
+      settlement_date: string;
+      settled_by: string | null;
+      /** Format: date-time */
+      createdAt: string;
+      /** Format: date-time */
+      updatedAt: string;
+    };
+    SettlementListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["SettlementListResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    SettlementTransactionsResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["TransactionListResponseArray"][];
+      meta: components["schemas"]["MetaWithVolume"];
+    };
+    ControlPanelFetchPaymentSessionTimeoutResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        payment_session_timeout: number;
+      };
+    };
+    PaymentSession: {
+      /**
+       * @description Time in seconds before a transaction becomes invalid
+       * @example 30
+       */
+      timeout: number;
+    };
+    ControlPanelUpdatePaymentSessionTimeoutResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        payment_session_timeout: number;
+      };
+    };
+    RefundListResponseArray: {
+      id: number;
+      integration: number;
+      domain: string;
+      transaction: number;
+      dispute: number | null;
+      amount: number;
+      deducted_amount: number | null;
+      currency: string;
+      channel: string;
+      settlement: number | null;
+      refunded_by: string;
+      refunded_at: string | null;
+      expected_at: string;
+      customer_note: string;
+      merchant_note: string;
+      fully_deducted: number | null;
+      created_at: string;
+      updated_at: string;
+      status: string;
+    };
+    RefundListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["RefundListResponseArray"][];
+    };
+    /**
+     * @example {
+     *       "transaction": "mpkr39h74k"
+     *     }
+     */
+    RefundCreate: {
+      /** @description The reference of a previosuly completed transaction */
+      transaction: string;
+      /**
+       * @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100).
+       *     Amount to be refunded to the customer. It cannot be more than the original transaction amount.
+       */
+      amount?: number;
+      /**
+       * @description Three-letter ISO currency
+       * @enum {string}
+       */
+      currency?: "GHS" | "KES" | "NGN" | "USD" | "ZAR" | "XOF";
+      /** @description Customer reason */
+      customer_note?: string;
+      /** @description Merchant reason */
+      merchant_note?: string;
+    };
+    RefundCreateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        transaction: {
+          id: number;
+          domain: string;
+          reference: string;
+          amount: number;
+          paid_at: string;
+          channel: string;
+          currency: string;
+          authorization: {
+            exp_month: unknown;
+            exp_year: unknown;
+            account_name: unknown;
+          };
+          customer: {
+            international_format_phone?: string | null;
+          };
+          plan: Record<string, never>;
+          subaccount: {
+            currency: unknown;
+          };
+          split: Record<string, never>;
+          order_id: unknown;
+          pos_transaction_data: unknown;
+          source: unknown;
+          fees_breakdown: unknown;
+        };
+        integration: number;
+        deducted_amount: number;
+        channel: unknown;
+        merchant_note: string;
+        customer_note: string;
+        status: string;
+        refunded_by: string;
+        expected_at: string;
+        currency: string;
+        domain: string;
+        amount: number;
+        fully_deducted: boolean;
+        id: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    /**
+     * @description An object that contains the customer’s account details for refund
+     * @example {
+     *       "currency": "NGN",
+     *       "account_number": "1234567890",
+     *       "bank_id": "9"
+     *     }
+     */
+    RefundRetryAccountDetails: {
+      /** @description The currency of the customer's bank account. It should be the same as the currency the payment was made */
+      currency: string;
+      /** @description The customer's account number */
+      account_number: string;
+      /** @description The ID representing the customer's bank. You can get the list of bank IDs by calling the List Banks endpoint. */
+      bank_id: string;
+    };
+    RefundRetry: {
+      refund_account_details: components["schemas"]["RefundRetryAccountDetails"];
+    };
+    /** Generated schema for Root */
+    RefundRetryResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        integration: number;
+        transaction: number;
+        dispute: Record<string, never>;
+        settlement: Record<string, never>;
+        id: number;
+        domain: string;
+        currency: string;
+        amount: number;
+        status: string;
+        refunded_at: string | null;
+        expected_at: string;
+        channel: string;
+        refunded_by: string;
+        customer_note: string;
+        merchant_note: string;
+        deducted_amount: number;
+        fully_deducted: boolean;
+        bank_reference: string | null;
+        reason: string;
+        customer: Record<string, never>;
+        initiated_by: string;
+        reversed_at: string | null;
+        session_id: string | null;
+      };
+    };
+    RefundFetchResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        integration: number;
+        transaction: number;
+        dispute: number | null;
+        settlement: number | null;
+        domain: string;
+        amount: number;
+        deducted_amount: number;
+        fully_deducted: boolean;
+        currency: string;
+        channel: string;
+        status: string;
+        refunded_by: string;
+        refunded_at: string;
+        expected_at: string;
+        customer_note: string;
+        merchant_note: string;
+        id: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    DisputeHistoryArray: {
+      status: string;
+      by: string;
+      createdAt: string;
+    };
+    DisputeMessagesArray: {
+      sender: string;
+      body: string;
+      createdAt: string;
+    };
+    DisputeListResponseArray: {
+      id: number;
+      refund_amount: number | null;
+      currency: string | null;
+      status: string;
+      resolution?: unknown;
+      domain: string;
+      transaction: {
+        id: number;
+        domain: string;
+        status: string;
+        reference: string;
+        amount: number;
+        message: unknown;
+        gateway_response: string;
+        paid_at?: string | null;
+        created_at?: string;
+        channel: string;
+        currency: string;
+        ip_address: string;
+        metadata: {
+          custom_fields: components["schemas"]["MetadataCustomFieldsArray"][];
+        };
+        log: {
+          start_time: number;
+          time_spent: number;
+          attempts: number;
+          errors: number;
+          success: boolean;
+          mobile: boolean;
+          input: unknown[];
+          history: {
+            type: string;
+            message: string;
+            time: number;
+          }[];
+        } | null;
+        fees: number;
+        fees_split: number | null;
+        authorization: Record<string, never>;
+        customer: unknown;
+        plan: Record<string, never>;
+        subaccount: Record<string, never>;
+        split: Record<string, never>;
+        order_id: unknown;
+        pos_transaction_data: unknown;
+        source: unknown;
+        fees_breakdown: unknown;
+        connect: unknown;
+      };
+      transaction_reference?: unknown;
+      category: string | null;
+      customer: {
+        id: number;
+        first_name?: string;
+        last_name?: string;
+        email: string;
+        customer_code: string;
+        phone?: string | null;
+        metadata?: Record<string, never> | null;
+        risk_action: string;
+        international_format_phone?: string | null;
+      };
+      bin: string | null;
+      last4: string | null;
+      dueAt?: unknown;
+      resolvedAt?: unknown;
+      evidence?: unknown;
+      attachments?: unknown;
+      note?: unknown;
+      history: components["schemas"]["DisputeHistoryArray"][];
+      messages: components["schemas"]["DisputeMessagesArray"][];
+      createdAt: string;
+      updatedAt: string;
+    };
+    DisputeListResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["DisputeListResponseArray"][];
+      meta: components["schemas"]["Meta"];
+    };
+    DisputeFetchResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        refund_amount: number | null;
+        currency: string | null;
+        status: string;
+        resolution?: unknown;
+        domain: string;
+        transaction: {
+          id: number;
+          domain: string;
+          status: string;
+          reference: string;
+          receipt_number?: number | null;
+          amount: number;
+          message: unknown;
+          gateway_response: string;
+          paid_at: string;
+          created_at: string;
+          channel: string;
+          currency: string;
+          ip_address: string;
+          metadata: {
+            custom_fields: components["schemas"]["MetadataCustomFieldsArray"][];
+          };
+          log: {
+            start_time: number;
+            time_spent: number;
+            attempts: number;
+            errors: number;
+            success: boolean;
+            mobile: boolean;
+            input: unknown[];
+            history: {
+              type: string;
+              message: string;
+              time: number;
+            }[];
+          } | null;
+          fees: number;
+          fees_split: number | null;
+          authorization: {
+            receiver_bank_account_number?: unknown;
+            receiver_bank?: unknown;
+          };
+          customer: {
+            international_format_phone?: string | null;
+          };
+          plan: Record<string, never>;
+          subaccount: Record<string, never>;
+          split: Record<string, never>;
+          order_id: unknown;
+          requested_amount: number;
+          pos_transaction_data: unknown;
+          source: unknown;
+          fees_breakdown: unknown;
+          connect: unknown;
+        };
+        transaction_reference?: unknown;
+        category: string | null;
+        customer: {
+          id: number;
+          first_name?: string | null;
+          last_name?: string | null;
+          email: string;
+          customer_code: string;
+          phone?: string | null;
+          metadata?: Record<string, never> | null;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+        bin: string | null;
+        last4: string | null;
+        dueAt?: unknown;
+        resolvedAt?: unknown;
+        evidence?: unknown;
+        attachments?: unknown;
+        note?: unknown;
+        history: components["schemas"]["DisputeHistoryArray"][];
+        messages: components["schemas"]["DisputeMessagesArray"][];
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    /**
+     * @example {
+     *       "refund_amount": 50000
+     *     }
+     */
+    DisputeUpdate: {
+      /** @description The amount to refund, in the subunit of your currency */
+      refund_amount: number;
+      /** @description Filename of attachment returned via response from the Dispute upload URL */
+      uploaded_filename?: string;
+    };
+    DisputeUpdateResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        id: number;
+        refund_amount: number | null;
+        currency: string | null;
+        status: string;
+        resolution?: unknown;
+        domain: string;
+        transaction: {
+          id: number;
+          domain: string;
+          status: string;
+          reference: string;
+          receipt_number?: number | null;
+          amount: number;
+          message: unknown;
+          gateway_response: string;
+          paid_at: string;
+          created_at: string;
+          channel: string;
+          currency: string;
+          ip_address: string;
+          metadata: {
+            custom_fields: components["schemas"]["MetadataCustomFieldsArray"][];
+          };
+          log: {
+            start_time: number;
+            time_spent: number;
+            attempts: number;
+            errors: number;
+            success: boolean;
+            mobile: boolean;
+            input: unknown[];
+            history: {
+              type: string;
+              message: string;
+              time: number;
+            }[];
+          } | null;
+          fees: number;
+          fees_split: number | null;
+          authorization: {
+            receiver_bank_account_number?: unknown;
+            receiver_bank?: unknown;
+          };
+          customer: {
+            international_format_phone?: string | null;
+          };
+          plan: Record<string, never>;
+          subaccount: Record<string, never>;
+          split: Record<string, never>;
+          order_id: unknown;
+          requested_amount: number;
+          pos_transaction_data: unknown;
+          source: unknown;
+          fees_breakdown: unknown;
+          connect: unknown;
+        };
+        transaction_reference?: unknown;
+        category: string | null;
+        customer: {
+          id: number;
+          first_name?: string | null;
+          last_name?: string | null;
+          email: string;
+          customer_code: string;
+          phone?: string | null;
+          metadata?: Record<string, never> | null;
+          risk_action: string;
+          international_format_phone?: string | null;
+        };
+        bin: string | null;
+        last4: string | null;
+        dueAt?: unknown;
+        resolvedAt?: unknown;
+        evidence?: unknown;
+        attachments?: unknown;
+        note?: unknown;
+        history: components["schemas"]["DisputeHistoryArray"][];
+        messages: components["schemas"]["DisputeMessagesArray"][];
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    DisputeUploadURLResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        signedUrl: string;
+        fileName: string;
+      };
+    };
+    DisputeExportResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        path: string;
+        expiresAt: string;
+      };
+    };
+    DisputeListTransactionResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        history: components["schemas"]["DisputeHistoryArray"][];
+        messages: components["schemas"]["DisputeMessagesArray"][];
+        currency: string | null;
+        last4: string | null;
+        bin: string | null;
+        transaction_reference?: unknown;
+        merchant_transaction_reference: string | null;
+        refund_amount: number | null;
+        status: string;
+        domain: string;
+        resolution?: unknown;
+        category: string | null;
+        note?: unknown;
+        attachments?: unknown;
+        id: number;
+        integration: number;
+        transaction: {
+          id: number;
+          domain: string;
+          status: string;
+          reference: string;
+          receipt_number?: number | null;
+          amount: number;
+          message: unknown;
+          gateway_response: string;
+          paid_at?: string | null;
+          created_at?: string;
+          channel: string;
+          currency: string;
+          ip_address: string;
+          metadata: {
+            custom_fields: components["schemas"]["MetadataCustomFieldsArray"][];
+          };
+          log: {
+            start_time: number;
+            time_spent: number;
+            attempts: number;
+            errors: number;
+            success: boolean;
+            mobile: boolean;
+            input: unknown[];
+            history: {
+              type: string;
+              message: string;
+              time: number;
+            }[];
+          } | null;
+          fees: number;
+          fees_split: number | null;
+          authorization: {
+            receiver_bank_account_number?: unknown;
+            receiver_bank?: unknown;
+          };
+          customer: {
+            international_format_phone?: string | null;
+          };
+          plan: Record<string, never>;
+          subaccount: Record<string, never>;
+          split: Record<string, never>;
+          order_id: unknown;
+          requested_amount: number;
+          pos_transaction_data: unknown;
+          source: unknown;
+          fees_breakdown: unknown;
+          connect: Record<string, never> | null;
+        };
+        created_by: number | null;
+        evidence?: unknown;
+        resolvedAt?: unknown;
+        createdAt: string;
+        updatedAt: string;
+        dueAt?: unknown;
+      };
+    };
+    /**
+     * @example {
+     *       "resolution": "merchant-accepted",
+     *       "message": "Merchant accepted",
+     *       "refund_amount": 50000,
+     *       "uploaded_filename": "qesp8a4df1xejihd9x5q"
+     *     }
+     */
+    DisputeResolve: {
+      /** @description Dispute resolution. Accepted values, merchant-accepted, declined */
+      resolution: string;
+      /** @description Reason for resolving */
+      message: string;
+      /** @description The amount to refund, in the subunit of your integration currency */
+      refund_amount: number;
+      /** @description Filename of attachment returned via response from the Dispute upload URL */
+      uploaded_filename: string;
+      /** @description Evidence Id for fraud claims */
+      evidence?: number;
+    };
+    DisputeResolveResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        currency: string;
+        last4: string | null;
+        bin: string | null;
+        transaction_reference?: string | null;
+        merchant_transaction_reference: string | null;
+        refund_amount: number;
+        status: string;
+        domain: string;
+        resolution: string;
+        category: string;
+        note?: unknown;
+        attachments: string;
+        id: number;
+        integration?: number;
+        transaction: Record<string, never>;
+        created_by: number;
+        evidence: number | null;
+        resolvedAt: string;
+        createdAt: string;
+        updatedAt: string;
+        dueAt?: unknown;
+        message: {
+          dispute: number;
+          sender: string;
+          body: string;
+          id: number;
+          createdAt: string;
+          updatedAt: string;
+        };
+      };
+    };
+    /**
+     * @example {
+     *       "customer_email": "customer@email.com",
+     *       "customer_name": "Mensah King",
+     *       "customer_phone": "08012345678",
+     *       "service_details": "claim for buying cups"
+     *     }
+     */
+    DisputeEvidence: {
+      /** @description Customer email */
+      customer_email: string;
+      /** @description Customer name */
+      customer_name: string;
+      /** @description Customer mobile number */
+      customer_phone: string;
+      /** @description Details of service offered */
+      service_details: string;
+      /** @description Delivery address */
+      delivery_address?: string;
+      /**
+       * Format: date-time
+       * @description ISO 8601 representation of delivery date (YYYY-MM-DD)
+       */
+      delivery_date?: string;
+    };
+    DisputeAddEvidenceResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        customer_email: string;
+        customer_name: string;
+        customer_phone: string;
+        service_details: string;
+        delivery_address: string;
+        delivery_date: string;
+        dispute: number;
+        id: number;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+    MiscellaneousListBanksResponseArray: {
+      name: string;
+      slug: string;
+      code: string;
+      longcode: string;
+      gateway: string | null;
+      pay_with_bank: boolean;
+      supports_transfer: boolean;
+      available_for_direct_debit: boolean;
+      active: boolean;
+      is_deleted: boolean | null;
+      country: string;
+      currency: string;
+      type: string;
+      id: number;
+      createdAt: string;
+      updatedAt: string;
+    };
+    MiscellaneousListBanksResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["MiscellaneousListBanksResponseArray"][];
+    };
+    VerificationResolveAccountNumberResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        account_number: string;
+        account_name: string;
+      };
+    };
+    /**
+     * @example {
+     *       "account_name": "Ann Bron",
+     *       "account_number": "0123456789",
+     *       "account_type": "personal",
+     *       "bank_code": "632005",
+     *       "country_code": "ZA",
+     *       "document_type": "identityNumber",
+     *       "document_number": "1234567890123"
+     *     }
+     */
+    BankValidateRequest: {
+      /** @description Customer's first and last name registered with their bank */
+      account_name: string;
+      /** @description Customer's account number */
+      account_number: string;
+      /**
+       * @description The type of the customer's account number
+       * @enum {string}
+       */
+      account_type: "personal" | "business";
+      /** @description The bank code of the customer’s bank. You can fetch the bank codes by using our List Banks endpoint */
+      bank_code: string;
+      /** @description The two digit ISO code of the customer’s bank */
+      country_code: string;
+      /**
+       * @description Customer’s mode of identity
+       * @enum {string}
+       */
+      document_type: "identityNumber" | "passportNumber" | "businessRegistrationNumber";
+      /** @description Customer’s mode of identity number */
+      document_number?: string;
+    };
+    VerificationValidateAccountResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        verified: boolean;
+        verificationMessage: string;
+        accountAcceptsDebits: boolean;
+        accountAcceptsCredits: boolean;
+        accountOpenForMoreThanThreeMonths: boolean;
+        accountHolderMatch: boolean;
+        accountOpen: boolean;
+      };
+    };
+    VerificationResolveCardBINResponse: {
+      status: boolean;
+      message: string;
+      data: {
+        bin: string;
+        brand: string;
+        sub_brand: string;
+        country_code: string;
+        country_name: string;
+        card_type: string;
+        bank: string;
+        linked_bank_id: number;
+      };
+    };
+    MiscellaneousListCountriesResponseArray: {
+      id: number;
+      active_for_dashboard_onboarding: boolean;
+      name: string;
+      iso_code: string;
+      default_currency_code: string;
+      integration_defaults: Record<string, never>;
+      calling_code: string;
+      pilot_mode: boolean;
+      relationships: {
+        currency: {
+          type: string;
+          data: string[];
+          supported_currencies: {
+            NGN: {
+              bank: {
+                bank_type: string;
+                branch_code: boolean;
+                branch_code_type: string;
+                account_name: boolean;
+                account_verification_required: boolean;
+                account_number_label: string;
+                account_number_pattern: {
+                  exact_match: boolean;
+                  pattern: string;
+                };
+                documents: unknown[];
+                show_account_number_tooltip: boolean;
+              };
+            };
+            USD: {
+              bank: {
+                bank_type: string;
+                required_fields: string[];
+                branch_code: boolean;
+                branch_code_type: string;
+                account_name: boolean;
+                account_verification_required: boolean;
+                account_number_label: string;
+                account_number_pattern: {
+                  exact_match: boolean;
+                  pattern: string;
+                };
+                documents: unknown[];
+                notices: string[];
+              };
+            };
+          };
+        };
+        integration_feature: {
+          type: string;
+          data: unknown[];
+        };
+        integration_type: {
+          type: string;
+          data: string[];
+        };
+        payment_method: {
+          type: string;
+          data: string[];
+        };
+      };
+    };
+    MiscellaneousListCountriesResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["MiscellaneousListCountriesResponseArray"][];
+    };
+    MiscellaneousListStatesResponseArray: {
+      name: string;
+      slug: string;
+      abbreviation: string;
+    };
+    MiscellaneousListStatesResponse: {
+      status: boolean;
+      message: string;
+      data: components["schemas"]["MiscellaneousListStatesResponseArray"][];
+    };
+    data: {
+      id: number;
+      domain: string;
+      status: string;
+      reference: string;
+      receipt_number: unknown;
+      amount: number;
+      message: unknown;
+      gateway_response: string;
+      helpdesk_link: unknown;
+      paid_at: string;
+      created_at: string;
+      channel: string;
+      currency: string;
+      ip_address: string | null;
+      metadata:
+        | (
+            | string
+            | {
+                [key: string]: unknown;
+              }
+          )
+        | null;
+      log: {
+        start_time: number;
+        time_spent: number;
+        attempts: number;
+        errors: number;
+        success: boolean;
+        mobile: boolean;
+        input: unknown[];
+        history: {
+          type: string;
+          message: string;
+          time: number;
+        }[];
+      } | null;
+      fees: number;
+      fees_split: number | null;
+      authorization: {
+        authorization_code: string;
+        bin: string;
+        last4: string;
+        exp_month: string;
+        exp_year: string;
+        channel: string;
+        card_type: string;
+        bank: string;
+        country_code: string;
+        brand: string;
+        reusable: boolean;
+        signature: string;
+        account_name: string | null;
+        receiver_bank_account_number?: string | null;
+        receiver_bank?: string | null;
+      };
+      customer: {
+        id: number;
+        first_name: string | null;
+        last_name: string | null;
+        email: string;
+        customer_code: string;
+        phone: string | null;
+        metadata: Record<string, never> | null;
+        risk_action: string;
+        international_format_phone?: string | null;
+      };
+      plan: Record<string, never> | null;
+      subaccount: Record<string, never> | null;
+      split: Record<string, never> | null;
+      order_id: unknown;
+      requested_amount: number;
+      pos_transaction_data: unknown;
+      source: {
+        type?: string;
+        source?: string;
+        identifier?: string | null;
+      } | null;
+      fees_breakdown: unknown;
+      connect: unknown;
+    };
+    "data-2": {
+      amount: number;
+      createdAt: string;
+      currency: string;
+      domain: string;
+      failures: Record<string, never> | null;
+      id: number;
+      integration: number;
+      reason: string;
+      reference: string;
+      source: string;
+      source_details: Record<string, never> | null;
+      status: string;
+      titan_code: string | null;
+      transfer_code: string;
+      request: number;
+      transferred_at: string | null;
+      updatedAt: string;
+      recipient: {
+        active: boolean;
+        createdAt: string;
+        currency: string;
+        description?: string | null;
+        domain: string;
+        email?: string | null;
+        id: number;
+        integration: number;
+        metadata?: Record<string, never> | null;
+        name: string;
+        recipient_code: string;
+        type: string;
+        updatedAt: string;
+        is_deleted?: boolean;
+        isDeleted?: boolean;
+        details: {
+          authorization_code: unknown;
+          account_number: string;
+          account_name: string | null;
+          bank_code: string;
+          bank_name: string;
+        };
+      };
+      session: {
+        provider: string | null;
+        id: string | null;
+      };
+      fee_charged: number;
+      fees_breakdown: components["schemas"]["TransferFeesBreakdownArray"][] | null;
+      gateway_response: string | null;
+    };
+    "data-3": {
+      id: number;
+      domain: string;
+      status: string;
+      subscription_code: string;
+      email_token: string;
+      amount: number;
+      cron_expression: string;
+      next_payment_date: string;
+      open_invoice: unknown;
+      createdAt: string;
+      integration: number;
+      plan: {
+        domain: string;
+        id: number;
+        integration: number;
+        name: string;
+        plan_code: string;
+        description: unknown;
+        amount: number;
+        interval: string;
+        send_invoices: boolean;
+        send_sms: boolean;
+        hosted_page: boolean;
+        hosted_page_url: unknown;
+        hosted_page_summary: unknown;
+        currency: string;
+        createdAt: string;
+        updatedAt: string;
+      };
+      authorization: {
+        authorization_code: string;
+        bin: string;
+        last4: string;
+        exp_month: string;
+        exp_year: string;
+        channel: string;
+        card_type: string;
+        bank: string;
+        country_code: string;
+        brand: string;
+        reusable: boolean;
+        signature: string;
+        account_name: unknown;
+      };
+      customer: {
+        domain: string;
+        id: number;
+        integration: number;
+        first_name: string;
+        last_name: string;
+        email: string;
+        customer_code: string;
+        phone: string | null;
+        metadata: Record<string, never>;
+        createdAt: string;
+        updatedAt: string;
+        risk_action?: string;
+        international_format_phone?: string | null;
+      };
+      start: number;
+      quantity: number;
+      invoices: unknown[];
+    };
+    "data-4": {
+      id: number;
+      integration: {
+        key: string;
+        name: string;
+        logo: string;
+        allowed_currencies: string[];
+      };
+      domain: string;
+      amount: number;
+      currency: string;
+      due_date: string | null;
+      has_invoice: boolean;
+      invoice_number: number | null;
+      description: string | null;
+      pdf_url: string | null;
+      line_items: unknown[];
+      tax: unknown[];
+      request_code: string;
+      status: string;
+      paid: boolean;
+      paid_at: string | null;
+      metadata: Record<string, never> | null;
+      notifications: components["schemas"]["PaymentRequestNotificationsArray"][];
+      offline_reference: string;
+      customer: {
+        id: number;
+        first_name: string;
+        last_name: string;
+        email: string;
+        customer_code: string;
+        phone: string | null;
+        metadata: Record<string, never> | null;
+        risk_action: string;
+        international_format_phone?: string | null;
+      };
+      created_at: string;
+      discount?: Record<string, never> | null;
+      split_code?: string | null;
+      pending_amount: number;
+    };
+    "data-5": {
+      customer: {
+        id: number;
+        first_name: string;
+        last_name: string;
+        email: string;
+        customer_code: string;
+        phone: string | null;
+        metadata: Record<string, never> | null;
+        risk_action: string;
+        international_format_phone?: string | null;
+      };
+      bank: {
+        name: string;
+        id: number;
+        slug: string;
+      };
+      id: number;
+      account_name: string;
+      account_number: string;
+      created_at: string;
+      updated_at: string;
+      currency: string;
+      split_config: (string | Record<string, never>) | null;
+      active: boolean;
+      assigned: boolean;
+    };
+    "data-6": {
+      integration: number;
+      transaction: number;
+      dispute: number | null;
+      settlement: number | null;
+      domain: string;
+      amount: number;
+      deducted_amount: number;
+      fully_deducted: boolean;
+      currency: string;
+      channel: string;
+      status: string;
+      refunded_by: string;
+      refunded_at: string;
+      expected_at: string;
+      customer_note: string;
+      merchant_note: string;
+      id: number;
+      createdAt: string;
+      updatedAt: string;
+    };
+    "data-7": {
+      id: number;
+      refund_amount: number | null;
+      currency: string | null;
+      status: string;
+      resolution?: unknown;
+      domain: string;
+      transaction: {
+        id: number;
+        domain: string;
+        status: string;
+        reference: string;
+        receipt_number?: number | null;
+        amount: number;
+        message: unknown;
+        gateway_response: string;
+        paid_at: string;
+        created_at: string;
+        channel: string;
+        currency: string;
+        ip_address: string;
+        metadata: {
+          custom_fields: components["schemas"]["MetadataCustomFieldsArray"][];
+        };
+        log: {
+          start_time: number;
+          time_spent: number;
+          attempts: number;
+          errors: number;
+          success: boolean;
+          mobile: boolean;
+          input: unknown[];
+          history: {
+            type: string;
+            message: string;
+            time: number;
+          }[];
+        } | null;
+        fees: number;
+        fees_split: number | null;
+        authorization: {
+          receiver_bank_account_number?: unknown;
+          receiver_bank?: unknown;
+        };
+        customer: {
+          international_format_phone?: string | null;
+        };
+        plan: Record<string, never>;
+        subaccount: Record<string, never>;
+        split: Record<string, never>;
+        order_id: unknown;
+        requested_amount: number;
+        pos_transaction_data: unknown;
+        source: unknown;
+        fees_breakdown: unknown;
+        connect: unknown;
+      };
+      transaction_reference?: unknown;
+      category: string | null;
+      customer: {
+        id: number;
+        first_name?: string | null;
+        last_name?: string | null;
+        email: string;
+        customer_code: string;
+        phone?: string | null;
+        metadata?: Record<string, never> | null;
+        risk_action: string;
+        international_format_phone?: string | null;
+      };
+      bin: string | null;
+      last4: string | null;
+      dueAt?: unknown;
+      resolvedAt?: unknown;
+      evidence?: unknown;
+      attachments?: unknown;
+      note?: unknown;
+      history: components["schemas"]["DisputeHistoryArray"][];
+      messages: components["schemas"]["DisputeMessagesArray"][];
+      createdAt: string;
+      updatedAt: string;
+    };
+  };
+  responses: {
+    /** @description Responses from the Transaction Initialize endpoint */
+    TransactionInitializeBadRequestResponse: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["TransactionInitializeBadRequestModel"];
+      };
+    };
+    /** @description Unauthorized operation */
+    Unauthorized: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
         /**
-         * @description Error response returned when a transaction is initialized with incorrect parameters
          * @example {
          *       "status": false,
-         *       "message": "Duplicate Transaction Reference",
-         *       "meta": {
-         *         "nextStep": "Try and create the Transaction or Charge with a new reference"
-         *       },
-         *       "type": "validation_error",
-         *       "code": "duplicate_reference",
-         *       "errorCodeMappingNotFound": false
+         *       "message": "Invalid key"
          *     }
          */
-        TransactionInitializeBadRequestModel: {
-            /** @description An indicator for the state of the request */
-            status?: boolean;
-            /** @description A short description of the error */
-            message?: string;
-            meta?: components["schemas"]["ErrorMeta"];
-            /**
-             * @description A tag to indicate the type of the error
-             * @enum {string}
-             */
-            type?: "validation_error" | "processor_error" | "api_error";
-            /** @description The error code */
-            code?: string;
-            /** @description An indicator for error mapping for the request */
-            errorCodeMappingNotFound?: boolean;
-        };
-        /** @description Standard error response returned when a Paystack API request fails. */
-        Error: {
-            /** @description An indicator for the state of the request */
-            status?: boolean;
-            /** @description A short description of the error */
-            message?: string;
-            meta?: components["schemas"]["ErrorMeta"];
-            /**
-             * @description A category describing the kind of error that occurred
-             * @enum {string}
-             */
-            type?: "api_error" | "validation_error" | "processor_error";
-            /** @description A Paystack-defined machine-readable code for the error */
-            code?: string;
-            /** @description An indicator for error mapping for the request */
-            errorCodeMappingNotFound?: boolean;
-        };
-        /**
-         * @example {
-         *       "email": "jb@email.com",
-         *       "amount": 30000,
-         *       "authorization_code": "AUTH_df1l5ehnym"
-         *     }
-         */
-        TransactionChargeAuthorization: {
-            /** @description Customer's email address */
-            email: string;
-            /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100). */
-            amount: unknown;
-            /** @description Valid authorization code to charge */
-            authorization_code: string;
-            /** @description Unique transaction reference. Only -, ., = and alphanumeric characters allowed. */
-            reference?: string;
-            currency?: components["schemas"]["Currency"];
-            /** @description Send us 'card' or 'bank' or 'card','bank' as an array to specify what options to show the user paying */
-            channels?: ("card" | "bank")[];
-            /** @description The split code of the transaction split */
-            split_code?: string;
-            split?: components["schemas"]["SplitCreate"];
-            /** @description The code for the subaccount that owns the payment */
-            subaccount?: string;
-            /**
-             * @description A flat fee to charge the subaccount for a transaction.
-             *     This overrides the split percentage set when the subaccount was created
-             */
-            transaction_charge?: number;
-            /**
-             * @description The bearer of the transaction charge
-             * @enum {string}
-             */
-            bearer?: "account" | "subaccount";
-            /** @description Stringified JSON object of custom data */
-            metadata?: string | Record<string, never>;
-            /** @description If you are making a scheduled charge call, it is a good idea to queue them so the processing system does not get overloaded causing transaction processing errors. */
-            queue?: boolean;
-        };
-        ChargeAuthorizationResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                amount: number;
-                currency: string;
-                transaction_date: string;
-                status: string;
-                reference: string;
-                domain: string;
-                metadata: (string | {
-                    [key: string]: unknown;
-                }) | null;
-                gateway_response: string;
-                message: string | null;
-                channel: string;
-                ip_address: unknown;
-                log: {
-                    start_time: number;
-                    time_spent: number;
-                    attempts: number;
-                    errors: number;
-                    success: boolean;
-                    mobile: boolean;
-                    input: unknown[];
-                    history: {
-                        type: string;
-                        message: string;
-                        time: number;
-                    }[];
-                } | null;
-                fees: number | null;
-                authorization: {
-                    authorization_code: string;
-                    bin: string | null;
-                    last4: string;
-                    exp_month: string;
-                    exp_year: string;
-                    channel: string;
-                    card_type: string;
-                    bank: string;
-                    country_code: string;
-                    brand: string;
-                    reusable: boolean;
-                    signature: string;
-                    account_name: string | null;
-                };
-                customer: {
-                    id: number;
-                    first_name: string | null;
-                    last_name: string | null;
-                    email: string;
-                    customer_code: string;
-                    phone: string | null;
-                    metadata: {
-                        [key: string]: unknown;
-                    } | null;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-                plan: unknown;
-                id: number;
-            };
-        };
-        /**
-         * @example {
-         *       "email": "tap@email.com",
-         *       "amount": 40510,
-         *       "authorization_code": "AUTH_df1l5ehnym",
-         *       "currency": "NGN"
-         *     }
-         */
-        TransactionPartialDebit: {
-            /** @description Customer's email address */
-            email: string;
-            /**
-             * Format: int64
-             * @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100).
-             */
-            amount: number | string;
-            /** @description Valid authorization code to charge */
-            authorization_code: string;
-            /**
-             * @description Specified as NGN or GHS
-             * @enum {string}
-             */
-            currency: "NGN" | "GHS";
-            /** @description Minimum amount to charge */
-            at_least?: string;
-            /** @description Unique transaction reference. Only -, ., = and alphanumeric characters allowed. */
-            reference?: string;
-        };
-        TransactionPartialDebitResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                amount: number;
-                currency: string;
-                transaction_date: string;
-                status: string;
-                reference: string;
-                domain: string;
-                metadata: (string | Record<string, never>) | null;
-                gateway_response: string;
-                message: unknown;
-                channel: string;
-                ip_address: unknown;
-                log: {
-                    start_time: number;
-                    time_spent: number;
-                    attempts: number;
-                    errors: number;
-                    success: boolean;
-                    mobile: boolean;
-                    input: unknown[];
-                    history: {
-                        type: string;
-                        message: string;
-                        time: number;
-                    }[];
-                } | null;
-                fees: number;
-                authorization: {
-                    authorization_code: string;
-                    bin: string;
-                    last4: string;
-                    exp_month: string;
-                    exp_year: string;
-                    channel: string;
-                    card_type: string;
-                    bank: string;
-                    country_code: string;
-                    brand: string;
-                    reusable: boolean;
-                    signature: string;
-                    account_name: string | null;
-                };
-                customer: {
-                    id: number;
-                    first_name: string | null;
-                    last_name: string | null;
-                    email: string;
-                    customer_code: string;
-                    phone: string | null;
-                    metadata: Record<string, never> | null;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-                plan: number;
-                requested_amount: number;
-                id: number;
-            };
-        };
-        TransactionCheckAuthorization: {
-            /** @description Customer's email address */
-            email: string;
-            /**
-             * Format: int32
-             * @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, send the amount multiplied by 100 even though the currency does not use fractional subunits.
-             */
-            amount: number;
-            /** @description Valid authorization code to charge */
-            authorization_code?: string;
-            /** @description The transaction currency */
-            currency?: string;
-        };
-        Response: {
-            status?: boolean;
-            message?: string;
-            data?: Record<string, never>;
-        };
-        VerifyResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                /** Format: int64 */
-                id: number;
-                domain: string;
-                status: string;
-                reference: string;
-                receipt_number: string | null;
-                amount: number;
-                message: string | null;
-                gateway_response: string;
-                channel: string;
-                currency: string;
-                ip_address: string | null;
-                metadata: (string | Record<string, never> | number) | null;
-                log: {
-                    start_time: number;
-                    time_spent: number;
-                    attempts: number;
-                    errors: number;
-                    success: boolean;
-                    mobile: boolean;
-                    input: unknown[];
-                    history: {
-                        type: string;
-                        message: string;
-                        time: number;
-                    }[];
-                } | null;
-                fees: number | null;
-                fees_split: unknown;
-                authorization: {
-                    authorization_code?: string;
-                    bin?: string | null;
-                    last4?: string;
-                    exp_month?: string;
-                    exp_year?: string;
-                    channel?: string;
-                    card_type?: string;
-                    bank?: string;
-                    country_code?: string;
-                    brand?: string;
-                    reusable?: boolean;
-                    signature?: string;
-                    account_name?: string | null;
-                    receiver_bank_account_number?: string | null;
-                    receiver_bank?: string | null;
-                };
-                customer: {
-                    /** Format: int64 */
-                    id: number;
-                    first_name: string | null;
-                    last_name: string | null;
-                    email: string;
-                    customer_code: string;
-                    phone: string | null;
-                    metadata: Record<string, never> | null;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-                plan: (string | Record<string, never>) | null;
-                split: Record<string, never> | null;
-                order_id: unknown;
-                paidAt: string | null;
-                createdAt: string;
-                requested_amount: number;
-                pos_transaction_data: unknown;
-                source: unknown;
-                fees_breakdown: unknown;
-                connect: unknown;
-                transaction_date: string;
-                plan_object: {
-                    id?: number;
-                    name?: string;
-                    plan_code?: string;
-                    description?: unknown;
-                    amount?: number;
-                    interval?: string;
-                    send_invoices?: boolean;
-                    send_sms?: boolean;
-                    currency?: string;
-                } & (Record<string, never> | (unknown & unknown));
-                subaccount: Record<string, never> | null;
-            };
-        };
-        TransactionListResponseArray: {
-            id: number;
-            domain: string;
-            status: string;
-            reference: string;
-            amount: number;
-            message: unknown;
-            gateway_response: string;
-            paid_at: string | null;
-            created_at: string;
-            channel: string;
-            currency: string;
-            ip_address: string | null;
-            metadata: (string | {
-                [key: string]: unknown;
-            }) | null;
-            log: {
-                start_time: number;
-                time_spent: number;
-                attempts: number;
-                errors: number;
-                success: boolean;
-                mobile: boolean;
-                input: unknown[];
-                history: {
-                    type: string;
-                    message: string;
-                    time: number;
-                }[];
-            } | null;
-            fees: number | null;
-            fees_split: number | null;
-            customer: {
-                id: number;
-                first_name: string | null;
-                last_name: string | null;
-                email: string;
-                phone: string | null;
-                metadata: Record<string, never> | null;
-                customer_code: string;
-                risk_action: string;
-            };
-            authorization: {
-                authorization_code: string | null;
-                bin: string | null;
-                last4: string | null;
-                exp_month: string | null;
-                exp_year: string | null;
-                channel: string | null;
-                card_type: string | null;
-                bank: string | null;
-                country_code: string | null;
-                brand: string | null;
-                reusable: boolean;
-                signature: string | null;
-                account_name: string | null;
-            };
-            plan: Record<string, never>;
-            split: Record<string, never>;
-            subaccount: Record<string, never>;
-            order_id: unknown;
-            requested_amount: number;
-            source: {
-                source?: string;
-                type?: string;
-                identifier?: string | null;
-                entry_point?: string;
-            } | null;
-            connect: Record<string, never> | null;
-            pos_transaction_data: unknown;
-        };
-        Meta: {
-            total: number;
-            skipped: number;
-            perPage: number | string;
-            page: number;
-            pageCount: number;
-        };
-        MetaWithVolume: components["schemas"]["Meta"] & {
-            total_volume: number;
-        };
-        CursorMeta: {
-            next: string | null;
-            previous: string | null;
-            perPage: number;
-        };
-        TransactionListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["TransactionListResponseArray"][];
-            meta: components["schemas"]["MetaWithVolume"] | components["schemas"]["CursorMeta"];
-        };
-        TransactionFetchResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                domain: string;
-                status: string;
-                reference: string;
-                receipt_number: unknown;
-                amount: number;
-                message: unknown;
-                gateway_response: string;
-                helpdesk_link: unknown;
-                paid_at: string;
-                created_at: string;
-                channel: string;
-                currency: string;
-                ip_address: string | null;
-                metadata: (string | {
-                    [key: string]: unknown;
-                }) | null;
-                log: {
-                    start_time: number;
-                    time_spent: number;
-                    attempts: number;
-                    errors: number;
-                    success: boolean;
-                    mobile: boolean;
-                    input: unknown[];
-                    history: {
-                        type: string;
-                        message: string;
-                        time: number;
-                    }[];
-                } | null;
-                fees: number;
-                fees_split: number | null;
-                authorization: {
-                    authorization_code: string;
-                    bin: string;
-                    last4: string;
-                    exp_month: string;
-                    exp_year: string;
-                    channel: string;
-                    card_type: string;
-                    bank: string;
-                    country_code: string;
-                    brand: string;
-                    reusable: boolean;
-                    signature: string;
-                    account_name: string | null;
-                    receiver_bank_account_number?: string | null;
-                    receiver_bank?: string | null;
-                };
-                customer: {
-                    id: number;
-                    first_name: string | null;
-                    last_name: string | null;
-                    email: string;
-                    customer_code: string;
-                    phone: string | null;
-                    metadata: Record<string, never> | null;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-                plan: Record<string, never> | null;
-                subaccount: Record<string, never> | null;
-                split: Record<string, never> | null;
-                order_id: unknown;
-                requested_amount: number;
-                pos_transaction_data: unknown;
-                source: {
-                    type?: string;
-                    source?: string;
-                    identifier?: string | null;
-                } | null;
-                fees_breakdown: unknown;
-                connect: unknown;
-            };
-        };
-        TransactionTimelineResponse: {
-            status: boolean;
-            message: string;
-            data: Record<string, never>;
-        };
-        TransactionTotalVolumeByCurrencyArray: {
-            currency: string;
-            amount: number;
-        };
-        TransactionPendingTransfersByCurrencyArray: {
-            currency: string;
-            amount: number;
-        };
-        TransactionTotalsResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                total_transactions: number;
-                total_volume: number;
-                total_volume_by_currency: components["schemas"]["TransactionTotalVolumeByCurrencyArray"][];
-                pending_transfers: number;
-                pending_transfers_by_currency: components["schemas"]["TransactionPendingTransfersByCurrencyArray"][];
-            };
-        };
-        TransactionExportResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                path: string;
-                expiresAt: string;
-            };
-        };
-        /**
-         * @example {
-         *       "email": "customer@email.com",
-         *       "amount": 350000,
-         *       "authorization_code": "AUTH_df1l5ehnym"
-         *     }
-         */
-        ChargeCreate: {
-            /** @description Customer's email address */
-            email: string;
-            /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100). */
-            amount: number;
-            /** @description An authorization code to charge. */
-            authorization_code?: string;
-            /** @description 4-digit PIN (send with a non-reusable authorization code) */
-            pin?: string;
-            /** @description Unique transaction reference. Only -, .`, = and alphanumeric characters allowed. */
-            reference?: string;
-            /**
-             * Format: date
-             * @description The customer's birthday in the format YYYY-MM-DD e.g 2017-05-16
-             */
-            birthday?: string;
-            /**
-             * @description This is the unique identifier of the device a user uses in making payment.
-             *     Only -, .`, = and alphanumeric characters are allowed.
-             */
-            device_id?: string;
-            /** @description JSON object or stringified JSON of custom data */
-            metadata?: string | Record<string, never> | number;
-        };
-        /** @description The bank object if charging a bank account */
-        Bank: {
-            /** @description Customer's bank code */
-            code?: string;
-            /** @description Customer's account number */
-            account_number?: string;
-        };
-        /** @description Details of the mobile service provider */
-        MobileMoney: {
-            /** @description Customer's phone number */
-            phone?: string;
-            /** @description The telco provider of customer's phone number. This can be fetched from the List Bank endpoint */
-            provider?: string;
-        };
-        /** @description The USSD code for the provider to charge */
-        USSD: {
-            /**
-             * @description The three-digit USSD code.
-             * @enum {string}
-             */
-            type?: "737" | "919" | "822" | "966";
-        };
-        /** @description Details of the EFT provider */
-        EFT: {
-            /** @description The EFT provider */
-            provider?: string;
-        };
-        ChargeCreateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                domain: string;
-                status: string;
-                reference: string;
-                receipt_number?: string | null;
-                amount: number;
-                message: string | null;
-                gateway_response: string;
-                paid_at?: string;
-                created_at?: string;
-                channel: string;
-                currency: string;
-                ip_address: string | null;
-                metadata: (string | {
-                    [key: string]: unknown;
-                }) | null;
-                log: {
-                    start_time: number;
-                    time_spent: number;
-                    attempts: number;
-                    errors: number;
-                    success: boolean;
-                    mobile: boolean;
-                    input: unknown[];
-                    history: {
-                        type: string;
-                        message: string;
-                        time: number;
-                    }[];
-                } | null;
-                fees: number;
-                fees_split?: number | null;
-                authorization: {
-                    authorization_code: string;
-                    bin: string;
-                    last4: string;
-                    exp_month: string;
-                    exp_year: string;
-                    channel: string;
-                    card_type: string;
-                    bank: string;
-                    country_code: string;
-                    brand: string;
-                    reusable: boolean;
-                    signature: string;
-                    account_name: string | null;
-                    receiver_bank_account_number?: string | null;
-                    receiver_bank?: string | null;
-                };
-                customer: {
-                    id: number;
-                    first_name: string | null;
-                    last_name: string | null;
-                    email: string;
-                    customer_code: string;
-                    phone: string | null;
-                    metadata: Record<string, never> | null;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-                plan: unknown;
-                split?: Record<string, never> | null;
-                order_id?: unknown;
-                requested_amount?: number;
-                pos_transaction_data?: unknown;
-                source?: Record<string, never> | null;
-                fees_breakdown?: Record<string, never> | null;
-                connect?: Record<string, never> | null;
-                transaction_date: string;
-                plan_object?: Record<string, never>;
-                subaccount?: Record<string, never>;
-            };
-        };
-        /**
-         * @example {
-         *       "pin": "1234",
-         *       "reference": "5bwib5v6anhe9xa"
-         *     }
-         */
-        ChargeSubmitPin: {
-            /** @description Customer's PIN for the ongoing transaction */
-            pin: string;
-            /** @description Transaction reference that requires the PIN */
-            reference: string;
-        };
-        ChargeSubmitPinResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                domain: string;
-                status: string;
-                reference: string;
-                amount: number;
-                message?: string | null;
-                gateway_response: string;
-                channel: string;
-                currency: string;
-                ip_address: string | null;
-                metadata: Record<string, never> | null;
-                log: unknown;
-                fees: number | null;
-                fees_split: unknown;
-                authorization: {
-                    authorization_code?: string | null;
-                    bin?: string;
-                    last4?: string;
-                    exp_month?: string;
-                    exp_year?: string;
-                    channel?: string;
-                    card_type?: string;
-                    bank?: string;
-                    country_code?: string;
-                    brand?: string;
-                    reusable?: boolean;
-                    signature?: unknown;
-                    account_name?: unknown;
-                };
-                customer: {
-                    id: number;
-                    first_name?: string | null;
-                    last_name?: string | null;
-                    email: string;
-                    customer_code: string;
-                    phone?: string | null;
-                    metadata?: unknown;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-                plan: Record<string, never> | null;
-                split: Record<string, never> | null;
-                order_id: string | null;
-                paidAt: string | null;
-                createdAt: string;
-                requested_amount: number;
-                pos_transaction_data: unknown;
-                source: unknown;
-                fees_breakdown: Record<string, never> | null;
-                connect: Record<string, never> | null;
-                transaction_date: string;
-                plan_object: Record<string, never>;
-                subaccount: Record<string, never>;
-            };
-        };
-        /**
-         * @example {
-         *       "otp": "123456",
-         *       "reference": "5bwib5v6anhe9xa"
-         *     }
-         */
-        ChargeSubmitOTP: {
-            /** @description Customer's OTP for ongoing transaction */
-            otp: string;
-            /** @description The reference of the ongoing transaction */
-            reference: string;
-        };
-        ChargeSubmitOtpResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                domain: string;
-                status: string;
-                reference: string;
-                amount: number;
-                message?: string | null;
-                gateway_response: string;
-                channel: string;
-                currency: string;
-                ip_address: string | null;
-                metadata: Record<string, never> | null;
-                log: unknown;
-                fees: number | null;
-                fees_split: unknown;
-                authorization: {
-                    authorization_code?: string | null;
-                    bin?: string;
-                    last4?: string;
-                    exp_month?: string;
-                    exp_year?: string;
-                    channel?: string;
-                    card_type?: string;
-                    bank?: string;
-                    country_code?: string;
-                    brand?: string;
-                    reusable?: boolean;
-                    signature?: unknown;
-                    account_name?: unknown;
-                };
-                customer: {
-                    id: number;
-                    first_name?: string | null;
-                    last_name?: string | null;
-                    email: string;
-                    customer_code: string;
-                    phone?: string | null;
-                    metadata?: unknown;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-                plan: Record<string, never> | null;
-                split: Record<string, never> | null;
-                order_id: string | null;
-                paidAt: string | null;
-                createdAt: string;
-                requested_amount: number;
-                pos_transaction_data: unknown;
-                source: unknown;
-                fees_breakdown: Record<string, never> | null;
-                connect: Record<string, never> | null;
-                transaction_date: string;
-                plan_object: Record<string, never>;
-                subaccount: Record<string, never>;
-            };
-        };
-        /**
-         * @example {
-         *       "phone": "08012345678",
-         *       "reference": "5bwib5v6anhe9xa"
-         *     }
-         */
-        ChargeSubmitPhone: {
-            /** @description Customer's mobile number */
-            phone: string;
-            /** @description The reference of the ongoing transaction */
-            reference: string;
-        };
-        ChargeSubmitPhoneResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                domain: string;
-                status: string;
-                reference: string;
-                amount: number;
-                message?: string | null;
-                gateway_response: string;
-                channel: string;
-                currency: string;
-                ip_address: string | null;
-                metadata: Record<string, never> | null;
-                log: unknown;
-                fees: number | null;
-                fees_split: unknown;
-                authorization: {
-                    authorization_code?: string | null;
-                    bin?: string;
-                    last4?: string;
-                    exp_month?: string;
-                    exp_year?: string;
-                    channel?: string;
-                    card_type?: string;
-                    bank?: string;
-                    country_code?: string;
-                    brand?: string;
-                    reusable?: boolean;
-                    signature?: unknown;
-                    account_name?: unknown;
-                };
-                customer: {
-                    id: number;
-                    first_name?: string | null;
-                    last_name?: string | null;
-                    email: string;
-                    customer_code: string;
-                    phone?: string | null;
-                    metadata?: unknown;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-                plan: Record<string, never> | null;
-                split: Record<string, never> | null;
-                order_id: string | null;
-                paidAt: string | null;
-                createdAt: string;
-                requested_amount: number;
-                pos_transaction_data: unknown;
-                source: unknown;
-                fees_breakdown: Record<string, never> | null;
-                connect: Record<string, never> | null;
-                transaction_date: string;
-                plan_object: Record<string, never>;
-                subaccount: Record<string, never>;
-            };
-        };
-        /**
-         * @example {
-         *       "birthday": "1961-09-21",
-         *       "reference": "5bwib5v6anhe9xa"
-         *     }
-         */
-        ChargeSubmitBirthday: {
-            /**
-             * Format: date
-             * @description Customer's birthday in the format YYYY-MM-DD e.g 2016-09-21
-             */
-            birthday: string;
-            /** @description The reference of the ongoing transaction */
-            reference: string;
-        };
-        ChargeSubmitBirthdayResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                domain: string;
-                status: string;
-                reference: string;
-                amount: number;
-                message?: string | null;
-                gateway_response: string;
-                channel: string;
-                currency: string;
-                ip_address: string | null;
-                metadata: Record<string, never> | null;
-                log: unknown;
-                fees: number | null;
-                fees_split: unknown;
-                authorization: {
-                    authorization_code?: string | null;
-                    bin?: string;
-                    last4?: string;
-                    exp_month?: string;
-                    exp_year?: string;
-                    channel?: string;
-                    card_type?: string;
-                    bank?: string;
-                    country_code?: string;
-                    brand?: string;
-                    reusable?: boolean;
-                    signature?: unknown;
-                    account_name?: unknown;
-                };
-                customer: {
-                    id: number;
-                    first_name?: string | null;
-                    last_name?: string | null;
-                    email: string;
-                    customer_code: string;
-                    phone?: string | null;
-                    metadata?: unknown;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-                plan: Record<string, never> | null;
-                split: Record<string, never> | null;
-                order_id: string | null;
-                paidAt: string | null;
-                createdAt: string;
-                requested_amount: number;
-                pos_transaction_data: unknown;
-                source: unknown;
-                fees_breakdown: Record<string, never> | null;
-                connect: Record<string, never> | null;
-                transaction_date: string;
-                plan_object: Record<string, never>;
-                subaccount: Record<string, never>;
-            };
-        };
-        /**
-         * @example {
-         *       "address": "140 N 2ND ST",
-         *       "city": "Stroudsburg",
-         *       "state": "PA",
-         *       "zip_code": "18360",
-         *       "reference": "5bwib5v6anhe9xa"
-         *     }
-         */
-        ChargeSubmitAddress: {
-            /** @description Customer's address */
-            address: string;
-            /** @description Customer's city */
-            city: string;
-            /** @description Customer's state */
-            state: string;
-            /** @description Customer's zipcode */
-            zip_code: string;
-            /** @description The reference of the ongoing transaction */
-            reference: string;
-        };
-        ChargeCheckPendingResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                domain: string;
-                status: string;
-                reference: string;
-                amount: number;
-                message?: string | null;
-                gateway_response: string;
-                channel: string;
-                currency: string;
-                ip_address: string | null;
-                metadata: Record<string, never> | null;
-                log: unknown;
-                fees: number | null;
-                fees_split: unknown;
-                authorization: {
-                    authorization_code?: string | null;
-                    bin?: string;
-                    last4?: string;
-                    exp_month?: string;
-                    exp_year?: string;
-                    channel?: string;
-                    card_type?: string;
-                    bank?: string;
-                    country_code?: string;
-                    brand?: string;
-                    reusable?: boolean;
-                    signature?: unknown;
-                    account_name?: unknown;
-                };
-                customer: {
-                    id: number;
-                    first_name?: string | null;
-                    last_name?: string | null;
-                    email: string;
-                    customer_code: string;
-                    phone?: string | null;
-                    metadata?: unknown;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-                plan: Record<string, never> | null;
-                split: Record<string, never> | null;
-                order_id: string | null;
-                paidAt: string | null;
-                createdAt: string;
-                requested_amount: number;
-                pos_transaction_data: unknown;
-                source: unknown;
-                fees_breakdown: Record<string, never> | null;
-                connect: Record<string, never> | null;
-                transaction_date: string;
-                plan_object: Record<string, never>;
-                subaccount: Record<string, never>;
-            };
-        };
-        BulkChargeListResponseArray: {
-            domain: string;
-            batch_code: string;
-            status: string;
-            id: number;
-            createdAt: string;
-            updatedAt: string;
-        };
-        BulkChargeListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["BulkChargeListResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        /**
-         * @description A list of charge object
-         * @example {
-         *       "authorization": "AUTH_ncx8hews93",
-         *       "amount": 250000,
-         *       "reference": "dam1266638dhhd"
-         *     }
-         */
-        BulkChargeInitiate: {
-            /** @description Customer's card authorization code */
-            authorization: string;
-            /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100). */
-            amount: number;
-            /** @description A unique identifier containing lowercase letters `(a-z)`, digits `(0-9)` and these symbols: dash (`-`), underscore(`_`) */
-            reference?: string;
-            /** @description A flag to indicate if you want us to try recouping lower amounts when the customer has insufficient fund */
-            attempt_partial_debit?: boolean;
-            /**
-             * @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100).
-             *     Minimum amount to charge if the attempt_partial_debit flag is set.
-             */
-            at_least?: number;
-            /** @description JSON object of custom data */
-            metadata?: Record<string, never>;
-        };
-        BulkChargeInitiateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                batch_code: string;
-                reference: string;
-                id: number;
-                integration: number;
-                domain: string;
-                status: string;
-                total_charges: number;
-                pending_charges: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        BulkChargeFetchResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                batch_code: string;
-                id: number;
-                domain: string;
-                status: string;
-                total_charges: number;
-                pending_charges: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        MetadataCustomFieldsArray: {
-            value: string;
-            display_name: string;
-            variable_name: string;
-        };
-        BulkChargeFetchBulkBatchChargesResponseArray: {
-            integration: number;
-            bulkcharge: number;
-            customer: {
-                id: number;
-                first_name: string;
-                last_name: string;
-                email: string;
-                customer_code: string;
-                phone: string;
-                metadata: {
-                    calling_code?: string;
-                };
-                risk_action: string;
-                international_format_phone: string;
-            };
-            authorization: {
-                authorization_code: string;
-                bin: string;
-                last4: string;
-                exp_month: string;
-                exp_year: string;
-                channel: string;
-                card_type: string;
-                bank: string;
-                country_code: string;
-                brand: string;
-                reusable: boolean;
-                signature: string;
-                account_name: unknown;
-            };
-            domain: string;
-            amount: number;
-            at_least: number;
-            currency: string;
-            reference: string;
-            metadata: {
-                custom_fields: components["schemas"]["MetadataCustomFieldsArray"][];
-            };
-            status: string;
-            message: string;
-            attempt_partial_debit: boolean;
-            id: number;
-            createdAt: string;
-            updatedAt: string;
-        };
-        BulkChargeFetchBulkBatchChargesResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["BulkChargeFetchBulkBatchChargesResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        BulkChargePauseResponse: {
-            status: boolean;
-            message: string;
-        };
-        BulkChargeResumeResponse: {
-            status: boolean;
-            message: string;
-        };
-        SubaccountListResponseArray: {
-            id: number;
-            subaccount_code: string;
-            business_name: string;
-            description: string | null;
-            primary_contact_name: string | null;
-            primary_contact_email: string | null;
-            primary_contact_phone: string | null;
-            metadata: unknown;
-            percentage_charge: number;
-            settlement_bank: string;
-            bank_id: number;
-            account_number: string;
-            currency: string;
-            active: number;
-        };
-        SubaccountListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["SubaccountListResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        /**
-         * @example {
-         *       "business_name": "Oasis",
-         *       "account_number": "0123456047",
-         *       "settlement_bank": "058",
-         *       "percentage_charge": 30
-         *     }
-         */
-        SubaccountCreate: {
-            /** @description Name of business for subaccount */
-            business_name: string;
-            /** @description Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint. */
-            settlement_bank: string;
-            /** @description Bank account number */
-            account_number: string;
-            /**
-             * Format: float
-             * @description The percentage the main account receives from each payment made to the subaccount
-             */
-            percentage_charge: number;
-            /** @description A description for this subaccount */
-            description?: string;
-            /** @description A contact email for the subaccount */
-            primary_contact_email?: string;
-            /** @description The name of the contact person for this subaccount */
-            primary_contact_name?: string;
-            /** @description A phone number to call for this subaccount */
-            primary_contact_phone?: string;
-            /** @description Stringified JSON object or JSON object of custom data */
-            metadata?: string | Record<string, never>;
-        };
-        SubaccountCreateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                business_name: string;
-                account_name?: string | null;
-                description?: string | null;
-                primary_contact_name?: string | null;
-                primary_contact_email?: string | null;
-                primary_contact_phone?: string | null;
-                metadata?: unknown;
-                account_number: string;
-                percentage_charge: number;
-                settlement_bank: string;
-                currency: string;
-                bank: number;
-                integration: number;
-                domain: string;
-                product: string;
-                managed_by_integration?: number;
-                subaccount_code: string;
-                is_verified: boolean;
-                settlement_schedule: string;
-                active: boolean;
-                migrate: boolean;
-                id: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        SubaccountFetchResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                integration: number;
-                account_name: string | null;
-                bank: number;
-                managed_by_integration: number;
-                domain: string;
-                subaccount_code: string;
-                business_name: string;
-                description: string | null;
-                primary_contact_name: string | null;
-                primary_contact_email: string | null;
-                primary_contact_phone: string | null;
-                metadata: Record<string, never> | null;
-                percentage_charge: number;
-                is_verified: boolean;
-                settlement_bank: string;
-                account_number: string;
-                settlement_schedule: string;
-                active: boolean;
-                migrate: boolean;
-                currency: string;
-                product: string;
-                id: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        /**
-         * @example {
-         *       "business_name": "Sandalwood"
-         *     }
-         */
-        SubaccountUpdate: {
-            /** @description Name of business for subaccount */
-            business_name?: string;
-            /** @description Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint. */
-            settlement_bank?: string;
-            /** @description Bank account number */
-            account_number?: string;
-            /** @description Activate or deactivate a subaccount */
-            active?: boolean;
-            /**
-             * Format: float
-             * @description The percentage the main account receives from each payment made to the subaccount
-             */
-            percentage_charge?: number;
-            /** @description A description for this subaccount */
-            description?: string;
-            /** @description A contact email for the subaccount */
-            primary_contact_email?: string;
-            /** @description The name of the contact person for this subaccount */
-            primary_contact_name?: string;
-            /** @description A phone number to call for this subaccount */
-            primary_contact_phone?: string;
-            /** @description Stringified JSON object or JSON object of custom data */
-            metadata?: string | Record<string, never> | number;
-        };
-        SubaccountUpdateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                domain: string;
-                subaccount_code: string;
-                account_name?: string | null;
-                business_name: string;
-                description?: string | null;
-                primary_contact_name?: string | null;
-                primary_contact_email?: string | null;
-                primary_contact_phone?: string | null;
-                metadata?: unknown;
-                percentage_charge: number;
-                is_verified: boolean;
-                settlement_bank: string;
-                account_number: string;
-                settlement_schedule: string;
-                active: boolean;
-                migrate: boolean;
-                currency: string;
-                product: string;
-                id: number;
-                integration: number;
-                bank: number;
-                managed_by_integration: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        SplitSubaccountsArray: {
-            subaccount: {
-                id: number;
-                subaccount_code: string;
-                business_name: string;
-                description: string;
-                primary_contact_name: string;
-                primary_contact_email: string;
-                primary_contact_phone: string;
-                metadata: string;
-                settlement_bank: string;
-                currency: string;
-                account_number: string;
-            };
-            share: number;
-        };
-        SplitListResponseArray: {
-            id: number;
-            name: string;
-            type: string;
-            currency: string;
-            integration: number;
-            domain: string;
-            split_code: string;
-            active: boolean;
-            bearer_type: string;
-            bearer_subaccount: number | null;
-            createdAt: string;
-            updatedAt: string;
-            is_dynamic: boolean;
-            subaccounts: components["schemas"]["SplitSubaccountsArray"][];
-            total_subaccounts: number;
-        };
-        SplitListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["SplitListResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        SplitCreateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                name: string;
-                type: string;
-                currency: string;
-                integration: number;
-                domain: string;
-                split_code: string;
-                active: boolean;
-                bearer_type: string;
-                bearer_subaccount?: number;
-                createdAt: string;
-                updatedAt: string;
-                is_dynamic: boolean;
-                subaccounts: components["schemas"]["SplitSubaccountsArray"][];
-                total_subaccounts: number;
-            };
-        };
-        SplitFetchResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                name: string;
-                type: string;
-                currency: string;
-                integration: number;
-                domain: string;
-                split_code: string;
-                active: boolean;
-                bearer_type: string;
-                bearer_subaccount: number;
-                createdAt: string;
-                updatedAt: string;
-                is_dynamic: boolean;
-                subaccounts: components["schemas"]["SplitSubaccountsArray"][];
-                total_subaccounts: number;
-            };
-        };
-        SplitUpdate: {
-            /** @description Name of the transaction split */
-            name?: string;
-            /** @description Toggle status of split. When true, the split is active, else it's inactive */
-            active?: boolean;
-            /**
-             * @description This allows you specify how the transaction charge should be processed
-             * @enum {string}
-             */
-            bearer_type?: "subaccount" | "account" | "all-proportional" | "all";
-            /** @description This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type */
-            bearer_subaccount?: string;
-        };
-        SplitUpdateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                name: string;
-                type: string;
-                currency: string;
-                integration: number;
-                domain: string;
-                split_code: string;
-                active: boolean;
-                bearer_type: string;
-                bearer_subaccount: number;
-                createdAt: string;
-                updatedAt: string;
-                is_dynamic: boolean;
-                subaccounts: components["schemas"]["SplitSubaccountsArray"][];
-                total_subaccounts: number;
-            };
-        };
-        SplitAddUpdateSubaccountResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                name: string;
-                type: string;
-                currency: string;
-                integration: number;
-                domain: string;
-                split_code: string;
-                active: boolean;
-                bearer_type: string;
-                bearer_subaccount: number;
-                createdAt: string;
-                updatedAt: string;
-                is_dynamic: boolean;
-                subaccounts: components["schemas"]["SplitSubaccountsArray"][];
-                total_subaccounts: number;
-            };
-        };
-        /**
-         * @example {
-         *       "subaccount": "ACCT_eg4sob4590pq9vb"
-         *     }
-         */
-        SplitSubaccountRemove: {
-            /** @description This is the sub account code */
-            subaccount: string;
-        };
-        SplitRemoveSubaccountResponse: {
-            status: boolean;
-            message: string;
-        };
-        /**
-         * @description The parameters needed to perform the specified action
-         * @example {
-         *       "id": 7895939,
-         *       "reference": "4634337895939"
-         *     }
-         */
-        TerminalSendEventData: {
-            /**
-             * Format: int64
-             * @description The invoice or transaction  ID you want to push to the Terminal
-             */
-            id?: number;
-            /** @description The offline_reference from the Payment Request response */
-            reference?: string;
-        };
-        /**
-         * @example {
-         *       "type": "invoice",
-         *       "action": "process",
-         *       "data": {
-         *         "id": 7895939,
-         *         "reference": "4634337895939"
-         *       }
-         *     }
-         */
-        TerminalSendEvent: {
-            /**
-             * @description The type of event to push
-             * @enum {string}
-             */
-            type?: "invoice" | "transaction";
-            /**
-             * @description The action the Terminal needs to perform. For the invoice type, the action can either be process or view.
-             *     For the transaction type, the action can either be process or print.
-             * @enum {string}
-             */
-            action?: "process" | "view" | "print";
-            data?: components["schemas"]["TerminalSendEventData"];
-        };
-        TerminalGetStatusResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                online: boolean;
-                available: boolean;
-            };
-        };
-        TerminalListsResponseArray: {
-            id: number;
-            serial_number: string | null;
-            device_make: string | null;
-            terminal_id: string;
-            integration: number;
-            domain: string;
-            name: string | null;
-            address: string | null;
-            status: string;
-        };
-        TerminalListsResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["TerminalListsResponseArray"][];
-            meta: components["schemas"]["CursorMeta"];
-        };
-        TerminalGetResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                serial_number: string;
-                device_make: string | null;
-                terminal_id: string;
-                integration: number;
-                domain: string;
-                name: string | null;
-                address: string | null;
-                status: string;
-                split_code: string | null;
-            };
-        };
-        /**
-         * @example {
-         *       "name": "Oreos",
-         *       "address": "Somewhere on earth"
-         *     }
-         */
-        TerminalUpate: {
-            /** @description The new name for the Terminal */
-            name?: string;
-            /** @description The new address for the Terminal */
-            address?: string;
-        };
-        TerminalUpdateResponse: {
-            status: boolean;
-            message: string;
-        };
-        /**
-         * @description Model for activating and deactivating a debug Terminal
-         * @example {
-         *       "serial_number": "1111150412230003899"
-         *     }
-         */
-        TerminalActivationToggle: {
-            /** @description Device Serial Number */
-            serial_number: string;
-        };
-        TerminalCommissionDeviceResponse: {
-            status: boolean;
-            message: string;
-        };
-        TerminalDecommissionDeviceResponse: {
-            status: boolean;
-            message: string;
-        };
-        VirtualTerminalListResponseArray: {
-            id: number;
-            code: string;
-            name: string;
-            integration: number;
-            domain: string;
-            paymentMethods: unknown[];
-            active: boolean;
-            created_at: string;
-            currency: string;
-        };
-        VirtualTerminalListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["VirtualTerminalListResponseArray"][];
-            meta: components["schemas"]["CursorMeta"];
-        };
-        /**
-         * @example {
-         *       "name": "Sample Terminal",
-         *       "destinations": [
-         *         {
-         *           "target": "+2548012345678",
-         *           "name": "John Doe"
-         *         },
-         *         {
-         *           "target": "+2548098765432",
-         *           "name": "Jane Smith"
-         *         }
-         *       ]
-         *     }
-         */
-        VirtualTerminalCreate: {
-            /** @description Name of the Virtual Terminal */
-            name: string;
-            /** @description An array of objects containing the notification recipients for payments to the Virtual Terminal. Each object includes a target parameter for the Whatsapp phone number to send notifications to, and a name parameter for a descriptive label. */
-            destinations: {
-                /** @description The Whatsapp phone number to send notifications to */
-                target?: string;
-                /** @description A descriptive label for the destination */
-                name?: string;
-            }[];
-            /** @description Stringified JSON object of custom data. Kindly check the Metadata page for more information */
-            metadata?: Record<string, never>;
-            /** @description The transaction currency for the Virtual Terminal. Defaults to your integration currency */
-            currency?: string;
-            /** @description An array of objects representing custom fields to display on the form. Each object contains a display_name parameter, representing what will be displayed on the Virtual Terminal page, and variable_name parameter for referencing the custom field programmatically */
-            custom_fields?: {
-                display_name?: string;
-                variable_name?: string;
-            }[];
-        };
-        VirtualTerminalCreateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                name: string;
-                integration: number;
-                domain: string;
-                code: string;
-                paymentMethods: unknown[];
-                active: boolean;
-                metadata: unknown;
-                destinations: {
-                    target?: string;
-                    type?: string;
-                    name?: string;
-                }[];
-                currency: string;
-            };
-        };
-        VirtualTerminalFetchResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                code: string;
-                name: string;
-                integration: number;
-                domain: string;
-                paymentMethods: unknown[];
-                active: boolean;
-                created_at: string;
-                connect_account_id: unknown;
-                destinations: {
-                    target?: string;
-                    type?: string;
-                    name?: string;
-                    created_at?: string;
-                }[];
-                currency: string;
-            };
-        };
-        /**
-         * @example {
-         *       "name": "Lagos_Mainland_Zone_1"
-         *     }
-         */
-        VirtualTerminalUpdate: {
-            /** @description Name of the virtual terminal */
-            name: string;
-        };
-        VirtualTerminalUpdateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                code: string;
-                name: string;
-                integration: number;
-                domain: string;
-                paymentMethods: unknown[];
-                active: boolean;
-                created_at: string;
-                connect_account_id: unknown;
-                destinations: {
-                    target?: string;
-                    type?: string;
-                    name?: string;
-                    created_at?: string;
-                }[];
-                currency: string;
-            };
-        };
-        VirtualTerminalDeactivateResponse: {
-            status: boolean;
-            message: string;
-        };
-        /**
-         * @example {
-         *       "destinations": [
-         *         {
-         *           "target": "+2548012345678",
-         *           "name": "John Doe"
-         *         },
-         *         {
-         *           "target": "+2548098765432",
-         *           "name": "Jane Smith"
-         *         }
-         *       ]
-         *     }
-         */
-        VirtualTerminalDestinationAssign: {
-            /** @description Array of objects containing recipients for payment notifications for the Virtual Terminal. */
-            destinations: {
-                /** @description The WhatsApp number to receive payment notifications */
-                target?: string;
-                /** @description The name of the associated WhatsApp number */
-                name?: string;
-            }[];
-        };
-        VirtualTerminalDestinationAssignResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                integration: number;
-                target: string;
-                name: string;
-                type: string;
-                id: number;
-                createdAt: string;
-                updatedAt: string;
-            }[];
-        };
-        /**
-         * @example {
-         *       "targets": [
-         *         "+2548012345678",
-         *         "+2548098765432"
-         *       ]
-         *     }
-         */
-        VirtualTerminalDestinationUnassign: {
-            /** @description Array of destination targets to unassign */
-            targets: string[];
-        };
-        VirtualTerminalDestinationUnassignResponse: {
-            status: boolean;
-            message: string;
-        };
-        /**
-         * @example {
-         *       "split_code": "SPL_1234567890abcdef"
-         *     }
-         */
-        VirtualTerminalAddSplitCode: {
-            /** @description The split code to assign to the virtual terminal */
-            split_code: string;
-        };
-        VirtualTerminalAddSplitCodeResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                name: string;
-                type: string;
-                currency: string;
-                integration: number;
-                domain: string;
-                split_code: string;
-                active: boolean;
-                bearer_type: string;
-                bearer_subaccount: unknown;
-                createdAt: string;
-                updatedAt: string;
-                is_dynamic: boolean;
-                subaccounts: components["schemas"]["SplitSubaccountsArray"][];
-                total_subaccounts: number;
-            };
-        };
-        /**
-         * @example {
-         *       "split_code": "SPL_1234567890abcdef"
-         *     }
-         */
-        VirtualTerminalDeleteSplitCode: {
-            /** @description The split code to assign to the virtual terminal */
-            split_code: string;
-        };
-        VirtualTerminalDeleteSplitCodeResponse: {
-            status: boolean;
-            message: string;
-        };
-        CustomerListResponseArray: {
-            integration: number;
-            first_name: string | null;
-            last_name: string | null;
-            email: string;
-            phone: string | null;
-            metadata: Record<string, never> | null;
-            domain: string;
-            customer_code: string;
-            risk_action: string;
-            id: number;
-            createdAt: string;
-            updatedAt: string;
-        };
-        CustomerListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["CustomerListResponseArray"][];
-            meta: components["schemas"]["Meta"] | components["schemas"]["CursorMeta"];
-        };
-        /**
-         * @example {
-         *       "email": "rock@sandy.com",
-         *       "first_name": "Rock",
-         *       "last_name": "Sandy"
-         *     }
-         */
-        CustomerCreate: {
-            /** @description Customer's email address */
-            email: string;
-            /** @description Customer's first name */
-            first_name?: string;
-            /** @description Customer's last name */
-            last_name?: string;
-            /** @description Customer's phone number */
-            phone?: string;
-            /** @description Stringified JSON object or JSON object of custom data */
-            metadata?: string | Record<string, never>;
-        };
-        CustomerCreateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                email: string;
-                integration: number;
-                domain: string;
-                customer_code: string;
-                id: number;
-                identified: boolean;
-                identifications: unknown;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        CustomerFetchResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                transactions: unknown[];
-                subscriptions: unknown[];
-                authorizations: unknown[];
-                first_name: string | null;
-                last_name: string | null;
-                email: string;
-                phone: string | null;
-                metadata: {
-                    [key: string]: unknown;
-                } | null;
-                domain: string;
-                customer_code: string;
-                risk_action: string;
-                id: number;
-                integration: number;
-                createdAt: string;
-                updatedAt: string;
-                total_transactions: number;
-                total_transaction_value: unknown[];
-                dedicated_account: unknown;
-                dedicated_accounts?: unknown[] | null;
-                identified: boolean;
-                identifications: unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "first_name": "Cecilia",
-         *       "last_name": "Jones"
-         *     }
-         */
-        CustomerUpdate: {
-            /** @description Customer's first name */
-            first_name?: string;
-            /** @description Customer's last name */
-            last_name?: string;
-            /** @description Customer's phone number */
-            phone?: string;
-            /** @description Stringified JSON object or JSON object of custom data */
-            metadata?: string | Record<string, never> | number;
-        };
-        CustomerUpdateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                integration: number;
-                first_name: string;
-                last_name: string;
-                email: string;
-                phone: string | null;
-                metadata: Record<string, never> | null;
-                identified: boolean;
-                identifications: unknown;
-                domain: string;
-                customer_code: string;
-                id: number;
-                transactions: unknown[];
-                subscriptions: unknown[];
-                authorizations: unknown[];
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        /**
-         * @example {
-         *       "customer": "CUS_c6wqvwmvwopw4ms",
-         *       "risk_action": "deny"
-         *     }
-         */
-        CustomerRiskAction: {
-            /** @description The customer code from the response of the customer creation */
-            customer: string;
-            /**
-             * @description This determines the fraud rules that should be applied to the customer
-             * @default default
-             * @enum {string}
-             */
-            risk_action: "allow" | "deny" | "default";
-        };
-        CustomerWhitelistBlacklistResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                transactions: unknown[];
-                subscriptions: unknown[];
-                authorizations: unknown[];
-                first_name: string | null;
-                last_name: string | null;
-                email: string;
-                phone: string | null;
-                metadata: Record<string, never> | null;
-                domain: string;
-                customer_code: string;
-                risk_action: string;
-                id: number;
-                integration: number;
-                createdAt: string;
-                updatedAt: string;
-                identified: boolean;
-                identifications: unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "first_name": "Jabal",
-         *       "last_name": "Cedar",
-         *       "country": "NG",
-         *       "type": "bank_account",
-         *       "account_number": "0123456789",
-         *       "bank_code": "007",
-         *       "bvn": "20012345677"
-         *     }
-         */
-        CustomerValidate: {
-            /** @description Customer's first name */
-            first_name: string;
-            /** @description Customer's middle name */
-            middle_name?: string;
-            /** @description Customer's last name */
-            last_name: string;
-            /**
-             * @description Predefined types of identification.
-             * @default bank_account
-             */
-            type: string;
-            /** @description Customer's identification number. */
-            value?: string;
-            /** @description Two-letter country code of identification issuer */
-            country: string;
-            /** @description Customer's Bank Verification Number */
-            bvn: string;
-            /** @description You can get the list of bank codes by calling the List Banks endpoint (https://api.paystack.co/bank). */
-            bank_code: string;
-            /** @description Customer's bank account number. */
-            account_number: string;
-        };
-        CustomerValidateResponse: {
-            status: boolean;
-            message: string;
-        };
-        CustomerAuthorizationInitializeAccount: {
-            /**
-             * @description The customer's account number
-             * @example 0123456789
-             */
-            number: string;
-            /**
-             * @description The code representing the customer's bank
-             * @example 058
-             */
-            bank_code: string;
-        };
-        CustomerAuthorizationInitializeAddress: {
-            /**
-             * @description The customer's street
-             * @example 123 Main Street
-             */
-            street: string;
-            /**
-             * @description The customer's city
-             * @example Lagos
-             */
-            city: string;
-            /**
-             * @description The customer's state
-             * @example Lagos
-             */
-            state: string;
-        };
-        CustomerAuthorizationInitializeRequest: {
-            /**
-             * @description Customer's email address
-             * @example ravi@demo.com
-             */
-            email: string;
-            /**
-             * @description direct_debit is the only supported option for now
-             * @example direct_debit
-             * @enum {string}
-             */
-            channel: "direct_debit";
-            /**
-             * @description Fully qualified url (e.g. https://example.com/) to redirect your customer to
-             * @example http://test.url.com
-             */
-            callback_url?: string;
-            account?: components["schemas"]["CustomerAuthorizationInitializeAccount"];
-            address?: components["schemas"]["CustomerAuthorizationInitializeAddress"];
-        };
-        CustomerAuthorizationInitializeResponseData: {
-            /** @example https://checkout.paystack.com/82t4mp5b5mfn51h */
-            redirect_url: string;
-            /** @example 82t4mp5b5mfn51h */
-            access_code: string;
-            /** @example dfbzfotsrbv4n5s82t4mp5b5mfn51h */
-            reference: string;
-        };
-        CustomerAuthorizationInitializeResponse: {
-            /** @example true */
-            status: boolean;
-            /** @example Authorization initialized */
-            message: string;
-            data: components["schemas"]["CustomerAuthorizationInitializeResponseData"];
-        };
-        CustomerAuthorizationVerifyResponseCustomer: {
-            /** @example CUS_24lze1c8i2zl76y */
-            code: string;
-            /** @example ravi@demo.com */
-            email: string;
-        };
-        CustomerAuthorizationVerifyResponseData: {
-            /** @example AUTH_JV4T9Wawdj */
-            authorization_code: string;
-            /** @example direct_debit */
-            channel: string;
-            /** @example Guaranty Trust Bank */
-            bank: string;
-            /** @example true */
-            active: boolean;
-            customer: components["schemas"]["CustomerAuthorizationVerifyResponseCustomer"];
-        };
-        CustomerAuthorizationVerifyResponse: {
-            /** @example true */
-            status: boolean;
-            /** @example Authorization retrieved successfully */
-            message: string;
-            data: components["schemas"]["CustomerAuthorizationVerifyResponseData"];
-        };
-        /**
-         * @example {
-         *       "authorization_code": "AUTH_xxxIjkZVj5"
-         *     }
-         */
-        CustomerDeactivateAuthorization: {
-            /** @description Authorization code to be deactivated */
-            authorization_code: string;
-        };
-        CustomerDeactivateAuthorizationResponse: {
-            status: boolean;
-            message: string;
-        };
-        CustomerInitializeDirectDebitAccount: {
-            /**
-             * @description The customer's account number
-             * @example 0123456789
-             */
-            number: string;
-            /**
-             * @description The code representing the customer's bank
-             * @example 058
-             */
-            bank_code: string;
-        };
-        CustomerInitializeDirectDebitAddress: {
-            /**
-             * @description The customer's street
-             * @example Some Where
-             */
-            street: string;
-            /**
-             * @description The customer's city
-             * @example Ikeja
-             */
-            city: string;
-            /**
-             * @description The customer's state
-             * @example Lagos
-             */
-            state: string;
-        };
-        CustomerInitializeDirectDebitRequest: {
-            account: components["schemas"]["CustomerInitializeDirectDebitAccount"];
-            address: components["schemas"]["CustomerInitializeDirectDebitAddress"];
-        };
-        CustomerInitializeDirectDebitResponseData: {
-            /** @example https://link.paystack.com/ll6b0szngj1f27k */
-            redirect_url: string;
-            /** @example ll6b0szngj1f27k */
-            access_code: string;
-            /** @example 1er945lpy4txyki */
-            reference: string;
-        };
-        CustomerInitializeDirectDebitResponse: {
-            /** @example true */
-            status: boolean;
-            /** @example Authorization initialized */
-            message: string;
-            data: components["schemas"]["CustomerInitializeDirectDebitResponseData"];
-        };
-        CustomerDirectDebitActivationChargeRequest: {
-            /**
-             * @description The authorization ID gotten from the initiation response
-             * @example 1069309917
-             */
-            authorization_id: number;
-        };
-        CustomerDirectDebitActivationChargeResponse: {
-            /** @example true */
-            status: boolean;
-            /** @example Mandate is queued for retry */
-            message: string;
-        };
-        CustomerFetchMandateAuthorizationsResponseData: {
-            /** @example 164098 */
-            id: number;
-            /** @example active */
-            status: string;
-            /** @example 512003 */
-            mandate_id: number;
-            /** @example 110049014 */
-            authorization_id: number;
-            /** @example AUTH_8Lol0pNt14 */
-            authorization_code: string;
-            /** @example 463433 */
-            integration_id: number;
-            /** @example 0123456789 */
-            account_number: string;
-            /** @example 032 */
-            bank_code: string;
-            /** @example null */
-            bank_name?: string | null;
-            customer: {
-                /** @example 43975700 */
-                id?: number;
-                /** @example CUS_2eusy8uwe34s23fy */
-                customer_code?: string;
-                /** @example customer@email.com */
-                email?: string;
-                /** @example Smith */
-                first_name?: string;
-                /** @example Bel */
-                last_name?: string;
-            };
-            /**
-             * Format: date-time
-             * @example 2024-09-27T10:57:53.824Z
-             */
-            authorized_at: string;
-        };
-        CustomerFetchMandateAuthorizationsResponseMeta: {
-            /** @example 50 */
-            per_page: number;
-            /** @example null */
-            next?: string | null;
-            /** @example 1 */
-            count: number;
-            /** @example 1 */
-            total: number;
-        };
-        CustomerFetchMandateAuthorizationsResponse: {
-            /** @example true */
-            status: boolean;
-            /** @example Mandate authorizations retrieved successfully */
-            message: string;
-            data: components["schemas"]["CustomerFetchMandateAuthorizationsResponseData"][];
-            meta: components["schemas"]["CustomerFetchMandateAuthorizationsResponseMeta"];
-        };
-        DirectDebitActivationChargeRequest: {
-            /**
-             * @description Array of customer IDs to trigger activation charge for
-             * @example [
-             *       28958104,
-             *       983697220
-             *     ]
-             */
-            customer_ids: number[];
-        };
-        DirectDebitActivationChargeResponse: {
-            /** @example true */
-            status: boolean;
-            /** @example Mandate is queued for retry */
-            message: string;
-        };
-        DedicatedNubanListResponseArray: {
-            customer: {
-                id: number;
-                first_name: string;
-                last_name: string;
-                email: string;
-                customer_code: string;
-                phone: string | null;
-                risk_action: string;
-                international_format_phone: string | null;
-            };
-            bank: {
-                name: string;
-                id: number;
-                slug: string;
-            };
-            id: number;
-            account_name: string;
-            account_number: string;
-            created_at: string;
-            updated_at: string;
-            currency: string;
-            split_config: (string | {
-                subaccount: string;
-            }) | null;
-            active: boolean;
-            assigned: boolean;
-        };
-        DedicatedNubanListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["DedicatedNubanListResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        /**
-         * @example {
-         *       "customer": "CUS_bo732eugpb2qrg6",
-         *       "preferred_bank": "titan-paystack"
-         *     }
-         */
-        DedicatedVirtualAccountCreate: {
-            /** @description The code for the previously created customer */
-            customer: string;
-            /** @description The bank slug for preferred bank. To get a list of available banks, use the List Providers endpoint */
-            preferred_bank?: string;
-            /** @description Subaccount code of the account you want to split the transaction with */
-            subaccount?: string;
-            /** @description Split code consisting of the lists of accounts you want to split the transaction with */
-            split_code?: string;
-            /** @description JSON object or stringified JSON of custom data */
-            metadata?: string | Record<string, never> | number;
-        };
-        DedicatedNubanCreateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                bank: {
-                    name: string;
-                    id: number;
-                    slug: string;
-                };
-                account_name: string;
-                account_number: string;
-                assigned: boolean;
-                currency: string;
-                metadata: unknown;
-                active: boolean;
-                id: number;
-                created_at: string;
-                updated_at: string;
-                assignment: {
-                    integration: number;
-                    assignee_id: number;
-                    assignee_type: string;
-                    expired: boolean;
-                    account_type: string;
-                    assigned_at: string;
-                    expired_at: unknown;
-                };
-                customer: {
-                    id: number;
-                    first_name: string;
-                    last_name: string;
-                    email: string;
-                    customer_code: string;
-                    phone: string | null;
-                    metadata: Record<string, never> | null;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-            };
-        };
-        /**
-         * @example {
-         *       "email": "salmon.orange@email.com",
-         *       "first_name": "Salmon",
-         *       "last_name": "Orange",
-         *       "phone": "+2348100000000",
-         *       "preferred_bank": "titan-paystack",
-         *       "country": "NG"
-         *     }
-         */
-        DedicatedVirtualAccountAssign: {
-            /** @description Customer's email address */
-            email: string;
-            /** @description Customer's first name */
-            first_name: string;
-            /** @description Customer's last name */
-            last_name: string;
-            /** @description Customer's phone name */
-            phone: string;
-            /**
-             * @description The bank slug for preferred bank. To get a list of available banks,
-             *     use the List Banks endpoint, passing `pay_with_bank_transfer=true` query parameter
-             */
-            preferred_bank: string;
-            /**
-             * @description The two letter code country
-             * @enum {string}
-             */
-            country: "NG" | "GH";
-            /** @description Customer's account number */
-            account_number?: string;
-            /** @description Customer's Bank Verification Number */
-            bvn?: string;
-            /** @description Customer's bank code */
-            bank_code?: string;
-            /** @description Subaccount code of the account you want to split the transaction with */
-            subaccount?: string;
-            /** @description Split code consisting of the lists of accounts you want to split the transaction with */
-            split_code?: string;
-        };
-        DedicatedNubanFetchResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                customer: {
-                    id: number;
-                    first_name: string;
-                    last_name: string;
-                    email: string;
-                    customer_code: string;
-                    phone: string | null;
-                    metadata: Record<string, never> | null;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-                bank: {
-                    name: string;
-                    id: number;
-                    slug: string;
-                };
-                id: number;
-                account_name: string;
-                account_number: string;
-                created_at: string;
-                updated_at: string;
-                currency: string;
-                split_config: (string | Record<string, never>) | null;
-                active: boolean;
-                assigned: boolean;
-            };
-        };
-        DedicatedNubanDeactivateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                bank: {
-                    name: string;
-                    id: number;
-                    slug: string;
-                };
-                account_name: string;
-                account_number: string;
-                assigned: boolean;
-                currency: string;
-                metadata: unknown;
-                active: boolean;
-                id: number;
-                created_at: string;
-                updated_at: string;
-                assignment: {
-                    assignee_id: number;
-                    assignee_type: string;
-                    assigned_at: string;
-                    integration: number;
-                    account_type: string;
-                };
-            };
-        };
-        /**
-         * @example {
-         *       "account_number": "0033322211",
-         *       "split_code": "SPL_e7jnRLtzla"
-         *     }
-         */
-        DedicatedVirtualAccountSplit: {
-            /** @description Valid Dedicated virtual account */
-            account_number: string;
-            /** @description Subaccount code of the account you want to split the transaction with */
-            subaccount?: string;
-            /** @description Split code consisting of the lists of accounts you want to split the transaction with */
-            split_code?: string;
-        };
-        /**
-         * @example {
-         *       "account_number": "0033322211"
-         *     }
-         */
-        DedicatedVirtualAccountRemoveSplit: {
-            /** @description Valid Dedicated virtual account */
-            account_number: string;
-        };
-        ApplePayDomainsResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                domainNames: string[];
-            };
-        };
-        /**
-         * @example {
-         *       "domainName": "example.com"
-         *     }
-         */
-        ApplePayParam: {
-            /** @description The domain or subdomain for your application */
-            domainName: string;
-        };
-        /**
-         * @example {
-         *       "status": true,
-         *       "message": "Domain successfully registered on Apple Pay"
-         *     }
-         */
-        ApplePayCreateOkModel: {
-            /** @description An indicator */
-            status?: boolean;
-            /** @description A short description of the response */
-            message?: string;
-        };
-        CapitecPayRequeryResponse: {
-            status: boolean;
-            type: string;
-            code: string;
-            data: {
-                status: string;
-            };
-            message: string;
-        };
-        PreAuthorizationInitialize: {
-            /** @description Amount should be in the subunit of the supported currency */
-            amount: string;
-            /** @description Customer's email address */
-            email: string;
-            /**
-             * @description Only ZAR is supported for now
-             * @enum {string}
-             */
-            currency: "ZAR";
-            /** @description Unique transaction reference. Only -, ., = and alphanumeric characters allowed. */
-            reference?: string;
-            /** @description Fully qualified url, e.g. https://example.com/ . Use this to override the callback url provided on the dashboard for this transaction */
-            callback_url?: string;
-            /** @description Stringified JSON object of custom data. */
-            metadata?: string | Record<string, never>;
-            /** @description The split code of the transaction split. e.g. SPL_98WF13Eb3w */
-            split_code?: string;
-            /** @description The code for the subaccount that owns the payment. e.g. ACCT_8f4s1eq7ml6rlzj */
-            subaccount?: string;
-            /** @description An amount used to override the split configuration for a single split payment. If set, the amount specified goes to the main account regardless of the split configuration. */
-            transaction_charge?: number;
-            /**
-             * @description Specifies who will pay the Paystack transaction charges for this transaction. Either account or subaccount (defaults to account).
-             * @enum {string}
-             */
-            bearer?: "account" | "subaccount";
-            /**
-             * @description Specify the action to take on the expiry date. It’s either capture or release. Defaults to release.
-             * @enum {string}
-             */
-            expire_action?: "capture" | "release";
-            /** @description The number of days until the expire_action is executed. The minimum is 1 day and maximum 30 days. Defaults to 5 days. */
-            expire_after_days?: number;
-        };
-        PreAuthorizationInitializeResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                authorization_url: string;
-                access_code: string;
-                reference: string;
-            };
-        };
-        PreAuthorizationCapture: {
-            /** @description Unique transaction reference. Only -, ., = and alphanumeric characters allowed. */
-            reference: string;
-            /**
-             * @description Only ZAR is supported for now
-             * @enum {string}
-             */
-            currency: "ZAR";
-            /** @description Amount should be in the subunit of the supported currency */
-            amount: string;
-        };
-        FormulaSubaccountsArray: {
-            original_share: number;
-            fees: number;
-            share: number;
-            subaccount_code: string;
-            id: number;
-            name: string;
-            integration: string;
-        };
-        ShareSubaccountsArray: {
-            amount: number;
-            original_share: number;
-            fees: number;
-            subaccount_code: string;
-            id: number;
-            integration: string;
-        };
-        PreAuthorizationCaptureResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                amount: number;
-                status: string;
-                gateway_response: string;
-                transaction: {
-                    currency: string;
-                    transaction_date: string;
-                    status: string;
-                    reference: string;
-                    domain: string;
-                    metadata: (string | {
-                        [key: string]: unknown;
-                    }) | null;
-                    gateway_response: string;
-                    message: string | null;
-                    channel: string;
-                    fees: number;
-                    authorization: {
-                        authorization_code: string;
-                        bin: string;
-                        last4: string;
-                        exp_month: string;
-                        exp_year: string;
-                        channel: string;
-                        card_type: string;
-                        bank: string;
-                        country_code: string;
-                        brand: string;
-                        reusable: boolean;
-                        signature: string;
-                        account_name: string | null;
-                    };
-                    customer: {
-                        id: number;
-                        first_name: string;
-                        last_name: string;
-                        email: string;
-                        customer_code: string;
-                        phone: string;
-                        metadata: Record<string, never> | null;
-                        risk_action: string;
-                        international_format_phone?: string | null;
-                    };
-                    id: number;
-                    split?: {
-                        id: number;
-                        name: string;
-                        split_code: string;
-                        formula: {
-                            type: string;
-                            bearer_type: string;
-                            bearer_subaccount: number;
-                            subaccounts: components["schemas"]["FormulaSubaccountsArray"][];
-                            integration: number;
-                        };
-                        shares: {
-                            paystack: number;
-                            subaccounts: components["schemas"]["ShareSubaccountsArray"][];
-                            integration: number;
-                            original_share: number;
-                            fees: number;
-                        };
-                    };
-                };
-                amount_released?: number;
-                split_code: string | null;
-                split: {
-                    type: string;
-                    bearer_type: string;
-                    subaccounts: components["schemas"]["SplitSubaccountsArray"][];
-                } | null;
-            };
-        };
-        PreAuthorizationReserve: {
-            /** @description Customer's email address */
-            email: string;
-            /** @description Amount should be in the subunit of the supported currency */
-            amount: string;
-            /** @description This is the code that is used to charge and identify a customer's previously used card */
-            authorization_code: string;
-            /**
-             * @description Only ZAR is supported for now
-             * @enum {string}
-             */
-            currency: "ZAR";
-            /** @description Unique transaction reference. Only -, ., = and alphanumeric characters allowed. */
-            reference?: string;
-        };
-        PreAuthorizationReserveWithAuthCodeResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                domain: string;
-                status: string;
-                reference: string;
-                amount: number;
-                message: string;
-                created_at: string;
-                released_at: string | null;
-                authorized_at: string | null;
-                expiry_date: string | null;
-                currency: string;
-                metadata: Record<string, never> | null;
-                fees: number;
-                authorization: {
-                    authorization_code: string;
-                    bin: string;
-                    last4: string;
-                    exp_month: string;
-                    exp_year: string;
-                    channel: string;
-                    card_type: string;
-                    bank: string;
-                    country_code: string;
-                    brand: string;
-                    reusable: boolean;
-                    signature: string;
-                    account_name: string | null;
-                };
-                customer: {
-                    id: number;
-                    first_name: string | null;
-                    last_name: string | null;
-                    email: string;
-                    customer_code: string;
-                    phone: string | null;
-                    metadata: Record<string, never> | null;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-                merchant_id: number;
-                merchant_name: string;
-                expire_action: string;
-                split_code: string | null;
-                split: Record<string, never> | null;
-            };
-        };
-        PreAuthorizationVerifyResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                domain: string;
-                status: string;
-                reference: string;
-                amount: number;
-                message: string;
-                currency: string;
-                redirecturl?: string;
-            };
-        };
-        PreAuthorizationRelease: {
-            /** @description Unique transaction reference. Only -, ., = and alphanumeric characters allowed. */
-            reference: string;
-        };
-        PreAuthorizationReleaseResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                status: string;
-                reference: string;
-            };
-        };
-        PreAuthorizationListResponseArray: {
-            domain: string;
-            status: string;
-            reference: string;
-            amount: number;
-            created_at: string;
-            transaction_id: string | null;
-            captured_at: string | null;
-            released_at: string | null;
-            currency: string;
-            fees: number;
-            customer: {
-                id: number;
-                first_name: string | null;
-                last_name: string | null;
-                email: string;
-                customer_code: string;
-                phone: string | null;
-                metadata: Record<string, never> | null;
-                risk_action: string;
-                international_format_phone?: string | null;
-            };
-            id: number;
-        };
-        PreAuthorizationListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["PreAuthorizationListResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        PlanListResponseArray: {
-            subscriptions: unknown[];
-            integration: number;
-            domain: string;
-            name: string;
-            plan_code: string;
-            description: unknown;
-            amount: number;
-            interval: string;
-            invoice_limit: number;
-            send_invoices: boolean;
-            send_sms: boolean;
-            hosted_page: boolean;
-            hosted_page_url: unknown;
-            hosted_page_summary: unknown;
-            currency: string;
-            id: number;
-            createdAt: string;
-            updatedAt: string;
-        };
-        PlanListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["PlanListResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        /**
-         * @example {
-         *       "name": "Basic",
-         *       "amount": 150000,
-         *       "interval": "monthly"
-         *     }
-         */
-        PlanCreate: {
-            /** @description Name of plan */
-            name: string;
-            /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100). */
-            amount: number;
-            /**
-             * @description Payment interval
-             * @enum {string}
-             */
-            interval: "daily" | "weekly" | "monthly" | "biannually" | "annually";
-            /** @description A description for this plan */
-            description?: string;
-            /** @description Set to false if you don't want invoices to be sent to your customers */
-            send_invoices?: boolean;
-            /** @description Set to false if you don't want text messages to be sent to your customers */
-            send_sms?: boolean;
-            /** @description Currency in which amount is set. Allowed values are NGN, GHS, ZAR, USD or XOF */
-            currency?: string;
-            /**
-             * @description Number of invoices to raise during subscription to this plan.
-             *     Can be overridden by specifying an invoice_limit while subscribing.
-             */
-            invoice_limit?: number;
-            /** @description Stringified JSON object or JSON object of custom data */
-            metadata?: string | Record<string, never> | number;
-        };
-        PlanCreateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                currency: string;
-                name: string;
-                amount: number;
-                interval: string;
-                integration: number;
-                domain: string;
-                plan_code: string;
-                send_invoices: boolean;
-                send_sms: boolean;
-                hosted_page: boolean;
-                id: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        PlanFetchResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                subscriptions: unknown[];
-                integration: number;
-                domain: string;
-                name: string;
-                plan_code: string;
-                description: unknown;
-                amount: number;
-                interval: string;
-                invoice_limit?: number | null;
-                send_invoices: boolean;
-                send_sms: boolean;
-                hosted_page: boolean;
-                hosted_page_url: unknown;
-                hosted_page_summary: unknown;
-                currency: string;
-                id: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        /**
-         * @example {
-         *       "name": "Starter"
-         *     }
-         */
-        PlanUpdate: {
-            /** @description Name of plan */
-            name?: string;
-            /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, send the amount multiplied by 100 even though the currency does not use fractional subunits. */
-            amount?: number;
-            /**
-             * @description Payment interval
-             * @enum {string}
-             */
-            interval?: "daily" | "weekly" | "monthly" | "biannually" | "annually";
-            /** @description A description for this plan */
-            description?: string;
-            /** @description Stringified JSON object or JSON object of custom data */
-            metadata?: string | Record<string, never> | number;
-            /** @description Set to false if you don't want invoices to be sent to your customers */
-            send_invoices?: boolean;
-            /** @description Set to false if you don't want text messages to be sent to your customers */
-            send_sms?: boolean;
-            /** @description Currency in which amount is set. Allowed values are NGN, GHS, ZAR, USD or XOF */
-            currency?: string;
-            /**
-             * @description Number of invoices to raise during subscription to this plan.
-             *     Can be overridden by specifying an invoice_limit while subscribing.
-             */
-            invoice_limit?: number;
-        };
-        PlanUpdateResponse: {
-            status: boolean;
-            message: string;
-        };
-        SubscriptionListResponseArray: {
-            id: number;
-            domain: string;
-            status: string;
-            start: number;
-            quantity: number;
-            subscription_code: string;
-            email_token: string;
-            amount: number;
-            cron_expression: string | null;
-            next_payment_date: string | null;
-            open_invoice: unknown;
-            createdAt: string;
-            integration: number;
-            plan: {
-                id: number;
-                domain: string;
-                name: string;
-                plan_code: string;
-                description: unknown;
-                amount: number;
-                interval: string;
-                send_invoices: boolean;
-                send_sms: boolean;
-                currency: string;
-                integration: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-            authorization: {
-                authorization_code: string;
-                bin: string | null;
-                last4: string;
-                exp_month: string;
-                exp_year: string;
-                channel: string;
-                card_type: string | null;
-                bank: string;
-                country_code: string;
-                brand: string;
-                reusable: number;
-                signature: string | null;
-                account_name: unknown;
-            };
-            customer: {
-                first_name: string;
-                last_name: string;
-                email: string;
-                phone: string;
-                metadata: unknown;
-                domain: string;
-                customer_code: string;
-                risk_action: string;
-                id: number;
-                integration: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        SubscriptionListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["SubscriptionListResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        /**
-         * @example {
-         *       "customer": "CUS_xnxdt6s1zg1f4nx",
-         *       "plan": "PLN_gx2wn530m0i3w3m"
-         *     }
-         */
-        SubscriptionCreate: {
-            /** @description Customer's email address or customer code */
-            customer: string;
-            /** @description Plan code */
-            plan: string;
-            /**
-             * @description If customer has multiple authorizations, you can set the desired authorization you wish to use for this subscription here.
-             *     If this is not supplied, the customer's most recent authorization would be used
-             */
-            authorization?: string;
-            /**
-             * Format: date-time
-             * @description Set the date for the first debit. (ISO 8601 format) e.g. 2017-05-16T00:30:13+01:00
-             */
-            start_date?: string;
-        };
-        SubscriptionCreateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                customer: number;
-                plan: number;
-                integration: number;
-                domain: string;
-                start: number;
-                status: string;
-                quantity: number;
-                amount: number;
-                authorization: {
-                    authorization_code?: string;
-                    bin?: string;
-                    last4?: string;
-                    exp_month?: string;
-                    exp_year?: string;
-                    channel?: string;
-                    card_type?: string;
-                    bank?: string;
-                    country_code?: string;
-                    brand?: string;
-                    reusable?: boolean;
-                    signature?: string;
-                    account_name?: unknown;
-                };
-                subscription_code: string;
-                email_token: string;
-                id: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        SubscriptionFetchResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                domain: string;
-                status: string;
-                subscription_code: string;
-                email_token: string;
-                amount: number;
-                cron_expression: string;
-                next_payment_date: string;
-                open_invoice: unknown;
-                createdAt: string;
-                integration: number;
-                plan: {
-                    domain: string;
-                    id: number;
-                    integration: number;
-                    name: string;
-                    plan_code: string;
-                    description: unknown;
-                    amount: number;
-                    interval: string;
-                    send_invoices: boolean;
-                    send_sms: boolean;
-                    hosted_page: boolean;
-                    hosted_page_url: unknown;
-                    hosted_page_summary: unknown;
-                    currency: string;
-                    createdAt: string;
-                    updatedAt: string;
-                };
-                authorization: {
-                    authorization_code: string;
-                    bin: string;
-                    last4: string;
-                    exp_month: string;
-                    exp_year: string;
-                    channel: string;
-                    card_type: string;
-                    bank: string;
-                    country_code: string;
-                    brand: string;
-                    reusable: boolean;
-                    signature: string;
-                    account_name: unknown;
-                };
-                customer: {
-                    domain: string;
-                    id: number;
-                    integration: number;
-                    first_name: string;
-                    last_name: string;
-                    email: string;
-                    customer_code: string;
-                    phone: string | null;
-                    metadata: Record<string, never>;
-                    createdAt: string;
-                    updatedAt: string;
-                    risk_action?: string;
-                    international_format_phone?: string | null;
-                };
-                start: number;
-                quantity: number;
-                invoices: unknown[];
-            };
-        };
-        /**
-         * @example {
-         *       "code": "SUB_vsyqdmlzble3uii",
-         *       "token": "d7gofp6yppn3qz7"
-         *     }
-         */
-        SubscriptionToggle: {
-            /** @description Subscription code */
-            code: string;
-            /** @description Email token */
-            token: string;
-        };
-        SubscriptionDisableResponse: {
-            status: boolean;
-            message: string;
-        };
-        TransferRecipientListResponseArray: {
-            active: boolean;
-            createdAt: string;
-            currency: string;
-            description?: string | null;
-            domain: string;
-            email?: string | null;
-            id: number;
-            integration?: number;
-            metadata?: Record<string, never> | null;
-            name: string;
-            recipient_code: string;
-            type: string;
-            updatedAt: string;
-            is_deleted?: boolean;
-            isDeleted?: boolean;
-            details: {
-                authorization_code: string | null;
-                account_number: string | null;
-                account_name: string | null;
-                bank_code: string;
-                bank_name: string;
-            };
-        };
-        TransferRecipientListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["TransferRecipientListResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        /**
-         * @example {
-         *       "type": "nuban",
-         *       "name": "Smith Taplo",
-         *       "account_number": "01000000010",
-         *       "bank_code": "058"
-         *     }
-         */
-        TransferRecipientCreate: {
-            /**
-             * @description Recipient Type
-             * @enum {string}
-             */
-            type: "nuban" | "ghipss" | "mobile_money" | "basa" | "authorization";
-            /** @description The recipient's name according to their account registration. */
-            name: string;
-            /** @description Recipient's bank account number */
-            account_number: string;
-            /** @description Recipient's bank code. You can get the list of Bank Codes by calling the List Banks endpoint */
-            bank_code: string;
-            /** @description A description for this recipient */
-            description?: string;
-            /** @description Currency for the account receiving the transfer */
-            currency?: string;
-            /** @description An authorization code from a previous transaction */
-            authorization_code?: string;
-            /** @description JSON object or stringified JSON of custom data */
-            metadata?: string | Record<string, never> | number;
-        };
-        TransferRecipientCreateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                active: boolean;
-                createdAt: string;
-                currency: string;
-                description?: string | null;
-                domain: string;
-                email?: string | null;
-                id: number;
-                integration?: number;
-                metadata?: Record<string, never> | null;
-                name: string;
-                recipient_code: string;
-                type: string;
-                updatedAt: string;
-                is_deleted?: boolean;
-                isDeleted?: boolean;
-                details: {
-                    authorization_code: string | null;
-                    account_number: string | null;
-                    account_name: string | null;
-                    bank_code: string;
-                    bank_name: string;
-                };
-            };
-        };
-        TransferRecipientBulk: {
-            /** @description A list of transfer recipient object. */
-            batch: components["schemas"]["TransferRecipientCreate"][];
-        };
-        ErrorRecordsArray: {
-            type: string;
-            name: string;
-            description: string;
-            account_number: string;
-            bank_code: string;
-            currency: string;
-            email: string;
-        };
-        TransferRecipientErrorsArray: {
-            message: string;
-            records: components["schemas"]["ErrorRecordsArray"][];
-        };
-        TransferRecipientBulkCreateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                success: unknown[];
-                errors: components["schemas"]["TransferRecipientErrorsArray"][];
-            };
-        };
-        TransferRecipientFetchResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                integration?: number;
-                domain: string;
-                type: string;
-                currency: string;
-                name: string;
-                details: {
-                    account_number: string | null;
-                    account_name: string | null;
-                    bank_code: string;
-                    bank_name: string;
-                };
-                description?: string | null;
-                metadata?: Record<string, never> | null;
-                recipient_code: string;
-                active: boolean;
-                recipient_account?: string | null;
-                institution_code?: string | null;
-                email?: string | null;
-                id: number;
-                isDeleted?: boolean;
-                is_deleted?: boolean;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        TransferRecipientUpdate: {
-            /** @description Recipient's name */
-            name?: string;
-            /** @description Recipient's email address */
-            email?: string;
-            /** @description JSON object or stringified JSON of custom data */
-            metadata?: string | Record<string, never> | number;
-        };
-        TransferRecipientUpdateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                type: string;
-                name: string;
-                metadata: Record<string, never> | null;
-                domain: string;
-                details: {
-                    account_number: string;
-                    account_name: string | null;
-                    bank_code: string;
-                    bank_name: string;
-                };
-                currency: string;
-                recipient_code: string;
-                active: boolean;
-                id: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        TransferRecipientDeleteResponse: {
-            status: boolean;
-            message: string;
-        };
-        TransferListResponseArray: {
-            amount: number;
-            createdAt: string;
-            currency: string;
-            domain: string;
-            failures: unknown;
-            id: number;
-            integration: number;
-            reason: string;
-            reference: string;
-            source: string;
-            source_details: Record<string, never> | null;
-            status: string;
-            titan_code: string | null;
-            transfer_code: string;
-            updatedAt: string;
-            recipient: {
-                active: boolean;
-                createdAt: string;
-                currency: string;
-                description?: string | null;
-                domain: string;
-                email?: string | null;
-                id: number;
-                integration: number;
-                metadata?: Record<string, never> | null;
-                name: string;
-                recipient_code: string;
-                type: string;
-                updatedAt: string;
-                is_deleted?: boolean;
-                isDeleted?: boolean;
-                details: {
-                    authorization_code: unknown;
-                    account_number: string;
-                    account_name: string | null;
-                    bank_code: string;
-                    bank_name: string;
-                };
-            };
-        };
-        TransferListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["TransferListResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        /**
-         * @example {
-         *       "amount": 120000,
-         *       "recipient": "RCP_gd9vgag7n5lr5ix",
-         *       "reference": "acv_9ee55786-2323-4760-98e2-6380c9cb3f68"
-         *     }
-         */
-        TransferBase: {
-            /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100). */
-            amount: number;
-            /** @description The transfer recipient's code */
-            recipient: string;
-            /** @description To ensure idempotency, you need to provide e a unique identifier for the request.  The identifier should be a lowercase alphanumeric string with only -,_  symbols allowed. */
-            reference: string;
-            /** @description The reason or narration for the transfer. */
-            reason?: string;
-            /** @description JSON object or stringified JSON of custom data */
-            metadata?: string | Record<string, never> | number;
-        };
-        /** @description Transfer initiation model */
-        TransferInitiate: components["schemas"]["TransferBase"] & {
-            /**
-             * @description The source of funds to send from
-             * @default balance
-             */
-            source: string;
-            /**
-             * @description Specify the currency of the transfer.
-             * @default NGN
-             * @enum {string}
-             */
-            currency: "NGN" | "ZAR" | "KES" | "GHS";
-        };
-        TransferCreateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                transfersessionid: unknown[];
-                transfertrials: unknown[];
-                domain: string;
-                amount: number;
-                currency: string;
-                reference: string;
-                source: string;
-                source_details: unknown;
-                reason: string;
-                status: string;
-                failures: unknown;
-                transfer_code: string;
-                titan_code: unknown;
-                transferred_at: unknown;
-                id: number;
-                integration: number;
-                request: number;
-                recipient: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        /**
-         * @example {
-         *       "transfer_code": "TRF_vsyqdmlzble3uii",
-         *       "otp": "928783"
-         *     }
-         */
-        TransferFinalize: {
-            /** @description The transfer code you want to finalize */
-            transfer_code: string;
-            /** @description OTP sent to business phone to verify transfer */
-            otp: string;
-        };
-        /**
-         * @example {
-         *       "source": "balance",
-         *       "transfers": [
-         *         {
-         *           "amount": 120000,
-         *           "recipient": "RCP_gd9vgag7n5lr5ix",
-         *           "reference": "acv_9ee55786-2323-4760-98e2-6380c9cb3f68"
-         *         }
-         *       ]
-         *     }
-         */
-        TransferBulk: {
-            /**
-             * @description The source of funds for the transfer.
-             * @default balance
-             */
-            source: string;
-            /**
-             * @description Specify the currency of the transfer.
-             * @default NGN
-             * @enum {string}
-             */
-            currency: "NGN" | "ZAR" | "KES" | "GHS" | "XOF";
-            /** @description A list of transfer object */
-            transfers: components["schemas"]["TransferBase"][];
-        };
-        TransferBulkResponseArray: {
-            reference: string;
-            recipient: string;
-            amount: number;
-            transfer_code: string;
-            currency: string;
-            status: string;
-        };
-        TransferBulkResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["TransferBulkResponseArray"][];
-        };
-        TransferFeesBreakdownArray: {
-            amount: string;
-            formula: unknown;
-            type: string;
-        };
-        TransferFetchResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                amount: number;
-                createdAt: string;
-                currency: string;
-                domain: string;
-                failures: Record<string, never> | null;
-                id: number;
-                integration: number;
-                reason: string;
-                reference: string;
-                source: string;
-                source_details: Record<string, never> | null;
-                status: string;
-                titan_code: string | null;
-                transfer_code: string;
-                request: number;
-                transferred_at: string | null;
-                updatedAt: string;
-                recipient: {
-                    active: boolean;
-                    createdAt: string;
-                    currency: string;
-                    description?: string | null;
-                    domain: string;
-                    email?: string | null;
-                    id: number;
-                    integration: number;
-                    metadata?: Record<string, never> | null;
-                    name: string;
-                    recipient_code: string;
-                    type: string;
-                    updatedAt: string;
-                    is_deleted?: boolean;
-                    isDeleted?: boolean;
-                    details: {
-                        authorization_code: unknown;
-                        account_number: string;
-                        account_name: string | null;
-                        bank_code: string;
-                        bank_name: string;
-                    };
-                };
-                session: {
-                    provider: string | null;
-                    id: string | null;
-                };
-                fee_charged: number;
-                fees_breakdown: components["schemas"]["TransferFeesBreakdownArray"][] | null;
-                gateway_response: string | null;
-            };
-        };
-        TransferVerifyResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                amount: number;
-                createdAt: string;
-                currency: string;
-                domain: string;
-                failures: Record<string, never> | null;
-                id: number;
-                integration: number;
-                reason: string;
-                reference: string;
-                source: string;
-                source_details: Record<string, never> | null;
-                status: string;
-                titan_code: string | null;
-                transfer_code: string;
-                transferred_at: string | null;
-                updatedAt: string;
-                recipient: {
-                    active: boolean;
-                    createdAt: string;
-                    currency: string;
-                    description?: string | null;
-                    domain: string;
-                    email?: string | null;
-                    id: number;
-                    integration: number;
-                    metadata?: Record<string, never> | null;
-                    name: string;
-                    recipient_code: string;
-                    type: string;
-                    updatedAt: string;
-                    is_deleted?: boolean;
-                    isDeleted?: boolean;
-                    details: {
-                        authorization_code: unknown;
-                        account_number: string;
-                        account_name: string;
-                        bank_code: string;
-                        bank_name: string;
-                    };
-                };
-                session: {
-                    provider: string | null;
-                    id: string | null;
-                };
-                gateway_response: string | null;
-            };
-        };
-        /**
-         * @example {
-         *       "transfer_code": "TRF_vsyqdmlzble3uii",
-         *       "reason": "resend_otp"
-         *     }
-         */
-        TransferResendOTP: {
-            /** @description The transfer code that requires an OTP validation */
-            transfer_code: string;
-            /**
-             * @description Specify the flag to indicate the purpose of the OTP
-             * @default transfer
-             * @enum {string}
-             */
-            reason: "disable_otp" | "resend_otp" | "transfer";
-        };
-        TransferResendsOtpResponse: {
-            status: boolean;
-            message: string;
-        };
-        TransferDisablesOtpResponse: {
-            status: boolean;
-            message: string;
-        };
-        /**
-         * @example {
-         *       "otp": "928783"
-         *     }
-         */
-        TransferFinalizeDisableOTP: {
-            /** @description OTP sent to business phone to verify disabling OTP requirement */
-            otp: string;
-        };
-        TransferFinalizeDisablesOtpResponse: {
-            status: boolean;
-            message: string;
-        };
-        TransferEnablesOtpResponse: {
-            status: boolean;
-            message: string;
-        };
-        BalanceCheckResponseArray: {
-            currency: string;
-            balance: number;
-        };
-        BalanceCheckResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["BalanceCheckResponseArray"][];
-        };
-        BalanceFetchLedgerResponseArray: {
-            integration: number;
-            domain: string;
-            balance: number;
-            currency: string;
-            difference: number;
-            reason: string;
-            model_responsible: string;
-            model_row: number;
-            id: number;
-            createdAt: string;
-            updatedAt: string;
-        };
-        BalanceFetchLedgerResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["BalanceFetchLedgerResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        PaymentRequestLineItemsArray: {
-            name: string;
-            amount: number;
-            quantity: number;
-        };
-        PaymentRequestTaxArray: {
-            name: string;
-            amount: number;
-        };
-        PaymentRequestListResponseArray: {
-            id: number;
-            integration: number;
-            domain: string;
-            amount: number;
-            currency: string;
-            due_date: string | null;
-            has_invoice: boolean;
-            invoice_number: number | null;
-            description: string | null;
-            pdf_url: string | null;
-            line_items: components["schemas"]["PaymentRequestLineItemsArray"][];
-            tax: components["schemas"]["PaymentRequestTaxArray"][];
-            request_code: string;
-            status: string;
-            paid: boolean;
-            paid_at: string | null;
-            metadata: Record<string, never> | null;
-            notifications: unknown[];
-            offline_reference: string;
-            customer: {
-                id: number;
-                first_name: string;
-                last_name: string;
-                email: string;
-                customer_code: string;
-                phone: string | null;
-                metadata: Record<string, never> | null;
-                risk_action: string;
-                international_format_phone?: string | null;
-            };
-            created_at: string;
-            discount: Record<string, never> | null;
-            split_code: string | null;
-        };
-        PaymentRequestListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["PaymentRequestListResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        /**
-         * @example {
-         *       "customer": "CUS_xqp6o5oja5cackf",
-         *       "amount": 10000
-         *     }
-         */
-        PaymentRequestCreate: {
-            /** @description Customer id or code */
-            customer: string;
-            /**
-             * @description Payment request amount. Only useful if line items and tax values are ignored.
-             *     The endpoint will throw a friendly warning if neither is available.
-             */
-            amount: number;
-            /** @description Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN */
-            currency?: string;
-            /**
-             * Format: date-time
-             * @description ISO 8601 representation of request due date
-             */
-            due_date?: string;
-            /** @description A short description of the payment request */
-            description?: string;
-            /** @description Array of line items */
-            line_items?: Record<string, never>[];
-            /** @description Array of taxes */
-            tax?: Record<string, never>[];
-            /** @description Indicates whether Paystack sends an email notification to customer. Defaults to true */
-            send_notification?: boolean;
-            /** @description Indicate if request should be saved as draft. Defaults to false and overrides send_notification */
-            draft?: boolean;
-            /** @description Set to true to create a draft invoice (adds an auto incrementing invoice number if none is provided) even if there are no line_items or tax passed */
-            has_invoice?: boolean;
-            /** @description Numeric value of invoice. Invoice will start from 1 and auto increment from there.  This field is to help override whatever value Paystack decides. Auto increment for  subsequent invoices continue from this point. */
-            invoice_number?: number;
-            /** @description The split code of the transaction split. */
-            split_code?: string;
-        };
-        PaymentRequestCreateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                integration: number;
-                domain: string;
-                amount: number;
-                currency: string;
-                due_date: string | null;
-                has_invoice: boolean;
-                invoice_number: number | null;
-                description: string | null;
-                line_items: unknown[];
-                tax: unknown[];
-                request_code: string;
-                status: string;
-                paid: boolean;
-                metadata: Record<string, never> | null;
-                notifications: unknown[];
-                offline_reference: string;
-                customer: number;
-                created_at: string;
-                discount: unknown;
-                split_code: string | null;
-            };
-        };
-        PaymentRequestNotificationsArray: {
-            sent_at: string;
-            channel: string;
-        };
-        PaymentRequestViewResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                domain: string;
-                request_code: string;
-                description: string | null;
-                line_items: components["schemas"]["PaymentRequestLineItemsArray"][];
-                tax: components["schemas"]["PaymentRequestTaxArray"][];
-                amount: number;
-                discount: number | null;
-                currency: string;
-                due_date: string | null;
-                status: string;
-                paid: boolean;
-                paid_at: string | null;
-                metadata: Record<string, never> | null;
-                has_invoice: boolean;
-                invoice_number: number | null;
-                offline_reference: string;
-                pdf_url: string | null;
-                notifications: components["schemas"]["PaymentRequestNotificationsArray"][];
-                archived: boolean;
-                source: string;
-                payment_method: string | null;
-                note: string | null;
-                amount_paid: number | null;
-                split_code: string | null;
-                id: number;
-                integration: number;
-                customer: {
-                    first_name: string;
-                    last_name: string;
-                    email: string;
-                    phone: string | null;
-                    metadata: Record<string, never> | null;
-                    customer_code: string;
-                    risk_action: string;
-                    id: number;
-                    international_format_phone?: string | null;
-                };
-                createdAt: string;
-                updatedAt: string;
-                pending_amount: number;
-            };
-        };
-        /**
-         * @example {
-         *       "amount": 15000
-         *     }
-         */
-        PaymentRequestUpdate: {
-            /** @description Customer id or code */
-            customer?: string;
-            /**
-             * @description Payment request amount. Only useful if line items and tax values are ignored.
-             *     The endpoint will throw a friendly warning if neither is available.
-             */
-            amount?: number;
-            /** @description Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN */
-            currency?: string;
-            /**
-             * Format: date-time
-             * @description ISO 8601 representation of request due date
-             */
-            due_date?: string;
-            /** @description A short description of the payment request */
-            description?: string;
-            /** @description Array of line items */
-            line_items?: Record<string, never>[];
-            /** @description Array of taxes */
-            tax?: Record<string, never>[];
-            /** @description Indicates whether Paystack sends an email notification to customer. Defaults to true */
-            send_notification?: boolean;
-            /** @description Indicate if request should be saved as draft. Defaults to false and overrides send_notification */
-            draft?: boolean;
-            /** @description Set to true to create a draft invoice (adds an auto incrementing invoice number if none is provided) even if there are no line_items or tax passed */
-            has_invoice?: boolean;
-            /** @description Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field is to help override whatever value Paystack decides.  Auto increment for subsequent invoices continue from this point. */
-            invoice_number?: number;
-            /** @description The split code of the transaction split. */
-            split_code?: string;
-        };
-        PaymentRequestUpdateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                domain: string;
-                amount: number;
-                currency: string;
-                due_date: string | null;
-                has_invoice: boolean;
-                invoice_number: number | null;
-                description: string | null;
-                pdf_url: string | null;
-                line_items: unknown[];
-                tax: unknown[];
-                request_code: string;
-                status: string;
-                paid: boolean;
-                paid_at: string | null;
-                metadata: Record<string, never> | null;
-                notifications: components["schemas"]["PaymentRequestNotificationsArray"][];
-                offline_reference: string;
-                customer: {
-                    id: number;
-                    first_name: string;
-                    last_name: string;
-                    email: string;
-                    customer_code: string;
-                    phone: string | null;
-                    metadata: Record<string, never> | null;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-                created_at: string;
-                discount?: Record<string, never> | null;
-                split_code?: string | null;
-            };
-        };
-        PaymentRequestVerifyResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                integration: {
-                    key: string;
-                    name: string;
-                    logo: string;
-                    allowed_currencies: string[];
-                };
-                domain: string;
-                amount: number;
-                currency: string;
-                due_date: string | null;
-                has_invoice: boolean;
-                invoice_number: number | null;
-                description: string | null;
-                pdf_url: string | null;
-                line_items: unknown[];
-                tax: unknown[];
-                request_code: string;
-                status: string;
-                paid: boolean;
-                paid_at: string | null;
-                metadata: Record<string, never> | null;
-                notifications: components["schemas"]["PaymentRequestNotificationsArray"][];
-                offline_reference: string;
-                customer: {
-                    id: number;
-                    first_name: string;
-                    last_name: string;
-                    email: string;
-                    customer_code: string;
-                    phone: string | null;
-                    metadata: Record<string, never> | null;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-                created_at: string;
-                discount?: Record<string, never> | null;
-                split_code?: string | null;
-                pending_amount: number;
-            };
-        };
-        PaymentRequestSendNotificationResponse: {
-            status: boolean;
-            message: string;
-        };
-        PaymentRequestPendingArray: {
-            currency: string;
-            amount: number;
-        };
-        PaymentRequestSuccessfulArray: {
-            currency: string;
-            amount: number;
-        };
-        PaymentRequestTotalArray: {
-            currency: string;
-            amount: number;
-        };
-        PaymentRequestTotalResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                pending: components["schemas"]["PaymentRequestPendingArray"][];
-                successful: components["schemas"]["PaymentRequestSuccessfulArray"][];
-                total: components["schemas"]["PaymentRequestTotalArray"][];
-            };
-        };
-        PaymentRequestFinalizeResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                domain: string;
-                amount: number;
-                currency: string;
-                due_date: string | null;
-                has_invoice: boolean;
-                invoice_number: number | null;
-                description: string | null;
-                pdf_url: string | null;
-                line_items: components["schemas"]["PaymentRequestLineItemsArray"][];
-                tax: components["schemas"]["PaymentRequestTaxArray"][];
-                request_code: string;
-                status: string;
-                paid: boolean;
-                paid_at: string | null;
-                metadata: Record<string, never> | null;
-                notifications: unknown[];
-                offline_reference: string;
-                customer: {
-                    id: number;
-                    first_name: string;
-                    last_name: string;
-                    email: string;
-                    customer_code: string;
-                    phone: string | null;
-                    metadata: Record<string, never> | null;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-                created_at: string;
-                discount?: {
-                    type: string;
-                    amount: number;
-                } | null;
-                split_code?: string | null;
-                pending_amount: number;
-            };
-        };
-        PaymentRequestArchiveResponse: {
-            status: boolean;
-            message: string;
-        };
-        ProductListsResponseArray: {
-            id: number;
-            name: string;
-            description: string;
-            product_code: string;
-            slug: string;
-            currency: string;
-            price: number;
-            quantity: number;
-            quantity_sold: number;
-            active: boolean;
-            domain: string;
-            type: string;
-            in_stock: boolean;
-            unlimited: boolean;
-            metadata: {
-                background_color: string;
-            };
-            files: unknown[];
-            success_message: string | null;
-            redirect_url: string | null;
-            split_code: string | null;
-            notification_emails: string[] | null;
-            minimum_orderable: number;
-            maximum_orderable: number | null;
-            createdAt: string;
-            updatedAt: string;
-            digital_assets: unknown[];
-            variant_options: unknown[];
-            is_shippable: boolean;
-            shipping_fields: {
-                delivery_note: string;
-                shipping_address?: string;
-                shipping_fees?: unknown[];
-            };
-            integration: number;
-            low_stock_alert: number;
-        };
-        ProductListsResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["ProductListsResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        /**
-         * @example {
-         *       "name": "Cups",
-         *       "description": "Environment friendly paper cups",
-         *       "price": 10000,
-         *       "currency": "NGN"
-         *     }
-         */
-        ProductCreate: {
-            /** @description Name of product */
-            name: string;
-            /** @description The description of the product */
-            description: string;
-            /** @description Price should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the price is the same as the base units (not multiplied by 100). */
-            price: number;
-            /** @description Currency in which price is set. Allowed values are: NGN, GHS, ZAR, USD or XOF */
-            currency: string;
-            /**
-             * @description Set to true if the product has unlimited stock. Leave as false if the
-             *     product has limited stock
-             */
-            unlimited?: boolean;
-            /** @description Number of products in stock. Use if limited is true */
-            quantity?: number;
-            /** @description The split code if sharing the transaction with partners */
-            split_code?: string;
-            /** @description Stringified JSON object of custom data */
-            metadata?: string;
-        };
-        ProductCreateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                name: string;
-                description: string;
-                currency: string;
-                price: number;
-                quantity: number;
-                is_shippable: boolean;
-                unlimited: boolean;
-                integration: number;
-                domain: string;
-                metadata: {
-                    background_color: string;
-                };
-                slug: string;
-                product_code: string;
-                quantity_sold: number;
-                type: string;
-                shipping_fields: {
-                    delivery_note: string;
-                };
-                active: boolean;
-                in_stock: boolean;
-                minimum_orderable: number;
-                maximum_orderable: unknown;
-                low_stock_alert: boolean;
-                id: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        ProductFetchResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                digital_assets: unknown[];
-                integration: number;
-                name: string;
-                description: string;
-                product_code: string;
-                price: number;
-                currency: string;
-                quantity: number;
-                quantity_sold: unknown;
-                type: string;
-                files: unknown[] | null;
-                file_path: string | null;
-                is_shippable: boolean;
-                shipping_fields: {
-                    delivery_note: string;
-                    shipping_address?: string;
-                    shipping_fees?: unknown[];
-                };
-                unlimited: boolean;
-                domain: string;
-                active: boolean;
-                features: Record<string, never> | null;
-                in_stock: boolean;
-                metadata: {
-                    background_color: string;
-                };
-                slug: string;
-                success_message: string | null;
-                redirect_url: string | null;
-                split_code: string | null;
-                notification_emails: string[] | null;
-                minimum_orderable: number;
-                maximum_orderable: number | null;
-                low_stock_alert: boolean;
-                stock_threshold: number | null;
-                expires_in: number | null;
-                id: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        /**
-         * @example {
-         *       "name": "Spoon",
-         *       "description": "Environment friendly paper spoons",
-         *       "price": 5000,
-         *       "currency": "NGN"
-         *     }
-         */
-        ProductUpdate: {
-            /** @description Name of product */
-            name?: string;
-            /** @description The description of the product */
-            description?: string;
-            /** @description Price should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the price is the same as the base units (not multiplied by 100). */
-            price?: number;
-            /** @description Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD */
-            currency?: string;
-            /**
-             * @description Set to true if the product has unlimited stock. Leave as false if the
-             *     product has limited stock
-             */
-            unlimited?: boolean;
-            /** @description Number of products in stock. Use if limited is true */
-            quantity?: number;
-            /** @description The split code if sharing the transaction with partners */
-            split_code?: string;
-            /** @description JSON object of custom data */
-            metadata?: Record<string, never>;
-        };
-        ProductUpdateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                name: string;
-                description: string;
-                product_code: string;
-                price: number;
-                currency: string;
-                quantity: number;
-                quantity_sold: unknown;
-                type: string;
-                image_path: string;
-                file_path: string;
-                is_shippable: boolean;
-                unlimited: boolean;
-                domain: string;
-                active: boolean;
-                features: unknown;
-                in_stock: boolean;
-                metadata: unknown;
-                id: number;
-                integration: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        ProductDeleteResponse: {
-            status: boolean;
-            message: string;
-        };
-        StorefrontListResponseArray: {
-            id: number;
-            name: string;
-            slug: string;
-            description: string | null;
-            status: string;
-            currency: string;
-            createdAt: string;
-            updatedAt: string;
-        };
-        StorefrontListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["StorefrontListResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        /**
-         * @example {
-         *       "name": "Obi and Sons",
-         *       "slug": "obi_and_sons",
-         *       "currency": "NGN"
-         *     }
-         */
-        StorefrontCreate: {
-            /** @description Name of the storefront */
-            name: string;
-            /** @description A unique identifier to access your store. Once the storefront is created, it can be accessed from https://paystack.shop/your-slug */
-            slug: string;
-            /**
-             * @description Currency for prices of products in your storefront.
-             * @enum {string}
-             */
-            currency: "GHS" | "KES" | "NGN" | "USD" | "ZAR";
-            /** @description The description of the storefront */
-            description?: string;
-        };
-        StorefrontCreateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                name: string;
-                slug: string;
-                description: string | null;
-                status: string;
-                currency: string;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        StorefrontFetchResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                name: string;
-                slug: string;
-                description: string | null;
-                status: string;
-                currency: string;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        /**
-         * @example {
-         *       "description": "Import and Export"
-         *     }
-         */
-        StorefrontUpdate: {
-            /** @description Name of the storefront */
-            name?: string;
-            /**
-             * @description A unique identifier to access your store. Once the storefront is created, it can be accessed from
-             *     https://paystack.shop/your-slug
-             */
-            slug?: string;
-            /** @description The description of the storefront */
-            description?: string;
-        };
-        StorefrontUpdateResponse: {
-            status: boolean;
-            message: string;
-        };
-        StorefrontDeleteResponse: {
-            status: boolean;
-            message: string;
-        };
-        /**
-         * @example {
-         *       "products": [
-         *         2196244,
-         *         2179824
-         *       ]
-         *     }
-         */
-        StorefrontAddProducts: {
-            /** @description An array of product IDs */
-            products: number[];
-        };
-        OrderListResponseArray: {
-            id: number;
-            code: string;
-            amount: number;
-            currency: string;
-            status: string;
-            customer: {
-                email: string;
-            };
-            createdAt: string;
-        };
-        OrderListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["OrderListResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        /**
-         * @description The collection of items that make up the order
-         * @example {
-         *       "item": 2179824,
-         *       "type": "product",
-         *       "quantity": 200000,
-         *       "amount": 2
-         *     }
-         */
-        OrderItems: {
-            /** @description The product ID of the item */
-            item: number;
-            /** @description The type of the item. `product` is currently the acceptable value */
-            type: string;
-            /** @description The number of items to get */
-            quantity: number;
-            /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100). */
-            amount: number;
-        };
-        /**
-         * @description The shipping details of the order
-         * @example {
-         *       "street_line": "Somewhere on Earth",
-         *       "city": "Atlantic",
-         *       "state": "Pacific",
-         *       "country": "Equator",
-         *       "shipping_fee": 10000
-         *     }
-         */
-        OrderShipping: {
-            /** @description The address of for the delivery */
-            street_line: string;
-            /** @description The city of the delivery address */
-            city: string;
-            /** @description The state of the delivery address */
-            state: string;
-            /** @description The country of the delivery address */
-            country: string;
-            /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100). */
-            shipping_fee: number;
-            /** @description Extra details to be aware of for the delivery */
-            delivery_note?: string;
-        };
-        /**
-         * @example {
-         *       "email": "test@email.com",
-         *       "first_name": "Demo",
-         *       "last_name": "User",
-         *       "phone": "+2348031245678",
-         *       "currency": "NGN",
-         *       "items": [
-         *         {
-         *           "item": 2179824,
-         *           "type": "product",
-         *           "quantity": 200000,
-         *           "amount": 2
-         *         }
-         *       ],
-         *       "shipping": {
-         *         "street_line": "Somewhere on Earth",
-         *         "city": "Atlantic",
-         *         "state": "Pacific",
-         *         "country": "Equator",
-         *         "shipping_fee": 10000
-         *       }
-         *     }
-         */
-        OrderCreate: {
-            /** @description The email of the customer placing the order */
-            email: string;
-            /** @description The customer's first name */
-            first_name: string;
-            /** @description The customer's last name */
-            last_name: string;
-            /** @description The customer's mobile number */
-            phone: string;
-            /**
-             * @description Currency in which amount is set
-             * @enum {string}
-             */
-            currency: "GHS" | "KES" | "NGN" | "USD" | "ZAR" | "XOF";
-            items: components["schemas"]["OrderItems"][];
-            shipping: components["schemas"]["OrderShipping"];
-            /** @description A flag to indicate if the order is for someone else */
-            is_gift?: boolean;
-            /** @description A flag to indicate if the someone else should pay for the order */
-            pay_for_me?: boolean;
-        };
-        OrderCreateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                discounts: unknown[];
-                currency: string;
-                shipping_address: unknown;
-                integration: number;
-                domain: string;
-                email: string;
-                customer: number;
-                amount: number;
-                pay_for_me: boolean;
-                shipping: {
-                    customer: number;
-                    integration: number;
-                    domain: string;
-                    fees: number;
-                    delivery_note: unknown;
-                    street_line: string;
-                    city: string;
-                    state: string;
-                    country: string;
-                    is_shipped: boolean;
-                    delivery_tracking_link: unknown;
-                    id: number;
-                    createdAt: string;
-                    updatedAt: string;
-                } | null;
-                shipping_fees: number;
-                shipping_method?: {
-                    region: string;
-                    fee: number;
-                    currency: string;
-                };
-                metadata: Record<string, never>;
-                order_code: string;
-                status: string;
-                refunded: boolean;
-                is_viewed: boolean;
-                expiration_date: unknown;
-                id: number;
-                createdAt: string;
-                updatedAt: string;
-                items: unknown[];
-                pay_for_me_code: string;
-                discount_amount: number;
-            };
-        };
-        OrderFetchResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                code: string;
-                amount: number;
-                currency: string;
-                status: string;
-                customer: {
-                    id: number;
-                    email: string;
-                };
-                line_items: {
-                    product: {
-                        id: number;
-                        name: string;
-                    };
-                    quantity: number;
-                    amount: number;
-                }[];
-                createdAt: string;
-            };
-        };
-        OrderFetchProductResponseArray: {
-            order_id: number;
-            transaction: number;
-            order_code: string;
-            customer: number;
-            first_name: string;
-            last_name: string;
-            customer_name: string;
-            phone: string;
-            email: string;
-            product_code: string;
-            product_id: number;
-            product_name: string;
-            price: number;
-            quantity_sold: number;
-            currency: string;
-            quantity: number;
-            variant_id: unknown;
-            variant_price: unknown;
-            variant_code: unknown;
-            amount: number;
-            shipping_method: unknown;
-            status: string;
-            shipping_address: unknown;
-            refunded: boolean;
-            shipping: unknown;
-            paid_at: string;
-            created_at: string;
-            is_shipped: boolean;
-            is_viewed: number;
-            delivery_note: unknown;
-            shipping_fee: unknown;
-            amount_paid: number;
-            storefront_slug: string;
-        };
-        OrderFetchProductResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["OrderFetchProductResponseArray"][];
-            meta: components["schemas"]["Meta"] & {
-                quantity_sold: number;
-                revenue: number;
-            };
-        };
-        OrderValidateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                order_code: string;
-                domain: string;
-                currency: string;
-                amount: number;
-                email: string;
-                status: string;
-                refunded: boolean;
-                paid_at: unknown;
-                shipping_address: unknown;
-                metadata: unknown;
-                shipping_fees: number;
-                shipping_method: unknown;
-                is_viewed: boolean;
-                expiration_date: string;
-                pay_for_me: boolean;
-                id: number;
-                integration: {
-                    key: string;
-                    name: string;
-                    logo: string;
-                    allowed_currencies: unknown[];
-                };
-                transaction: unknown;
-                page: unknown;
-                customer: {
-                    id: number;
-                    first_name: string;
-                    last_name: string;
-                    email: string;
-                    customer_code: string;
-                    phone: string;
-                    metadata: Record<string, never>;
-                    risk_action: string;
-                    international_format_phone: string;
-                };
-                shipping: unknown;
-                createdAt: string;
-                updatedAt: string;
-                payer: unknown;
-            };
-        };
-        PageListResponseArray: {
-            integration: number;
-            plan: unknown;
-            domain: string;
-            name: string;
-            description: string | null;
-            amount: number | null;
-            currency: string;
-            slug: string;
-            custom_fields: unknown[] | null;
-            type: string;
-            redirect_url: string | null;
-            success_message: string | null;
-            collect_phone: boolean;
-            active: boolean;
-            published: boolean;
-            migrate: boolean;
-            notification_email: unknown;
-            metadata: Record<string, never> | null;
-            split_code: unknown;
-            id: number;
-            createdAt: string;
-            updatedAt: string;
-        };
-        PageListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["PageListResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        /**
-         * @example {
-         *       "name": "Extra Charges",
-         *       "amount": 200000
-         *     }
-         */
-        PageCreate: {
-            /** @description Name of page */
-            name: string;
-            /** @description The description of the page */
-            description?: string;
-            /** @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100). */
-            amount?: number;
-            /**
-             * @description The transaction currency. Defaults to your integration currency.
-             * @enum {string}
-             */
-            currency?: "NGN" | "GHS" | "ZAR" | "KES" | "USD" | "XOF";
-            /** @description URL slug you would like to be associated with this page. Page will be accessible at `https://paystack.com/pay/[slug]` */
-            slug?: string;
-            /**
-             * @description The type of payment page to create. Defaults to `payment` if no type is specified.
-             * @enum {string}
-             */
-            type?: "payment" | "subscription" | "product" | "plan";
-            /** @description The ID of the plan to subscribe customers on this payment page to when `type` is set to `subscription`. */
-            plan?: string;
-            /** @description Specifies whether to collect a fixed amount on the payment page. If true, `amount` must be passed. */
-            fixed_amount?: boolean;
-            /** @description The split code of the transaction split. e.g. `SPL_98WF13Eb3w` */
-            split_code?: string;
-            /** @description JSON object of custom data */
-            metadata?: Record<string, never>;
-            /** @description If you would like Paystack to redirect to a URL upon successful payment, specify the URL here. */
-            redirect_url?: string;
-            /** @description A success message to display to the customer after a successful transaction */
-            success_message?: string;
-            /** @description An email address that will receive transaction notifications for this payment page */
-            notification_email?: string;
-            /** @description Specify whether to collect phone numbers on the payment page */
-            collect_phone?: boolean;
-            /** @description If you would like to accept custom fields, specify them here. */
-            custom_fields?: Record<string, never>[];
-        };
-        PageCreateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                name: string;
-                description?: string | null;
-                amount: number | null;
-                split_code?: string | null;
-                integration: number;
-                domain: string;
-                slug: string;
-                currency: string;
-                type: string;
-                collect_phone: boolean;
-                active: boolean;
-                published: boolean;
-                migrate: boolean;
-                id: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        PageProductsArray: {
-            product_id: number;
-            name: string;
-            description: string;
-            product_code: string;
-            page: number;
-            price: number;
-            currency: string;
-            quantity: number;
-            type: string;
-            features: unknown;
-            is_shippable: number;
-            domain: string;
-            integration: number;
-            active: number;
-            in_stock: number;
-        };
-        PageFetchResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                integration: number;
-                domain: string;
-                name: string;
-                description?: string | null;
-                amount: number | null;
-                currency: string;
-                slug: string;
-                active: boolean;
-                id: number;
-                createdAt: string;
-                updatedAt: string;
-                products: components["schemas"]["PageProductsArray"][];
-            };
-        };
-        /**
-         * @example {
-         *       "name": "Backyard Sale"
-         *     }
-         */
-        PageUpdate: {
-            /** @description Name of page */
-            name?: string;
-            /** @description The description of the page */
-            description?: string;
-            /** @description Amount should be in the subunit of the currency */
-            amount?: number;
-            /** @description Set to false to deactivate page url */
-            active?: boolean;
-        };
-        PageUpdateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                domain: string;
-                name: string;
-                description?: string | null;
-                amount: number | null;
-                currency: string;
-                slug: string;
-                active: boolean;
-                id: number;
-                integration: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        PageCheckSlugAvailabilityResponse: {
-            status: boolean;
-            message: string;
-        };
-        /**
-         * @example {
-         *       "products": [
-         *         2196244,
-         *         2179824
-         *       ]
-         *     }
-         */
-        PageProduct: {
-            /** @description A list of IDs of products to add to a page. */
-            products: number[];
-        };
-        PageAddProductsResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                integration: number;
-                plan: unknown;
-                domain: string;
-                name: string;
-                description?: string | null;
-                amount: number | null;
-                currency: string;
-                slug: string;
-                custom_fields?: unknown;
-                type: string;
-                redirect_url?: unknown;
-                success_message?: unknown;
-                collect_phone: boolean;
-                active: boolean;
-                published: boolean;
-                migrate: boolean;
-                notification_email?: string | null;
-                metadata?: Record<string, never> | null;
-                split_code?: string | null;
-                id: number;
-                createdAt: string;
-                updatedAt: string;
-                products: components["schemas"]["PageProductsArray"][];
-            };
-        };
-        SettlementListResponseArray: {
-            id: number;
-            domain: string;
-            status: string;
-            currency: string;
-            integration: number;
-            total_amount: number;
-            effective_amount: number;
-            total_fees: number;
-            total_processed: number;
-            deductions: number | null;
-            /** Format: date-time */
-            settlement_date: string;
-            settled_by: string | null;
-            /** Format: date-time */
-            createdAt: string;
-            /** Format: date-time */
-            updatedAt: string;
-        };
-        SettlementListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["SettlementListResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        SettlementTransactionsResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["TransactionListResponseArray"][];
-            meta: components["schemas"]["MetaWithVolume"];
-        };
-        ControlPanelFetchPaymentSessionTimeoutResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                payment_session_timeout: number;
-            };
-        };
-        PaymentSession: {
-            /**
-             * @description Time in seconds before a transaction becomes invalid
-             * @example 30
-             */
-            timeout: number;
-        };
-        ControlPanelUpdatePaymentSessionTimeoutResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                payment_session_timeout: number;
-            };
-        };
-        RefundListResponseArray: {
-            id: number;
-            integration: number;
-            domain: string;
-            transaction: number;
-            dispute: number | null;
-            amount: number;
-            deducted_amount: number | null;
-            currency: string;
-            channel: string;
-            settlement: number | null;
-            refunded_by: string;
-            refunded_at: string | null;
-            expected_at: string;
-            customer_note: string;
-            merchant_note: string;
-            fully_deducted: number | null;
-            created_at: string;
-            updated_at: string;
-            status: string;
-        };
-        RefundListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["RefundListResponseArray"][];
-        };
-        /**
-         * @example {
-         *       "transaction": "mpkr39h74k"
-         *     }
-         */
-        RefundCreate: {
-            /** @description The reference of a previosuly completed transaction */
-            transaction: string;
-            /**
-             * @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100).
-             *     Amount to be refunded to the customer. It cannot be more than the original transaction amount.
-             */
-            amount?: number;
-            /**
-             * @description Three-letter ISO currency
-             * @enum {string}
-             */
-            currency?: "GHS" | "KES" | "NGN" | "USD" | "ZAR" | "XOF";
-            /** @description Customer reason */
-            customer_note?: string;
-            /** @description Merchant reason */
-            merchant_note?: string;
-        };
-        RefundCreateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                transaction: {
-                    id: number;
-                    domain: string;
-                    reference: string;
-                    amount: number;
-                    paid_at: string;
-                    channel: string;
-                    currency: string;
-                    authorization: {
-                        exp_month: unknown;
-                        exp_year: unknown;
-                        account_name: unknown;
-                    };
-                    customer: {
-                        international_format_phone?: string | null;
-                    };
-                    plan: Record<string, never>;
-                    subaccount: {
-                        currency: unknown;
-                    };
-                    split: Record<string, never>;
-                    order_id: unknown;
-                    pos_transaction_data: unknown;
-                    source: unknown;
-                    fees_breakdown: unknown;
-                };
-                integration: number;
-                deducted_amount: number;
-                channel: unknown;
-                merchant_note: string;
-                customer_note: string;
-                status: string;
-                refunded_by: string;
-                expected_at: string;
-                currency: string;
-                domain: string;
-                amount: number;
-                fully_deducted: boolean;
-                id: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        /**
-         * @description An object that contains the customer’s account details for refund
-         * @example {
-         *       "currency": "NGN",
-         *       "account_number": "1234567890",
-         *       "bank_id": "9"
-         *     }
-         */
-        RefundRetryAccountDetails: {
-            /** @description The currency of the customer's bank account. It should be the same as the currency the payment was made */
-            currency: string;
-            /** @description The customer's account number */
-            account_number: string;
-            /** @description The ID representing the customer's bank. You can get the list of bank IDs by calling the List Banks endpoint. */
-            bank_id: string;
-        };
-        RefundRetry: {
-            refund_account_details: components["schemas"]["RefundRetryAccountDetails"];
-        };
-        /** Generated schema for Root */
-        RefundRetryResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                integration: number;
-                transaction: number;
-                dispute: Record<string, never>;
-                settlement: Record<string, never>;
-                id: number;
-                domain: string;
-                currency: string;
-                amount: number;
-                status: string;
-                refunded_at: string | null;
-                expected_at: string;
-                channel: string;
-                refunded_by: string;
-                customer_note: string;
-                merchant_note: string;
-                deducted_amount: number;
-                fully_deducted: boolean;
-                bank_reference: string | null;
-                reason: string;
-                customer: Record<string, never>;
-                initiated_by: string;
-                reversed_at: string | null;
-                session_id: string | null;
-            };
-        };
-        RefundFetchResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                integration: number;
-                transaction: number;
-                dispute: number | null;
-                settlement: number | null;
-                domain: string;
-                amount: number;
-                deducted_amount: number;
-                fully_deducted: boolean;
-                currency: string;
-                channel: string;
-                status: string;
-                refunded_by: string;
-                refunded_at: string;
-                expected_at: string;
-                customer_note: string;
-                merchant_note: string;
-                id: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        DisputeHistoryArray: {
-            status: string;
-            by: string;
-            createdAt: string;
-        };
-        DisputeMessagesArray: {
-            sender: string;
-            body: string;
-            createdAt: string;
-        };
-        DisputeListResponseArray: {
-            id: number;
-            refund_amount: number | null;
-            currency: string | null;
-            status: string;
-            resolution?: unknown;
-            domain: string;
-            transaction: {
-                id: number;
-                domain: string;
-                status: string;
-                reference: string;
-                amount: number;
-                message: unknown;
-                gateway_response: string;
-                paid_at?: string | null;
-                created_at?: string;
-                channel: string;
-                currency: string;
-                ip_address: string;
-                metadata: {
-                    custom_fields: components["schemas"]["MetadataCustomFieldsArray"][];
-                };
-                log: {
-                    start_time: number;
-                    time_spent: number;
-                    attempts: number;
-                    errors: number;
-                    success: boolean;
-                    mobile: boolean;
-                    input: unknown[];
-                    history: {
-                        type: string;
-                        message: string;
-                        time: number;
-                    }[];
-                } | null;
-                fees: number;
-                fees_split: number | null;
-                authorization: Record<string, never>;
-                customer: unknown;
-                plan: Record<string, never>;
-                subaccount: Record<string, never>;
-                split: Record<string, never>;
-                order_id: unknown;
-                pos_transaction_data: unknown;
-                source: unknown;
-                fees_breakdown: unknown;
-                connect: unknown;
-            };
-            transaction_reference?: unknown;
-            category: string | null;
-            customer: {
-                id: number;
-                first_name?: string;
-                last_name?: string;
-                email: string;
-                customer_code: string;
-                phone?: string | null;
-                metadata?: Record<string, never> | null;
-                risk_action: string;
-                international_format_phone?: string | null;
-            };
-            bin: string | null;
-            last4: string | null;
-            dueAt?: unknown;
-            resolvedAt?: unknown;
-            evidence?: unknown;
-            attachments?: unknown;
-            note?: unknown;
-            history: components["schemas"]["DisputeHistoryArray"][];
-            messages: components["schemas"]["DisputeMessagesArray"][];
-            createdAt: string;
-            updatedAt: string;
-        };
-        DisputeListResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["DisputeListResponseArray"][];
-            meta: components["schemas"]["Meta"];
-        };
-        DisputeFetchResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                refund_amount: number | null;
-                currency: string | null;
-                status: string;
-                resolution?: unknown;
-                domain: string;
-                transaction: {
-                    id: number;
-                    domain: string;
-                    status: string;
-                    reference: string;
-                    receipt_number?: number | null;
-                    amount: number;
-                    message: unknown;
-                    gateway_response: string;
-                    paid_at: string;
-                    created_at: string;
-                    channel: string;
-                    currency: string;
-                    ip_address: string;
-                    metadata: {
-                        custom_fields: components["schemas"]["MetadataCustomFieldsArray"][];
-                    };
-                    log: {
-                        start_time: number;
-                        time_spent: number;
-                        attempts: number;
-                        errors: number;
-                        success: boolean;
-                        mobile: boolean;
-                        input: unknown[];
-                        history: {
-                            type: string;
-                            message: string;
-                            time: number;
-                        }[];
-                    } | null;
-                    fees: number;
-                    fees_split: number | null;
-                    authorization: {
-                        receiver_bank_account_number?: unknown;
-                        receiver_bank?: unknown;
-                    };
-                    customer: {
-                        international_format_phone?: string | null;
-                    };
-                    plan: Record<string, never>;
-                    subaccount: Record<string, never>;
-                    split: Record<string, never>;
-                    order_id: unknown;
-                    requested_amount: number;
-                    pos_transaction_data: unknown;
-                    source: unknown;
-                    fees_breakdown: unknown;
-                    connect: unknown;
-                };
-                transaction_reference?: unknown;
-                category: string | null;
-                customer: {
-                    id: number;
-                    first_name?: string | null;
-                    last_name?: string | null;
-                    email: string;
-                    customer_code: string;
-                    phone?: string | null;
-                    metadata?: Record<string, never> | null;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-                bin: string | null;
-                last4: string | null;
-                dueAt?: unknown;
-                resolvedAt?: unknown;
-                evidence?: unknown;
-                attachments?: unknown;
-                note?: unknown;
-                history: components["schemas"]["DisputeHistoryArray"][];
-                messages: components["schemas"]["DisputeMessagesArray"][];
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        /**
-         * @example {
-         *       "refund_amount": 50000
-         *     }
-         */
-        DisputeUpdate: {
-            /** @description The amount to refund, in the subunit of your currency */
-            refund_amount: number;
-            /** @description Filename of attachment returned via response from the Dispute upload URL */
-            uploaded_filename?: string;
-        };
-        DisputeUpdateResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                id: number;
-                refund_amount: number | null;
-                currency: string | null;
-                status: string;
-                resolution?: unknown;
-                domain: string;
-                transaction: {
-                    id: number;
-                    domain: string;
-                    status: string;
-                    reference: string;
-                    receipt_number?: number | null;
-                    amount: number;
-                    message: unknown;
-                    gateway_response: string;
-                    paid_at: string;
-                    created_at: string;
-                    channel: string;
-                    currency: string;
-                    ip_address: string;
-                    metadata: {
-                        custom_fields: components["schemas"]["MetadataCustomFieldsArray"][];
-                    };
-                    log: {
-                        start_time: number;
-                        time_spent: number;
-                        attempts: number;
-                        errors: number;
-                        success: boolean;
-                        mobile: boolean;
-                        input: unknown[];
-                        history: {
-                            type: string;
-                            message: string;
-                            time: number;
-                        }[];
-                    } | null;
-                    fees: number;
-                    fees_split: number | null;
-                    authorization: {
-                        receiver_bank_account_number?: unknown;
-                        receiver_bank?: unknown;
-                    };
-                    customer: {
-                        international_format_phone?: string | null;
-                    };
-                    plan: Record<string, never>;
-                    subaccount: Record<string, never>;
-                    split: Record<string, never>;
-                    order_id: unknown;
-                    requested_amount: number;
-                    pos_transaction_data: unknown;
-                    source: unknown;
-                    fees_breakdown: unknown;
-                    connect: unknown;
-                };
-                transaction_reference?: unknown;
-                category: string | null;
-                customer: {
-                    id: number;
-                    first_name?: string | null;
-                    last_name?: string | null;
-                    email: string;
-                    customer_code: string;
-                    phone?: string | null;
-                    metadata?: Record<string, never> | null;
-                    risk_action: string;
-                    international_format_phone?: string | null;
-                };
-                bin: string | null;
-                last4: string | null;
-                dueAt?: unknown;
-                resolvedAt?: unknown;
-                evidence?: unknown;
-                attachments?: unknown;
-                note?: unknown;
-                history: components["schemas"]["DisputeHistoryArray"][];
-                messages: components["schemas"]["DisputeMessagesArray"][];
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        DisputeUploadURLResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                signedUrl: string;
-                fileName: string;
-            };
-        };
-        DisputeExportResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                path: string;
-                expiresAt: string;
-            };
-        };
-        DisputeListTransactionResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                history: components["schemas"]["DisputeHistoryArray"][];
-                messages: components["schemas"]["DisputeMessagesArray"][];
-                currency: string | null;
-                last4: string | null;
-                bin: string | null;
-                transaction_reference?: unknown;
-                merchant_transaction_reference: string | null;
-                refund_amount: number | null;
-                status: string;
-                domain: string;
-                resolution?: unknown;
-                category: string | null;
-                note?: unknown;
-                attachments?: unknown;
-                id: number;
-                integration: number;
-                transaction: {
-                    id: number;
-                    domain: string;
-                    status: string;
-                    reference: string;
-                    receipt_number?: number | null;
-                    amount: number;
-                    message: unknown;
-                    gateway_response: string;
-                    paid_at?: string | null;
-                    created_at?: string;
-                    channel: string;
-                    currency: string;
-                    ip_address: string;
-                    metadata: {
-                        custom_fields: components["schemas"]["MetadataCustomFieldsArray"][];
-                    };
-                    log: {
-                        start_time: number;
-                        time_spent: number;
-                        attempts: number;
-                        errors: number;
-                        success: boolean;
-                        mobile: boolean;
-                        input: unknown[];
-                        history: {
-                            type: string;
-                            message: string;
-                            time: number;
-                        }[];
-                    } | null;
-                    fees: number;
-                    fees_split: number | null;
-                    authorization: {
-                        receiver_bank_account_number?: unknown;
-                        receiver_bank?: unknown;
-                    };
-                    customer: {
-                        international_format_phone?: string | null;
-                    };
-                    plan: Record<string, never>;
-                    subaccount: Record<string, never>;
-                    split: Record<string, never>;
-                    order_id: unknown;
-                    requested_amount: number;
-                    pos_transaction_data: unknown;
-                    source: unknown;
-                    fees_breakdown: unknown;
-                    connect: Record<string, never> | null;
-                };
-                created_by: number | null;
-                evidence?: unknown;
-                resolvedAt?: unknown;
-                createdAt: string;
-                updatedAt: string;
-                dueAt?: unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "resolution": "merchant-accepted",
-         *       "message": "Merchant accepted",
-         *       "refund_amount": 50000,
-         *       "uploaded_filename": "qesp8a4df1xejihd9x5q"
-         *     }
-         */
-        DisputeResolve: {
-            /** @description Dispute resolution. Accepted values, merchant-accepted, declined */
-            resolution: string;
-            /** @description Reason for resolving */
-            message: string;
-            /** @description The amount to refund, in the subunit of your integration currency */
-            refund_amount: number;
-            /** @description Filename of attachment returned via response from the Dispute upload URL */
-            uploaded_filename: string;
-            /** @description Evidence Id for fraud claims */
-            evidence?: number;
-        };
-        DisputeResolveResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                currency: string;
-                last4: string | null;
-                bin: string | null;
-                transaction_reference?: string | null;
-                merchant_transaction_reference: string | null;
-                refund_amount: number;
-                status: string;
-                domain: string;
-                resolution: string;
-                category: string;
-                note?: unknown;
-                attachments: string;
-                id: number;
-                integration?: number;
-                transaction: Record<string, never>;
-                created_by: number;
-                evidence: number | null;
-                resolvedAt: string;
-                createdAt: string;
-                updatedAt: string;
-                dueAt?: unknown;
-                message: {
-                    dispute: number;
-                    sender: string;
-                    body: string;
-                    id: number;
-                    createdAt: string;
-                    updatedAt: string;
-                };
-            };
-        };
-        /**
-         * @example {
-         *       "customer_email": "customer@email.com",
-         *       "customer_name": "Mensah King",
-         *       "customer_phone": "08012345678",
-         *       "service_details": "claim for buying cups"
-         *     }
-         */
-        DisputeEvidence: {
-            /** @description Customer email */
-            customer_email: string;
-            /** @description Customer name */
-            customer_name: string;
-            /** @description Customer mobile number */
-            customer_phone: string;
-            /** @description Details of service offered */
-            service_details: string;
-            /** @description Delivery address */
-            delivery_address?: string;
-            /**
-             * Format: date-time
-             * @description ISO 8601 representation of delivery date (YYYY-MM-DD)
-             */
-            delivery_date?: string;
-        };
-        DisputeAddEvidenceResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                customer_email: string;
-                customer_name: string;
-                customer_phone: string;
-                service_details: string;
-                delivery_address: string;
-                delivery_date: string;
-                dispute: number;
-                id: number;
-                createdAt: string;
-                updatedAt: string;
-            };
-        };
-        MiscellaneousListBanksResponseArray: {
-            name: string;
-            slug: string;
-            code: string;
-            longcode: string;
-            gateway: string | null;
-            pay_with_bank: boolean;
-            supports_transfer: boolean;
-            available_for_direct_debit: boolean;
-            active: boolean;
-            is_deleted: boolean | null;
-            country: string;
-            currency: string;
-            type: string;
-            id: number;
-            createdAt: string;
-            updatedAt: string;
-        };
-        MiscellaneousListBanksResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["MiscellaneousListBanksResponseArray"][];
-        };
-        VerificationResolveAccountNumberResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                account_number: string;
-                account_name: string;
-            };
-        };
-        /**
-         * @example {
-         *       "account_name": "Ann Bron",
-         *       "account_number": "0123456789",
-         *       "account_type": "personal",
-         *       "bank_code": "632005",
-         *       "country_code": "ZA",
-         *       "document_type": "identityNumber",
-         *       "document_number": "1234567890123"
-         *     }
-         */
-        BankValidateRequest: {
-            /** @description Customer's first and last name registered with their bank */
-            account_name: string;
-            /** @description Customer's account number */
-            account_number: string;
-            /**
-             * @description The type of the customer's account number
-             * @enum {string}
-             */
-            account_type: "personal" | "business";
-            /** @description The bank code of the customer’s bank. You can fetch the bank codes by using our List Banks endpoint */
-            bank_code: string;
-            /** @description The two digit ISO code of the customer’s bank */
-            country_code: string;
-            /**
-             * @description Customer’s mode of identity
-             * @enum {string}
-             */
-            document_type: "identityNumber" | "passportNumber" | "businessRegistrationNumber";
-            /** @description Customer’s mode of identity number */
-            document_number?: string;
-        };
-        VerificationValidateAccountResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                verified: boolean;
-                verificationMessage: string;
-                accountAcceptsDebits: boolean;
-                accountAcceptsCredits: boolean;
-                accountOpenForMoreThanThreeMonths: boolean;
-                accountHolderMatch: boolean;
-                accountOpen: boolean;
-            };
-        };
-        VerificationResolveCardBINResponse: {
-            status: boolean;
-            message: string;
-            data: {
-                bin: string;
-                brand: string;
-                sub_brand: string;
-                country_code: string;
-                country_name: string;
-                card_type: string;
-                bank: string;
-                linked_bank_id: number;
-            };
-        };
-        MiscellaneousListCountriesResponseArray: {
-            id: number;
-            active_for_dashboard_onboarding: boolean;
-            name: string;
-            iso_code: string;
-            default_currency_code: string;
-            integration_defaults: Record<string, never>;
-            calling_code: string;
-            pilot_mode: boolean;
-            relationships: {
-                currency: {
-                    type: string;
-                    data: string[];
-                    supported_currencies: {
-                        NGN: {
-                            bank: {
-                                bank_type: string;
-                                branch_code: boolean;
-                                branch_code_type: string;
-                                account_name: boolean;
-                                account_verification_required: boolean;
-                                account_number_label: string;
-                                account_number_pattern: {
-                                    exact_match: boolean;
-                                    pattern: string;
-                                };
-                                documents: unknown[];
-                                show_account_number_tooltip: boolean;
-                            };
-                        };
-                        USD: {
-                            bank: {
-                                bank_type: string;
-                                required_fields: string[];
-                                branch_code: boolean;
-                                branch_code_type: string;
-                                account_name: boolean;
-                                account_verification_required: boolean;
-                                account_number_label: string;
-                                account_number_pattern: {
-                                    exact_match: boolean;
-                                    pattern: string;
-                                };
-                                documents: unknown[];
-                                notices: string[];
-                            };
-                        };
-                    };
-                };
-                integration_feature: {
-                    type: string;
-                    data: unknown[];
-                };
-                integration_type: {
-                    type: string;
-                    data: string[];
-                };
-                payment_method: {
-                    type: string;
-                    data: string[];
-                };
-            };
-        };
-        MiscellaneousListCountriesResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["MiscellaneousListCountriesResponseArray"][];
-        };
-        MiscellaneousListStatesResponseArray: {
-            name: string;
-            slug: string;
-            abbreviation: string;
-        };
-        MiscellaneousListStatesResponse: {
-            status: boolean;
-            message: string;
-            data: components["schemas"]["MiscellaneousListStatesResponseArray"][];
-        };
-        data: {
-            id: number;
-            domain: string;
-            status: string;
-            reference: string;
-            receipt_number: unknown;
-            amount: number;
-            message: unknown;
-            gateway_response: string;
-            helpdesk_link: unknown;
-            paid_at: string;
-            created_at: string;
-            channel: string;
-            currency: string;
-            ip_address: string | null;
-            metadata: (string | {
-                [key: string]: unknown;
-            }) | null;
-            log: {
-                start_time: number;
-                time_spent: number;
-                attempts: number;
-                errors: number;
-                success: boolean;
-                mobile: boolean;
-                input: unknown[];
-                history: {
-                    type: string;
-                    message: string;
-                    time: number;
-                }[];
-            } | null;
-            fees: number;
-            fees_split: number | null;
-            authorization: {
-                authorization_code: string;
-                bin: string;
-                last4: string;
-                exp_month: string;
-                exp_year: string;
-                channel: string;
-                card_type: string;
-                bank: string;
-                country_code: string;
-                brand: string;
-                reusable: boolean;
-                signature: string;
-                account_name: string | null;
-                receiver_bank_account_number?: string | null;
-                receiver_bank?: string | null;
-            };
-            customer: {
-                id: number;
-                first_name: string | null;
-                last_name: string | null;
-                email: string;
-                customer_code: string;
-                phone: string | null;
-                metadata: Record<string, never> | null;
-                risk_action: string;
-                international_format_phone?: string | null;
-            };
-            plan: Record<string, never> | null;
-            subaccount: Record<string, never> | null;
-            split: Record<string, never> | null;
-            order_id: unknown;
-            requested_amount: number;
-            pos_transaction_data: unknown;
-            source: {
-                type?: string;
-                source?: string;
-                identifier?: string | null;
-            } | null;
-            fees_breakdown: unknown;
-            connect: unknown;
-        };
-        "data-2": {
-            amount: number;
-            createdAt: string;
-            currency: string;
-            domain: string;
-            failures: Record<string, never> | null;
-            id: number;
-            integration: number;
-            reason: string;
-            reference: string;
-            source: string;
-            source_details: Record<string, never> | null;
-            status: string;
-            titan_code: string | null;
-            transfer_code: string;
-            request: number;
-            transferred_at: string | null;
-            updatedAt: string;
-            recipient: {
-                active: boolean;
-                createdAt: string;
-                currency: string;
-                description?: string | null;
-                domain: string;
-                email?: string | null;
-                id: number;
-                integration: number;
-                metadata?: Record<string, never> | null;
-                name: string;
-                recipient_code: string;
-                type: string;
-                updatedAt: string;
-                is_deleted?: boolean;
-                isDeleted?: boolean;
-                details: {
-                    authorization_code: unknown;
-                    account_number: string;
-                    account_name: string | null;
-                    bank_code: string;
-                    bank_name: string;
-                };
-            };
-            session: {
-                provider: string | null;
-                id: string | null;
-            };
-            fee_charged: number;
-            fees_breakdown: components["schemas"]["TransferFeesBreakdownArray"][] | null;
-            gateway_response: string | null;
-        };
-        "data-3": {
-            id: number;
-            domain: string;
-            status: string;
-            subscription_code: string;
-            email_token: string;
-            amount: number;
-            cron_expression: string;
-            next_payment_date: string;
-            open_invoice: unknown;
-            createdAt: string;
-            integration: number;
-            plan: {
-                domain: string;
-                id: number;
-                integration: number;
-                name: string;
-                plan_code: string;
-                description: unknown;
-                amount: number;
-                interval: string;
-                send_invoices: boolean;
-                send_sms: boolean;
-                hosted_page: boolean;
-                hosted_page_url: unknown;
-                hosted_page_summary: unknown;
-                currency: string;
-                createdAt: string;
-                updatedAt: string;
-            };
-            authorization: {
-                authorization_code: string;
-                bin: string;
-                last4: string;
-                exp_month: string;
-                exp_year: string;
-                channel: string;
-                card_type: string;
-                bank: string;
-                country_code: string;
-                brand: string;
-                reusable: boolean;
-                signature: string;
-                account_name: unknown;
-            };
-            customer: {
-                domain: string;
-                id: number;
-                integration: number;
-                first_name: string;
-                last_name: string;
-                email: string;
-                customer_code: string;
-                phone: string | null;
-                metadata: Record<string, never>;
-                createdAt: string;
-                updatedAt: string;
-                risk_action?: string;
-                international_format_phone?: string | null;
-            };
-            start: number;
-            quantity: number;
-            invoices: unknown[];
-        };
-        "data-4": {
-            id: number;
-            integration: {
-                key: string;
-                name: string;
-                logo: string;
-                allowed_currencies: string[];
-            };
-            domain: string;
-            amount: number;
-            currency: string;
-            due_date: string | null;
-            has_invoice: boolean;
-            invoice_number: number | null;
-            description: string | null;
-            pdf_url: string | null;
-            line_items: unknown[];
-            tax: unknown[];
-            request_code: string;
-            status: string;
-            paid: boolean;
-            paid_at: string | null;
-            metadata: Record<string, never> | null;
-            notifications: components["schemas"]["PaymentRequestNotificationsArray"][];
-            offline_reference: string;
-            customer: {
-                id: number;
-                first_name: string;
-                last_name: string;
-                email: string;
-                customer_code: string;
-                phone: string | null;
-                metadata: Record<string, never> | null;
-                risk_action: string;
-                international_format_phone?: string | null;
-            };
-            created_at: string;
-            discount?: Record<string, never> | null;
-            split_code?: string | null;
-            pending_amount: number;
-        };
-        "data-5": {
-            customer: {
-                id: number;
-                first_name: string;
-                last_name: string;
-                email: string;
-                customer_code: string;
-                phone: string | null;
-                metadata: Record<string, never> | null;
-                risk_action: string;
-                international_format_phone?: string | null;
-            };
-            bank: {
-                name: string;
-                id: number;
-                slug: string;
-            };
-            id: number;
-            account_name: string;
-            account_number: string;
-            created_at: string;
-            updated_at: string;
-            currency: string;
-            split_config: (string | Record<string, never>) | null;
-            active: boolean;
-            assigned: boolean;
-        };
-        "data-6": {
-            integration: number;
-            transaction: number;
-            dispute: number | null;
-            settlement: number | null;
-            domain: string;
-            amount: number;
-            deducted_amount: number;
-            fully_deducted: boolean;
-            currency: string;
-            channel: string;
-            status: string;
-            refunded_by: string;
-            refunded_at: string;
-            expected_at: string;
-            customer_note: string;
-            merchant_note: string;
-            id: number;
-            createdAt: string;
-            updatedAt: string;
-        };
-        "data-7": {
-            id: number;
-            refund_amount: number | null;
-            currency: string | null;
-            status: string;
-            resolution?: unknown;
-            domain: string;
-            transaction: {
-                id: number;
-                domain: string;
-                status: string;
-                reference: string;
-                receipt_number?: number | null;
-                amount: number;
-                message: unknown;
-                gateway_response: string;
-                paid_at: string;
-                created_at: string;
-                channel: string;
-                currency: string;
-                ip_address: string;
-                metadata: {
-                    custom_fields: components["schemas"]["MetadataCustomFieldsArray"][];
-                };
-                log: {
-                    start_time: number;
-                    time_spent: number;
-                    attempts: number;
-                    errors: number;
-                    success: boolean;
-                    mobile: boolean;
-                    input: unknown[];
-                    history: {
-                        type: string;
-                        message: string;
-                        time: number;
-                    }[];
-                } | null;
-                fees: number;
-                fees_split: number | null;
-                authorization: {
-                    receiver_bank_account_number?: unknown;
-                    receiver_bank?: unknown;
-                };
-                customer: {
-                    international_format_phone?: string | null;
-                };
-                plan: Record<string, never>;
-                subaccount: Record<string, never>;
-                split: Record<string, never>;
-                order_id: unknown;
-                requested_amount: number;
-                pos_transaction_data: unknown;
-                source: unknown;
-                fees_breakdown: unknown;
-                connect: unknown;
-            };
-            transaction_reference?: unknown;
-            category: string | null;
-            customer: {
-                id: number;
-                first_name?: string | null;
-                last_name?: string | null;
-                email: string;
-                customer_code: string;
-                phone?: string | null;
-                metadata?: Record<string, never> | null;
-                risk_action: string;
-                international_format_phone?: string | null;
-            };
-            bin: string | null;
-            last4: string | null;
-            dueAt?: unknown;
-            resolvedAt?: unknown;
-            evidence?: unknown;
-            attachments?: unknown;
-            note?: unknown;
-            history: components["schemas"]["DisputeHistoryArray"][];
-            messages: components["schemas"]["DisputeMessagesArray"][];
-            createdAt: string;
-            updatedAt: string;
-        };
+        "application/json": components["schemas"]["Error"];
+      };
     };
-    responses: {
-        /** @description Responses from the Transaction Initialize endpoint */
-        TransactionInitializeBadRequestResponse: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["TransactionInitializeBadRequestModel"];
-            };
-        };
-        /** @description Unauthorized operation */
-        Unauthorized: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                /**
-                 * @example {
-                 *       "status": false,
-                 *       "message": "Invalid key"
-                 *     }
-                 */
-                "application/json": components["schemas"]["Error"];
-            };
-        };
-        /** @description Request successful */
-        Ok: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["Response"];
-            };
-        };
-        /** @description Entity not found */
-        NotFound: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                /**
-                 * @example {
-                 *       "status": false,
-                 *       "message": "Entity not found"
-                 *     }
-                 */
-                "application/json": components["schemas"]["Error"];
-            };
-        };
-        /** @description Terminal Get Status response */
-        TerminalGetStatusSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["TerminalGetStatusResponse"];
-            };
-        };
-        /** @description Terminal Lists response */
-        TerminalListsSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["TerminalListsResponse"];
-            };
-        };
-        /** @description Terminal Get response */
-        TerminalGetSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["TerminalGetResponse"];
-            };
-        };
-        /** @description Terminal Update response */
-        TerminalUpdateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["TerminalUpdateResponse"];
-            };
-        };
-        /** @description Terminal Commission Device response */
-        TerminalCommissionDeviceSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["TerminalCommissionDeviceResponse"];
-            };
-        };
-        /** @description Terminal Decommission Device response */
-        TerminalDecommissionDeviceSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["TerminalDecommissionDeviceResponse"];
-            };
-        };
-        /** @description Virtual Terminal Lists response */
-        VirtualTerminalListSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["VirtualTerminalListResponse"];
-            };
-        };
-        /** @description Virtual Terminal Create response */
-        VirtualTerminalCreateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["VirtualTerminalCreateResponse"];
-            };
-        };
-        /** @description Virtual Terminal Fetch response */
-        VirtualTerminalFetchSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["VirtualTerminalFetchResponse"];
-            };
-        };
-        /** @description Virtual Terminal Update response */
-        VirtualTerminalUpdateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["VirtualTerminalUpdateResponse"];
-            };
-        };
-        /** @description Virtual Terminal Deactivate response */
-        VirtualTerminalDeactivateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["VirtualTerminalDeactivateResponse"];
-            };
-        };
-        /** @description Virtual Terminal Deactivate response */
-        VirtualTerminalDestinationAssignSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["VirtualTerminalDestinationAssignResponse"];
-            };
-        };
-        /** @description Virtual Terminal unassign response */
-        VirtualTerminalDestinationUnassignSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["VirtualTerminalDestinationUnassignResponse"];
-            };
-        };
-        /** @description Virtual Terminal Split Assign response */
-        VirtualTerminalAddSplitCodeSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["VirtualTerminalAddSplitCodeResponse"];
-            };
-        };
-        /** @description Virtual Terminal Split Remove response */
-        VirtualTerminalDeleteSplitCodeSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["VirtualTerminalDeleteSplitCodeResponse"];
-            };
-        };
-        /** @description Customer Authorization Initialize response */
-        CustomerAuthorizationInitializeSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["CustomerAuthorizationInitializeResponse"];
-            };
-        };
-        /** @description Customer Authorization Verify response */
-        CustomerAuthorizationVerifySuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["CustomerAuthorizationVerifyResponse"];
-            };
-        };
-        /** @description Customer Initialize Direct Debit response */
-        CustomerInitializeDirectDebitSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["CustomerInitializeDirectDebitResponse"];
-            };
-        };
-        /** @description Customer Direct Debit Activation Charge response */
-        CustomerDirectDebitActivationChargeSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["CustomerDirectDebitActivationChargeResponse"];
-            };
-        };
-        /** @description Customer Fetch Mandate Authorizations response */
-        CustomerFetchMandateAuthorizationsSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["CustomerFetchMandateAuthorizationsResponse"];
-            };
-        };
-        /** @description Direct Debit Activation Charge response */
-        DirectDebitActivationChargeSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["DirectDebitActivationChargeResponse"];
-            };
-        };
-        /** @description Apple Pay registered domains retrieved */
-        ApplePayDomainsSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["ApplePayDomainsResponse"];
-            };
-        };
-        /** @description Responses from the Transaction Initialize endpoint */
-        ApplePayOkResponse: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["ApplePayCreateOkModel"];
-            };
-        };
-        /** @description Plan List response */
-        PlanListSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PlanListResponse"];
-            };
-        };
-        /** @description Plan Create response */
-        PlanCreateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PlanCreateResponse"];
-            };
-        };
-        /** @description Plan Fetch response */
-        PlanFetchSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PlanFetchResponse"];
-            };
-        };
-        /** @description Plan Update response */
-        PlanUpdateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PlanUpdateResponse"];
-            };
-        };
-        /** @description Subscription List response */
-        SubscriptionListSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["SubscriptionListResponse"];
-            };
-        };
-        /** @description Subscription Create response */
-        SubscriptionCreateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["SubscriptionCreateResponse"];
-            };
-        };
-        /** @description Subscription Fetch response */
-        SubscriptionFetchSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["SubscriptionFetchResponse"];
-            };
-        };
-        /** @description Subscription Disable response */
-        SubscriptionDisableSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["SubscriptionDisableResponse"];
-            };
-        };
-        /** @description Payment Request List response */
-        PaymentRequestListSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PaymentRequestListResponse"];
-            };
-        };
-        /** @description Payment Request Create response */
-        PaymentRequestCreateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PaymentRequestCreateResponse"];
-            };
-        };
-        /** @description Payment Request fetch response */
-        PaymentRequestViewSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PaymentRequestViewResponse"];
-            };
-        };
-        /** @description Payment Request Update response */
-        PaymentRequestUpdateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PaymentRequestUpdateResponse"];
-            };
-        };
-        /** @description Payment Request Verify response */
-        PaymentRequestVerifySuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PaymentRequestVerifyResponse"];
-            };
-        };
-        /** @description Payment Request Send Notification response */
-        PaymentRequestSendNotificationSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PaymentRequestSendNotificationResponse"];
-            };
-        };
-        /** @description Payment Request Total response */
-        PaymentRequestTotalSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PaymentRequestTotalResponse"];
-            };
-        };
-        /** @description Payment Request Finalize response */
-        PaymentRequestFinalizeSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PaymentRequestFinalizeResponse"];
-            };
-        };
-        /** @description Payment Request Archive response */
-        PaymentRequestArchiveSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PaymentRequestArchiveResponse"];
-            };
-        };
-        /** @description Product Lists response */
-        ProductListsSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["ProductListsResponse"];
-            };
-        };
-        /** @description Product Create response */
-        ProductCreateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["ProductCreateResponse"];
-            };
-        };
-        /** @description Product Fetch response */
-        ProductFetchSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["ProductFetchResponse"];
-            };
-        };
-        /** @description Product Update response */
-        ProductUpdateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["ProductUpdateResponse"];
-            };
-        };
-        /** @description Product Delete response */
-        ProductDeleteSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["ProductDeleteResponse"];
-            };
-        };
-        /** @description Storefront List response */
-        StorefrontListSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["StorefrontListResponse"];
-            };
-        };
-        /** @description Storefront Create response */
-        StorefrontCreateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["StorefrontCreateResponse"];
-            };
-        };
-        /** @description Storefront Fetch response */
-        StorefrontFetchSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["StorefrontFetchResponse"];
-            };
-        };
-        /** @description Storefront Update response */
-        StorefrontUpdateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["StorefrontUpdateResponse"];
-            };
-        };
-        /** @description Storefront Delete response */
-        StorefrontDeleteSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["StorefrontDeleteResponse"];
-            };
-        };
-        /** @description Order List response */
-        OrderListSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["OrderListResponse"];
-            };
-        };
-        /** @description Order Create response */
-        OrderCreateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["OrderCreateResponse"];
-            };
-        };
-        /** @description Order Fetch response */
-        OrderFetchSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["OrderFetchResponse"];
-            };
-        };
-        /** @description Order Fetch Product response */
-        OrderFetchProductSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["OrderFetchProductResponse"];
-            };
-        };
-        /** @description Order Validate response */
-        OrderValidateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["OrderValidateResponse"];
-            };
-        };
-        /** @description Page List response */
-        PageListSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PageListResponse"];
-            };
-        };
-        /** @description Page Create response */
-        PageCreateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PageCreateResponse"];
-            };
-        };
-        /** @description Page Fetch response */
-        PageFetchSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PageFetchResponse"];
-            };
-        };
-        /** @description Page Update response */
-        PageUpdateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PageUpdateResponse"];
-            };
-        };
-        /** @description Page Check Slug Availability response */
-        PageCheckSlugAvailabilitySuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PageCheckSlugAvailabilityResponse"];
-            };
-        };
-        /** @description Page Add Products response */
-        PageAddProductsSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["PageAddProductsResponse"];
-            };
-        };
-        /** @description Refund List response */
-        RefundListSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["RefundListResponse"];
-            };
-        };
-        /** @description Refund Create response */
-        RefundCreateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["RefundCreateResponse"];
-            };
-        };
-        /** @description Refund Create response */
-        RefundRetrySuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["RefundRetryResponse"];
-            };
-        };
-        /** @description Refund Fetch response */
-        RefundFetchSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["RefundFetchResponse"];
-            };
-        };
-        /** @description Dispute List response */
-        DisputeListSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["DisputeListResponse"];
-            };
-        };
-        /** @description Dispute Fetch response */
-        DisputeFetchSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["DisputeFetchResponse"];
-            };
-        };
-        /** @description Dispute Update response */
-        DisputeUpdateSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["DisputeUpdateResponse"];
-            };
-        };
-        /** @description Dispute Upload URL response */
-        DisputeUploadURLSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["DisputeUploadURLResponse"];
-            };
-        };
-        /** @description Dispute Export response */
-        DisputeExportSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["DisputeExportResponse"];
-            };
-        };
-        /** @description Dispute List Transaction response */
-        DisputeListTransactionSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["DisputeListTransactionResponse"];
-            };
-        };
-        /** @description Dispute Resolve response */
-        DisputeResolveSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["DisputeResolveResponse"];
-            };
-        };
-        /** @description Dispute Add Evidence response */
-        DisputeAddEvidenceSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["DisputeAddEvidenceResponse"];
-            };
-        };
-        /** @description Miscellaneous List Banks response */
-        MiscellaneousListBanksSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["MiscellaneousListBanksResponse"];
-            };
-        };
-        /** @description Verification Resolve Account Number response */
-        VerificationResolveAccountNumberSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["VerificationResolveAccountNumberResponse"];
-            };
-        };
-        /** @description Verification Validate Account response */
-        VerificationValidateAccountSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["VerificationValidateAccountResponse"];
-            };
-        };
-        /** @description Verification Resolve Card B I N response */
-        VerificationResolveCardBINSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["VerificationResolveCardBINResponse"];
-            };
-        };
-        /** @description Miscellaneous List Countries response */
-        MiscellaneousListCountriesSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["MiscellaneousListCountriesResponse"];
-            };
-        };
-        /** @description Miscellaneous List States response */
-        MiscellaneousListStatesSuccess: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": components["schemas"]["MiscellaneousListStatesResponse"];
-            };
-        };
+    /** @description Request successful */
+    Ok: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["Response"];
+      };
     };
-    parameters: never;
-    requestBodies: never;
-    headers: never;
-    pathItems: never;
+    /** @description Entity not found */
+    NotFound: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        /**
+         * @example {
+         *       "status": false,
+         *       "message": "Entity not found"
+         *     }
+         */
+        "application/json": components["schemas"]["Error"];
+      };
+    };
+    /** @description Terminal Get Status response */
+    TerminalGetStatusSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["TerminalGetStatusResponse"];
+      };
+    };
+    /** @description Terminal Lists response */
+    TerminalListsSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["TerminalListsResponse"];
+      };
+    };
+    /** @description Terminal Get response */
+    TerminalGetSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["TerminalGetResponse"];
+      };
+    };
+    /** @description Terminal Update response */
+    TerminalUpdateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["TerminalUpdateResponse"];
+      };
+    };
+    /** @description Terminal Commission Device response */
+    TerminalCommissionDeviceSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["TerminalCommissionDeviceResponse"];
+      };
+    };
+    /** @description Terminal Decommission Device response */
+    TerminalDecommissionDeviceSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["TerminalDecommissionDeviceResponse"];
+      };
+    };
+    /** @description Virtual Terminal Lists response */
+    VirtualTerminalListSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["VirtualTerminalListResponse"];
+      };
+    };
+    /** @description Virtual Terminal Create response */
+    VirtualTerminalCreateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["VirtualTerminalCreateResponse"];
+      };
+    };
+    /** @description Virtual Terminal Fetch response */
+    VirtualTerminalFetchSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["VirtualTerminalFetchResponse"];
+      };
+    };
+    /** @description Virtual Terminal Update response */
+    VirtualTerminalUpdateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["VirtualTerminalUpdateResponse"];
+      };
+    };
+    /** @description Virtual Terminal Deactivate response */
+    VirtualTerminalDeactivateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["VirtualTerminalDeactivateResponse"];
+      };
+    };
+    /** @description Virtual Terminal Deactivate response */
+    VirtualTerminalDestinationAssignSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["VirtualTerminalDestinationAssignResponse"];
+      };
+    };
+    /** @description Virtual Terminal unassign response */
+    VirtualTerminalDestinationUnassignSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["VirtualTerminalDestinationUnassignResponse"];
+      };
+    };
+    /** @description Virtual Terminal Split Assign response */
+    VirtualTerminalAddSplitCodeSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["VirtualTerminalAddSplitCodeResponse"];
+      };
+    };
+    /** @description Virtual Terminal Split Remove response */
+    VirtualTerminalDeleteSplitCodeSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["VirtualTerminalDeleteSplitCodeResponse"];
+      };
+    };
+    /** @description Customer Authorization Initialize response */
+    CustomerAuthorizationInitializeSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["CustomerAuthorizationInitializeResponse"];
+      };
+    };
+    /** @description Customer Authorization Verify response */
+    CustomerAuthorizationVerifySuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["CustomerAuthorizationVerifyResponse"];
+      };
+    };
+    /** @description Customer Initialize Direct Debit response */
+    CustomerInitializeDirectDebitSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["CustomerInitializeDirectDebitResponse"];
+      };
+    };
+    /** @description Customer Direct Debit Activation Charge response */
+    CustomerDirectDebitActivationChargeSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["CustomerDirectDebitActivationChargeResponse"];
+      };
+    };
+    /** @description Customer Fetch Mandate Authorizations response */
+    CustomerFetchMandateAuthorizationsSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["CustomerFetchMandateAuthorizationsResponse"];
+      };
+    };
+    /** @description Direct Debit Activation Charge response */
+    DirectDebitActivationChargeSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["DirectDebitActivationChargeResponse"];
+      };
+    };
+    /** @description Apple Pay registered domains retrieved */
+    ApplePayDomainsSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["ApplePayDomainsResponse"];
+      };
+    };
+    /** @description Responses from the Transaction Initialize endpoint */
+    ApplePayOkResponse: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["ApplePayCreateOkModel"];
+      };
+    };
+    /** @description Plan List response */
+    PlanListSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PlanListResponse"];
+      };
+    };
+    /** @description Plan Create response */
+    PlanCreateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PlanCreateResponse"];
+      };
+    };
+    /** @description Plan Fetch response */
+    PlanFetchSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PlanFetchResponse"];
+      };
+    };
+    /** @description Plan Update response */
+    PlanUpdateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PlanUpdateResponse"];
+      };
+    };
+    /** @description Subscription List response */
+    SubscriptionListSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["SubscriptionListResponse"];
+      };
+    };
+    /** @description Subscription Create response */
+    SubscriptionCreateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["SubscriptionCreateResponse"];
+      };
+    };
+    /** @description Subscription Fetch response */
+    SubscriptionFetchSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["SubscriptionFetchResponse"];
+      };
+    };
+    /** @description Subscription Disable response */
+    SubscriptionDisableSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["SubscriptionDisableResponse"];
+      };
+    };
+    /** @description Payment Request List response */
+    PaymentRequestListSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PaymentRequestListResponse"];
+      };
+    };
+    /** @description Payment Request Create response */
+    PaymentRequestCreateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PaymentRequestCreateResponse"];
+      };
+    };
+    /** @description Payment Request fetch response */
+    PaymentRequestViewSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PaymentRequestViewResponse"];
+      };
+    };
+    /** @description Payment Request Update response */
+    PaymentRequestUpdateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PaymentRequestUpdateResponse"];
+      };
+    };
+    /** @description Payment Request Verify response */
+    PaymentRequestVerifySuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PaymentRequestVerifyResponse"];
+      };
+    };
+    /** @description Payment Request Send Notification response */
+    PaymentRequestSendNotificationSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PaymentRequestSendNotificationResponse"];
+      };
+    };
+    /** @description Payment Request Total response */
+    PaymentRequestTotalSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PaymentRequestTotalResponse"];
+      };
+    };
+    /** @description Payment Request Finalize response */
+    PaymentRequestFinalizeSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PaymentRequestFinalizeResponse"];
+      };
+    };
+    /** @description Payment Request Archive response */
+    PaymentRequestArchiveSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PaymentRequestArchiveResponse"];
+      };
+    };
+    /** @description Product Lists response */
+    ProductListsSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["ProductListsResponse"];
+      };
+    };
+    /** @description Product Create response */
+    ProductCreateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["ProductCreateResponse"];
+      };
+    };
+    /** @description Product Fetch response */
+    ProductFetchSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["ProductFetchResponse"];
+      };
+    };
+    /** @description Product Update response */
+    ProductUpdateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["ProductUpdateResponse"];
+      };
+    };
+    /** @description Product Delete response */
+    ProductDeleteSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["ProductDeleteResponse"];
+      };
+    };
+    /** @description Storefront List response */
+    StorefrontListSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["StorefrontListResponse"];
+      };
+    };
+    /** @description Storefront Create response */
+    StorefrontCreateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["StorefrontCreateResponse"];
+      };
+    };
+    /** @description Storefront Fetch response */
+    StorefrontFetchSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["StorefrontFetchResponse"];
+      };
+    };
+    /** @description Storefront Update response */
+    StorefrontUpdateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["StorefrontUpdateResponse"];
+      };
+    };
+    /** @description Storefront Delete response */
+    StorefrontDeleteSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["StorefrontDeleteResponse"];
+      };
+    };
+    /** @description Order List response */
+    OrderListSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["OrderListResponse"];
+      };
+    };
+    /** @description Order Create response */
+    OrderCreateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["OrderCreateResponse"];
+      };
+    };
+    /** @description Order Fetch response */
+    OrderFetchSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["OrderFetchResponse"];
+      };
+    };
+    /** @description Order Fetch Product response */
+    OrderFetchProductSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["OrderFetchProductResponse"];
+      };
+    };
+    /** @description Order Validate response */
+    OrderValidateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["OrderValidateResponse"];
+      };
+    };
+    /** @description Page List response */
+    PageListSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PageListResponse"];
+      };
+    };
+    /** @description Page Create response */
+    PageCreateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PageCreateResponse"];
+      };
+    };
+    /** @description Page Fetch response */
+    PageFetchSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PageFetchResponse"];
+      };
+    };
+    /** @description Page Update response */
+    PageUpdateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PageUpdateResponse"];
+      };
+    };
+    /** @description Page Check Slug Availability response */
+    PageCheckSlugAvailabilitySuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PageCheckSlugAvailabilityResponse"];
+      };
+    };
+    /** @description Page Add Products response */
+    PageAddProductsSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["PageAddProductsResponse"];
+      };
+    };
+    /** @description Refund List response */
+    RefundListSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["RefundListResponse"];
+      };
+    };
+    /** @description Refund Create response */
+    RefundCreateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["RefundCreateResponse"];
+      };
+    };
+    /** @description Refund Create response */
+    RefundRetrySuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["RefundRetryResponse"];
+      };
+    };
+    /** @description Refund Fetch response */
+    RefundFetchSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["RefundFetchResponse"];
+      };
+    };
+    /** @description Dispute List response */
+    DisputeListSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["DisputeListResponse"];
+      };
+    };
+    /** @description Dispute Fetch response */
+    DisputeFetchSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["DisputeFetchResponse"];
+      };
+    };
+    /** @description Dispute Update response */
+    DisputeUpdateSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["DisputeUpdateResponse"];
+      };
+    };
+    /** @description Dispute Upload URL response */
+    DisputeUploadURLSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["DisputeUploadURLResponse"];
+      };
+    };
+    /** @description Dispute Export response */
+    DisputeExportSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["DisputeExportResponse"];
+      };
+    };
+    /** @description Dispute List Transaction response */
+    DisputeListTransactionSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["DisputeListTransactionResponse"];
+      };
+    };
+    /** @description Dispute Resolve response */
+    DisputeResolveSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["DisputeResolveResponse"];
+      };
+    };
+    /** @description Dispute Add Evidence response */
+    DisputeAddEvidenceSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["DisputeAddEvidenceResponse"];
+      };
+    };
+    /** @description Miscellaneous List Banks response */
+    MiscellaneousListBanksSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["MiscellaneousListBanksResponse"];
+      };
+    };
+    /** @description Verification Resolve Account Number response */
+    VerificationResolveAccountNumberSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["VerificationResolveAccountNumberResponse"];
+      };
+    };
+    /** @description Verification Validate Account response */
+    VerificationValidateAccountSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["VerificationValidateAccountResponse"];
+      };
+    };
+    /** @description Verification Resolve Card B I N response */
+    VerificationResolveCardBINSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["VerificationResolveCardBINResponse"];
+      };
+    };
+    /** @description Miscellaneous List Countries response */
+    MiscellaneousListCountriesSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["MiscellaneousListCountriesResponse"];
+      };
+    };
+    /** @description Miscellaneous List States response */
+    MiscellaneousListStatesSuccess: {
+      headers: {
+        [name: string]: unknown;
+      };
+      content: {
+        "application/json": components["schemas"]["MiscellaneousListStatesResponse"];
+      };
+    };
+  };
+  parameters: never;
+  requestBodies: never;
+  headers: never;
+  pathItems: never;
 }
 export type $defs = Record<string, never>;
 export interface operations {
-    transaction_initialize: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["TransactionInitialize"];
-                "application/x-www-form-urlencoded": components["schemas"]["TransactionInitialize"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransactionInitializeResponse"];
-                };
-            };
-            400: components["responses"]["TransactionInitializeBadRequestResponse"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transaction_chargeAuthorization: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["TransactionChargeAuthorization"];
-                "application/x-www-form-urlencoded": components["schemas"]["TransactionChargeAuthorization"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ChargeAuthorizationResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transaction_partialDebit: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["TransactionPartialDebit"];
-                "application/x-www-form-urlencoded": components["schemas"]["TransactionPartialDebit"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransactionPartialDebitResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transaction_checkAuthorization: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/x-www-form-urlencoded": components["schemas"]["TransactionCheckAuthorization"];
-                "application/json": components["schemas"]["TransactionCheckAuthorization"];
-            };
-        };
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transaction_verify: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The transaction reference to verify
-                 * @example re4lyvq3s3
-                 */
-                reference: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["VerifyResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transaction_list: {
-        parameters: {
-            query?: {
-                /**
-                 * @description A flag to indicate if cursor based pagination should be used
-                 * @example true
-                 */
-                use_cursor?: boolean;
-                /** @description An alphanumeric value returned for every cursor based retrieval, used to retrieve the next set of data */
-                next?: string;
-                /** @description An alphanumeric value returned for every cursor based retrieval, used to retrieve the previous set of data */
-                previous?: string;
-                /** @description Specify how many records you want to retrieve per page. If not specified, we use a default value of 50. */
-                perPage?: number;
-                /** @description Specify exactly what page you want to retrieve. If not specified, we use a default value of 1. */
-                page?: number;
-                /** @description A timestamp from which to start listing transaction e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
-                from?: string;
-                /** @description A timestamp at which to stop listing transaction e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
-                to?: string;
-                /** @description Filter transaction by status */
-                status?: "success" | "failed" | "abandoned" | "reversed";
-                /** @description The origin of the payment */
-                source?: "merchantApi" | "checkout" | "pos" | "virtualTerminal";
-                /** @description The Terminal ID for the transactions you want to retrieve */
-                terminalid?: string;
-                /** @description Filter transactions by a virtual account number */
-                virtual_account_number?: string;
-                /** @description Specify an ID for the customer whose transactions you want to retrieve */
-                customer?: number;
-                /**
-                 * @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100).
-                 *     Filter transactions by a specific amount.
-                 */
-                amount?: number;
-                /** @description The settlement ID to filter for settled transactions */
-                settlement?: number;
-                /** @description The payment method the customer used to complete the transaction */
-                channel?: "card" | "pos" | "bank" | "dedicated_nuban" | "ussd" | "bank_transfer";
-                /** @description Filter transaction by subaccount code */
-                subaccount_code?: string;
-                /** @description Filter transaction by split code */
-                split_code?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransactionListResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transaction_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The ID of the transaction to fetch
-                 * @example 4099260516
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransactionFetchResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transaction_event: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The ID of the transaction */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transaction_session: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The ID of the transaction */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transaction_timeline: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The ID or the reference of the transaction
-                 * @example 3936799950
-                 */
-                id_or_reference: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransactionTimelineResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transaction_totals: {
-        parameters: {
-            query?: {
-                /** @description Number of records to fetch per page */
-                perPage?: number;
-                /** @description The section to retrieve */
-                page?: number;
-                /**
-                 * @description The start date
-                 * @example 2024-06-01T00:00:01Z
-                 */
-                from?: string;
-                /**
-                 * @description The end date
-                 * @example 2024-06-30T13:36:54Z
-                 */
-                to?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransactionTotalsResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transaction_export: {
-        parameters: {
-            query?: {
-                /** @description Number of records to fetch per page */
-                perPage?: number;
-                /** @description The section to retrieve */
-                page?: number;
-                /**
-                 * @description The start date
-                 * @example 2024-06-01T00:00:01Z
-                 */
-                from?: string;
-                /**
-                 * @description The end date
-                 * @example 2024-06-30T13:36:54Z
-                 */
-                to?: string;
-                /**
-                 * @description Filter by the status of the transaction
-                 * @example success
-                 */
-                status?: "success" | "failed" | "abandoned" | "reversed" | "all";
-                /**
-                 * @description Filter by customer ID
-                 * @example 123172416
-                 */
-                customer?: number;
-                /** @description Specify the transaction currency to export */
-                currency?: string;
-                /**
-                 * @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100).
-                 *     Filter transactions by amount.
-                 */
-                amount?: number;
-                /** @description Set to true to export only settled transactions. false for pending transactions. Leave undefined to export all transactions */
-                settled?: boolean;
-                /**
-                 * @description Filter by the settlement ID
-                 * @example 5687910
-                 */
-                settlement?: number;
-                /** @description Specify a payment page's id to export only transactions conducted on said page */
-                payment_page?: number;
-                /**
-                 * @deprecated
-                 * @description Filter by subaccount code
-                 * @example ACCT_dskvlw3y3dMukmt
-                 */
-                subaccount_code?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransactionExportResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    charge_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["ChargeCreate"] & {
-                    bank?: components["schemas"]["Bank"];
-                } & {
-                    mobile_money?: components["schemas"]["MobileMoney"];
-                } & {
-                    ussd?: components["schemas"]["USSD"];
-                } & {
-                    eft?: components["schemas"]["EFT"];
-                };
-                "application/x-www-form-urlencoded": components["schemas"]["ChargeCreate"] & {
-                    bank?: components["schemas"]["Bank"];
-                } & {
-                    mobile_money?: components["schemas"]["MobileMoney"];
-                } & {
-                    ussd?: components["schemas"]["USSD"];
-                } & {
-                    eft?: components["schemas"]["EFT"];
-                };
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ChargeCreateResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    charge_submitPin: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["ChargeSubmitPin"];
-                "application/x-www-form-urlencoded": components["schemas"]["ChargeSubmitPin"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ChargeSubmitPinResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    charge_submitOtp: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["ChargeSubmitOTP"];
-                "application/x-www-form-urlencoded": components["schemas"]["ChargeSubmitOTP"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ChargeSubmitOtpResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    charge_submitPhone: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["ChargeSubmitPhone"];
-                "application/x-www-form-urlencoded": components["schemas"]["ChargeSubmitPhone"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ChargeSubmitPhoneResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    charge_submitBirthday: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["ChargeSubmitBirthday"];
-                "application/x-www-form-urlencoded": components["schemas"]["ChargeSubmitBirthday"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ChargeSubmitBirthdayResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    charge_submitAddress: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["ChargeSubmitAddress"];
-                "application/x-www-form-urlencoded": components["schemas"]["ChargeSubmitAddress"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ChargeCheckPendingResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    charge_check: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The reference of the ongoing transaction
-                 * @example 5bwib5v6anhe9xa
-                 */
-                reference: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ChargeCheckPendingResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    bulkCharge_list: {
-        parameters: {
-            query?: {
-                /** @description Number of records to fetch per page */
-                perPage?: number;
-                /** @description The offset to retrieve data from */
-                page?: number;
-                /** @description A timestamp from which to start listing batches e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
-                from?: string;
-                /** @description A timestamp at which to stop listing batches e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
-                to?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BulkChargeListResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    bulkCharge_initiate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["BulkChargeInitiate"][];
-                "application/x-www-form-urlencoded": components["schemas"]["BulkChargeInitiate"][];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BulkChargeInitiateResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    bulkCharge_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description An ID or code for the charge whose batches you want to retrieve.
-                 * @example BCH_180tl7oq7cayggh
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BulkChargeFetchResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    bulkCharge_charges: {
-        parameters: {
-            query?: {
-                /** @description Number of records to fetch per page */
-                perPage?: number;
-                /** @description The offset to retrieve data from */
-                page?: number;
-                /** @description Either one of these values: pending, success or failed */
-                status?: "pending" | "success" | "failed";
-                /** @description A timestamp from which to start listing charges e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
-                from?: string;
-                /** @description A timestamp at which to stop listing charges e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
-                to?: string;
-            };
-            header?: never;
-            path: {
-                /**
-                 * @description An ID or code for the batch whose charges you want to retrieve.
-                 * @example BCH_180tl7oq7cayggh
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BulkChargeFetchBulkBatchChargesResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    bulkCharge_pause: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The batch code for the bulk charge you want to pause
-                 * @example BCH_180tl7oq7cayggh
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BulkChargePauseResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    bulkCharge_resume: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The batch code for the bulk charge you want to pause
-                 * @example BCH_180tl7oq7cayggh
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BulkChargeResumeResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    subaccount_list: {
-        parameters: {
-            query?: {
-                /** @description Number of records to fetch per request */
-                perPage?: number;
-                /** @description The offset to retrieve data from */
-                page?: number;
-                /** @description A timestamp from which to start listing subaccounts e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
-                from?: string;
-                /** @description A timestamp at which to stop listing subaccounts e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
-                to?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SubaccountListResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    subaccount_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["SubaccountCreate"];
-                "application/x-www-form-urlencoded": components["schemas"]["SubaccountCreate"];
-            };
-        };
-        responses: {
-            201: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SubaccountCreateResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    subaccount_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The subaccount ID or code you want to fetch
-                 * @example ACCT_6uujpqtzmnufzkw
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SubaccountFetchResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    subaccount_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The subaccount ID or code you want to fetch
-                 * @example ACCT_6uujpqtzmnufzkw
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["SubaccountUpdate"];
-                "application/x-www-form-urlencoded": components["schemas"]["SubaccountUpdate"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SubaccountUpdateResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    split_list: {
-        parameters: {
-            query?: {
-                /**
-                 * @description Filter by subaccount code
-                 * @example ACCT_dskvlw3y3dMukmt
-                 */
-                subaccount_code?: string;
-                /** @description The name of the split */
-                name?: string;
-                /** @description The status of the split */
-                active?: boolean;
-                /** @description Sort by name, defaults to createdAt date */
-                sort_by?: string;
-                /** @description Number of splits per page. If not specified, we use a default value of 50. */
-                perPage?: number;
-                /** @description Page number to view. If not specified, we use a default value of 1. */
-                page?: number;
-                /** @description A timestamp from which to start listing splits e.g. 2019-09-24T00:00:05.000Z, 2019-09-21 */
-                from?: string;
-                /** @description A timestamp at which to stop listing splits e.g. 2019-09-24T00:00:05.000Z, 2019-09-21 */
-                to?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SplitListResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    split_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["SplitCreate"];
-                "application/x-www-form-urlencoded": components["schemas"]["SplitCreate"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SplitCreateResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    split_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The ID of the split configuration to fetch
-                 * @example 4896895
-                 */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SplitFetchResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    split_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["SplitUpdate"];
-                "application/x-www-form-urlencoded": components["schemas"]["SplitUpdate"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SplitUpdateResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    split_addSubaccount: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The ID of the split configuration to fetch
-                 * @example 4896895
-                 */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["SplitSubaccounts"];
-                "application/x-www-form-urlencoded": components["schemas"]["SplitSubaccounts"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SplitAddUpdateSubaccountResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    split_removeSubaccount: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The ID of the split configuration to fetch
-                 * @example 4896895
-                 */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["SplitSubaccountRemove"];
-                "application/x-www-form-urlencoded": components["schemas"]["SplitSubaccountRemove"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SplitRemoveSubaccountResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    terminal_sendEvent: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The ID of the Terminal the event should be sent to.
-                 * @example Z0R4orOU
-                 */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["TerminalSendEvent"];
-                "application/x-www-form-urlencoded": components["schemas"]["TerminalSendEvent"];
-            };
-        };
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    terminal_fetchEventStatus: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The ID of the Terminal the event should be sent to.
-                 * @example Z0R4orOU
-                 */
-                terminal_id: string;
-                /**
-                 * @description The ID of the event that was sent to the Terminal
-                 * @example 616d721e8c5cd40a0cdd54a6
-                 */
-                event_id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    terminal_fetchTerminalStatus: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The ID of the Terminal the event should be sent to.
-                 * @example Z0R4orOU
-                 */
-                terminal_id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["TerminalGetStatusSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    terminal_list: {
-        parameters: {
-            query?: {
-                /** @description A cursor that indicates your place in the list. It can be used to fetch the next page of the list */
-                next?: string;
-                /** @description A cursor that indicates your place in the list. It should be used to fetch the previous page of the list after an intial next request */
-                previous?: string;
-                /** @description Specify how many records you want to retrieve per page. If not specified, we use a default value of 50. */
-                perPage?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["TerminalListsSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    terminal_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The ID of the Terminal the event should be sent to.
-                 * @example Z0R4orOU
-                 */
-                terminal_id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["TerminalGetSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    terminal_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The ID of the Terminal the event should be sent to.
-                 * @example Z0R4orOU
-                 */
-                terminal_id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["TerminalUpate"];
-                "application/x-www-form-urlencoded": components["schemas"]["TerminalUpate"];
-            };
-        };
-        responses: {
-            200: components["responses"]["TerminalUpdateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    terminal_commission: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["TerminalActivationToggle"];
-                "application/x-www-form-urlencoded": components["schemas"]["TerminalActivationToggle"];
-            };
-        };
-        responses: {
-            200: components["responses"]["TerminalCommissionDeviceSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    terminal_decommission: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["TerminalActivationToggle"];
-                "application/x-www-form-urlencoded": components["schemas"]["TerminalActivationToggle"];
-            };
-        };
-        responses: {
-            200: components["responses"]["TerminalDecommissionDeviceSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    virtualTerminal_list: {
-        parameters: {
-            query?: {
-                /** @description Filter by status ('active' or 'inactive') */
-                status?: "active" | "inactive";
-                /**
-                 * @description Number of records per page
-                 * @example 50
-                 */
-                perPage?: number;
-                /** @description Search query string */
-                search?: string;
-                /** @description Cursor for next page */
-                next?: string;
-                /** @description Cursor for previous page */
-                previous?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["VirtualTerminalListSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    virtualTerminal_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["VirtualTerminalCreate"];
-            };
-        };
-        responses: {
-            200: components["responses"]["VirtualTerminalCreateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    virtualTerminal_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Code of the Virtual Terminal
-                 * @example VT_MCK5292Z
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["VirtualTerminalFetchSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    virtualTerminal_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Code of the Virtual Terminal
-                 * @example VT_MCK5292Z
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["VirtualTerminalUpdate"];
-            };
-        };
-        responses: {
-            200: components["responses"]["VirtualTerminalUpdateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    virtualTerminal_deactivate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Code of the Virtual Terminal
-                 * @example VT_MCK5292Z
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["VirtualTerminalDeactivateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    virtualTerminal_destinationAssign: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Code of the Virtual Terminal
-                 * @example VT_MCK5292Z
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["VirtualTerminalDestinationAssign"];
-                "application/x-www-form-urlencoded": components["schemas"]["VirtualTerminalDestinationAssign"];
-            };
-        };
-        responses: {
-            200: components["responses"]["VirtualTerminalDestinationAssignSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    virtualTerminal_destinationUnassign: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Code of the Virtual Terminal
-                 * @example VT_MCK5292Z
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["VirtualTerminalDestinationUnassign"];
-                "application/x-www-form-urlencoded": components["schemas"]["VirtualTerminalDestinationUnassign"];
-            };
-        };
-        responses: {
-            200: components["responses"]["VirtualTerminalDestinationUnassignSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    virtualTerminal_addSplitCode: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Code of the Virtual Terminal
-                 * @example VT_MCK5292Z
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["VirtualTerminalAddSplitCode"];
-                "application/x-www-form-urlencoded": components["schemas"]["VirtualTerminalAddSplitCode"];
-            };
-        };
-        responses: {
-            200: components["responses"]["VirtualTerminalAddSplitCodeSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server Error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    virtualTerminal_deleteSplitCode: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Code of the Virtual Terminal
-                 * @example VT_MCK5292Z
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["VirtualTerminalDeleteSplitCode"];
-                "application/x-www-form-urlencoded": components["schemas"]["VirtualTerminalDeleteSplitCode"];
-            };
-        };
-        responses: {
-            200: components["responses"]["VirtualTerminalDeleteSplitCodeSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server Error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    customer_list: {
-        parameters: {
-            query?: {
-                /** @description A flag to indicate if cursor based pagination should be used */
-                use_cursor?: boolean;
-                /** @description An alphanumeric value returned for every cursor based retrieval, used to retrieve the next set of data */
-                next?: string;
-                /** @description An alphanumeric value returned for every cursor based retrieval, used to retrieve the previous set of data */
-                previous?: string;
-                /** @description A timestamp from which to start listing customers e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
-                from?: string;
-                /** @description A timestamp at which to stop listing customers e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
-                to?: string;
-                /** @description Specify how many records you want to retrieve per page. If not specified, we use a default value of 50. */
-                perPage?: number;
-                /** @description Specify exactly what page you want to retrieve. If not specified, we use a default value of 1. */
-                page?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["CustomerListResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    customer_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["CustomerCreate"];
-                "application/x-www-form-urlencoded": components["schemas"]["CustomerCreate"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["CustomerCreateResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    customer_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description An email or customer code for the customer you want to fetch
-                 * @example CUS_c6wqvwmvwopw4ms
-                 */
-                email_or_code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["CustomerFetchResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    customer_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description An email or customer code for the customer you want to fetch
-                 * @example CUS_c6wqvwmvwopw4ms
-                 */
-                email_or_code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["CustomerUpdate"];
-                "application/x-www-form-urlencoded": components["schemas"]["CustomerUpdate"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["CustomerUpdateResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    customer_riskAction: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["CustomerRiskAction"];
-                "application/x-www-form-urlencoded": components["schemas"]["CustomerRiskAction"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["CustomerWhitelistBlacklistResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    customer_validate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Customer code
-                 * @example CUS_c6wqvwmvwopw4ms
-                 */
-                customer_code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["CustomerValidate"];
-                "application/x-www-form-urlencoded": components["schemas"]["CustomerValidate"];
-            };
-        };
-        responses: {
-            202: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["CustomerValidateResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    customer_initializeAuthorization: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["CustomerAuthorizationInitializeRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["CustomerAuthorizationInitializeRequest"];
-            };
-        };
-        responses: {
-            200: components["responses"]["CustomerAuthorizationInitializeSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    customer_verifyAuthorization: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The reference returned in the initialization response
-                 * @example dfbzfotsrbv4n5s82t4mp5b5mfn51h
-                 */
-                reference: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["CustomerAuthorizationVerifySuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    customer_deactivateAuthorization: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["CustomerDeactivateAuthorization"];
-                "application/x-www-form-urlencoded": components["schemas"]["CustomerDeactivateAuthorization"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["CustomerDeactivateAuthorizationResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    customer_initializeDirectDebit: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The ID of the customer to initialize the direct debit for
-                 * @example 297346561
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["CustomerInitializeDirectDebitRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["CustomerInitializeDirectDebitRequest"];
-            };
-        };
-        responses: {
-            200: components["responses"]["CustomerInitializeDirectDebitSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    customer_directDebitActivationCharge: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The customer ID attached to the authorization
-                 * @example 297346561
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["CustomerDirectDebitActivationChargeRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["CustomerDirectDebitActivationChargeRequest"];
-            };
-        };
-        responses: {
-            200: components["responses"]["CustomerDirectDebitActivationChargeSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    customer_fetchMandateAuthorizations: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The customer ID for the authorizations to fetch
-                 * @example 297346561
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["CustomerFetchMandateAuthorizationsSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    directdebit_triggerActivationCharge: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["DirectDebitActivationChargeRequest"];
-            };
-        };
-        responses: {
-            200: components["responses"]["DirectDebitActivationChargeSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    directdebit_listMandateAuthorizations: {
-        parameters: {
-            query?: {
-                /** @description The cursor value of the next set of authorizations to fetch. You can get this from the meta object of the response */
-                cursor?: string;
-                /** @description Filter by the authorization status */
-                status?: "pending" | "active" | "revoked";
-                /** @description The number of authorizations to fetch per request */
-                per_page?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["CustomerFetchMandateAuthorizationsSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    dedicatedAccount_list: {
-        parameters: {
-            query?: {
-                /**
-                 * @description Status of the dedicated virtual account
-                 * @example true
-                 */
-                active?: boolean;
-                /**
-                 * @description The customer's ID
-                 * @example 297346561
-                 */
-                customer?: number;
-                /** @description The currency of the dedicated virtual account */
-                currency?: "NGN" | "GHS";
-                /**
-                 * @description The bank's slug in lowercase, without spaces
-                 * @example titan-paystack
-                 */
-                provider_slug?: string;
-                /**
-                 * @description The bank's ID
-                 * @example 035
-                 */
-                bank_id?: string;
-                /** @description The number of records to fetch per request */
-                perPage?: number;
-                /** @description The offset to retrieve data from */
-                page?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["DedicatedNubanListResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    dedicatedAccount_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["DedicatedVirtualAccountCreate"];
-                "application/x-www-form-urlencoded": components["schemas"]["DedicatedVirtualAccountCreate"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["DedicatedNubanCreateResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    dedicatedAccount_assign: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["DedicatedVirtualAccountAssign"];
-                "application/x-www-form-urlencoded": components["schemas"]["DedicatedVirtualAccountAssign"];
-            };
-        };
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    dedicatedAccount_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description ID of dedicated virtual account */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["DedicatedNubanFetchResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    dedicatedAccount_deactivate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description ID of dedicated virtual account */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["DedicatedNubanDeactivateResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    dedicatedAccount_requery: {
-        parameters: {
-            query?: {
-                /**
-                 * @description Virtual account number to requery
-                 * @example 0033322211
-                 */
-                account_number?: string;
-                /**
-                 * @description The bank's slug in lowercase, without spaces.
-                 * @example titan-paystack
-                 */
-                provider_slug?: string;
-                /** @description The day the transfer was made */
-                date?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    dedicatedAccount_addSplit: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["DedicatedVirtualAccountSplit"];
-                "application/x-www-form-urlencoded": components["schemas"]["DedicatedVirtualAccountSplit"];
-            };
-        };
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    dedicatedAccount_removeSplit: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["DedicatedVirtualAccountRemoveSplit"];
-                "application/x-www-form-urlencoded": components["schemas"]["DedicatedVirtualAccountRemoveSplit"];
-            };
-        };
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    dedicatedAccount_availableProviders: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    applePay_listDomain: {
-        parameters: {
-            query?: {
-                /**
-                 * @description Flag to enable cursor pagination on the endpoint
-                 * @example true
-                 */
-                use_cursor?: boolean;
-                /** @description A cursor that indicates your place in the list. It can be used to fetch the next page of the list */
-                next?: string;
-                /** @description A cursor that indicates your place in the list. It should be used to fetch the previous page of the list after an intial next request */
-                previous?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["ApplePayDomainsSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    applePay_registerDomain: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["ApplePayParam"];
-                "application/x-www-form-urlencoded": components["schemas"]["ApplePayParam"];
-            };
-        };
-        responses: {
-            200: components["responses"]["ApplePayOkResponse"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    applePay_unregisterDomain: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["ApplePayParam"];
-                "application/x-www-form-urlencoded": components["schemas"]["ApplePayParam"];
-            };
-        };
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    capitecPay_requery: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The transaction reference from the previously initiated charge request
-                 * @example 123456789
-                 */
-                ref: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["CapitecPayRequeryResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    preauthorization_initialize: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PreAuthorizationInitialize"];
-                "application/x-www-form-urlencoded": components["schemas"]["PreAuthorizationInitialize"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PreAuthorizationInitializeResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    preauthorization_capture: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PreAuthorizationCapture"];
-                "application/x-www-form-urlencoded": components["schemas"]["PreAuthorizationCapture"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PreAuthorizationCaptureResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    preauthorization_reserve_authorization: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PreAuthorizationReserve"];
-                "application/x-www-form-urlencoded": components["schemas"]["PreAuthorizationReserve"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PreAuthorizationReserveWithAuthCodeResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    preauthorization_verify: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The transaction reference used to intiate the transaction */
-                reference: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PreAuthorizationVerifyResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    preauthorization_release: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PreAuthorizationRelease"];
-                "application/x-www-form-urlencoded": components["schemas"]["PreAuthorizationRelease"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PreAuthorizationReleaseResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    preauthorization_list: {
-        parameters: {
-            query?: {
-                /** @description Specify how many records you want to retrieve per page. If not specify we use a default value of 50. */
-                perPage?: number;
-                /** @description Specify exactly what page you want to retrieve. If not specify we use a default value of 1. */
-                page?: number;
-                /** @description A timestamp from which to start listing transaction e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
-                from?: string;
-                /** @description A timestamp at which to stop listing transaction e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
-                to?: string;
-                /** @description Filter transactions by status. */
-                status?: "authorized" | "captured" | "released" | "ongoing" | "failed" | "abandoned";
-                /** @description Filter transactions by amount using the supported currency code */
-                amount?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PreAuthorizationListResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    plan_list: {
-        parameters: {
-            query?: {
-                /** @description Number of records to fetch per page */
-                perPage?: number;
-                /** @description The section to retrieve */
-                page?: number;
-                /** @description Filter list by plans with specified status */
-                status?: string;
-                /** @description Specify interval of the plan */
-                interval?: "daily" | "weekly" | "monthly" | "quarterly" | "biannually" | "annually";
-                /**
-                 * @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100).
-                 *     Filter plans by a specific amount.
-                 */
-                amount?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["PlanListSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    plan_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PlanCreate"];
-                "application/x-www-form-urlencoded": components["schemas"]["PlanCreate"];
-            };
-        };
-        responses: {
-            200: components["responses"]["PlanCreateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    plan_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The plan ID or code you want to fetch
-                 * @example PLN_gx2wn530m0i3w3m
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["PlanFetchSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    plan_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The plan ID or code you want to fetch
-                 * @example PLN_gx2wn530m0i3w3m
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PlanUpdate"];
-                "application/x-www-form-urlencoded": components["schemas"]["PlanUpdate"];
-            };
-        };
-        responses: {
-            200: components["responses"]["PlanUpdateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    subscription_list: {
-        parameters: {
-            query?: {
-                /** @description Number of records to fetch per page */
-                perPage?: number;
-                /** @description The section to retrieve */
-                page?: number;
-                /**
-                 * @description Plan ID
-                 * @example 2697466
-                 */
-                plan?: number;
-                /** @description Filter by Customer ID */
-                customer?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["SubscriptionListSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    subscription_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["SubscriptionCreate"];
-                "application/x-www-form-urlencoded": components["schemas"]["SubscriptionCreate"];
-            };
-        };
-        responses: {
-            200: components["responses"]["SubscriptionCreateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    subscription_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The subscription ID or code you want to fetch
-                 * @example SUB_5co81xgmwg78x3d
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["SubscriptionFetchSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    subscription_disable: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["SubscriptionToggle"];
-                "application/x-www-form-urlencoded": components["schemas"]["SubscriptionToggle"];
-            };
-        };
-        responses: {
-            200: components["responses"]["SubscriptionDisableSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    subscription_enable: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["SubscriptionToggle"];
-                "application/x-www-form-urlencoded": components["schemas"]["SubscriptionToggle"];
-            };
-        };
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    subscription_manageLink: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Subscription code
-                 * @example qlgwhpyq1ts9nsw
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    subscription_manageEmail: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Subscription code
-                 * @example qlgwhpyq1ts9nsw
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transferrecipient_list: {
-        parameters: {
-            query?: {
-                /** @description Specify how many records you want to retrieve per page. If not specified, we use a default value of 50. */
-                perPage?: number;
-                /** @description Specify exactly what page you want to retrieve. If not specified, we use a default value of 1. */
-                page?: number;
-                /** @description A timestamp from which to start listing transfer recipients e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
-                from?: string;
-                /** @description A timestamp at which to stop listing transfer recipients e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
-                to?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransferRecipientListResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transferrecipient_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["TransferRecipientCreate"];
-                "application/x-www-form-urlencoded": components["schemas"]["TransferRecipientCreate"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransferRecipientCreateResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transferrecipient_bulk: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["TransferRecipientBulk"];
-                "application/x-www-form-urlencoded": components["schemas"]["TransferRecipientBulk"];
-            };
-        };
-        responses: {
-            /** @description Sucessful response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransferRecipientBulkCreateResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transferrecipient_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description An ID or code for the recipient whose details you want to receive.
-                 * @example RCP_5ap8rcimmcj8lbi
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransferRecipientFetchResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transferrecipient_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description An ID or code for the recipient whose details you want to receive.
-                 * @example RCP_5ap8rcimmcj8lbi
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["TransferRecipientUpdate"];
-                "application/x-www-form-urlencoded": components["schemas"]["TransferRecipientUpdate"];
-            };
-        };
-        responses: {
-            /** @description Successful response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransferRecipientUpdateResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transferrecipient_delete: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description An ID or code for the recipient whose details you want to receive.
-                 * @example RCP_5ap8rcimmcj8lbi
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransferRecipientDeleteResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transfer_list: {
-        parameters: {
-            query?: {
-                /** @description Specify how many records you want to retrieve per page. If not specify we use a default value of 50. */
-                perPage?: number;
-                /** @description Specify exactly what transfer you want to page. If not specify we use a default value of 1. */
-                page?: number;
-                /** @description A timestamp from which to start listing transfer e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
-                from?: string;
-                /** @description A timestamp at which to stop listing transfer e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
-                to?: string;
-                /** @description Filter by the recipient ID */
-                recipient?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransferListResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transfer_initiate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["TransferInitiate"];
-                "application/x-www-form-urlencoded": components["schemas"]["TransferInitiate"];
-            };
-        };
-        responses: {
-            /** @description Successful operation */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransferCreateResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transfer_finalize: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["TransferFinalize"];
-                "application/x-www-form-urlencoded": components["schemas"]["TransferFinalize"];
-            };
-        };
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transfer_bulk: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["TransferBulk"];
-                "application/x-www-form-urlencoded": components["schemas"]["TransferBulk"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransferBulkResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transfer_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The transfer ID or code you want to fetch
-                 * @example TRF_1ptvuv321ahaa7q
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Succesful operation */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransferFetchResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transfer_verify: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Transfer reference
-                 * @example acv_9ee55786-2323-4760-98e2-6380c9cb3f67
-                 */
-                reference: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransferVerifyResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transfer_exportTransfer: {
-        parameters: {
-            query?: {
-                /** @description Export transfer by the recipient code */
-                recipient?: string;
-                /**
-                 * @description Export transfer by status
-                 * @example success
-                 */
-                status?: "pending" | "success" | "failed" | "otp" | "abandoned" | "reversed" | "blocked" | "rejected" | "received";
-                /** @description The start date */
-                from?: string;
-                /** @description The end date */
-                to?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transfer_resendOtp: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["TransferResendOTP"];
-                "application/x-www-form-urlencoded": components["schemas"]["TransferResendOTP"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransferResendsOtpResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transfer_disableOtp: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransferDisablesOtpResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transfer_disableOtpFinalize: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["TransferFinalizeDisableOTP"];
-                "application/x-www-form-urlencoded": components["schemas"]["TransferFinalizeDisableOTP"];
-            };
-        };
-        responses: {
-            /** @description Successful response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransferFinalizeDisablesOtpResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    transfer_enableOtp: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TransferEnablesOtpResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    balance_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BalanceCheckResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    balance_ledger: {
-        parameters: {
-            query?: {
-                /** @description Number of records to fetch per page */
-                perPage?: number;
-                /** @description The section to retrieve */
-                page?: number;
-                /** @description The start date */
-                from?: string;
-                /** @description The end date */
-                to?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BalanceFetchLedgerResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    paymentRequest_list: {
-        parameters: {
-            query?: {
-                /** @description Number of records to fetch per page */
-                perPage?: number;
-                /** @description The section to retrieve */
-                page?: number;
-                /** @description Customer ID */
-                customer?: string;
-                /**
-                 * @description Invoice status to filter
-                 * @example success
-                 */
-                status?: "draft" | "pending" | "success" | "failed";
-                /** @description If your integration supports more than one currency, choose the one to filter */
-                currency?: string;
-                /** @description The start date */
-                from?: string;
-                /** @description The end date */
-                to?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["PaymentRequestListSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    paymentRequest_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PaymentRequestCreate"];
-                "application/x-www-form-urlencoded": components["schemas"]["PaymentRequestCreate"];
-            };
-        };
-        responses: {
-            200: components["responses"]["PaymentRequestCreateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    paymentRequest_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The payment request ID or code you want to fetch
-                 * @example 18823736
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["PaymentRequestViewSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    paymentRequest_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The payment request ID or code you want to fetch
-                 * @example 18823736
-                 */
-                id_or_code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PaymentRequestUpdate"];
-                "application/x-www-form-urlencoded": components["schemas"]["PaymentRequestUpdate"];
-            };
-        };
-        responses: {
-            200: components["responses"]["PaymentRequestUpdateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    paymentRequest_verify: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of a previously created payment request
-                 * @example 18823736
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["PaymentRequestVerifySuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    paymentRequest_notify: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of a previously created payment request
-                 * @example 18823736
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["PaymentRequestSendNotificationSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    paymentRequest_totals: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["PaymentRequestTotalSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    paymentRequest_finalize: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of a draft payment request
-                 * @example 18823736
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["PaymentRequestFinalizeSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    paymentRequest_archive: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of a previously created payment request
-                 * @example 18823736
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["PaymentRequestArchiveSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    product_list: {
-        parameters: {
-            query?: {
-                /** @description Number of records to fetch per page */
-                perPage?: number;
-                /** @description The section to retrieve */
-                page?: number;
-                /**
-                 * @description The state of the product
-                 * @example true
-                 */
-                active?: boolean;
-                /** @description The start date */
-                from?: string;
-                /** @description The end date */
-                to?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["ProductListsSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    product_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["ProductCreate"];
-                "application/x-www-form-urlencoded": components["schemas"]["ProductCreate"];
-            };
-        };
-        responses: {
-            201: components["responses"]["ProductCreateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    product_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the product
-                 * @example 2196244
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["ProductFetchSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    product_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the product
-                 * @example 2196244
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["ProductUpdate"];
-                "application/x-www-form-urlencoded": components["schemas"]["ProductUpdate"];
-            };
-        };
-        responses: {
-            200: components["responses"]["ProductUpdateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    product_delete: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the product
-                 * @example 2196244
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["ProductDeleteSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    storefront_list: {
-        parameters: {
-            query?: {
-                /** @description Number of records to fetch per request */
-                perPage?: number;
-                /** @description The offset to retrieve data from */
-                page?: number;
-                /** @example active */
-                status?: "active" | "inactive";
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["StorefrontListSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    storefront_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["StorefrontCreate"];
-                "application/x-www-form-urlencoded": components["schemas"]["StorefrontCreate"];
-            };
-        };
-        responses: {
-            200: components["responses"]["StorefrontCreateSuccess"];
-            400: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    storefront_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the Storefront
-                 * @example 1559046
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["StorefrontFetchSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    storefront_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the Storefront
-                 * @example 1559046
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["StorefrontUpdate"];
-                "application/x-www-form-urlencoded": components["schemas"]["StorefrontUpdate"];
-            };
-        };
-        responses: {
-            200: components["responses"]["StorefrontUpdateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    storefront_delete: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the Storefront
-                 * @example 1559046
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["StorefrontDeleteSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    storefront_verifySlug: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The custom slug to check
-                 * @example struct_and_faces
-                 */
-                slug: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    storefront_fetchOrders: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the Storefront
-                 * @example 1559046
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    storefront_listProducts: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the Storefront
-                 * @example 1559046
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    storefront_addProducts: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the Storefront
-                 * @example 1559046
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["StorefrontAddProducts"];
-                "application/x-www-form-urlencoded": components["schemas"]["StorefrontAddProducts"];
-            };
-        };
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    storefront_publish: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the Storefront
-                 * @example 1559046
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    storefront_duplicate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the Storefront
-                 * @example 1559046
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["Ok"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    order_list: {
-        parameters: {
-            query?: {
-                /** @description Number of records to fetch per page */
-                perPage?: number;
-                /** @description The section to retrieve */
-                page?: number;
-                /** @description The start date */
-                from?: string;
-                /** @description The end date */
-                to?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["OrderListSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    order_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["OrderCreate"];
-                "application/x-www-form-urlencoded": components["schemas"]["OrderCreate"];
-            };
-        };
-        responses: {
-            200: components["responses"]["OrderCreateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    order_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the order
-                 * @example 1559046
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["OrderFetchSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    order_product: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the order
-                 * @example 1559046
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["OrderFetchProductSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    order_validate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique code of a previously created order
-                 * @example ORD_6z0lqwpmxrm7dsp
-                 */
-                code: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["OrderValidateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    page_list: {
-        parameters: {
-            query?: {
-                /**
-                 * @description Number of records to fetch per page
-                 * @example 10
-                 */
-                perPage?: number;
-                /** @description The section to retrieve */
-                page?: number;
-                /** @description The start date */
-                from?: string;
-                /** @description The end date */
-                to?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["PageListSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    page_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PageCreate"];
-                "application/x-www-form-urlencoded": components["schemas"]["PageCreate"];
-            };
-        };
-        responses: {
-            200: components["responses"]["PageCreateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    page_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The page ID or slug you want to fetch
-                 * @example 1891222
-                 */
-                id_or_slug: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["PageFetchSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    page_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The page ID or slug you want to fetch
-                 * @example 1891222
-                 */
-                id_or_slug: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PageUpdate"];
-                "application/x-www-form-urlencoded": components["schemas"]["PageUpdate"];
-            };
-        };
-        responses: {
-            200: components["responses"]["PageUpdateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    page_checkSlugAvailability: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The custom slug to check
-                 * @example risky-burger
-                 */
-                slug: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["PageCheckSlugAvailabilitySuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    page_addProducts: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PageProduct"];
-                "application/x-www-form-urlencoded": components["schemas"]["PageProduct"];
-            };
-        };
-        responses: {
-            200: components["responses"]["PageAddProductsSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    settlements_fetch: {
-        parameters: {
-            query?: {
-                /**
-                 * @description Number of records to fetch per page
-                 * @example 50
-                 */
-                perPage?: number;
-                /**
-                 * @description The section to retrieve
-                 * @example 2
-                 */
-                page?: number;
-                /** @description The start date */
-                from?: string;
-                /** @description The end date */
-                to?: string;
-                /** @description Filter by status */
-                status?: "success" | "failed" | "processing" | "pending";
-                /** @description Filter by subaccount ID. Set to `none` to return only main account settlements. */
-                subaccount?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SettlementListResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    settlements_transaction: {
-        parameters: {
-            query?: {
-                /**
-                 * @description Number of records to fetch per page
-                 * @example 50
-                 */
-                perPage?: number;
-                /**
-                 * @description The section to retrieve
-                 * @example 2
-                 */
-                page?: number;
-                /** @description The start date */
-                from?: string;
-                /** @description The end date */
-                to?: string;
-            };
-            header?: never;
-            path: {
-                /**
-                 * @description The settlement ID in which you want to fetch its transactions
-                 * @example 8610870
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["SettlementTransactionsResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    integration_fetchPaymentSessionTimeout: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ControlPanelFetchPaymentSessionTimeoutResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    integration_updatePaymentSessionTimeout: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PaymentSession"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ControlPanelUpdatePaymentSessionTimeoutResponse"];
-                };
-            };
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    refund_list: {
-        parameters: {
-            query?: {
-                /** @description The transaction ID of the refunded transaction */
-                transaction?: string;
-                /** @description Any of the supported currency */
-                currency?: string;
-                /**
-                 * @description Number of records to fetch per page
-                 * @example 10
-                 */
-                perPage?: number;
-                /** @description The section to retrieve */
-                page?: number;
-                /** @description The start date */
-                from?: string;
-                /** @description The end date */
-                to?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["RefundListSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    refund_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["RefundCreate"];
-                "application/x-www-form-urlencoded": components["schemas"]["RefundCreate"];
-            };
-        };
-        responses: {
-            200: components["responses"]["RefundCreateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    refund_retry: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The identifier of the refund
-                 * @example 15581137
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["RefundRetry"];
-                "application/x-www-form-urlencoded": components["schemas"]["RefundRetry"];
-            };
-        };
-        responses: {
-            200: components["responses"]["RefundRetrySuccess"];
-            422: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    refund_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The identifier of the refund
-                 * @example 15581137
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["RefundFetchSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    dispute_list: {
-        parameters: {
-            query?: {
-                /** @description Number of records to fetch per page */
-                perPage?: number;
-                /** @description The section to retrieve */
-                page?: number;
-                /**
-                 * @description Dispute status
-                 * @example awaiting-merchant-feedback
-                 */
-                status?: "awaiting-merchant-feedback" | "awaiting-bank-feedback" | "pending" | "resolved";
-                /** @description Transaction ID */
-                transaction?: string;
-                /** @description The start date */
-                from?: string;
-                /** @description The end date */
-                to?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["DisputeListSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    dispute_fetch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the dispute
-                 * @example 1801929
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["DisputeFetchSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    dispute_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the dispute
-                 * @example 1801929
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["DisputeUpdate"];
-                "application/x-www-form-urlencoded": components["schemas"]["DisputeUpdate"];
-            };
-        };
-        responses: {
-            200: components["responses"]["DisputeUpdateSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    dispute_uploadUrl: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the dispute
-                 * @example 4734583785
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["DisputeUploadURLSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    dispute_download: {
-        parameters: {
-            query?: {
-                /** @description Number of records to fetch per page */
-                perPage?: number;
-                /** @description The section to retrieve */
-                page?: number;
-                /** @example awaiting-merchant-feedback */
-                status?: "awaiting-merchant-feedback" | "awaiting-bank-feedback" | "pending" | "resolved";
-                /** @description The start date */
-                from?: string;
-                /** @description The end date */
-                to?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["DisputeExportSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    dispute_transaction: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the transaction
-                 * @example 4734583785
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["DisputeListTransactionSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    dispute_resolve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the dispute
-                 * @example 4734583785
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["DisputeResolve"];
-                "application/x-www-form-urlencoded": components["schemas"]["DisputeResolve"];
-            };
-        };
-        responses: {
-            200: components["responses"]["DisputeResolveSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    dispute_evidence: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The unique identifier of the dispute
-                 * @example 4734583785
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["DisputeEvidence"];
-                "application/x-www-form-urlencoded": components["schemas"]["DisputeEvidence"];
-            };
-        };
-        responses: {
-            200: components["responses"]["DisputeAddEvidenceSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    bank_list: {
-        parameters: {
-            query?: {
-                /**
-                 * @description The country from which to obtain the list of supported banks. Accepted values are: ghana, kenya, nigeria, south africa
-                 * @example nigeria
-                 */
-                country?: "ghana" | "kenya" | "nigeria" | "south africa";
-                /**
-                 * @description One of the supported currency
-                 * @example NGN
-                 */
-                currency?: "GHS" | "KES" | "NGN" | "ZAR";
-                /** @description A flag to indicate if cursor based pagination should be used */
-                use_cursor?: boolean;
-                /** @description The number of objects to return per page. Defaults to 50, and limited to 100 records per page. */
-                perPage?: number;
-                /** @description Specify exactly what page you want to retrieve. If not specified, we use a default value of 1. */
-                page?: number;
-                /**
-                 * @description An alphanumeric value returned for every cursor based retrieval, used to
-                 *     retrieve the next set of data
-                 */
-                next?: string;
-                /**
-                 * @description An alphanumeric value returned for every cursor based retrieval, used to
-                 *     retrieve the previous set of data
-                 */
-                previous?: string;
-                /** @description A flag to filter for available banks a customer can make a transfer to complete a payment */
-                pay_with_bank_transfer?: boolean;
-                /** @description A flag to filter for banks a customer can pay directly from */
-                pay_with_bank?: boolean;
-                /**
-                 * @description A flag to filter the banks that are supported for account verification in South Africa.
-                 *     You need to combine this with either the `currency` or `country` filter.
-                 */
-                enabled_for_verification?: boolean;
-                /** @description The gateway type of the bank */
-                gateway?: "emandate" | "digitalbankmandate";
-                /** @description Type of financial channel. For Ghanaian channels, please use either mobile_money for mobile money channels OR ghipss for bank channels */
-                type?: "ghipss" | "mobile_money" | "nuban" | "kepss" | "basa";
-                /**
-                 * @description A flag that returns Nigerian banks with their NIP institution code.
-                 *     The returned value can be used in identifying institutions on NIP.
-                 */
-                include_nip_sort_code?: boolean;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["MiscellaneousListBanksSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    bank_resolveAccountNumber: {
-        parameters: {
-            query?: {
-                /**
-                 * @description The account number of interest
-                 * @example 0022728151
-                 */
-                account_number?: string;
-                /**
-                 * @description The bank code associated with the account number
-                 * @example 063
-                 */
-                bank_code?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["VerificationResolveAccountNumberSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    bank_validateAccountNumber: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["BankValidateRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["BankValidateRequest"];
-            };
-        };
-        responses: {
-            200: components["responses"]["VerificationValidateAccountSuccess"];
-            401: components["responses"]["Unauthorized"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    miscellaneous_resolveCardBin: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description The card bank identification number
-                 * @example 539983
-                 */
-                bin: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["VerificationResolveCardBINSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    miscellaneous_listCountries: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["MiscellaneousListCountriesSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    miscellaneous_avs: {
-        parameters: {
-            query?: {
-                /**
-                 * @description The country code of the states to list. It is gotten after the charge request
-                 * @example CA
-                 */
-                country?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: components["responses"]["MiscellaneousListStatesSuccess"];
-            401: components["responses"]["Unauthorized"];
-            404: components["responses"]["NotFound"];
-            /** @description Server error */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    misc_generateWebhookEventTypes: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description OK */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["WebhookEvent"];
-                };
-            };
-        };
-    };
+  transaction_initialize: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["TransactionInitialize"];
+        "application/x-www-form-urlencoded": components["schemas"]["TransactionInitialize"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransactionInitializeResponse"];
+        };
+      };
+      400: components["responses"]["TransactionInitializeBadRequestResponse"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transaction_chargeAuthorization: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["TransactionChargeAuthorization"];
+        "application/x-www-form-urlencoded": components["schemas"]["TransactionChargeAuthorization"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ChargeAuthorizationResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transaction_partialDebit: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["TransactionPartialDebit"];
+        "application/x-www-form-urlencoded": components["schemas"]["TransactionPartialDebit"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransactionPartialDebitResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transaction_checkAuthorization: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/x-www-form-urlencoded": components["schemas"]["TransactionCheckAuthorization"];
+        "application/json": components["schemas"]["TransactionCheckAuthorization"];
+      };
+    };
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transaction_verify: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The transaction reference to verify
+         * @example re4lyvq3s3
+         */
+        reference: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["VerifyResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transaction_list: {
+    parameters: {
+      query?: {
+        /**
+         * @description A flag to indicate if cursor based pagination should be used
+         * @example true
+         */
+        use_cursor?: boolean;
+        /** @description An alphanumeric value returned for every cursor based retrieval, used to retrieve the next set of data */
+        next?: string;
+        /** @description An alphanumeric value returned for every cursor based retrieval, used to retrieve the previous set of data */
+        previous?: string;
+        /** @description Specify how many records you want to retrieve per page. If not specified, we use a default value of 50. */
+        perPage?: number;
+        /** @description Specify exactly what page you want to retrieve. If not specified, we use a default value of 1. */
+        page?: number;
+        /** @description A timestamp from which to start listing transaction e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
+        from?: string;
+        /** @description A timestamp at which to stop listing transaction e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
+        to?: string;
+        /** @description Filter transaction by status */
+        status?: "success" | "failed" | "abandoned" | "reversed";
+        /** @description The origin of the payment */
+        source?: "merchantApi" | "checkout" | "pos" | "virtualTerminal";
+        /** @description The Terminal ID for the transactions you want to retrieve */
+        terminalid?: string;
+        /** @description Filter transactions by a virtual account number */
+        virtual_account_number?: string;
+        /** @description Specify an ID for the customer whose transactions you want to retrieve */
+        customer?: number;
+        /**
+         * @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100).
+         *     Filter transactions by a specific amount.
+         */
+        amount?: number;
+        /** @description The settlement ID to filter for settled transactions */
+        settlement?: number;
+        /** @description The payment method the customer used to complete the transaction */
+        channel?: "card" | "pos" | "bank" | "dedicated_nuban" | "ussd" | "bank_transfer";
+        /** @description Filter transaction by subaccount code */
+        subaccount_code?: string;
+        /** @description Filter transaction by split code */
+        split_code?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransactionListResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transaction_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The ID of the transaction to fetch
+         * @example 4099260516
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransactionFetchResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transaction_event: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The ID of the transaction */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transaction_session: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The ID of the transaction */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transaction_timeline: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The ID or the reference of the transaction
+         * @example 3936799950
+         */
+        id_or_reference: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransactionTimelineResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transaction_totals: {
+    parameters: {
+      query?: {
+        /** @description Number of records to fetch per page */
+        perPage?: number;
+        /** @description The section to retrieve */
+        page?: number;
+        /**
+         * @description The start date
+         * @example 2024-06-01T00:00:01Z
+         */
+        from?: string;
+        /**
+         * @description The end date
+         * @example 2024-06-30T13:36:54Z
+         */
+        to?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransactionTotalsResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transaction_export: {
+    parameters: {
+      query?: {
+        /** @description Number of records to fetch per page */
+        perPage?: number;
+        /** @description The section to retrieve */
+        page?: number;
+        /**
+         * @description The start date
+         * @example 2024-06-01T00:00:01Z
+         */
+        from?: string;
+        /**
+         * @description The end date
+         * @example 2024-06-30T13:36:54Z
+         */
+        to?: string;
+        /**
+         * @description Filter by the status of the transaction
+         * @example success
+         */
+        status?: "success" | "failed" | "abandoned" | "reversed" | "all";
+        /**
+         * @description Filter by customer ID
+         * @example 123172416
+         */
+        customer?: number;
+        /** @description Specify the transaction currency to export */
+        currency?: string;
+        /**
+         * @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100).
+         *     Filter transactions by amount.
+         */
+        amount?: number;
+        /** @description Set to true to export only settled transactions. false for pending transactions. Leave undefined to export all transactions */
+        settled?: boolean;
+        /**
+         * @description Filter by the settlement ID
+         * @example 5687910
+         */
+        settlement?: number;
+        /** @description Specify a payment page's id to export only transactions conducted on said page */
+        payment_page?: number;
+        /**
+         * @deprecated
+         * @description Filter by subaccount code
+         * @example ACCT_dskvlw3y3dMukmt
+         */
+        subaccount_code?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransactionExportResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  charge_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ChargeCreate"] & {
+          bank?: components["schemas"]["Bank"];
+        } & {
+          mobile_money?: components["schemas"]["MobileMoney"];
+        } & {
+          ussd?: components["schemas"]["USSD"];
+        } & {
+          eft?: components["schemas"]["EFT"];
+        };
+        "application/x-www-form-urlencoded": components["schemas"]["ChargeCreate"] & {
+          bank?: components["schemas"]["Bank"];
+        } & {
+          mobile_money?: components["schemas"]["MobileMoney"];
+        } & {
+          ussd?: components["schemas"]["USSD"];
+        } & {
+          eft?: components["schemas"]["EFT"];
+        };
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ChargeCreateResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  charge_submitPin: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ChargeSubmitPin"];
+        "application/x-www-form-urlencoded": components["schemas"]["ChargeSubmitPin"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ChargeSubmitPinResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  charge_submitOtp: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ChargeSubmitOTP"];
+        "application/x-www-form-urlencoded": components["schemas"]["ChargeSubmitOTP"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ChargeSubmitOtpResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  charge_submitPhone: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ChargeSubmitPhone"];
+        "application/x-www-form-urlencoded": components["schemas"]["ChargeSubmitPhone"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ChargeSubmitPhoneResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  charge_submitBirthday: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ChargeSubmitBirthday"];
+        "application/x-www-form-urlencoded": components["schemas"]["ChargeSubmitBirthday"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ChargeSubmitBirthdayResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  charge_submitAddress: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ChargeSubmitAddress"];
+        "application/x-www-form-urlencoded": components["schemas"]["ChargeSubmitAddress"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ChargeCheckPendingResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  charge_check: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The reference of the ongoing transaction
+         * @example 5bwib5v6anhe9xa
+         */
+        reference: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ChargeCheckPendingResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  bulkCharge_list: {
+    parameters: {
+      query?: {
+        /** @description Number of records to fetch per page */
+        perPage?: number;
+        /** @description The offset to retrieve data from */
+        page?: number;
+        /** @description A timestamp from which to start listing batches e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
+        from?: string;
+        /** @description A timestamp at which to stop listing batches e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
+        to?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BulkChargeListResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  bulkCharge_initiate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["BulkChargeInitiate"][];
+        "application/x-www-form-urlencoded": components["schemas"]["BulkChargeInitiate"][];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BulkChargeInitiateResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  bulkCharge_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description An ID or code for the charge whose batches you want to retrieve.
+         * @example BCH_180tl7oq7cayggh
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BulkChargeFetchResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  bulkCharge_charges: {
+    parameters: {
+      query?: {
+        /** @description Number of records to fetch per page */
+        perPage?: number;
+        /** @description The offset to retrieve data from */
+        page?: number;
+        /** @description Either one of these values: pending, success or failed */
+        status?: "pending" | "success" | "failed";
+        /** @description A timestamp from which to start listing charges e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
+        from?: string;
+        /** @description A timestamp at which to stop listing charges e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
+        to?: string;
+      };
+      header?: never;
+      path: {
+        /**
+         * @description An ID or code for the batch whose charges you want to retrieve.
+         * @example BCH_180tl7oq7cayggh
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BulkChargeFetchBulkBatchChargesResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  bulkCharge_pause: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The batch code for the bulk charge you want to pause
+         * @example BCH_180tl7oq7cayggh
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BulkChargePauseResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  bulkCharge_resume: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The batch code for the bulk charge you want to pause
+         * @example BCH_180tl7oq7cayggh
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BulkChargeResumeResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  subaccount_list: {
+    parameters: {
+      query?: {
+        /** @description Number of records to fetch per request */
+        perPage?: number;
+        /** @description The offset to retrieve data from */
+        page?: number;
+        /** @description A timestamp from which to start listing subaccounts e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
+        from?: string;
+        /** @description A timestamp at which to stop listing subaccounts e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
+        to?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SubaccountListResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  subaccount_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["SubaccountCreate"];
+        "application/x-www-form-urlencoded": components["schemas"]["SubaccountCreate"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SubaccountCreateResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  subaccount_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The subaccount ID or code you want to fetch
+         * @example ACCT_6uujpqtzmnufzkw
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SubaccountFetchResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  subaccount_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The subaccount ID or code you want to fetch
+         * @example ACCT_6uujpqtzmnufzkw
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["SubaccountUpdate"];
+        "application/x-www-form-urlencoded": components["schemas"]["SubaccountUpdate"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SubaccountUpdateResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  split_list: {
+    parameters: {
+      query?: {
+        /**
+         * @description Filter by subaccount code
+         * @example ACCT_dskvlw3y3dMukmt
+         */
+        subaccount_code?: string;
+        /** @description The name of the split */
+        name?: string;
+        /** @description The status of the split */
+        active?: boolean;
+        /** @description Sort by name, defaults to createdAt date */
+        sort_by?: string;
+        /** @description Number of splits per page. If not specified, we use a default value of 50. */
+        perPage?: number;
+        /** @description Page number to view. If not specified, we use a default value of 1. */
+        page?: number;
+        /** @description A timestamp from which to start listing splits e.g. 2019-09-24T00:00:05.000Z, 2019-09-21 */
+        from?: string;
+        /** @description A timestamp at which to stop listing splits e.g. 2019-09-24T00:00:05.000Z, 2019-09-21 */
+        to?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SplitListResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  split_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["SplitCreate"];
+        "application/x-www-form-urlencoded": components["schemas"]["SplitCreate"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SplitCreateResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  split_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The ID of the split configuration to fetch
+         * @example 4896895
+         */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SplitFetchResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  split_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["SplitUpdate"];
+        "application/x-www-form-urlencoded": components["schemas"]["SplitUpdate"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SplitUpdateResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  split_addSubaccount: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The ID of the split configuration to fetch
+         * @example 4896895
+         */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["SplitSubaccounts"];
+        "application/x-www-form-urlencoded": components["schemas"]["SplitSubaccounts"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SplitAddUpdateSubaccountResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  split_removeSubaccount: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The ID of the split configuration to fetch
+         * @example 4896895
+         */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["SplitSubaccountRemove"];
+        "application/x-www-form-urlencoded": components["schemas"]["SplitSubaccountRemove"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SplitRemoveSubaccountResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  terminal_sendEvent: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The ID of the Terminal the event should be sent to.
+         * @example Z0R4orOU
+         */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["TerminalSendEvent"];
+        "application/x-www-form-urlencoded": components["schemas"]["TerminalSendEvent"];
+      };
+    };
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  terminal_fetchEventStatus: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The ID of the Terminal the event should be sent to.
+         * @example Z0R4orOU
+         */
+        terminal_id: string;
+        /**
+         * @description The ID of the event that was sent to the Terminal
+         * @example 616d721e8c5cd40a0cdd54a6
+         */
+        event_id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  terminal_fetchTerminalStatus: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The ID of the Terminal the event should be sent to.
+         * @example Z0R4orOU
+         */
+        terminal_id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["TerminalGetStatusSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  terminal_list: {
+    parameters: {
+      query?: {
+        /** @description A cursor that indicates your place in the list. It can be used to fetch the next page of the list */
+        next?: string;
+        /** @description A cursor that indicates your place in the list. It should be used to fetch the previous page of the list after an intial next request */
+        previous?: string;
+        /** @description Specify how many records you want to retrieve per page. If not specified, we use a default value of 50. */
+        perPage?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["TerminalListsSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  terminal_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The ID of the Terminal the event should be sent to.
+         * @example Z0R4orOU
+         */
+        terminal_id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["TerminalGetSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  terminal_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The ID of the Terminal the event should be sent to.
+         * @example Z0R4orOU
+         */
+        terminal_id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["TerminalUpate"];
+        "application/x-www-form-urlencoded": components["schemas"]["TerminalUpate"];
+      };
+    };
+    responses: {
+      200: components["responses"]["TerminalUpdateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  terminal_commission: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["TerminalActivationToggle"];
+        "application/x-www-form-urlencoded": components["schemas"]["TerminalActivationToggle"];
+      };
+    };
+    responses: {
+      200: components["responses"]["TerminalCommissionDeviceSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  terminal_decommission: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["TerminalActivationToggle"];
+        "application/x-www-form-urlencoded": components["schemas"]["TerminalActivationToggle"];
+      };
+    };
+    responses: {
+      200: components["responses"]["TerminalDecommissionDeviceSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  virtualTerminal_list: {
+    parameters: {
+      query?: {
+        /** @description Filter by status ('active' or 'inactive') */
+        status?: "active" | "inactive";
+        /**
+         * @description Number of records per page
+         * @example 50
+         */
+        perPage?: number;
+        /** @description Search query string */
+        search?: string;
+        /** @description Cursor for next page */
+        next?: string;
+        /** @description Cursor for previous page */
+        previous?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["VirtualTerminalListSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  virtualTerminal_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["VirtualTerminalCreate"];
+      };
+    };
+    responses: {
+      200: components["responses"]["VirtualTerminalCreateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  virtualTerminal_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description Code of the Virtual Terminal
+         * @example VT_MCK5292Z
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["VirtualTerminalFetchSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  virtualTerminal_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description Code of the Virtual Terminal
+         * @example VT_MCK5292Z
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["VirtualTerminalUpdate"];
+      };
+    };
+    responses: {
+      200: components["responses"]["VirtualTerminalUpdateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  virtualTerminal_deactivate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description Code of the Virtual Terminal
+         * @example VT_MCK5292Z
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["VirtualTerminalDeactivateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  virtualTerminal_destinationAssign: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description Code of the Virtual Terminal
+         * @example VT_MCK5292Z
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["VirtualTerminalDestinationAssign"];
+        "application/x-www-form-urlencoded": components["schemas"]["VirtualTerminalDestinationAssign"];
+      };
+    };
+    responses: {
+      200: components["responses"]["VirtualTerminalDestinationAssignSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  virtualTerminal_destinationUnassign: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description Code of the Virtual Terminal
+         * @example VT_MCK5292Z
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["VirtualTerminalDestinationUnassign"];
+        "application/x-www-form-urlencoded": components["schemas"]["VirtualTerminalDestinationUnassign"];
+      };
+    };
+    responses: {
+      200: components["responses"]["VirtualTerminalDestinationUnassignSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  virtualTerminal_addSplitCode: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description Code of the Virtual Terminal
+         * @example VT_MCK5292Z
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["VirtualTerminalAddSplitCode"];
+        "application/x-www-form-urlencoded": components["schemas"]["VirtualTerminalAddSplitCode"];
+      };
+    };
+    responses: {
+      200: components["responses"]["VirtualTerminalAddSplitCodeSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server Error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  virtualTerminal_deleteSplitCode: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description Code of the Virtual Terminal
+         * @example VT_MCK5292Z
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["VirtualTerminalDeleteSplitCode"];
+        "application/x-www-form-urlencoded": components["schemas"]["VirtualTerminalDeleteSplitCode"];
+      };
+    };
+    responses: {
+      200: components["responses"]["VirtualTerminalDeleteSplitCodeSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server Error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  customer_list: {
+    parameters: {
+      query?: {
+        /** @description A flag to indicate if cursor based pagination should be used */
+        use_cursor?: boolean;
+        /** @description An alphanumeric value returned for every cursor based retrieval, used to retrieve the next set of data */
+        next?: string;
+        /** @description An alphanumeric value returned for every cursor based retrieval, used to retrieve the previous set of data */
+        previous?: string;
+        /** @description A timestamp from which to start listing customers e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
+        from?: string;
+        /** @description A timestamp at which to stop listing customers e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
+        to?: string;
+        /** @description Specify how many records you want to retrieve per page. If not specified, we use a default value of 50. */
+        perPage?: number;
+        /** @description Specify exactly what page you want to retrieve. If not specified, we use a default value of 1. */
+        page?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CustomerListResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  customer_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["CustomerCreate"];
+        "application/x-www-form-urlencoded": components["schemas"]["CustomerCreate"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CustomerCreateResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  customer_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description An email or customer code for the customer you want to fetch
+         * @example CUS_c6wqvwmvwopw4ms
+         */
+        email_or_code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CustomerFetchResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  customer_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description An email or customer code for the customer you want to fetch
+         * @example CUS_c6wqvwmvwopw4ms
+         */
+        email_or_code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["CustomerUpdate"];
+        "application/x-www-form-urlencoded": components["schemas"]["CustomerUpdate"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CustomerUpdateResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  customer_riskAction: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["CustomerRiskAction"];
+        "application/x-www-form-urlencoded": components["schemas"]["CustomerRiskAction"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CustomerWhitelistBlacklistResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  customer_validate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description Customer code
+         * @example CUS_c6wqvwmvwopw4ms
+         */
+        customer_code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["CustomerValidate"];
+        "application/x-www-form-urlencoded": components["schemas"]["CustomerValidate"];
+      };
+    };
+    responses: {
+      202: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CustomerValidateResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  customer_initializeAuthorization: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["CustomerAuthorizationInitializeRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["CustomerAuthorizationInitializeRequest"];
+      };
+    };
+    responses: {
+      200: components["responses"]["CustomerAuthorizationInitializeSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  customer_verifyAuthorization: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The reference returned in the initialization response
+         * @example dfbzfotsrbv4n5s82t4mp5b5mfn51h
+         */
+        reference: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["CustomerAuthorizationVerifySuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  customer_deactivateAuthorization: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["CustomerDeactivateAuthorization"];
+        "application/x-www-form-urlencoded": components["schemas"]["CustomerDeactivateAuthorization"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CustomerDeactivateAuthorizationResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  customer_initializeDirectDebit: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The ID of the customer to initialize the direct debit for
+         * @example 297346561
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["CustomerInitializeDirectDebitRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["CustomerInitializeDirectDebitRequest"];
+      };
+    };
+    responses: {
+      200: components["responses"]["CustomerInitializeDirectDebitSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  customer_directDebitActivationCharge: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The customer ID attached to the authorization
+         * @example 297346561
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["CustomerDirectDebitActivationChargeRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["CustomerDirectDebitActivationChargeRequest"];
+      };
+    };
+    responses: {
+      200: components["responses"]["CustomerDirectDebitActivationChargeSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  customer_fetchMandateAuthorizations: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The customer ID for the authorizations to fetch
+         * @example 297346561
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["CustomerFetchMandateAuthorizationsSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  directdebit_triggerActivationCharge: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["DirectDebitActivationChargeRequest"];
+      };
+    };
+    responses: {
+      200: components["responses"]["DirectDebitActivationChargeSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  directdebit_listMandateAuthorizations: {
+    parameters: {
+      query?: {
+        /** @description The cursor value of the next set of authorizations to fetch. You can get this from the meta object of the response */
+        cursor?: string;
+        /** @description Filter by the authorization status */
+        status?: "pending" | "active" | "revoked";
+        /** @description The number of authorizations to fetch per request */
+        per_page?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["CustomerFetchMandateAuthorizationsSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  dedicatedAccount_list: {
+    parameters: {
+      query?: {
+        /**
+         * @description Status of the dedicated virtual account
+         * @example true
+         */
+        active?: boolean;
+        /**
+         * @description The customer's ID
+         * @example 297346561
+         */
+        customer?: number;
+        /** @description The currency of the dedicated virtual account */
+        currency?: "NGN" | "GHS";
+        /**
+         * @description The bank's slug in lowercase, without spaces
+         * @example titan-paystack
+         */
+        provider_slug?: string;
+        /**
+         * @description The bank's ID
+         * @example 035
+         */
+        bank_id?: string;
+        /** @description The number of records to fetch per request */
+        perPage?: number;
+        /** @description The offset to retrieve data from */
+        page?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["DedicatedNubanListResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  dedicatedAccount_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["DedicatedVirtualAccountCreate"];
+        "application/x-www-form-urlencoded": components["schemas"]["DedicatedVirtualAccountCreate"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["DedicatedNubanCreateResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  dedicatedAccount_assign: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["DedicatedVirtualAccountAssign"];
+        "application/x-www-form-urlencoded": components["schemas"]["DedicatedVirtualAccountAssign"];
+      };
+    };
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  dedicatedAccount_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description ID of dedicated virtual account */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["DedicatedNubanFetchResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  dedicatedAccount_deactivate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description ID of dedicated virtual account */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["DedicatedNubanDeactivateResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  dedicatedAccount_requery: {
+    parameters: {
+      query?: {
+        /**
+         * @description Virtual account number to requery
+         * @example 0033322211
+         */
+        account_number?: string;
+        /**
+         * @description The bank's slug in lowercase, without spaces.
+         * @example titan-paystack
+         */
+        provider_slug?: string;
+        /** @description The day the transfer was made */
+        date?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  dedicatedAccount_addSplit: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["DedicatedVirtualAccountSplit"];
+        "application/x-www-form-urlencoded": components["schemas"]["DedicatedVirtualAccountSplit"];
+      };
+    };
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  dedicatedAccount_removeSplit: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["DedicatedVirtualAccountRemoveSplit"];
+        "application/x-www-form-urlencoded": components["schemas"]["DedicatedVirtualAccountRemoveSplit"];
+      };
+    };
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  dedicatedAccount_availableProviders: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  applePay_listDomain: {
+    parameters: {
+      query?: {
+        /**
+         * @description Flag to enable cursor pagination on the endpoint
+         * @example true
+         */
+        use_cursor?: boolean;
+        /** @description A cursor that indicates your place in the list. It can be used to fetch the next page of the list */
+        next?: string;
+        /** @description A cursor that indicates your place in the list. It should be used to fetch the previous page of the list after an intial next request */
+        previous?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["ApplePayDomainsSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  applePay_registerDomain: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ApplePayParam"];
+        "application/x-www-form-urlencoded": components["schemas"]["ApplePayParam"];
+      };
+    };
+    responses: {
+      200: components["responses"]["ApplePayOkResponse"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  applePay_unregisterDomain: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ApplePayParam"];
+        "application/x-www-form-urlencoded": components["schemas"]["ApplePayParam"];
+      };
+    };
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  capitecPay_requery: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The transaction reference from the previously initiated charge request
+         * @example 123456789
+         */
+        ref: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CapitecPayRequeryResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  preauthorization_initialize: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PreAuthorizationInitialize"];
+        "application/x-www-form-urlencoded": components["schemas"]["PreAuthorizationInitialize"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PreAuthorizationInitializeResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  preauthorization_capture: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PreAuthorizationCapture"];
+        "application/x-www-form-urlencoded": components["schemas"]["PreAuthorizationCapture"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PreAuthorizationCaptureResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  preauthorization_reserve_authorization: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PreAuthorizationReserve"];
+        "application/x-www-form-urlencoded": components["schemas"]["PreAuthorizationReserve"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PreAuthorizationReserveWithAuthCodeResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  preauthorization_verify: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description The transaction reference used to intiate the transaction */
+        reference: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PreAuthorizationVerifyResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  preauthorization_release: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PreAuthorizationRelease"];
+        "application/x-www-form-urlencoded": components["schemas"]["PreAuthorizationRelease"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PreAuthorizationReleaseResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  preauthorization_list: {
+    parameters: {
+      query?: {
+        /** @description Specify how many records you want to retrieve per page. If not specify we use a default value of 50. */
+        perPage?: number;
+        /** @description Specify exactly what page you want to retrieve. If not specify we use a default value of 1. */
+        page?: number;
+        /** @description A timestamp from which to start listing transaction e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
+        from?: string;
+        /** @description A timestamp at which to stop listing transaction e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
+        to?: string;
+        /** @description Filter transactions by status. */
+        status?: "authorized" | "captured" | "released" | "ongoing" | "failed" | "abandoned";
+        /** @description Filter transactions by amount using the supported currency code */
+        amount?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PreAuthorizationListResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  plan_list: {
+    parameters: {
+      query?: {
+        /** @description Number of records to fetch per page */
+        perPage?: number;
+        /** @description The section to retrieve */
+        page?: number;
+        /** @description Filter list by plans with specified status */
+        status?: string;
+        /** @description Specify interval of the plan */
+        interval?: "daily" | "weekly" | "monthly" | "quarterly" | "biannually" | "annually";
+        /**
+         * @description Amount should be in the subunit of the supported currency (e.g. kobo for NGN, pesewas for GHS, cents for ZAR/USD/KES). For XOF, the amount is the same as the base units (not multiplied by 100).
+         *     Filter plans by a specific amount.
+         */
+        amount?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["PlanListSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  plan_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PlanCreate"];
+        "application/x-www-form-urlencoded": components["schemas"]["PlanCreate"];
+      };
+    };
+    responses: {
+      200: components["responses"]["PlanCreateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  plan_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The plan ID or code you want to fetch
+         * @example PLN_gx2wn530m0i3w3m
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["PlanFetchSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  plan_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The plan ID or code you want to fetch
+         * @example PLN_gx2wn530m0i3w3m
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PlanUpdate"];
+        "application/x-www-form-urlencoded": components["schemas"]["PlanUpdate"];
+      };
+    };
+    responses: {
+      200: components["responses"]["PlanUpdateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  subscription_list: {
+    parameters: {
+      query?: {
+        /** @description Number of records to fetch per page */
+        perPage?: number;
+        /** @description The section to retrieve */
+        page?: number;
+        /**
+         * @description Plan ID
+         * @example 2697466
+         */
+        plan?: number;
+        /** @description Filter by Customer ID */
+        customer?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["SubscriptionListSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  subscription_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["SubscriptionCreate"];
+        "application/x-www-form-urlencoded": components["schemas"]["SubscriptionCreate"];
+      };
+    };
+    responses: {
+      200: components["responses"]["SubscriptionCreateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  subscription_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The subscription ID or code you want to fetch
+         * @example SUB_5co81xgmwg78x3d
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["SubscriptionFetchSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  subscription_disable: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["SubscriptionToggle"];
+        "application/x-www-form-urlencoded": components["schemas"]["SubscriptionToggle"];
+      };
+    };
+    responses: {
+      200: components["responses"]["SubscriptionDisableSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  subscription_enable: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["SubscriptionToggle"];
+        "application/x-www-form-urlencoded": components["schemas"]["SubscriptionToggle"];
+      };
+    };
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  subscription_manageLink: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description Subscription code
+         * @example qlgwhpyq1ts9nsw
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  subscription_manageEmail: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description Subscription code
+         * @example qlgwhpyq1ts9nsw
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transferrecipient_list: {
+    parameters: {
+      query?: {
+        /** @description Specify how many records you want to retrieve per page. If not specified, we use a default value of 50. */
+        perPage?: number;
+        /** @description Specify exactly what page you want to retrieve. If not specified, we use a default value of 1. */
+        page?: number;
+        /** @description A timestamp from which to start listing transfer recipients e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
+        from?: string;
+        /** @description A timestamp at which to stop listing transfer recipients e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
+        to?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransferRecipientListResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transferrecipient_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["TransferRecipientCreate"];
+        "application/x-www-form-urlencoded": components["schemas"]["TransferRecipientCreate"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransferRecipientCreateResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transferrecipient_bulk: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["TransferRecipientBulk"];
+        "application/x-www-form-urlencoded": components["schemas"]["TransferRecipientBulk"];
+      };
+    };
+    responses: {
+      /** @description Sucessful response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransferRecipientBulkCreateResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transferrecipient_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description An ID or code for the recipient whose details you want to receive.
+         * @example RCP_5ap8rcimmcj8lbi
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransferRecipientFetchResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transferrecipient_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description An ID or code for the recipient whose details you want to receive.
+         * @example RCP_5ap8rcimmcj8lbi
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["TransferRecipientUpdate"];
+        "application/x-www-form-urlencoded": components["schemas"]["TransferRecipientUpdate"];
+      };
+    };
+    responses: {
+      /** @description Successful response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransferRecipientUpdateResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transferrecipient_delete: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description An ID or code for the recipient whose details you want to receive.
+         * @example RCP_5ap8rcimmcj8lbi
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransferRecipientDeleteResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transfer_list: {
+    parameters: {
+      query?: {
+        /** @description Specify how many records you want to retrieve per page. If not specify we use a default value of 50. */
+        perPage?: number;
+        /** @description Specify exactly what transfer you want to page. If not specify we use a default value of 1. */
+        page?: number;
+        /** @description A timestamp from which to start listing transfer e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
+        from?: string;
+        /** @description A timestamp at which to stop listing transfer e.g. 2016-09-24T00:00:05.000Z, 2016-09-21 */
+        to?: string;
+        /** @description Filter by the recipient ID */
+        recipient?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransferListResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transfer_initiate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["TransferInitiate"];
+        "application/x-www-form-urlencoded": components["schemas"]["TransferInitiate"];
+      };
+    };
+    responses: {
+      /** @description Successful operation */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransferCreateResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transfer_finalize: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["TransferFinalize"];
+        "application/x-www-form-urlencoded": components["schemas"]["TransferFinalize"];
+      };
+    };
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transfer_bulk: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["TransferBulk"];
+        "application/x-www-form-urlencoded": components["schemas"]["TransferBulk"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransferBulkResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transfer_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The transfer ID or code you want to fetch
+         * @example TRF_1ptvuv321ahaa7q
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Succesful operation */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransferFetchResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transfer_verify: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description Transfer reference
+         * @example acv_9ee55786-2323-4760-98e2-6380c9cb3f67
+         */
+        reference: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransferVerifyResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transfer_exportTransfer: {
+    parameters: {
+      query?: {
+        /** @description Export transfer by the recipient code */
+        recipient?: string;
+        /**
+         * @description Export transfer by status
+         * @example success
+         */
+        status?:
+          | "pending"
+          | "success"
+          | "failed"
+          | "otp"
+          | "abandoned"
+          | "reversed"
+          | "blocked"
+          | "rejected"
+          | "received";
+        /** @description The start date */
+        from?: string;
+        /** @description The end date */
+        to?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transfer_resendOtp: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["TransferResendOTP"];
+        "application/x-www-form-urlencoded": components["schemas"]["TransferResendOTP"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransferResendsOtpResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transfer_disableOtp: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransferDisablesOtpResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transfer_disableOtpFinalize: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["TransferFinalizeDisableOTP"];
+        "application/x-www-form-urlencoded": components["schemas"]["TransferFinalizeDisableOTP"];
+      };
+    };
+    responses: {
+      /** @description Successful response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransferFinalizeDisablesOtpResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  transfer_enableOtp: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TransferEnablesOtpResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  balance_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BalanceCheckResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  balance_ledger: {
+    parameters: {
+      query?: {
+        /** @description Number of records to fetch per page */
+        perPage?: number;
+        /** @description The section to retrieve */
+        page?: number;
+        /** @description The start date */
+        from?: string;
+        /** @description The end date */
+        to?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BalanceFetchLedgerResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  paymentRequest_list: {
+    parameters: {
+      query?: {
+        /** @description Number of records to fetch per page */
+        perPage?: number;
+        /** @description The section to retrieve */
+        page?: number;
+        /** @description Customer ID */
+        customer?: string;
+        /**
+         * @description Invoice status to filter
+         * @example success
+         */
+        status?: "draft" | "pending" | "success" | "failed";
+        /** @description If your integration supports more than one currency, choose the one to filter */
+        currency?: string;
+        /** @description The start date */
+        from?: string;
+        /** @description The end date */
+        to?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["PaymentRequestListSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  paymentRequest_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PaymentRequestCreate"];
+        "application/x-www-form-urlencoded": components["schemas"]["PaymentRequestCreate"];
+      };
+    };
+    responses: {
+      200: components["responses"]["PaymentRequestCreateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  paymentRequest_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The payment request ID or code you want to fetch
+         * @example 18823736
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["PaymentRequestViewSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  paymentRequest_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The payment request ID or code you want to fetch
+         * @example 18823736
+         */
+        id_or_code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PaymentRequestUpdate"];
+        "application/x-www-form-urlencoded": components["schemas"]["PaymentRequestUpdate"];
+      };
+    };
+    responses: {
+      200: components["responses"]["PaymentRequestUpdateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  paymentRequest_verify: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of a previously created payment request
+         * @example 18823736
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["PaymentRequestVerifySuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  paymentRequest_notify: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of a previously created payment request
+         * @example 18823736
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["PaymentRequestSendNotificationSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  paymentRequest_totals: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["PaymentRequestTotalSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  paymentRequest_finalize: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of a draft payment request
+         * @example 18823736
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["PaymentRequestFinalizeSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  paymentRequest_archive: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of a previously created payment request
+         * @example 18823736
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["PaymentRequestArchiveSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  product_list: {
+    parameters: {
+      query?: {
+        /** @description Number of records to fetch per page */
+        perPage?: number;
+        /** @description The section to retrieve */
+        page?: number;
+        /**
+         * @description The state of the product
+         * @example true
+         */
+        active?: boolean;
+        /** @description The start date */
+        from?: string;
+        /** @description The end date */
+        to?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["ProductListsSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  product_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ProductCreate"];
+        "application/x-www-form-urlencoded": components["schemas"]["ProductCreate"];
+      };
+    };
+    responses: {
+      201: components["responses"]["ProductCreateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  product_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the product
+         * @example 2196244
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["ProductFetchSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  product_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the product
+         * @example 2196244
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ProductUpdate"];
+        "application/x-www-form-urlencoded": components["schemas"]["ProductUpdate"];
+      };
+    };
+    responses: {
+      200: components["responses"]["ProductUpdateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  product_delete: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the product
+         * @example 2196244
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["ProductDeleteSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  storefront_list: {
+    parameters: {
+      query?: {
+        /** @description Number of records to fetch per request */
+        perPage?: number;
+        /** @description The offset to retrieve data from */
+        page?: number;
+        /** @example active */
+        status?: "active" | "inactive";
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["StorefrontListSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  storefront_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["StorefrontCreate"];
+        "application/x-www-form-urlencoded": components["schemas"]["StorefrontCreate"];
+      };
+    };
+    responses: {
+      200: components["responses"]["StorefrontCreateSuccess"];
+      400: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  storefront_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the Storefront
+         * @example 1559046
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["StorefrontFetchSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  storefront_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the Storefront
+         * @example 1559046
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["StorefrontUpdate"];
+        "application/x-www-form-urlencoded": components["schemas"]["StorefrontUpdate"];
+      };
+    };
+    responses: {
+      200: components["responses"]["StorefrontUpdateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  storefront_delete: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the Storefront
+         * @example 1559046
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["StorefrontDeleteSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  storefront_verifySlug: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The custom slug to check
+         * @example struct_and_faces
+         */
+        slug: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  storefront_fetchOrders: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the Storefront
+         * @example 1559046
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  storefront_listProducts: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the Storefront
+         * @example 1559046
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  storefront_addProducts: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the Storefront
+         * @example 1559046
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["StorefrontAddProducts"];
+        "application/x-www-form-urlencoded": components["schemas"]["StorefrontAddProducts"];
+      };
+    };
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  storefront_publish: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the Storefront
+         * @example 1559046
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  storefront_duplicate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the Storefront
+         * @example 1559046
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["Ok"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  order_list: {
+    parameters: {
+      query?: {
+        /** @description Number of records to fetch per page */
+        perPage?: number;
+        /** @description The section to retrieve */
+        page?: number;
+        /** @description The start date */
+        from?: string;
+        /** @description The end date */
+        to?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["OrderListSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  order_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["OrderCreate"];
+        "application/x-www-form-urlencoded": components["schemas"]["OrderCreate"];
+      };
+    };
+    responses: {
+      200: components["responses"]["OrderCreateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  order_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the order
+         * @example 1559046
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["OrderFetchSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  order_product: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the order
+         * @example 1559046
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["OrderFetchProductSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  order_validate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique code of a previously created order
+         * @example ORD_6z0lqwpmxrm7dsp
+         */
+        code: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["OrderValidateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  page_list: {
+    parameters: {
+      query?: {
+        /**
+         * @description Number of records to fetch per page
+         * @example 10
+         */
+        perPage?: number;
+        /** @description The section to retrieve */
+        page?: number;
+        /** @description The start date */
+        from?: string;
+        /** @description The end date */
+        to?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["PageListSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  page_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PageCreate"];
+        "application/x-www-form-urlencoded": components["schemas"]["PageCreate"];
+      };
+    };
+    responses: {
+      200: components["responses"]["PageCreateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  page_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The page ID or slug you want to fetch
+         * @example 1891222
+         */
+        id_or_slug: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["PageFetchSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  page_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The page ID or slug you want to fetch
+         * @example 1891222
+         */
+        id_or_slug: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PageUpdate"];
+        "application/x-www-form-urlencoded": components["schemas"]["PageUpdate"];
+      };
+    };
+    responses: {
+      200: components["responses"]["PageUpdateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  page_checkSlugAvailability: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The custom slug to check
+         * @example risky-burger
+         */
+        slug: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["PageCheckSlugAvailabilitySuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  page_addProducts: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PageProduct"];
+        "application/x-www-form-urlencoded": components["schemas"]["PageProduct"];
+      };
+    };
+    responses: {
+      200: components["responses"]["PageAddProductsSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  settlements_fetch: {
+    parameters: {
+      query?: {
+        /**
+         * @description Number of records to fetch per page
+         * @example 50
+         */
+        perPage?: number;
+        /**
+         * @description The section to retrieve
+         * @example 2
+         */
+        page?: number;
+        /** @description The start date */
+        from?: string;
+        /** @description The end date */
+        to?: string;
+        /** @description Filter by status */
+        status?: "success" | "failed" | "processing" | "pending";
+        /** @description Filter by subaccount ID. Set to `none` to return only main account settlements. */
+        subaccount?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SettlementListResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  settlements_transaction: {
+    parameters: {
+      query?: {
+        /**
+         * @description Number of records to fetch per page
+         * @example 50
+         */
+        perPage?: number;
+        /**
+         * @description The section to retrieve
+         * @example 2
+         */
+        page?: number;
+        /** @description The start date */
+        from?: string;
+        /** @description The end date */
+        to?: string;
+      };
+      header?: never;
+      path: {
+        /**
+         * @description The settlement ID in which you want to fetch its transactions
+         * @example 8610870
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SettlementTransactionsResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  integration_fetchPaymentSessionTimeout: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ControlPanelFetchPaymentSessionTimeoutResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  integration_updatePaymentSessionTimeout: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PaymentSession"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ControlPanelUpdatePaymentSessionTimeoutResponse"];
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  refund_list: {
+    parameters: {
+      query?: {
+        /** @description The transaction ID of the refunded transaction */
+        transaction?: string;
+        /** @description Any of the supported currency */
+        currency?: string;
+        /**
+         * @description Number of records to fetch per page
+         * @example 10
+         */
+        perPage?: number;
+        /** @description The section to retrieve */
+        page?: number;
+        /** @description The start date */
+        from?: string;
+        /** @description The end date */
+        to?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["RefundListSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  refund_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["RefundCreate"];
+        "application/x-www-form-urlencoded": components["schemas"]["RefundCreate"];
+      };
+    };
+    responses: {
+      200: components["responses"]["RefundCreateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  refund_retry: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The identifier of the refund
+         * @example 15581137
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["RefundRetry"];
+        "application/x-www-form-urlencoded": components["schemas"]["RefundRetry"];
+      };
+    };
+    responses: {
+      200: components["responses"]["RefundRetrySuccess"];
+      422: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  refund_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The identifier of the refund
+         * @example 15581137
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["RefundFetchSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  dispute_list: {
+    parameters: {
+      query?: {
+        /** @description Number of records to fetch per page */
+        perPage?: number;
+        /** @description The section to retrieve */
+        page?: number;
+        /**
+         * @description Dispute status
+         * @example awaiting-merchant-feedback
+         */
+        status?: "awaiting-merchant-feedback" | "awaiting-bank-feedback" | "pending" | "resolved";
+        /** @description Transaction ID */
+        transaction?: string;
+        /** @description The start date */
+        from?: string;
+        /** @description The end date */
+        to?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["DisputeListSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  dispute_fetch: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the dispute
+         * @example 1801929
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["DisputeFetchSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  dispute_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the dispute
+         * @example 1801929
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["DisputeUpdate"];
+        "application/x-www-form-urlencoded": components["schemas"]["DisputeUpdate"];
+      };
+    };
+    responses: {
+      200: components["responses"]["DisputeUpdateSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  dispute_uploadUrl: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the dispute
+         * @example 4734583785
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["DisputeUploadURLSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  dispute_download: {
+    parameters: {
+      query?: {
+        /** @description Number of records to fetch per page */
+        perPage?: number;
+        /** @description The section to retrieve */
+        page?: number;
+        /** @example awaiting-merchant-feedback */
+        status?: "awaiting-merchant-feedback" | "awaiting-bank-feedback" | "pending" | "resolved";
+        /** @description The start date */
+        from?: string;
+        /** @description The end date */
+        to?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["DisputeExportSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  dispute_transaction: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the transaction
+         * @example 4734583785
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["DisputeListTransactionSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  dispute_resolve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the dispute
+         * @example 4734583785
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["DisputeResolve"];
+        "application/x-www-form-urlencoded": components["schemas"]["DisputeResolve"];
+      };
+    };
+    responses: {
+      200: components["responses"]["DisputeResolveSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  dispute_evidence: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The unique identifier of the dispute
+         * @example 4734583785
+         */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["DisputeEvidence"];
+        "application/x-www-form-urlencoded": components["schemas"]["DisputeEvidence"];
+      };
+    };
+    responses: {
+      200: components["responses"]["DisputeAddEvidenceSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  bank_list: {
+    parameters: {
+      query?: {
+        /**
+         * @description The country from which to obtain the list of supported banks. Accepted values are: ghana, kenya, nigeria, south africa
+         * @example nigeria
+         */
+        country?: "ghana" | "kenya" | "nigeria" | "south africa";
+        /**
+         * @description One of the supported currency
+         * @example NGN
+         */
+        currency?: "GHS" | "KES" | "NGN" | "ZAR";
+        /** @description A flag to indicate if cursor based pagination should be used */
+        use_cursor?: boolean;
+        /** @description The number of objects to return per page. Defaults to 50, and limited to 100 records per page. */
+        perPage?: number;
+        /** @description Specify exactly what page you want to retrieve. If not specified, we use a default value of 1. */
+        page?: number;
+        /**
+         * @description An alphanumeric value returned for every cursor based retrieval, used to
+         *     retrieve the next set of data
+         */
+        next?: string;
+        /**
+         * @description An alphanumeric value returned for every cursor based retrieval, used to
+         *     retrieve the previous set of data
+         */
+        previous?: string;
+        /** @description A flag to filter for available banks a customer can make a transfer to complete a payment */
+        pay_with_bank_transfer?: boolean;
+        /** @description A flag to filter for banks a customer can pay directly from */
+        pay_with_bank?: boolean;
+        /**
+         * @description A flag to filter the banks that are supported for account verification in South Africa.
+         *     You need to combine this with either the `currency` or `country` filter.
+         */
+        enabled_for_verification?: boolean;
+        /** @description The gateway type of the bank */
+        gateway?: "emandate" | "digitalbankmandate";
+        /** @description Type of financial channel. For Ghanaian channels, please use either mobile_money for mobile money channels OR ghipss for bank channels */
+        type?: "ghipss" | "mobile_money" | "nuban" | "kepss" | "basa";
+        /**
+         * @description A flag that returns Nigerian banks with their NIP institution code.
+         *     The returned value can be used in identifying institutions on NIP.
+         */
+        include_nip_sort_code?: boolean;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["MiscellaneousListBanksSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  bank_resolveAccountNumber: {
+    parameters: {
+      query?: {
+        /**
+         * @description The account number of interest
+         * @example 0022728151
+         */
+        account_number?: string;
+        /**
+         * @description The bank code associated with the account number
+         * @example 063
+         */
+        bank_code?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["VerificationResolveAccountNumberSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  bank_validateAccountNumber: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["BankValidateRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["BankValidateRequest"];
+      };
+    };
+    responses: {
+      200: components["responses"]["VerificationValidateAccountSuccess"];
+      401: components["responses"]["Unauthorized"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  miscellaneous_resolveCardBin: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /**
+         * @description The card bank identification number
+         * @example 539983
+         */
+        bin: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["VerificationResolveCardBINSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  miscellaneous_listCountries: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["MiscellaneousListCountriesSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  miscellaneous_avs: {
+    parameters: {
+      query?: {
+        /**
+         * @description The country code of the states to list. It is gotten after the charge request
+         * @example CA
+         */
+        country?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: components["responses"]["MiscellaneousListStatesSuccess"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      /** @description Server error */
+      default: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  misc_generateWebhookEventTypes: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description OK */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["WebhookEvent"];
+        };
+      };
+    };
+  };
 }

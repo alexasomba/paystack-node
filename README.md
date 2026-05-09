@@ -209,39 +209,39 @@ This SDK is generated from the SDK spec in this monorepo and currently tracks th
 
 For this SDK, these schema families are exposed through generated TypeScript types in `src/openapi-types.ts` and operation helpers in `src/operations.ts`.
 
-| Module | Schema / model family |
-| --- | --- |
-| Transactions | `Transaction*` |
-| Verify Payments (Transaction verification) | `VerifyResponse / TransactionFetchResponse` |
-| Charges | `Charge*` |
-| Bulk Charges | `BulkCharge*` |
-| Subaccounts | `Subaccount*` |
-| Transaction Splits | `Split*` |
-| Terminal | `Terminal*` |
-| Virtual Terminal | `VirtualTerminal*` |
-| Customers | `Customer*` |
-| Direct Debit | `DirectDebit*` |
-| Dedicated Virtual Accounts | `DedicatedNuban* / DedicatedVirtualAccount*` |
-| Apple Pay | `ApplePay*` |
-| Plans | `Plan*` |
-| Subscriptions | `Subscription*` |
-| Transfer Recipients | `TransferRecipient*` |
-| Transfers | `Transfer*` |
-| Transfers Control (OTP settings; under Transfers) | `TransferEnable* / TransferDisable* / TransferFinalize*` |
-| Balance | `Balance*` |
-| Payment Requests (Invoices) | `PaymentRequest*` |
-| Verification (Resolve Account / Validate Account / Resolve Card BIN) | `Verification*` |
-| Products | `Product*` |
-| Storefronts | `Storefront*` |
-| Orders | `Order*` |
-| Payment Pages | `Page*` |
-| Settlements | `Settlement*` |
-| Integration | `Integration*` |
-| Control Panel (Payment session timeout; under Integration) | `ControlPanel*` |
-| Refunds | `Refund*` |
-| Disputes | `Dispute*` |
-| Banks | `Bank*` |
-| Miscellaneous | `Miscellaneous* / Currency` |
+| Module                                                               | Schema / model family                                    |
+| -------------------------------------------------------------------- | -------------------------------------------------------- |
+| Transactions                                                         | `Transaction*`                                           |
+| Verify Payments (Transaction verification)                           | `VerifyResponse / TransactionFetchResponse`              |
+| Charges                                                              | `Charge*`                                                |
+| Bulk Charges                                                         | `BulkCharge*`                                            |
+| Subaccounts                                                          | `Subaccount*`                                            |
+| Transaction Splits                                                   | `Split*`                                                 |
+| Terminal                                                             | `Terminal*`                                              |
+| Virtual Terminal                                                     | `VirtualTerminal*`                                       |
+| Customers                                                            | `Customer*`                                              |
+| Direct Debit                                                         | `DirectDebit*`                                           |
+| Dedicated Virtual Accounts                                           | `DedicatedNuban* / DedicatedVirtualAccount*`             |
+| Apple Pay                                                            | `ApplePay*`                                              |
+| Plans                                                                | `Plan*`                                                  |
+| Subscriptions                                                        | `Subscription*`                                          |
+| Transfer Recipients                                                  | `TransferRecipient*`                                     |
+| Transfers                                                            | `Transfer*`                                              |
+| Transfers Control (OTP settings; under Transfers)                    | `TransferEnable* / TransferDisable* / TransferFinalize*` |
+| Balance                                                              | `Balance*`                                               |
+| Payment Requests (Invoices)                                          | `PaymentRequest*`                                        |
+| Verification (Resolve Account / Validate Account / Resolve Card BIN) | `Verification*`                                          |
+| Products                                                             | `Product*`                                               |
+| Storefronts                                                          | `Storefront*`                                            |
+| Orders                                                               | `Order*`                                                 |
+| Payment Pages                                                        | `Page*`                                                  |
+| Settlements                                                          | `Settlement*`                                            |
+| Integration                                                          | `Integration*`                                           |
+| Control Panel (Payment session timeout; under Integration)           | `ControlPanel*`                                          |
+| Refunds                                                              | `Refund*`                                                |
+| Disputes                                                             | `Dispute*`                                               |
+| Banks                                                                | `Bank*`                                                  |
+| Miscellaneous                                                        | `Miscellaneous* / Currency`                              |
 
 ## Module Examples
 
@@ -267,7 +267,11 @@ const verified = await paystack.transaction_verify({
 
 ```ts
 await paystack.charge_create({
-  body: { email: "customer@example.com", amount: 5000, bank: { code: "057", account_number: "0001234567" } },
+  body: {
+    email: "customer@example.com",
+    amount: 5000,
+    bank: { code: "057", account_number: "0001234567" },
+  },
 });
 ```
 
@@ -283,7 +287,12 @@ await paystack.bulkCharge_initiate({
 
 ```ts
 await paystack.subaccount_create({
-  body: { business_name: "Acme Stores", settlement_bank: "057", account_number: "0001234567", percentage_charge: 10 },
+  body: {
+    business_name: "Acme Stores",
+    settlement_bank: "057",
+    account_number: "0001234567",
+    percentage_charge: 10,
+  },
 });
 ```
 
@@ -361,7 +370,13 @@ await paystack.subscription_create({
 
 ```ts
 await paystack.transferrecipient_create({
-  body: { type: "nuban", name: "Ada Lovelace", account_number: "0001234567", bank_code: "057", currency: "NGN" },
+  body: {
+    type: "nuban",
+    name: "Ada Lovelace",
+    account_number: "0001234567",
+    bank_code: "057",
+    currency: "NGN",
+  },
 });
 ```
 
