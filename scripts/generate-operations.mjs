@@ -40,6 +40,16 @@ const httpMethods = ["get", "put", "post", "delete", "options", "head", "patch",
 const usedNames = new Set();
 const operations = [];
 
+function toJsDocLine(value) {
+  const text = String(value).trim();
+  return text.length > 0 ? ` * ${text}` : " *";
+}
+
+function toParamJsDocLine(name, description) {
+  const text = description === undefined || description === null ? "" : String(description).trim();
+  return text.length > 0 ? ` * @param ${name} ${text}` : ` * @param ${name}`;
+}
+
 for (const [apiPath, pathItem] of Object.entries(paths)) {
   if (pathItem === undefined || typeof pathItem !== "object") continue;
 
@@ -111,16 +121,16 @@ const fnBlocks = operations
 
     const jsDocLines = [];
     if (summary !== undefined && summary !== null && summary !== "") {
-      summary.split("\n").forEach((line) => jsDocLines.push(` * ${line.trim()}`));
+      summary.split("\n").forEach((line) => jsDocLines.push(toJsDocLine(line)));
     }
     if (description !== undefined && description !== null && description !== "") {
       if (jsDocLines.length > 0) jsDocLines.push(" *");
-      description.split("\n").forEach((line) => jsDocLines.push(` * ${line.trim()}`));
+      description.split("\n").forEach((line) => jsDocLines.push(toJsDocLine(line)));
     }
     if (pathParams.length > 0) {
       if (jsDocLines.length > 0) jsDocLines.push(" *");
       pathParams.forEach((p) => {
-        jsDocLines.push(` * @param ${p.name} ${p.description ?? ""}`);
+        jsDocLines.push(toParamJsDocLine(p.name, p.description));
       });
     }
 
@@ -177,11 +187,11 @@ const bindLines = Object.entries(categories)
 
         const jsDocLines = [];
         if (op.summary !== undefined && op.summary !== null && op.summary !== "") {
-          jsDocLines.push(` * ${op.summary.trim()}`);
+          jsDocLines.push(toJsDocLine(op.summary));
         }
         if (op.description !== undefined && op.description !== null && op.description !== "") {
           if (jsDocLines.length > 0) jsDocLines.push(" *");
-          jsDocLines.push(` * ${op.description.trim()}`);
+          jsDocLines.push(toJsDocLine(op.description));
         }
         const jsDoc =
           jsDocLines.length > 0 ? `      /**\n ${jsDocLines.join("\n ")}\n       */\n` : "";

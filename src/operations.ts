@@ -37,9 +37,9 @@ export async function applePay_listDomain(client: PaystackClient, ...init: InitA
  * Register Domain
  *
  * Register a top-level domain or subdomain for your Apple Pay integration.
- * 
+ *
  * > This endpoint can only be called with one domain or subdomain at a time.
- * 
+ *
  */
 export async function applePay_registerDomain(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "post">, false>) {
   const result = await client.POST("/apple-pay/domain", ...init);
@@ -55,7 +55,7 @@ export async function applePay_registerDomain(client: PaystackClient, ...init: I
  *
  * Unregister a top-level domain or subdomain previously used for your Apple
  * Pay integration.
- * 
+ *
  */
 export async function applePay_unregisterDomain(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/apple-pay/domain"], "delete">, false>) {
   const result = await client.DELETE("/apple-pay/domain", ...init);
@@ -157,7 +157,7 @@ export async function bulkCharge_charges(client: PaystackClient, id_or_code: str
  *
  * This endpoint retrieves a specific batch code. It also returns useful information on its progress by
  * way of the `total_charges` and `pending_charges` attributes.
- * 
+ *
  *
  * @param id_or_code An ID or code for the charge whose batches you want to retrieve.
  */
@@ -250,7 +250,7 @@ export async function capitecPay_requery(client: PaystackClient, ref: string, ..
  * Check pending charge
  *
  * When you get `pending` as a charge status or if there was an exception when calling any of the `/charge` endpoints, wait 10 seconds or more, then make a check to see if its status has changed. Don't call too early as you may get a lot more pending than you should.
- * 
+ *
  *
  * @param reference The reference of the ongoing transaction
  */
@@ -978,9 +978,9 @@ export async function order_validate(client: PaystackClient, code: string, ...in
  *
  * Add products to a previously created payment page. You can only add products to pages
  * that was created with a `product` type.
- * 
  *
- * @param id 
+ *
+ * @param id
  */
 export async function page_addProducts(client: PaystackClient, id: string, ...init: InitArg<MaybeOptionalInit<paths["/page/{id}/product"], "post">, true>) {
   const result = await client.POST("/page/{id}/product", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
@@ -1072,7 +1072,7 @@ export async function page_update(client: PaystackClient, id_or_slug: string, ..
  *
  * Archive a payment request to clean up your records. An archived payment request cannot be verified and will not
  * be returned when listing all previously created payment requests.
- * 
+ *
  *
  * @param id The unique identifier of a previously created payment request
  */
@@ -1600,7 +1600,7 @@ export async function split_removeSubaccount(client: PaystackClient, id: string,
  *
  * Update a split configuration for transactions
  *
- * @param id 
+ * @param id
  */
 export async function split_update(client: PaystackClient, id: string, ...init: InitArg<MaybeOptionalInit<paths["/split/{id}"], "put">, true>) {
   const result = await client.PUT("/split/{id}", { ...init[0], params: { ...init[0]?.params, path: { ...init[0]?.params?.path, id } } });
@@ -2252,9 +2252,9 @@ export async function transaction_verify(client: PaystackClient, reference: stri
  * Initiate Bulk Transfer
  *
  * Batch multiple transfers in a single request.
- * 
+ *
  * You need to disable the Transfers OTP requirement to use this endpoint.
- * 
+ *
  */
 export async function transfer_bulk(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/bulk"], "post">, false>) {
   const result = await client.POST("/transfer/bulk", ...init);
@@ -2270,7 +2270,7 @@ export async function transfer_bulk(client: PaystackClient, ...init: InitArg<May
  *
  * This is used in the event that you want to be able to complete transfers programmatically without use of OTPs.
  * No arguments required. You will get an OTP to complete the request.
- * 
+ *
  */
 export async function transfer_disableOtp(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/disable_otp"], "post">, false>) {
   const result = await client.POST("/transfer/disable_otp", ...init);
@@ -2300,7 +2300,7 @@ export async function transfer_disableOtpFinalize(client: PaystackClient, ...ini
  *
  * In the event that a customer wants to stop being able to complete transfers programmatically, this endpoint helps turn OTP requirement back on.
  * No arguments required.
- * 
+ *
  */
 export async function transfer_enableOtp(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transfer/enable_otp"], "post">, false>) {
   const result = await client.POST("/transfer/enable_otp", ...init);
@@ -2417,7 +2417,7 @@ export async function transfer_verify(client: PaystackClient, reference: string,
  * Bulk Create Transfer Recipient
  *
  * Create multiple transfer recipients in batches. A duplicate account number will lead to the retrieval of the existing record.
- * 
+ *
  */
 export async function transferrecipient_bulk(client: PaystackClient, ...init: InitArg<MaybeOptionalInit<paths["/transferrecipient/bulk"], "post">, false>) {
   const result = await client.POST("/transferrecipient/bulk", ...init);
