@@ -1,6 +1,6 @@
 {
   "name": "@alexasomba/paystack-node",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "description": "The most comprehensive Node.js SDK for Paystack - Complete, Type-safe, and Spec-compliant with full OpenAPI coverage and webhook verification.",
   "keywords": [
     "africa",
@@ -23,6 +23,7 @@
     "sdk",
     "south-africa",
     "subscriptions",
+    "tanstack-intent",
     "typescript",
     "usd",
     "webhooks",
@@ -40,7 +41,9 @@
     "url": "https://github.com/alexasomba/paystack-node.git"
   },
   "files": [
-    "dist"
+    "dist",
+    "skills",
+    "!skills/_artifacts"
   ],
   "type": "module",
   "sideEffects": false,
@@ -70,6 +73,7 @@
     "coverage": "vp test run --coverage",
     "lint": "vp lint . --fix",
     "lint:package": "publint run --strict",
+    "lint:skills": "intent validate",
     "lint:types": "attw --profile esm-only --pack .",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "clean": "rm -rf dist",
@@ -81,6 +85,7 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.2",
+    "@tanstack/intent": "^0.0.41",
     "@types/node": "^24.12.3",
     "openapi-typescript": "^7.13.0",
     "publint": "^0.3.20",

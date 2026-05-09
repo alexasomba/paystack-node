@@ -22,6 +22,18 @@ TypeScript-first Paystack API client for Node.js, generated from the official Pa
 pnpm add @alexasomba/paystack-node
 ```
 
+## Agent Skills
+
+This package ships TanStack Intent skills for agent-assisted Paystack integration:
+
+```bash
+npx @tanstack/intent@latest list
+npx @tanstack/intent@latest install --map
+npx @tanstack/intent@latest load @alexasomba/paystack-node#api-operations
+```
+
+Useful skills include `client-setup`, `api-operations`, `typed-payloads`, `responses-errors`, `retries-idempotency`, and `webhooks`.
+
 Authenticate requests with your Paystack secret key:
 
 ```ts
