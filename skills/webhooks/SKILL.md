@@ -1,6 +1,8 @@
 ---
 name: webhooks
 description: Use when verifying, parsing, and handling Paystack webhooks with @alexasomba/paystack-node.
+license: MIT
+compatibility: "Node.js >=22.0.0; ESM-only package; backend/server runtime; imports @alexasomba/paystack-node and @alexasomba/paystack-node/webhooks."
 ---
 
 # Paystack Node Webhooks

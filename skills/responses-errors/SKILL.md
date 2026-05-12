@@ -1,6 +1,8 @@
 ---
 name: responses-errors
 description: Use when handling @alexasomba/paystack-node responses, PaystackResponse, unwrap, PaystackError, request IDs, and Paystack API envelopes.
+license: MIT
+compatibility: "Node.js >=22.0.0; ESM-only package; backend/server runtime; imports @alexasomba/paystack-node and @alexasomba/paystack-node/webhooks."
 ---
 
 # Paystack Node Responses and Errors

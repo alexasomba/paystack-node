@@ -1,6 +1,8 @@
 ---
 name: api-operations
 description: Use when calling Paystack API operations with @alexasomba/paystack-node, including request body, path params, query params, and pagination.
+license: MIT
+compatibility: "Node.js >=22.0.0; ESM-only package; backend/server runtime; imports @alexasomba/paystack-node and @alexasomba/paystack-node/webhooks."
 ---
 
 # Paystack Node API Operations
