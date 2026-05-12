@@ -5,6 +5,13 @@ description: Use when verifying, parsing, and handling Paystack webhooks with @a
 
 # Paystack Node Webhooks
 
+## License and compatibility
+
+- License: MIT, same as `@alexasomba/paystack-node`.
+- Runtime compatibility: Node.js >=22.0.0; ESM-only package with `type: "module"`.
+- Supported import paths: `@alexasomba/paystack-node` and `@alexasomba/paystack-node/webhooks`.
+- Intended environment: backend/server runtimes. Do not bundle this SDK into browser code because it uses Paystack secret keys.
+
 Webhook handling must run on the server with your Paystack secret key. Verify the raw body before trusting the event.
 
 ## Verify signatures

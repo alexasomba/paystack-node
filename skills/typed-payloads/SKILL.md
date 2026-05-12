@@ -5,6 +5,13 @@ description: Use when choosing TypeScript request, query, response, or grouped c
 
 # Paystack Node Typed Payloads
 
+## License and compatibility
+
+- License: MIT, same as `@alexasomba/paystack-node`.
+- Runtime compatibility: Node.js >=22.0.0; ESM-only package with `type: "module"`.
+- Supported import paths: `@alexasomba/paystack-node` and `@alexasomba/paystack-node/webhooks`.
+- Intended environment: backend/server runtimes. Do not bundle this SDK into browser code because it uses Paystack secret keys.
+
 The SDK exports stable type aliases for common payloads and grouped client slices. Prefer these aliases before reconstructing types from `ReturnType`, `paths`, or `operations`.
 
 ## Client types

@@ -5,6 +5,13 @@ description: Use when configuring @alexasomba/paystack-node retries, Retry-After
 
 # Paystack Node Retries and Idempotency
 
+## License and compatibility
+
+- License: MIT, same as `@alexasomba/paystack-node`.
+- Runtime compatibility: Node.js >=22.0.0; ESM-only package with `type: "module"`.
+- Supported import paths: `@alexasomba/paystack-node` and `@alexasomba/paystack-node/webhooks`.
+- Intended environment: backend/server runtimes. Do not bundle this SDK into browser code because it uses Paystack secret keys.
+
 The Node SDK can retry transient failures and add idempotency keys to POST requests. Configure this deliberately for payment, transfer, refund, and customer mutations.
 
 ## Retry configuration
