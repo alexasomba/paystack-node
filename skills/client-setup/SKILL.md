@@ -7,13 +7,6 @@ compatibility: "Node.js >=22.0.0; ESM-only package; backend/server runtime; impo
 
 # Paystack Node Client Setup
 
-## License and compatibility
-
-- License: MIT, same as `@alexasomba/paystack-node`.
-- Runtime compatibility: Node.js >=22.0.0; ESM-only package with `type: "module"`.
-- Supported import paths: `@alexasomba/paystack-node` and `@alexasomba/paystack-node/webhooks`.
-- Intended environment: backend/server runtimes. Do not bundle this SDK into browser code because it uses Paystack secret keys.
-
 Use `@alexasomba/paystack-node` for server-side Paystack API calls in Node.js. Do not use it in browser bundles.
 
 ## Install and import

@@ -7,13 +7,6 @@ compatibility: "Node.js >=22.0.0; ESM-only package; backend/server runtime; impo
 
 # Paystack Node Responses and Errors
 
-## License and compatibility
-
-- License: MIT, same as `@alexasomba/paystack-node`.
-- Runtime compatibility: Node.js >=22.0.0; ESM-only package with `type: "module"`.
-- Supported import paths: `@alexasomba/paystack-node` and `@alexasomba/paystack-node/webhooks`.
-- Intended environment: backend/server runtimes. Do not bundle this SDK into browser code because it uses Paystack secret keys.
-
 Operation helpers return a `PaystackResponse<T>` wrapper. Handle both HTTP failures and Paystack envelope failures.
 
 ## Successful responses
