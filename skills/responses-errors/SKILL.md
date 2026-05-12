@@ -45,6 +45,12 @@ try {
 }
 ```
 
+`PaystackError` exposes `status`, `requestId`, `code`, `type`, and `meta`. Use `isProcessorError()` and `isValidationError()` when branching on Paystack error categories.
+
+## Helper exports
+
+Use `getPaystackRequestId(headers)` when extracting diagnostics from raw responses or mocked transport tests. Request IDs are commonly returned in `x-paystack-request-id` or `x-request-id`.
+
 ## Best practices
 
 - Do not rely only on HTTP status; Paystack may return an envelope with `status: false`.

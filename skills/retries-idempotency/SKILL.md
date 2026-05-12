@@ -45,6 +45,18 @@ const paystack = createPaystack({
 });
 ```
 
+## Helper exports
+
+The SDK also exports lower-level helpers for advanced transport or testing work:
+
+- `DEFAULT_IDEMPOTENCY_HEADER`
+- `createIdempotencyKey()`
+- `resolveIdempotencyKey(input)`
+- `hasHeader(headers, name)`
+- `setHeader(headers, name, value)`
+
+Prefer the top-level `createPaystack({ idempotencyKey })` option for application code. Use helper exports when testing header behavior or building SDK-adjacent transport utilities.
+
 ## Best practices
 
 - Retry GET, HEAD, and OPTIONS freely for transient failures.

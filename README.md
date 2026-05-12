@@ -32,7 +32,7 @@ npx @tanstack/intent@latest install --map
 npx @tanstack/intent@latest load @alexasomba/paystack-node#api-operations
 ```
 
-Useful skills include `client-setup`, `api-operations`, `typed-payloads`, `responses-errors`, `retries-idempotency`, and `webhooks`.
+Useful skills include `client-setup`, `api-operations`, `operation-discovery`, `typed-payloads`, `responses-errors`, `retries-idempotency`, `transport-testing`, and `webhooks`.
 
 Authenticate requests with your Paystack secret key:
 
