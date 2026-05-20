@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paystack Node Client Setup"
+  short_description: "Configure the Paystack Node SDK"
+  default_prompt: "Use $paystack-node-client-setup to configure a server-side Paystack Node client."

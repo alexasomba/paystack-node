@@ -1,6 +1,6 @@
 ---
-name: webhooks
-description: Use when verifying, parsing, and handling Paystack webhooks with @alexasomba/paystack-node.
+name: paystack-node-webhooks
+description: Use when verifying, parsing, and handling Paystack webhooks with the Paystack Node SDK @alexasomba/paystack-node, including webhook signatures and server routes.
 license: MIT
 compatibility: "Node.js >=22.0.0; ESM-only package; backend/server runtime; imports @alexasomba/paystack-node and @alexasomba/paystack-node/webhooks."
 ---

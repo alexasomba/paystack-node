@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paystack Node Retries and Idempotency"
+  short_description: "Configure retries and idempotency"
+  default_prompt: "Use $paystack-node-retries-idempotency to configure retries, timeouts, and idempotency keys."

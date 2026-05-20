@@ -29,10 +29,10 @@ This package ships TanStack Intent skills for agent-assisted Paystack integratio
 ```bash
 npx @tanstack/intent@latest list
 npx @tanstack/intent@latest install --map
-npx @tanstack/intent@latest load @alexasomba/paystack-node#api-operations
+npx @tanstack/intent@latest load @alexasomba/paystack-node#paystack-node-api-operations
 ```
 
-Useful skills include `client-setup`, `api-operations`, `typed-payloads`, `responses-errors`, `retries-idempotency`, and `webhooks`.
+Useful skills include `paystack-node-client-setup`, `paystack-node-api-operations`, `paystack-node-operation-discovery`, `paystack-node-typed-payloads`, `paystack-node-responses-errors`, `paystack-node-retries-idempotency`, `paystack-node-transport-testing`, and `paystack-node-webhooks`.
 
 Authenticate requests with your Paystack secret key:
 

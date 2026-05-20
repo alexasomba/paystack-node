@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paystack Node Transport Testing"
+  short_description: "Test custom Paystack Node transport"
+  default_prompt: "Use $paystack-node-transport-testing to test or customize Paystack Node SDK transport behavior."

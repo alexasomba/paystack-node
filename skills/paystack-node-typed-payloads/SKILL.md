@@ -1,6 +1,6 @@
 ---
-name: typed-payloads
-description: Use when choosing TypeScript request, query, response, or grouped client types from @alexasomba/paystack-node.
+name: paystack-node-typed-payloads
+description: Use when choosing TypeScript typed requests, query params, response types, or grouped client types from the Paystack Node SDK @alexasomba/paystack-node.
 license: MIT
 compatibility: "Node.js >=22.0.0; ESM-only package; backend/server runtime; imports @alexasomba/paystack-node and @alexasomba/paystack-node/webhooks."
 ---

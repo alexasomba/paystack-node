@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paystack Node Operation Discovery"
+  short_description: "Find generated Paystack Node helpers"
+  default_prompt: "Use $paystack-node-operation-discovery to find the generated Node SDK helper for a Paystack endpoint."

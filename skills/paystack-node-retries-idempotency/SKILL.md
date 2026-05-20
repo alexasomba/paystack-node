@@ -1,6 +1,6 @@
 ---
-name: retries-idempotency
-description: Use when configuring @alexasomba/paystack-node retries, Retry-After behavior, idempotency keys, timeouts, and safe retry semantics.
+name: paystack-node-retries-idempotency
+description: Use when configuring Paystack Node SDK retries, Retry-After behavior, idempotency keys, timeouts, and safe retry semantics for transactions or other API calls.
 license: MIT
 compatibility: "Node.js >=22.0.0; ESM-only package; backend/server runtime; imports @alexasomba/paystack-node and @alexasomba/paystack-node/webhooks."
 ---
@@ -44,6 +44,18 @@ const paystack = createPaystack({
   idempotencyKey: () => currentPaymentAttempt.idempotencyKey,
 });
 ```
+
+## Helper exports
+
+The SDK also exports lower-level helpers for advanced transport or testing work:
+
+- `DEFAULT_IDEMPOTENCY_HEADER`
+- `createIdempotencyKey()`
+- `resolveIdempotencyKey(input)`
+- `hasHeader(headers, name)`
+- `setHeader(headers, name, value)`
+
+Prefer the top-level `createPaystack({ idempotencyKey })` option for application code. Use helper exports when testing header behavior or building SDK-adjacent transport utilities.
 
 ## Best practices
 

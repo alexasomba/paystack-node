@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paystack Node Typed Payloads"
+  short_description: "Choose typed Paystack request shapes"
+  default_prompt: "Use $paystack-node-typed-payloads to choose typed Paystack request and response shapes for Node."

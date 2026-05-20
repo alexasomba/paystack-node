@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paystack Node API Operations"
+  short_description: "Call Paystack transactions and APIs"
+  default_prompt: "Use $paystack-node-api-operations to call Paystack transactions or other API operations from Node."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paystack Node Responses and Errors"
+  short_description: "Handle Paystack responses and errors"
+  default_prompt: "Use $paystack-node-responses-errors to handle Paystack Node SDK responses and errors."

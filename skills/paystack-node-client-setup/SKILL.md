@@ -1,6 +1,6 @@
 ---
-name: client-setup
-description: Use when installing or configuring @alexasomba/paystack-node, creating a Node Paystack client, or choosing server-side authentication settings.
+name: paystack-node-client-setup
+description: Use when installing or configuring the Paystack Node SDK @alexasomba/paystack-node, creating a server-side Paystack client, or choosing secret-key authentication settings.
 license: MIT
 compatibility: "Node.js >=22.0.0; ESM-only package; backend/server runtime; imports @alexasomba/paystack-node and @alexasomba/paystack-node/webhooks."
 ---

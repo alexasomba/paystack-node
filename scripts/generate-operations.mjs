@@ -1,4 +1,8 @@
 /* eslint-disable no-console */
+// @ts-nocheck
+// Source for TypeScript SDK operation generation.
+// Materialized into sdks/{node,axios,browser}/scripts/generate-operations.mjs
+// so each split SDK repository remains standalone.
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
