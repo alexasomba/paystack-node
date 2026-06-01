@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vite-plus/test";
-import { PaystackError, getPaystackRequestId } from "../src/errors.js";
+import { PaystackError, getPaystackRequestId, isPaystackApiError } from "../src/errors.js";
 
 describe("Error Handling", () => {
   describe("getPaystackRequestId", () => {
@@ -22,6 +22,13 @@ describe("Error Handling", () => {
 
   describe("PaystackError", () => {
     it("should correctly capture error details", () => {
+      const raw = {
+        status: false,
+        message: "Failed",
+        code: "invalid_params",
+        type: "validation_error",
+      };
+      const cause = new Error("Original transport error");
       const error = new PaystackError({
         message: "Failed",
         status: 400,
@@ -29,6 +36,8 @@ describe("Error Handling", () => {
         code: "invalid_params",
         type: "validation_error",
         meta: { field: "email" },
+        raw,
+        cause,
       });
 
       expect(error.message).toContain("Failed");
@@ -38,6 +47,10 @@ describe("Error Handling", () => {
       expect(error.code).toBe("invalid_params");
       expect(error.type).toBe("validation_error");
       expect(error.meta).toEqual({ field: "email" });
+      expect(error.raw).toBe(raw);
+      expect(error.body).toBe(raw);
+      expect(error.cause).toBe(cause);
+      expect(isPaystackApiError(error)).toBe(true);
     });
 
     it("should identify validation errors", () => {
