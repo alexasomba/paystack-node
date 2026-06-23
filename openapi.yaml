@@ -5812,16 +5812,16 @@ components:
           items:
             type: string
             enum:
-              - card
+              - apple_pay
               - bank
-              - ussd
-              - qr
+              - bank_transfer
+              - capitec_pay
+              - card
               - eft
               - mobile_money
-              - bank_transfer
-              - apple_pay
-              - capitec_pay
               - payattitude
+              - qr
+              - ussd
         callback_url:
           description: >
             Fully qualified url, e.g. https://example.com/ to redirect your

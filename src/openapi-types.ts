@@ -3272,16 +3272,16 @@ export interface components {
       reference?: string;
       /** @description An array of payment channels to control what channels you want to make available to the user to make a payment with */
       channels?: (
-        | "card"
+        | "apple_pay"
         | "bank"
-        | "ussd"
-        | "qr"
+        | "bank_transfer"
+        | "capitec_pay"
+        | "card"
         | "eft"
         | "mobile_money"
-        | "bank_transfer"
-        | "apple_pay"
-        | "capitec_pay"
         | "payattitude"
+        | "qr"
+        | "ussd"
       )[];
       /** @description Fully qualified url, e.g. https://example.com/ to redirect your customers to after a successful payment. Use this to override the callback url provided on the dashboard for this transaction */
       callback_url?: string;

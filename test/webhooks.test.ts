@@ -1,6 +1,8 @@
 import { describe, it, expect } from "vite-plus/test";
 import { Webhooks } from "../src/webhooks.js";
-import { createHmac } from "node:crypto";
+import { hmac } from "@noble/hashes/hmac.js";
+import { sha512 } from "@noble/hashes/sha2.js";
+import { bytesToHex } from "@noble/hashes/utils.js";
 
 describe("Webhook Verification", () => {
   const secret = "sk_test_1234567890abcdef1234567890abcdef12345678";
@@ -14,8 +16,10 @@ describe("Webhook Verification", () => {
     },
   });
 
-  const computeSignature = (p: string | Buffer, s: string) =>
-    createHmac("sha512", s).update(p).digest("hex");
+  const computeSignature = (p: string, s: string) => {
+    const encoder = new TextEncoder();
+    return bytesToHex(hmac(sha512, encoder.encode(s), encoder.encode(p)));
+  };
 
   it("should verify a valid signature", () => {
     const signature = computeSignature(payload, secret);

@@ -1,6 +1,6 @@
 {
   "name": "@alexasomba/paystack-node",
-  "version": "1.10.7",
+  "version": "1.10.8",
   "description": "The most comprehensive Node.js SDK for Paystack - Complete, Type-safe, and Spec-compliant with full OpenAPI coverage and webhook verification.",
   "keywords": [
     "africa",
@@ -81,6 +81,7 @@
     "publish:public": "pnpm publish --no-git-checks --access public"
   },
   "dependencies": {
+    "@noble/hashes": "^2.2.0",
     "openapi-fetch": "^0.17.0"
   },
   "devDependencies": {

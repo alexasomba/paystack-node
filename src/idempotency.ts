@@ -1,5 +1,3 @@
-import crypto from "node:crypto";
-
 export const DEFAULT_IDEMPOTENCY_HEADER = "Idempotency-Key";
 
 export type IdempotencyKeyInput =
@@ -9,8 +7,23 @@ export type IdempotencyKeyInput =
   | { mode: "custom"; generate: () => string };
 
 export function createIdempotencyKey(): string {
-  if (typeof crypto.randomUUID === "function") return crypto.randomUUID();
-  return crypto.randomBytes(16).toString("hex");
+  const cryptoObj = globalThis.crypto;
+  if (cryptoObj !== undefined && typeof cryptoObj.randomUUID === "function") {
+    return cryptoObj.randomUUID();
+  }
+
+  if (cryptoObj !== undefined && typeof cryptoObj.getRandomValues === "function") {
+    const buf = new Uint8Array(16);
+    cryptoObj.getRandomValues(buf);
+    return Array.from(buf)
+      .map((b) => b.toString(16).padStart(2, "0"))
+      .join("");
+  }
+
+  const chars = "0123456789abcdef";
+  let out = "";
+  for (let i = 0; i < 32; i += 1) out += chars[Math.floor(Math.random() * 16)];
+  return out;
 }
 
 export function hasHeader(headers: HeadersInit | undefined, name: string): boolean {

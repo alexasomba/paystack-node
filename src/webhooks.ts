@@ -1,4 +1,6 @@
-import { createHmac } from "node:crypto";
+import { hmac } from "@noble/hashes/hmac.js";
+import { sha512 } from "@noble/hashes/sha2.js";
+import { bytesToHex } from "@noble/hashes/utils.js";
 import type { components } from "./openapi-types.js";
 
 /**
@@ -24,7 +26,9 @@ export const Webhooks = {
    * @param secretKey Your Paystack Secret Key
    */
   verifySignature(body: string, signature: string, secretKey: string): boolean {
-    const hash = createHmac("sha512", secretKey).update(body).digest("hex");
+    const encoder = new TextEncoder();
+    const hashBytes = hmac(sha512, encoder.encode(secretKey), encoder.encode(body));
+    const hash = bytesToHex(hashBytes);
     return hash === signature;
   },
 
