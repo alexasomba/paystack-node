@@ -6,8 +6,8 @@ import { createPaystack } from "../src/index.js";
 
 const fixtures = JSON.parse(
   fs.readFileSync(
-    fs.existsSync(new URL("./fixtures/paystack.json", import.meta.url))
-      ? new URL("./fixtures/paystack.json", import.meta.url)
+    fs.existsSync(new URL("../contract-fixtures/paystack.json", import.meta.url))
+      ? new URL("../contract-fixtures/paystack.json", import.meta.url)
       : new URL("../../contract-fixtures/paystack.json", import.meta.url),
     "utf8",
   ),
