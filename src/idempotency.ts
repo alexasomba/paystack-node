@@ -20,10 +20,7 @@ export function createIdempotencyKey(): string {
       .join("");
   }
 
-  const chars = "0123456789abcdef";
-  let out = "";
-  for (let i = 0; i < 32; i += 1) out += chars[Math.floor(Math.random() * 16)];
-  return out;
+  throw new Error("Secure randomness is required to create an idempotency key.");
 }
 
 export function hasHeader(headers: HeadersInit | undefined, name: string): boolean {

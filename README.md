@@ -193,9 +193,7 @@ const total = result.response.headers.get("x-total-count");
 ```ts
 import { toPaystackApiError } from "@alexasomba/paystack-node";
 
-const result = await paystack.transaction_initialize({
-  /* ... */
-});
+const result = await paystack.transaction_initialize({/* ... */});
 const error = toPaystackApiError(result);
 
 if (error) {
