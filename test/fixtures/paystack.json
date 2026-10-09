@@ -1,0 +1,44 @@
+{
+  "secretKey": "sk_test_contract",
+  "publicKey": "pk_test_contract",
+  "requestId": "req_contract_123",
+  "transactionInitialize": {
+    "request": {
+      "email": "contract@example.com",
+      "amount": 5000
+    },
+    "response": {
+      "status": true,
+      "message": "Authorization URL created",
+      "data": {
+        "authorization_url": "https://checkout.paystack.com/contract",
+        "access_code": "access_contract",
+        "reference": "ref_contract"
+      }
+    }
+  },
+  "transactionList": {
+    "query": {
+      "perPage": "1",
+      "page": "2"
+    },
+    "response": {
+      "status": true,
+      "message": "Transactions retrieved",
+      "data": [],
+      "meta": {
+        "total": 0,
+        "skipped": 1,
+        "perPage": 1,
+        "page": 2,
+        "pageCount": 0
+      }
+    }
+  },
+  "error": {
+    "status": false,
+    "message": "Invalid authorization",
+    "type": "validation_error",
+    "code": "invalid_authorization"
+  }
+}

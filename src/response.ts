@@ -40,7 +40,7 @@ function getPaystackEnvelope(source: unknown): PaystackErrorEnvelope {
   return {
     message: getStringField(source, "message"),
     code: getStringField(source, "code"),
-    type: getStringField(source, "type") as PaystackErrorType | undefined,
+    type: getStringField(source, "type"),
     meta: getMeta(source),
   };
 }
