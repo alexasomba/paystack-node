@@ -36,7 +36,7 @@ The SDK wraps the provided `fetch` to apply timeout, retry, and idempotency beha
 Return Paystack-style envelopes from tests:
 
 ```ts
-return Response.json(
+const response = Response.json(
   { status: false, message: "Invalid reference", data: null },
   { status: 200, headers: { "x-paystack-request-id": "req_123" } },
 );
