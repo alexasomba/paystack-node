@@ -38,7 +38,7 @@
   "author": "alexasomba",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alexasomba/paystack-node.git"
+    "url": "git+https://github.com/alexasomba/paystack-node.git"
   },
   "files": [
     "dist",
@@ -75,29 +75,28 @@
     "lint:package": "publint run --strict",
     "lint:skills": "intent validate",
     "lint:types": "npm_config_ignore_scripts=true npm_config_cache=/tmp/paystack-openapi-npm-cache attw --profile esm-only --pack .",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "typecheck": "tsc6 -p tsconfig.json --noEmit",
     "clean": "rm -rf dist",
     "prepack": "pnpm build",
     "publish:public": "pnpm publish --no-git-checks --access public"
   },
   "dependencies": {
-    "@noble/hashes": "^2.2.0",
+    "@noble/hashes": "^2.4.0",
     "openapi-fetch": "^0.17.0"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.5",
-    "@tanstack/intent": "^0.0.41",
-    "@types/node": "^24.12.3",
+    "@tanstack/intent": "^0.5.5",
+    "@types/node": "^22.20.5",
     "openapi-typescript": "^7.13.0",
-    "publint": "^0.3.20",
-    "typescript": "^5.9.3",
+    "publint": "^0.3.25",
+    "typescript": "npm:@typescript/typescript6@6.0.2",
     "vite": "catalog:",
     "vite-plus": "catalog:",
-    "vitest": "catalog:",
-    "yaml": "^2.8.4"
+    "yaml": "^2.9.1"
   },
   "engines": {
     "node": ">=22.0.0"
   },
-  "packageManager": "pnpm@11.26.0"
+  "packageManager": "pnpm@12.10.1"
 }
