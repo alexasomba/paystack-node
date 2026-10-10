@@ -5622,9 +5622,107 @@ components:
             event:
               type: string
               enum:
-                - invoice.failed
+                - invoice.payment_failed
             data:
-              $ref: "#/components/schemas/data-4"
+              type: object
+              description: The invoice payment failure payload. Inspect status and invoice
+                details before changing access.
+              additionalProperties: true
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - charge.dispute.remind
+            data:
+              $ref: "#/components/schemas/data-5"
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - refund.pending
+                - refund.processing
+                - refund.needs-attention
+            data:
+              type: object
+              description: Refund lifecycle details. Payload fields vary with processor and
+                refund state.
+              additionalProperties: true
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - customeridentification.success
+                - customeridentification.failed
+            data:
+              type: object
+              description: Customer identification result and verification details.
+              additionalProperties: true
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - paymentrequest.pending
+                - paymentrequest.success
+            data:
+              type: object
+              description: Payment request lifecycle details.
+              additionalProperties: true
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - subscription.expiring_cards
+            data:
+              type: object
+              description: Subscription and card expiry information for the affected customer.
+              additionalProperties: true
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - direct_debit.authorization.created
+                - direct_debit.authorization.active
+            data:
+              type: object
+              description: Direct Debit authorization and mandate status details.
+              additionalProperties: true
+          required:
+            - event
+            - data
+        - type: object
+          properties:
+            event:
+              type: string
+              enum:
+                - zero_charge_authorization.success
+            data:
+              type: object
+              description: Zero-charge card authorization result.
+              additionalProperties: true
           required:
             - event
             - data
@@ -5635,7 +5733,7 @@ components:
               enum:
                 - dedicatedaccount.assign.success
             data:
-              $ref: "#/components/schemas/data-5"
+              $ref: "#/components/schemas/data-6"
           required:
             - event
             - data
@@ -5646,7 +5744,7 @@ components:
               enum:
                 - dedicatedaccount.assign.failed
             data:
-              $ref: "#/components/schemas/data-5"
+              $ref: "#/components/schemas/data-6"
           required:
             - event
             - data
@@ -5657,7 +5755,7 @@ components:
               enum:
                 - refund.processed
             data:
-              $ref: "#/components/schemas/data-6"
+              $ref: "#/components/schemas/data-7"
           required:
             - event
             - data
@@ -5668,7 +5766,7 @@ components:
               enum:
                 - refund.failed
             data:
-              $ref: "#/components/schemas/data-6"
+              $ref: "#/components/schemas/data-7"
           required:
             - event
             - data
@@ -5679,7 +5777,7 @@ components:
               enum:
                 - charge.dispute.create
             data:
-              $ref: "#/components/schemas/data-7"
+              $ref: "#/components/schemas/data-5"
           required:
             - event
             - data
@@ -5690,7 +5788,7 @@ components:
               enum:
                 - charge.dispute.resolve
             data:
-              $ref: "#/components/schemas/data-7"
+              $ref: "#/components/schemas/data-5"
           required:
             - event
             - data
@@ -20682,151 +20780,6 @@ components:
     data-5:
       type: object
       properties:
-        customer:
-          type: object
-          properties:
-            id:
-              type: integer
-            first_name:
-              type: string
-            last_name:
-              type: string
-            email:
-              type: string
-            customer_code:
-              type: string
-            phone:
-              type: string
-              nullable: true
-            metadata:
-              type: object
-              nullable: true
-            risk_action:
-              type: string
-            international_format_phone:
-              type: string
-              nullable: true
-          required:
-            - id
-            - first_name
-            - last_name
-            - email
-            - customer_code
-            - phone
-            - metadata
-            - risk_action
-        bank:
-          type: object
-          properties:
-            name:
-              type: string
-            id:
-              type: integer
-            slug:
-              type: string
-          required:
-            - name
-            - id
-            - slug
-        id:
-          type: integer
-        account_name:
-          type: string
-        account_number:
-          type: string
-        created_at:
-          type: string
-        updated_at:
-          type: string
-        currency:
-          type: string
-        split_config:
-          anyOf:
-            - type: string
-            - type: object
-          nullable: true
-        active:
-          type: boolean
-        assigned:
-          type: boolean
-      required:
-        - customer
-        - bank
-        - id
-        - account_name
-        - account_number
-        - created_at
-        - updated_at
-        - currency
-        - split_config
-        - active
-        - assigned
-    data-6:
-      type: object
-      properties:
-        integration:
-          type: integer
-        transaction:
-          type: integer
-        dispute:
-          type: integer
-          nullable: true
-        settlement:
-          type: integer
-          nullable: true
-        domain:
-          type: string
-        amount:
-          type: integer
-        deducted_amount:
-          type: integer
-        fully_deducted:
-          type: boolean
-        currency:
-          type: string
-        channel:
-          type: string
-        status:
-          type: string
-        refunded_by:
-          type: string
-        refunded_at:
-          type: string
-        expected_at:
-          type: string
-        customer_note:
-          type: string
-        merchant_note:
-          type: string
-        id:
-          type: integer
-        createdAt:
-          type: string
-        updatedAt:
-          type: string
-      required:
-        - integration
-        - transaction
-        - dispute
-        - settlement
-        - domain
-        - amount
-        - deducted_amount
-        - fully_deducted
-        - currency
-        - channel
-        - status
-        - refunded_by
-        - refunded_at
-        - expected_at
-        - customer_note
-        - merchant_note
-        - id
-        - createdAt
-        - updatedAt
-    data-7:
-      type: object
-      properties:
         id:
           type: integer
         refund_amount:
@@ -21064,6 +21017,151 @@ components:
         - last4
         - history
         - messages
+        - createdAt
+        - updatedAt
+    data-6:
+      type: object
+      properties:
+        customer:
+          type: object
+          properties:
+            id:
+              type: integer
+            first_name:
+              type: string
+            last_name:
+              type: string
+            email:
+              type: string
+            customer_code:
+              type: string
+            phone:
+              type: string
+              nullable: true
+            metadata:
+              type: object
+              nullable: true
+            risk_action:
+              type: string
+            international_format_phone:
+              type: string
+              nullable: true
+          required:
+            - id
+            - first_name
+            - last_name
+            - email
+            - customer_code
+            - phone
+            - metadata
+            - risk_action
+        bank:
+          type: object
+          properties:
+            name:
+              type: string
+            id:
+              type: integer
+            slug:
+              type: string
+          required:
+            - name
+            - id
+            - slug
+        id:
+          type: integer
+        account_name:
+          type: string
+        account_number:
+          type: string
+        created_at:
+          type: string
+        updated_at:
+          type: string
+        currency:
+          type: string
+        split_config:
+          anyOf:
+            - type: string
+            - type: object
+          nullable: true
+        active:
+          type: boolean
+        assigned:
+          type: boolean
+      required:
+        - customer
+        - bank
+        - id
+        - account_name
+        - account_number
+        - created_at
+        - updated_at
+        - currency
+        - split_config
+        - active
+        - assigned
+    data-7:
+      type: object
+      properties:
+        integration:
+          type: integer
+        transaction:
+          type: integer
+        dispute:
+          type: integer
+          nullable: true
+        settlement:
+          type: integer
+          nullable: true
+        domain:
+          type: string
+        amount:
+          type: integer
+        deducted_amount:
+          type: integer
+        fully_deducted:
+          type: boolean
+        currency:
+          type: string
+        channel:
+          type: string
+        status:
+          type: string
+        refunded_by:
+          type: string
+        refunded_at:
+          type: string
+        expected_at:
+          type: string
+        customer_note:
+          type: string
+        merchant_note:
+          type: string
+        id:
+          type: integer
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      required:
+        - integration
+        - transaction
+        - dispute
+        - settlement
+        - domain
+        - amount
+        - deducted_amount
+        - fully_deducted
+        - currency
+        - channel
+        - status
+        - refunded_by
+        - refunded_at
+        - expected_at
+        - customer_note
+        - merchant_note
+        - id
         - createdAt
         - updatedAt
   responses:

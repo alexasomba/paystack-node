@@ -3146,32 +3146,81 @@ export interface components {
             data: components["schemas"]["data-4"];
         } | {
             /** @enum {string} */
-            event: "invoice.failed";
-            data: components["schemas"]["data-4"];
+            event: "invoice.payment_failed";
+            /** @description The invoice payment failure payload. Inspect status and invoice details before changing access. */
+            data: {
+                [key: string]: unknown;
+            };
+        } | {
+            /** @enum {string} */
+            event: "charge.dispute.remind";
+            data: components["schemas"]["data-5"];
+        } | {
+            /** @enum {string} */
+            event: "refund.pending" | "refund.processing" | "refund.needs-attention";
+            /** @description Refund lifecycle details. Payload fields vary with processor and refund state. */
+            data: {
+                [key: string]: unknown;
+            };
+        } | {
+            /** @enum {string} */
+            event: "customeridentification.success" | "customeridentification.failed";
+            /** @description Customer identification result and verification details. */
+            data: {
+                [key: string]: unknown;
+            };
+        } | {
+            /** @enum {string} */
+            event: "paymentrequest.pending" | "paymentrequest.success";
+            /** @description Payment request lifecycle details. */
+            data: {
+                [key: string]: unknown;
+            };
+        } | {
+            /** @enum {string} */
+            event: "subscription.expiring_cards";
+            /** @description Subscription and card expiry information for the affected customer. */
+            data: {
+                [key: string]: unknown;
+            };
+        } | {
+            /** @enum {string} */
+            event: "direct_debit.authorization.created" | "direct_debit.authorization.active";
+            /** @description Direct Debit authorization and mandate status details. */
+            data: {
+                [key: string]: unknown;
+            };
+        } | {
+            /** @enum {string} */
+            event: "zero_charge_authorization.success";
+            /** @description Zero-charge card authorization result. */
+            data: {
+                [key: string]: unknown;
+            };
         } | {
             /** @enum {string} */
             event: "dedicatedaccount.assign.success";
-            data: components["schemas"]["data-5"];
+            data: components["schemas"]["data-6"];
         } | {
             /** @enum {string} */
             event: "dedicatedaccount.assign.failed";
-            data: components["schemas"]["data-5"];
+            data: components["schemas"]["data-6"];
         } | {
             /** @enum {string} */
             event: "refund.processed";
-            data: components["schemas"]["data-6"];
+            data: components["schemas"]["data-7"];
         } | {
             /** @enum {string} */
             event: "refund.failed";
-            data: components["schemas"]["data-6"];
+            data: components["schemas"]["data-7"];
         } | {
             /** @enum {string} */
             event: "charge.dispute.create";
-            data: components["schemas"]["data-7"];
+            data: components["schemas"]["data-5"];
         } | {
             /** @enum {string} */
             event: "charge.dispute.resolve";
-            data: components["schemas"]["data-7"];
+            data: components["schemas"]["data-5"];
         });
         /**
          * @description List of all support currencies
@@ -9175,54 +9224,6 @@ export interface components {
             pending_amount: number;
         };
         "data-5": {
-            customer: {
-                id: number;
-                first_name: string;
-                last_name: string;
-                email: string;
-                customer_code: string;
-                phone: string | null;
-                metadata: Record<string, never> | null;
-                risk_action: string;
-                international_format_phone?: string | null;
-            };
-            bank: {
-                name: string;
-                id: number;
-                slug: string;
-            };
-            id: number;
-            account_name: string;
-            account_number: string;
-            created_at: string;
-            updated_at: string;
-            currency: string;
-            split_config: (string | Record<string, never>) | null;
-            active: boolean;
-            assigned: boolean;
-        };
-        "data-6": {
-            integration: number;
-            transaction: number;
-            dispute: number | null;
-            settlement: number | null;
-            domain: string;
-            amount: number;
-            deducted_amount: number;
-            fully_deducted: boolean;
-            currency: string;
-            channel: string;
-            status: string;
-            refunded_by: string;
-            refunded_at: string;
-            expected_at: string;
-            customer_note: string;
-            merchant_note: string;
-            id: number;
-            createdAt: string;
-            updatedAt: string;
-        };
-        "data-7": {
             id: number;
             refund_amount: number | null;
             currency: string | null;
@@ -9301,6 +9302,54 @@ export interface components {
             note?: unknown;
             history: components["schemas"]["DisputeHistoryArray"][];
             messages: components["schemas"]["DisputeMessagesArray"][];
+            createdAt: string;
+            updatedAt: string;
+        };
+        "data-6": {
+            customer: {
+                id: number;
+                first_name: string;
+                last_name: string;
+                email: string;
+                customer_code: string;
+                phone: string | null;
+                metadata: Record<string, never> | null;
+                risk_action: string;
+                international_format_phone?: string | null;
+            };
+            bank: {
+                name: string;
+                id: number;
+                slug: string;
+            };
+            id: number;
+            account_name: string;
+            account_number: string;
+            created_at: string;
+            updated_at: string;
+            currency: string;
+            split_config: (string | Record<string, never>) | null;
+            active: boolean;
+            assigned: boolean;
+        };
+        "data-7": {
+            integration: number;
+            transaction: number;
+            dispute: number | null;
+            settlement: number | null;
+            domain: string;
+            amount: number;
+            deducted_amount: number;
+            fully_deducted: boolean;
+            currency: string;
+            channel: string;
+            status: string;
+            refunded_by: string;
+            refunded_at: string;
+            expected_at: string;
+            customer_note: string;
+            merchant_note: string;
+            id: number;
             createdAt: string;
             updatedAt: string;
         };

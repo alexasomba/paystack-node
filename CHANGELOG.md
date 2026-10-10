@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.12.0](https://github.com/alexasomba/paystack-node/compare/v1.11.1...v1.12.0) (2026-10-10)
+
+### Features
+
+- Include the current Paystack webhook lifecycle events in generated SDK types.
+
 ## [1.11.1](https://github.com/alexasomba/paystack-node/compare/v1.11.0...v1.11.1) (2026-10-10)
 
 ### Miscellaneous Chores
