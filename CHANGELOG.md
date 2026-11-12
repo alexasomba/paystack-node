@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.12.1](https://github.com/alexasomba/paystack-node/compare/v1.12.0...v1.12.1) (2026-11-12)
+
+### Bug Fixes
+
+- Accept non-empty custom metadata objects in request payload types.
+
 ## [1.12.0](https://github.com/alexasomba/paystack-node/compare/v1.11.1...v1.12.0) (2026-10-10)
 
 ### Features
