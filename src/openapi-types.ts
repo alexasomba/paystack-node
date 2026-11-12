@@ -3331,7 +3331,9 @@ export interface components {
             /** @description Used to replace the email address shown on the Checkout */
             label?: string;
             /** @description JSON object or stringified JSON of custom data */
-            metadata?: string | Record<string, never> | number;
+            metadata?: string | {
+                [key: string]: unknown;
+            } | number;
         };
         TransactionInitializeResponse: {
             status: boolean;
@@ -3428,7 +3430,9 @@ export interface components {
              */
             bearer?: "account" | "subaccount";
             /** @description Stringified JSON object of custom data */
-            metadata?: string | Record<string, never>;
+            metadata?: string | {
+                [key: string]: unknown;
+            };
             /** @description If you are making a scheduled charge call, it is a good idea to queue them so the processing system does not get overloaded causing transaction processing errors. */
             queue?: boolean;
         };
@@ -3923,7 +3927,9 @@ export interface components {
              */
             device_id?: string;
             /** @description JSON object or stringified JSON of custom data */
-            metadata?: string | Record<string, never> | number;
+            metadata?: string | {
+                [key: string]: unknown;
+            } | number;
         };
         /** @description The bank object if charging a bank account */
         Bank: {
@@ -4433,7 +4439,9 @@ export interface components {
              */
             at_least?: number;
             /** @description JSON object of custom data */
-            metadata?: Record<string, never>;
+            metadata?: {
+                [key: string]: unknown;
+            };
         };
         BulkChargeInitiateResponse: {
             status: boolean;
@@ -4581,7 +4589,9 @@ export interface components {
             /** @description A phone number to call for this subaccount */
             primary_contact_phone?: string;
             /** @description Stringified JSON object or JSON object of custom data */
-            metadata?: string | Record<string, never>;
+            metadata?: string | {
+                [key: string]: unknown;
+            };
         };
         SubaccountCreateResponse: {
             status: boolean;
@@ -4671,7 +4681,9 @@ export interface components {
             /** @description A phone number to call for this subaccount */
             primary_contact_phone?: string;
             /** @description Stringified JSON object or JSON object of custom data */
-            metadata?: string | Record<string, never> | number;
+            metadata?: string | {
+                [key: string]: unknown;
+            } | number;
         };
         SubaccountUpdateResponse: {
             status: boolean;
@@ -5010,7 +5022,9 @@ export interface components {
                 name?: string;
             }[];
             /** @description Stringified JSON object of custom data. Kindly check the Metadata page for more information */
-            metadata?: Record<string, never>;
+            metadata?: {
+                [key: string]: unknown;
+            };
             /** @description The transaction currency for the Virtual Terminal. Defaults to your integration currency */
             currency?: string;
             /** @description An array of objects representing custom fields to display on the form. Each object contains a display_name parameter, representing what will be displayed on the Virtual Terminal page, and variable_name parameter for referencing the custom field programmatically */
@@ -5228,7 +5242,9 @@ export interface components {
             /** @description Customer's phone number */
             phone?: string;
             /** @description Stringified JSON object or JSON object of custom data */
-            metadata?: string | Record<string, never>;
+            metadata?: string | {
+                [key: string]: unknown;
+            };
         };
         CustomerCreateResponse: {
             status: boolean;
@@ -5288,7 +5304,9 @@ export interface components {
             /** @description Customer's phone number */
             phone?: string;
             /** @description Stringified JSON object or JSON object of custom data */
-            metadata?: string | Record<string, never> | number;
+            metadata?: string | {
+                [key: string]: unknown;
+            } | number;
         };
         CustomerUpdateResponse: {
             status: boolean;
@@ -5672,7 +5690,9 @@ export interface components {
             /** @description Split code consisting of the lists of accounts you want to split the transaction with */
             split_code?: string;
             /** @description JSON object or stringified JSON of custom data */
-            metadata?: string | Record<string, never> | number;
+            metadata?: string | {
+                [key: string]: unknown;
+            } | number;
         };
         DedicatedNubanCreateResponse: {
             status: boolean;
@@ -5887,7 +5907,9 @@ export interface components {
             /** @description Fully qualified url, e.g. https://example.com/ . Use this to override the callback url provided on the dashboard for this transaction */
             callback_url?: string;
             /** @description Stringified JSON object of custom data. */
-            metadata?: string | Record<string, never>;
+            metadata?: string | {
+                [key: string]: unknown;
+            };
             /** @description The split code of the transaction split. e.g. SPL_98WF13Eb3w */
             split_code?: string;
             /** @description The code for the subaccount that owns the payment. e.g. ACCT_8f4s1eq7ml6rlzj */
@@ -6198,7 +6220,9 @@ export interface components {
              */
             invoice_limit?: number;
             /** @description Stringified JSON object or JSON object of custom data */
-            metadata?: string | Record<string, never> | number;
+            metadata?: string | {
+                [key: string]: unknown;
+            } | number;
         };
         PlanCreateResponse: {
             status: boolean;
@@ -6261,7 +6285,9 @@ export interface components {
             /** @description A description for this plan */
             description?: string;
             /** @description Stringified JSON object or JSON object of custom data */
-            metadata?: string | Record<string, never> | number;
+            metadata?: string | {
+                [key: string]: unknown;
+            } | number;
             /** @description Set to false if you don't want invoices to be sent to your customers */
             send_invoices?: boolean;
             /** @description Set to false if you don't want text messages to be sent to your customers */
@@ -6540,7 +6566,9 @@ export interface components {
             /** @description An authorization code from a previous transaction */
             authorization_code?: string;
             /** @description JSON object or stringified JSON of custom data */
-            metadata?: string | Record<string, never> | number;
+            metadata?: string | {
+                [key: string]: unknown;
+            } | number;
         };
         TransferRecipientCreateResponse: {
             status: boolean;
@@ -6630,7 +6658,9 @@ export interface components {
             /** @description Recipient's email address */
             email?: string;
             /** @description JSON object or stringified JSON of custom data */
-            metadata?: string | Record<string, never> | number;
+            metadata?: string | {
+                [key: string]: unknown;
+            } | number;
         };
         TransferRecipientUpdateResponse: {
             status: boolean;
@@ -6722,7 +6752,9 @@ export interface components {
             /** @description The reason or narration for the transfer. */
             reason?: string;
             /** @description JSON object or stringified JSON of custom data */
-            metadata?: string | Record<string, never> | number;
+            metadata?: string | {
+                [key: string]: unknown;
+            } | number;
         };
         /** @description Transfer initiation model */
         TransferInitiate: components["schemas"]["TransferBase"] & {
@@ -7529,7 +7561,9 @@ export interface components {
             /** @description The split code if sharing the transaction with partners */
             split_code?: string;
             /** @description JSON object of custom data */
-            metadata?: Record<string, never>;
+            metadata?: {
+                [key: string]: unknown;
+            };
         };
         ProductUpdateResponse: {
             status: boolean;
@@ -7991,7 +8025,9 @@ export interface components {
             /** @description The split code of the transaction split. e.g. `SPL_98WF13Eb3w` */
             split_code?: string;
             /** @description JSON object of custom data */
-            metadata?: Record<string, never>;
+            metadata?: {
+                [key: string]: unknown;
+            };
             /** @description If you would like Paystack to redirect to a URL upon successful payment, specify the URL here. */
             redirect_url?: string;
             /** @description A success message to display to the customer after a successful transaction */
