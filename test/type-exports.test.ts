@@ -49,11 +49,16 @@ describe("Public type exports", () => {
     const txPayload: TransactionInitializePayload = {
       email: "customer@example.com",
       amount: 5000,
+      metadata: {
+        order_id: "order_123",
+        custom_fields: [{ display_name: "Plan", variable_name: "plan", value: "Starter" }],
+      },
     };
     const chargeAuthorization: TransactionChargeAuthorizationPayload = {
       email: "customer@example.com",
       amount: 2500,
       authorization_code: "AUTH_123",
+      metadata: { source: "renewal" },
     };
     const verifyParams: TransactionVerifyPathParams = { reference: "ref_123" };
     const paymentRequest: PaymentRequestCreatePayload = {
@@ -76,18 +81,26 @@ describe("Public type exports", () => {
     const customerCreate: CustomerCreatePayload = {
       email: "customer@example.com",
       first_name: "Ada",
+      metadata: { account_id: "acct_123" },
     };
     const customerFetchParams: CustomerFetchPathParams = { email_or_code: "CUS_123" };
     const customerUpdateParams: CustomerUpdatePathParams = { email_or_code: "CUS_123" };
-    const customerUpdate: CustomerUpdatePayload = { first_name: "Ada" };
+    const customerUpdate: CustomerUpdatePayload = {
+      first_name: "Ada",
+      metadata: { account_id: "acct_123" },
+    };
     const planCreate: PlanCreatePayload = {
       name: "Starter",
       amount: 5000,
       interval: "monthly",
+      metadata: { plan_tier: "starter" },
     };
     const planList: PlanListQueryParams = { status: "active" };
     const planUpdateParams: PlanUpdatePathParams = { id_or_code: "PLN_123" };
-    const planUpdate: PlanUpdatePayload = { name: "Starter Plus" };
+    const planUpdate: PlanUpdatePayload = {
+      name: "Starter Plus",
+      metadata: { plan_tier: "plus" },
+    };
     const productCreate: ProductCreatePayload = {
       name: "Pro",
       description: "Higher tier",
@@ -96,7 +109,10 @@ describe("Public type exports", () => {
     };
     const productList: ProductListQueryParams = { perPage: 10 };
     const productUpdateParams: ProductUpdatePathParams = { id: 123 };
-    const productUpdate: ProductUpdatePayload = { name: "Pro Plus" };
+    const productUpdate: ProductUpdatePayload = {
+      name: "Pro Plus",
+      metadata: { product_tier: "plus" },
+    };
     const disputeList: DisputeListQueryParams = { status: "pending" };
     const disputeFetchParams: DisputeFetchPathParams = { id: 123 };
     const refundCreate: RefundCreatePayload = { transaction: "TRX_123", amount: 1000 };
@@ -114,6 +130,7 @@ describe("Public type exports", () => {
       settlement_bank: "058",
       account_number: "0123456789",
       percentage_charge: 10,
+      metadata: { partner_id: "partner_123" },
     };
     const webhookEvent: PaymentNotificationWebhookEvent = {
       event: "invoice.create",
